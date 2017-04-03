@@ -103,3 +103,4 @@ highlight LineNr ctermfg=lightgrey
 " You can create your own little autocorrection dictionary here.
 :abbr hte the
 :abbr teh the
+:abbr @@ guthrie.armstrong@gmail.com
