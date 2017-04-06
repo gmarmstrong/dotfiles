@@ -8,7 +8,8 @@ plugins=(git) # Special shell prompts inside git repositories
 
 DISABLE_AUTO_TITLE="true" # Don't let zsh set the terminal title
 
-alias vim='mvim' # Use MacVim for nicer typography
+# alias vim='mvim' # Use MacVim for nicer typography
+alias vim='mvim -v' # Or use MacVim in the terminal for nicer integration
 alias julia='/Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia' # Start julia from the command line
 bindkey -v # Use vi mode
 bindkey -M viins 'jk' vi-cmd-mode # Bind jk to <esc>

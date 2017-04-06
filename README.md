@@ -11,4 +11,4 @@ This is my dotfiles repository. There are many like it, but this one is mine. My
 * The `~/.inputrc` file sets shell editing to vi mode.
 * The `~/.profile` file is the standard shell-agnostic location for setting environment variables.
 * The `~/.vimrc` file holds my Vim configuration and is well-documented.
-* The `~/.zshrc` sets more environment variables and aliases.
+* The `~/.zshrc` file sets more environment variables and aliases.
