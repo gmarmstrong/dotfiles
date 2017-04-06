@@ -9,7 +9,7 @@ set showmode                    "Show current mode in bottom window
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set clipboard=unnamed           "y(ank) and p(ull) copy to the system clipboard
-"set term=xterm-256color         "Set the name of ther terminal
+"set term=xterm-256color         "Set the name of the terminal
 set shortmess=I                 "Disable startup message.
 if has("gui_running")
     set guifont=Roboto\ Mono:h11
