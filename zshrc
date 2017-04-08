@@ -7,6 +7,7 @@ source $ZSH/oh-my-zsh.sh
 plugins=(git) # Special shell prompts inside git repositories
 
 DISABLE_AUTO_TITLE="true" # Don't let zsh set the terminal title
+# DISABLE_AUTO_TITLE="false" # Let zsh set the terminal title
 
 # alias vim='mvim' # Use MacVim for nicer typography
 alias vim='mvim -v' # Or use MacVim in the terminal for nicer integration
