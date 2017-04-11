@@ -23,7 +23,7 @@ inoremap jk <esc>
 call plug#begin('~/.vim/plugged')   "Note the single quotes
 Plug 'junegunn/goyo.vim'            "Distraction-free writing
 Plug 'lervag/vimtex'                "LaTeX support
-Plug 'scrooloose/syntastic'         "Syntax checking
+" Plug 'scrooloose/syntastic'         "Syntax checking
 call plug#end()
 
 set statusline+=%#warningmsg#
