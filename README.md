@@ -9,6 +9,5 @@ This is my dotfiles repository. There are many like it, but this one is mine. My
 * The `~/.hushlogin` file hides [login messages](https://linux.die.net/man/1/login) from appearing whenever a new terminal session is started.
 * The `~/.ideavimrc` file is a simplified Vim configuration for the IntelliJ IDE plugin [IdeaVim](https://github.com/JetBrains/ideavim).
 * The `~/.inputrc` file sets shell editing to vi mode.
-* The `~/.profile` file is the standard shell-agnostic location for setting environment variables.
 * The `~/.vimrc` file holds my Vim configuration.
 * The `~/.zshrc` file sets more environment variables and aliases.
