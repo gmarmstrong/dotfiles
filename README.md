@@ -4,7 +4,7 @@ This is my dotfiles repository. There are many like it, but this one is mine. My
 
 # Description
 
-* The `config/user-dirs.dirs` file sets the user directories.
+* The [`config/user-dirs.dirs`](https://wiki.archlinux.org/index.php/XDG_user_directories#Creating_custom_directories) file sets the user directories.
 * The `i3/config` file configures the i3 window manager.
 * The `bcrc` file adds a little bit of π to [`bc`](https://en.wikipedia.org/wiki/Bc_(programming_language)), the arbitrary-precision calculator language. The file is invoked through an alias in `~/.zshrc`.
 * The `hushlogin` file hides [login messages](https://linux.die.net/man/1/login) from appearing whenever a new terminal session is started.
