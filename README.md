@@ -11,6 +11,6 @@ This is my dotfiles repository. There are many like it, but this one is mine. My
 * The `ideavimrc` file is a simplified Vim configuration for the IntelliJ IDE plugin [IdeaVim](https://github.com/JetBrains/ideavim).
 * The [`inputrc`](https://ss64.com/bash/syntax-inputrc.html) file sets shell editing to vi mode.
 * The [`vimrc`](http://vimdoc.sourceforge.net/htmldoc/starting.html#vimrc) file holds my Vim configuration.
-* The `xinitrc` file configures Xorg startup.
+* The [`xinitrc`](https://wiki.archlinux.org/index.php/Xinit#xinitrc) file configures Xorg startup.
 * The `Xresources` file configures X client applications.
 * The `zshrc` file sets more environment variables and aliases.
