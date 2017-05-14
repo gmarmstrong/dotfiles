@@ -1,0 +1,18 @@
+! hide scrollbar
+URxvt.scrollBar: false
+
+! do not scroll with output
+URxvt.scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt.scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt.scrollTtyKeypress: true
+
+! disable the scrollback buffer for the secondary screen
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! font settings
+URxvt.font: xft:Droid Sans Mono:size=8
