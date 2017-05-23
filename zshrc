@@ -14,3 +14,6 @@ bindkey -M viins 'jk' vi-cmd-mode
 # When using bc, load math lib and ~/.bcrc
 export BC_ENV_ARGS="-l $HOME/.bcrc"
 export PATH="/usr/local/sbin:$PATH"
+
+# iCloud shortcut (macOS only)
+alias icloud='cd /Users/guthriearmstrong/Library/Mobile\ Documents/com\~apple\~CloudDocs/Personal\ files'
