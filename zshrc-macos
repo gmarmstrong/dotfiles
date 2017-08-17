@@ -9,6 +9,7 @@ plugins=(git git-flow osx)
 source $ZSH/oh-my-zsh.sh
 alias icloud='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Personal\ files'
 alias nike='ssh gma@nike.cs.uga.edu'
+function trash() { mv "$@" "~/.Trash"; }
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 
