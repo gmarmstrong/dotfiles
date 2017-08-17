@@ -84,15 +84,15 @@ autocmd BufNewFile,BufRead *.py map <F6> :!python2 %<CR>
 " *.py: F6 --> python3
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
 
+" *.txt, *.tex: F5 --> spell checking
+autocmd BufNewFile,BufRead *.txt map <F5> :set spell! spelllang=en_us<CR>
+autocmd BufNewFile,BufRead *.tex map <F5> :set spell! spelllang=en_us<CR>
+
 " *.tex: F6 --> pdflatex
 autocmd BufNewFile,BufRead *.tex map <F6> :!pdflatex %<CR>
 
 " *.tex: F7 --> pdflatex and biber
 autocmd BufNewFile,BufRead *.tex map <F7> :!pdflatex % && biber %:r && pdflatex % && pdflatex %<CR>
-
-" *.txt, *.tex: F5 --> spell checking
-autocmd BufNewFile,BufRead *.txt map <F5> :set spell! spelllang=en_us<CR>
-autocmd BufNewFile,BufRead *.tex map <F5> :set spell! spelllang=en_us<CR>
 
 " *.R: F6 --> Rscript
 autocmd BufNewFile,BufRead *.R map <F6> :!Rscript %<CR>
