@@ -8,6 +8,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="false"
 plugins=(git git-flow osx)
 source $ZSH/oh-my-zsh.sh
 alias icloud='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Personal\ files'
+alias nike='ssh gma@nike.cs.uga.edu'
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
