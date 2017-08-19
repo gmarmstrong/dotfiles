@@ -9,4 +9,5 @@ $ bash setup.sh
 $ newgrp sudo
 $ newgrp -
 $ bash main.sh
+$ bash postzsh.sh
 ```
