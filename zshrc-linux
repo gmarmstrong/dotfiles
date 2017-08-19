@@ -7,7 +7,7 @@ DISABLE_AUTO_TITLE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="false"
 plugins=(git git-flow)
 source $ZSH/oh-my-zsh.sh
-function trash() { mv "$@" ~/.Trash }
+function trash() { mv "$@" ~/.Trash } # FIXME
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 
