@@ -1,8 +1,8 @@
 " Be vim, not vi!
 set nocompatible
 
-" Detect remote sesions
-let g:remoteSession = ($STY == "")
+" Detect remote status
+let g:remoteSession = ($SSH_CLIENT != "")
 
 " ================ General settings ===============
 
@@ -106,6 +106,8 @@ autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 " ================ Color settings =================
 
 syntax on
+
+" Set color scheme based on remote status
 if g:remoteSession
     colorscheme Tomorrow-Night
 else
