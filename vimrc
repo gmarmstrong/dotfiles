@@ -106,7 +106,8 @@ autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 " ================ Color settings =================
 
 syntax on
-highlight LineNr ctermfg=cyan
+colorscheme Tomorrow
+highlight LineNr ctermfg=grey
 
 " ================= Autocorrection ================
 
