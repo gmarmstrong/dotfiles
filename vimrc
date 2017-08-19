@@ -1,6 +1,9 @@
 " Be vim, not vi!
 set nocompatible
 
+" Detect remote sesions
+let g:remoteSession = ($STY == "")
+
 " ================ General settings ===============
 
 set number                      "Show line numbers
@@ -106,7 +109,11 @@ autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 " ================ Color settings =================
 
 syntax on
-colorscheme Tomorrow
+if g:remoteSession
+    colorscheme Tomorrow-Night
+else
+    colorscheme Tomorrow
+endif
 highlight LineNr ctermfg=grey
 
 " ================= Autocorrection ================
