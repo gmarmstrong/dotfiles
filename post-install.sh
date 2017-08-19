@@ -20,11 +20,11 @@ fi
 
 # Set up sudo and apt-get
 export user=$(whoami)
-su -c "apt-get update"
-su -c "apt-get upgrade"
-su -c "apt-get autoremove"
-su -c "apt-get -y install sudo"
-su -c "adduser $user sudo"
+su root -c "apt-get -y update"
+su root -c "apt-get -y upgrade"
+su root -c "apt-get -y autoremove"
+su root -c "apt-get -y install sudo"
+su root -c "adduser $user sudo"
 
 # Join sudo group without logging in again or opening a new shell, then set default group as primary
 newgrp sudo
