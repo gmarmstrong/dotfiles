@@ -50,5 +50,7 @@ touch ~/.hushlogin
 
 # Set up zsh
 sudo apt-get -y install zsh zsh-doc
+
+# Set up oh-my-zsh (this must be the last command of this script)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
