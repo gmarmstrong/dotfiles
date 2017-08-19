@@ -6,6 +6,7 @@
 
 # Test Debian
 if ! [ -f "/etc/debian_version" ];
+then
     echo Operating system not Debian, aborting.
     exit 1
 fi
