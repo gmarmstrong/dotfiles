@@ -3,9 +3,10 @@ Post-installation script for personal Debian virtual machines
 
 ## Instructions
 ```
-$ git clone https://github.com/gmarmstrong/post-install.git
-$ bash post-install/setup.sh
+$ wget --no-check-certificate https://raw.githubusercontent.com/gmarmstrong/post-install/master/setup.sh
+$ wget --no-check-certificate https://raw.githubusercontent.com/gmarmstrong/post-install/master/main.sh
+$ bash setup.sh
 $ newgrp sudo
 $ newgrp -
-$ bash post-install/main.sh
+$ bash main.sh
 ```
