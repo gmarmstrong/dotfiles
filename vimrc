@@ -66,9 +66,6 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
-
 " ================ Word wrapping ====================
 
 "Word wrapping.
