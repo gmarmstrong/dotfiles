@@ -45,6 +45,9 @@ fi
 # Install vim plugins
 vim +PlugInstall +qall
 
+# Silence message of the day
+touch ~/.hushlogin
+
 # Set up zsh
 sudo apt-get -y install zsh zsh-doc
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -55,5 +58,3 @@ then
     source ~/.zshrc
 fi
 
-# Silence message of the day
-touch ~/.hushlogin
