@@ -18,17 +18,20 @@ then
     exit 1
 fi
 
-# Set up sudo and apt-get
+# Set up sudo
 export user=$(whoami)
-su root -c "apt-get -y update"
-su root -c "apt-get -y upgrade"
-su root -c "apt-get -y autoremove"
 su root -c "apt-get -y install sudo"
 su root -c "adduser $user sudo"
 
 # Join sudo group without logging in again or opening a new shell, then set default group as primary
 newgrp sudo
 newgrp -
+
+# Set up apt-get
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y autoremove
+
 
 # Install pip and pip3
 sudo apt-get -y install curl
