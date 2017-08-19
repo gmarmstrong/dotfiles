@@ -4,34 +4,10 @@
 # TODO Install guest additions if machine is VirtualBox (install and check lshw for machine type)
 # TODO Implement logging with variable verbosity
 
-# Test Debian
-if ! [ -f "/etc/debian_version" ];
-then
-    echo Operating system not Debian, aborting.
-    exit 1
-fi
-
-# Test connection
-if ! ping -q -c 1 google.com
-then
-    echo Internet connection failed, aborting.
-    exit 1
-fi
-
-# Set up sudo
-export user=$(whoami)
-su root -c "apt-get -y install sudo"
-su root -c "adduser $user sudo"
-
-# Join sudo group without logging in again or opening a new shell, then set default group as primary
-newgrp sudo
-newgrp -
-
 # Set up apt-get
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y autoremove
-
 
 # Install pip and pip3
 sudo apt-get -y install curl
@@ -81,4 +57,3 @@ fi
 
 # Silence message of the day
 touch ~/.hushlogin
-
