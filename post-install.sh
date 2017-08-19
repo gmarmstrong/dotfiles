@@ -50,21 +50,33 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa_github
 curl -u $github_username --data '{"title":"$github_keyname","key":"'"$(cat ~/.ssh/id_rsa_github.pub)"'"}' https://api.github.com/user/keys
 
-# FIXME Requires user to have a dotfiles repository on GitHub
-# Get dotfiles
-git clone ssh://git@github.com/$github_username/dotfiles.git
-
-# Install vim
+# Install vim and vim-plug
 sudo apt-get -y install vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-ln -s dotfiles/vimrc ~/.vimrc # FIXME Requires dotfiles repository to have a .vimrc
+
+# Get dotfiles
+if curl -s --head https://github.com/$github_username/dotfiles.git | head -n 1 | grep -q "HTTP/1.[01] [23].."
+then
+    git clone ssh://git@github.com/$github_username/dotfiles.git
+    if curl -s --head https://github.com/$github_username/dotfiles/blob/master/vimrc | head -n 1 | grep -q "HTTP/1.[01] [23].."
+    then
+        ln -s dotfiles/vimrc ~/.vimrc
+    fi
+fi
+
+# Install vim plugins
 vim +PlugInstall +qall
 
 # Set up zsh
 sudo apt-get -y install zsh zsh-doc
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-mv ~/.zshrc ~/.zshrc-omz-original
-ln -s dotfiles/zshrc-linux ~/.zshrc # FIXME Requires dotfiles repository to have a .zshrc
-source ~/.zshrc
+if curl -s --head https://github.com/$github_username/dotfiles/blob/master/zshrc | head -n 1 | grep -q "HTTP/1.[01] [23].."
+then
+    mv ~/.zshrc ~/.zshrc-omz-original
+    ln -s dotfiles/zshrc-linux ~/.zshrc
+    source ~/.zshrc
+fi
+
+# Silence message of the day
 touch ~/.hushlogin
 
