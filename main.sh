@@ -11,6 +11,13 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y autoremove
 
+# Install VirtualBox guest additions
+# FIXME Incomplete
+sudo apt-get install make
+sudo mount -t iso9660 /dev/cdrom /media/cdrom
+cd /media/cdrom
+sudo sh ./VBoxLinuxAdditions.run
+
 # Install pip and pip3
 sudo apt-get -y install curl
 curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python
@@ -32,11 +39,9 @@ curl -u $github_username --data '{"title":"$github_keyname","key":"'"$(cat ~/.ss
 
 # Install vim and vim-plug
 sudo apt-get -y install vim
-mkdir -p .vim/colors
-wget https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow.vim
-wget https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night.vim
-mv Tomorrow.vim .vim/colors
-mv Tomorrow-Night.vim .vim/colors
+mkdir -p ~/.vim/colors
+wget -O ~/.vim/colors/Tomorrow.vim https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow.vim
+wget -O ~/.vim/colors/Tomorrow-Night.vim https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night.vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Get dotfiles
