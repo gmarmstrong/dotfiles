@@ -16,6 +16,10 @@ then
     exit 1
 fi
 
+# Download post-install scripts
+wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/main.sh
+wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/postzsh.sh
+
 # Set up sudo
 export user=$(whoami)
 su root -c "apt-get -y -qq install sudo"
