@@ -18,5 +18,5 @@ fi
 
 # Set up sudo
 export user=$(whoami)
-su root -c "apt-get -y install sudo"
+su root -c "apt-get -y -qq install sudo"
 su root -c "adduser $user sudo"

@@ -7,24 +7,24 @@
 # TODO Implement logging with variable verbosity
 
 # Set up apt-get
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt-get -y autoremove
+sudo apt-get -y -qq update
+sudo apt-get -y -qq upgrade
+sudo apt-get -y -qq autoremove
 
 # Install VirtualBox guest additions
 # FIXME Incomplete
-sudo apt-get install make
+sudo apt-get -qq install make
 sudo mount -t iso9660 /dev/cdrom /media/cdrom
 cd /media/cdrom
 sudo sh ./VBoxLinuxAdditions.run
 
 # Install pip and pip3
-sudo apt-get -y install curl
+sudo apt-get -y -qq install curl
 curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python
 curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python3
 
 # Set up git and GitHub
-sudo apt-get -y install git git-flow git-doc git-email
+sudo apt-get -y -qq install git git-flow git-doc git-email
 read -p "Enter email used for GitHub: " email
 read -p "Enter GitHub username: " github_username
 read -p "Enter a unique name for your GitHub key: " github_keyname
@@ -38,7 +38,7 @@ ssh-add ~/.ssh/id_rsa_github
 curl -u $github_username --data '{"title":"$github_keyname","key":"'"$(cat ~/.ssh/id_rsa_github.pub)"'"}' https://api.github.com/user/keys
 
 # Install vim and vim-plug
-sudo apt-get -y install vim
+sudo apt-get -y -qq install vim
 mkdir -p ~/.vim/colors
 wget -q -O ~/.vim/colors/Tomorrow.vim https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow.vim
 wget -q -O ~/.vim/colors/Tomorrow-Night.vim https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night.vim
@@ -61,7 +61,7 @@ vim +PlugInstall +qall
 touch ~/.hushlogin
 
 # Set up zsh
-sudo apt-get -y install zsh zsh-doc
+sudo apt-get -y -qq install zsh zsh-doc
 
 # Set up oh-my-zsh (this must be the last command of this script)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
