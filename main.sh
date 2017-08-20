@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# main.sh
+
 # TODO Optionally install X11, window manager, terminal emulator, and fonts, and then symlink X11 dotfiles
 # TODO Install guest additions if machine is VirtualBox (install and check lshw for machine type)
 # TODO Implement logging with variable verbosity

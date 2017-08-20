@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# setup.sh
+
 # Test Debian
 if ! [ -f "/etc/debian_version" ];
 then
