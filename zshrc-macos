@@ -7,6 +7,7 @@ DISABLE_AUTO_TITLE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="false"
 plugins=(git git-flow osx)
 source $ZSH/oh-my-zsh.sh
+alias vim='/usr/local/Cellar/macvim/8.0-136/MacVim.app/Contents/MacOS/Vim'
 alias icloud='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Personal\ files'
 alias nike='ssh gma@nike.cs.uga.edu'
 function trash() { mv "$@" "~/.Trash"; } # FIXME
