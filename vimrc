@@ -12,7 +12,6 @@ set showmode                    "Show current mode in bottom window
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set clipboard=unnamed           "y(ank) and p(ull) copy to the system clipboard
-"set term=xterm-256color         "Set the name of the terminal
 set shortmess=I                 "Disable startup message.
 if has("gui_running")
     set guifont=Roboto\ Mono:h11
@@ -26,17 +25,17 @@ inoremap jk <esc>
 call plug#begin('~/.vim/plugged')   "Note the single quotes
 Plug 'junegunn/goyo.vim'            "Distraction-free writing
 Plug 'lervag/vimtex'                "LaTeX support
-" Plug 'scrooloose/syntastic'         "Syntax checking
+Plug 'vim-syntastic/syntastic'      "Syntax checking
 call plug#end()
 
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " ================ Persistent Undo ================
 
