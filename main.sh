@@ -34,7 +34,9 @@ curl -u $github_username --data '{"title":"$github_keyname","key":"'"$(cat ~/.ss
 sudo apt-get -y install vim
 mkdir -p .vim/colors
 wget https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow.vim
+wget https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night.vim
 mv Tomorrow.vim .vim/colors
+mv Tomorrow-Night.vim .vim/colors
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Get dotfiles
