@@ -1,3 +1,3 @@
 export TERMINAL=urxvt
-xrdb ~/.Xresources
+xrdb -load ~/.Xresources
 exec i3
