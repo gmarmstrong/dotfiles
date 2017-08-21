@@ -17,6 +17,7 @@ sudo apt-get -qq install make
 sudo mount -t iso9660 /dev/cdrom /media/cdrom
 cd /media/cdrom
 sudo sh ./VBoxLinuxAdditions.run
+cd ~
 
 # Install pip and pip3
 sudo apt-get -y -qq install curl
