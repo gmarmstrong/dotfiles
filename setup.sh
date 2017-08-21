@@ -17,8 +17,8 @@ then
 fi
 
 # Download post-install scripts
-wget -qq https://raw.githubusercontent.com/gmarmstrong/post-install/master/main.sh
-wget -qq https://raw.githubusercontent.com/gmarmstrong/post-install/master/postzsh.sh
+wget -q https://raw.githubusercontent.com/gmarmstrong/post-install/master/main.sh
+wget -q https://raw.githubusercontent.com/gmarmstrong/post-install/master/postzsh.sh
 
 # Set up sudo
 export user=$(whoami)
