@@ -15,4 +15,7 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
 ! font settings
-URxvt.font: xft:Droid Sans Mono:size=8
+URxvt.font: xft:Anonymous Pro:Regular:size=12:antialiasing=True
+
+Xft.hinting:    true
+Xft.antialias:  true
