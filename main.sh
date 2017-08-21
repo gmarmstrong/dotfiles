@@ -41,7 +41,7 @@ sudo apt-get -y -qq install vim
 mkdir -p ~/.vim/colors
 wget -q -O ~/.vim/colors/Tomorrow.vim https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow.vim
 wget -q -O ~/.vim/colors/Tomorrow-Night.vim https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night.vim
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo --silent ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Get dotfiles
 if curl -s --head https://github.com/$github_username/dotfiles.git | head -n 1 | grep -q "HTTP/1.[01] [23].."
