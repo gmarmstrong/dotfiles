@@ -10,5 +10,7 @@ $ newgrp sudo
 $ newgrp -
 $ bash main.sh
 $ bash postzsh.sh
-$ rm setup.sh main.sh postzsh.sh
+$ bash xsetup.sh
+$ rm setup.sh main.sh postzsh.sh xsetup.sh
 ```
+Finally, `startx`!
