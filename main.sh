@@ -56,6 +56,7 @@ then
 fi
 
 # Install vim plugins
+vim +qall
 vim +PlugInstall +qall
 
 # Silence message of the day
