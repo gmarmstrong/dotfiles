@@ -2,7 +2,6 @@
 
 # main.sh
 
-# TODO Optionally install X11, window manager, terminal emulator, and fonts, and then symlink X11 dotfiles
 # TODO Implement logging with variable verbosity
 
 # Set up apt-get
