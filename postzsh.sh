@@ -23,7 +23,7 @@ done
 if $debug
 then
     export github_username=$(git config --global user.name)
-    if curl --head https://github.com/${github_username}/dotfiles/blob/master/zshrc | head -n 1 | grep "HTTP/1.[01] [23].."
+    if curl --head https://github.com/$github_username/dotfiles/blob/master/zshrc | head -n 1 | grep "HTTP/1.[01] [23].."
     then
         mv ~/.zshrc ~/.zshrc-omz-original
         ln -s dotfiles/zshrc-linux ~/.zshrc
@@ -31,7 +31,7 @@ then
     fi
 else
     export github_username=$(git config --global user.name)
-    if curl -s --head https://github.com/${github_username}/dotfiles/blob/master/zshrc | head -n 1 | grep -q "HTTP/1.[01] [23].."
+    if curl -s --head https://github.com/$github_username/dotfiles/blob/master/zshrc | head -n 1 | grep -q "HTTP/1.[01] [23].."
     then
         mv ~/.zshrc ~/.zshrc-omz-original
         ln -s dotfiles/zshrc-linux ~/.zshrc
@@ -48,5 +48,6 @@ else
 fi
 ln -s dotfiles/Xresources .Xresources
 ln -s dotfiles/xinitrc .xinitrc
+mkdir -p .config/i3
 ln -s dotfiles/i3/config .config/i3/config
 
