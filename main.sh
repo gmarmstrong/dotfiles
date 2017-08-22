@@ -57,6 +57,9 @@ fi
 vim +qall
 vim +PlugInstall +qall
 
+# Link ssh config
+ln -s ~/dotfiles/ssh/config ~/.ssh/config
+
 # Silence message of the day
 touch ~/.hushlogin
 
