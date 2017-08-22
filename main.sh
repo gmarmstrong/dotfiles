@@ -20,8 +20,8 @@ cd ~
 
 # Install pip and pip3
 sudo apt-get -y -qq install curl
-curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python
-curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python3
+curl --silent https://bootstrap.pypa.io/get-pip.py | sudo python
+curl --silent https://bootstrap.pypa.io/get-pip.py | sudo python3
 
 # Set up git and GitHub
 sudo apt-get -y -qq install git git-flow git-doc git-email
