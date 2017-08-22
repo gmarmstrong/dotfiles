@@ -3,6 +3,7 @@
 # main.sh
 
 # TODO Implement logging with variable verbosity
+# TODO Link ssh config
 
 # Set up apt-get
 sudo apt-get -y -qq update
@@ -56,9 +57,6 @@ fi
 # Install vim plugins
 vim +qall
 vim +PlugInstall +qall
-
-# Link ssh config
-ln -s ~/dotfiles/ssh/config ~/.ssh/config
 
 # Silence message of the day
 touch ~/.hushlogin
