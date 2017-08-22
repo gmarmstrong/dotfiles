@@ -35,7 +35,7 @@ then
         exit 1
     fi
 else
-    if ! ping -c -q 1 google.com
+    if ! ping -q -c 1 google.com
     then
         echo Internet connection failed, aborting.
         exit 1
