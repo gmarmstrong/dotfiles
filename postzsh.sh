@@ -39,3 +39,14 @@ else
     fi
 fi
 
+# Set up X11
+if $debug
+then
+    sudo apt-get -y install i3 suckless-tools rxvt-unicode-256color xinit xorg ttf-anonymous-pro
+else
+    sudo apt-get -y -qq install i3 suckless-tools rxvt-unicode-256color xinit xorg ttf-anonymous-pro
+fi
+ln -s dotfiles/Xresources .Xresources
+ln -s dotfiles/xinitrc .xinitrc
+ln -s dotfiles/i3/config .config/i3/config
+
