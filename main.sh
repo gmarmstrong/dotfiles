@@ -84,7 +84,7 @@ then
     curl -u -${github_username} --data '{"title":"'"$github_keyname"'","key":"'"$(cat ~/.ssh/id_rsa_github.pub)"'"}' https://api.github.com/user/keys
 else
     mkdir .ssh
-    ssh-keygen -t -q rsa -b 4096 -C "$email" -f ~/.ssh/id_rsa_github
+    ssh-keygen -q -t rsa -b 4096 -C "$email" -f ~/.ssh/id_rsa_github
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_rsa_github
     curl -s -u ${github_username} --data '{"title":"'"$github_keyname"'","key":"'"$(cat ~/.ssh/id_rsa_github.pub)"'"}' https://api.github.com/user/keys
