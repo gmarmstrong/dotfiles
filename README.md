@@ -10,7 +10,12 @@ $ newgrp sudo
 $ newgrp -
 $ bash main.sh
 $ bash postzsh.sh
-$ bash xsetup.sh
-$ rm setup.sh main.sh postzsh.sh xsetup.sh
+$ rm setup.sh main.sh postzsh.sh
 ```
 Finally, `startx`!
+
+## Troubleshooting
+A few things to note:
+* This project is still in early development.
+* Most questions can be easily answered by reading the source code.
+* You can use the `-d` or `--debug` flags when running the scripts to increase verbosity.
