@@ -121,7 +121,7 @@ then
 else
     if curl -s --head https://github.com/${github_username}/dotfiles.git | head -n 1 | grep -q "HTTP/1.[01] [23].."
     then
-        git -q clone ssh://git@github.com/${github_username}/dotfiles.git
+        git clone -q ssh://git@github.com/${github_username}/dotfiles.git
         if curl -s --head https://github.com/${github_username}/dotfiles/blob/master/vimrc | head -n 1 | grep -q "HTTP/1.[01] [23].."
         then
             ln -s dotfiles/vimrc ~/.vimrc
