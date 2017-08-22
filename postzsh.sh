@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# post-install.sh
+# postzsh.sh
 
 if curl -s --head https://github.com/$github_username/dotfiles/blob/master/zshrc | head -n 1 | grep -q "HTTP/1.[01] [23].."
 then
