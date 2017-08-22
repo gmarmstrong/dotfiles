@@ -33,21 +33,21 @@ else
     sudo apt-get -y -qq autoremove
 fi
 
-# Install VirtualBox guest additions
-# FIXME Incomplete
-if $debug
-then
-    sudo apt-get -y install make
-    sudo mount -t iso9660 /dev/cdrom /media/cdrom
-    cd /media/cdrom
-    sudo sh ./VBoxLinuxAdditions.run
-else
-    sudo apt-get -y -qq install make
-    sudo mount -t iso9660 /dev/cdrom /media/cdrom # TODO Possibly silence
-    cd /media/cdrom
-    sudo sh ./VBoxLinuxAdditions.run # TODO Possibly silence
-fi
-cd ~
+# # Install VirtualBox guest additions
+# # FIXME Incomplete
+# if $debug
+# then
+#     sudo apt-get -y install make
+#     sudo mount -t iso9660 /dev/cdrom /media/cdrom
+#     cd /media/cdrom
+#     sudo sh ./VBoxLinuxAdditions.run
+# else
+#     sudo apt-get -y -qq install make
+#     sudo mount -t iso9660 /dev/cdrom /media/cdrom # TODO Possibly silence
+#     cd /media/cdrom
+#     sudo sh ./VBoxLinuxAdditions.run # TODO Possibly silence
+# fi
+# cd ~
 
 # Install pip and pip3
 if $debug
