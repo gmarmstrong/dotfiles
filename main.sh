@@ -110,7 +110,7 @@ fi
 # Get dotfiles
 if $debug
 then
-    if curl --head https://github.com/$github_username/dotfiles.git | head -n 1 | grep -q "HTTP/1.[01] [23].."
+    if curl --head https://github.com/$github_username/dotfiles.git | head -n 1 | grep "HTTP/1.[01] [23].."
     then
         git clone ssh://git@github.com/$github_username/dotfiles.git
         if curl --head https://github.com/$github_username/dotfiles/blob/master/vimrc | head -n 1 | grep "HTTP/1.[01] [23].."
