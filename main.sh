@@ -2,7 +2,6 @@
 
 # main.sh
 
-# TODO Implement logging with variable verbosity
 # TODO Link ssh config
 
 # Set default values
