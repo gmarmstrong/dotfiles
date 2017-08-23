@@ -22,16 +22,19 @@ inoremap jk <esc>
 
 " ================ Plugin settings ================
 
+" Plugins
 call plug#begin('~/.vim/plugged')   "Note the single quotes
 Plug 'junegunn/goyo.vim'            "Distraction-free writing
 Plug 'lervag/vimtex'                "LaTeX support
 Plug 'vim-syntastic/syntastic'      "Syntax checking
+Plug 'scrooloose/nerdtree'          "Tree explorer
+Plug 'Xuyuanp/nerdtree-git-plugin'  "Git support for NERDTree
 call plug#end()
 
+" Syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
