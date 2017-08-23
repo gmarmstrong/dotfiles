@@ -30,15 +30,15 @@ then
 fi
 
 # Test connection
-if ! $ping -c 1 google.com
-then
+pingfunc() { eval "$ping -c 1 google.com"; }
+if ! pingfunc; then
     echo Internet connection failed, aborting.
     exit 1
 fi
 
 # Download post-install scripts
-$wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/main.sh
-$wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/postzsh.sh
+eval "$wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/main.sh"
+eval "$wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/postzsh.sh"
 
 # Set up sudo
 export user=$(whoami)
