@@ -1,22 +1,10 @@
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/curl/bin:$PATH"
-export ZSH=/Users/guthrie/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-DISABLE_AUTO_TITLE="true"
-DISABLE_UNTRACKED_FILES_DIRTY="false"
+# Zsh plugins
 plugins=(git git-flow osx)
-source $ZSH/oh-my-zsh.sh
+
+# Aliases
 alias vim='/usr/local/Cellar/macvim/8.0-136/MacVim.app/Contents/MacOS/Vim'
 alias icloud='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Personal\ files'
-alias nike='ssh gma@nike.cs.uga.edu'
-alias gmarmstrong='ssh guthrie@gmarmstrong.org'
-function trash() { mv "$@" "~/.Trash"; } # FIXME
-bindkey -v
-bindkey -M viins 'jk' vi-cmd-mode
 
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
+# iTerm2 configuration 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+DISABLE_AUTO_TITLE="true"

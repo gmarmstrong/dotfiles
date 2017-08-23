@@ -1,13 +1,2 @@
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/curl/bin:$PATH"
-export ZSH=~/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-DISABLE_AUTO_TITLE="true"
-DISABLE_UNTRACKED_FILES_DIRTY="false"
+# Zsh plugins
 plugins=(git git-flow)
-source $ZSH/oh-my-zsh.sh
-function trash() { mv "$@" ~/.Trash } # FIXME
-bindkey -v
-bindkey -M viins 'jk' vi-cmd-mode
-
