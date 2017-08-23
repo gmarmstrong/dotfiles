@@ -37,3 +37,7 @@ ln -s dotfiles/Xresources .Xresources
 ln -s dotfiles/xinitrc .xinitrc
 mkdir -p .config/i3
 ln -s dotfiles/i3/config .config/i3/config
+
+# Force logout to change default shell
+user=$(whoami)
+killall -u $user
