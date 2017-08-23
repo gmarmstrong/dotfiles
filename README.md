@@ -10,7 +10,7 @@ $ bash setup.sh
 $ newgrp sudo
 $ newgrp -
 $ bash main.sh
-$ bash postzsh.sh
+$ zsh postzsh.sh
 $ rm setup.sh main.sh postzsh.sh debug.sh
 ```
 Finally, `startx`!
