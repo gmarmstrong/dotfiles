@@ -19,17 +19,8 @@ while [[ $# -gt 0 ]]; do
     shift # Shift after checking all cases to get the next option
 done
 
-# Toggle command verbosity
-if $debug
-then
-    export aptget="apt-get -y"
-    export curl="curl"
-    export grep="grep"
-else
-    export aptget="apt-get -y -qq"
-    export curl="curl --silent"
-    export grep="grep -q"
-fi
+# Set debug variables
+source debug.sh
 
 # Use zshrc from dotfiles repository
 export github_username=$(git config --global user.name)

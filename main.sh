@@ -21,23 +21,8 @@ while [[ $# -gt 0 ]]; do
     shift # Shift after checking all cases to get the next option
 done
 
-# Toggle command verbosity
-if $debug
-then
-    export sshkeygen="ssh-keygen"
-    export aptget="apt-get -y"
-    export curl="curl"
-    export wget="wget"
-    export gitclone="git clone"
-    export grep="grep"
-else
-    export sshkeygen="ssh-keygen -q"
-    export aptget="apt-get -y -qq"
-    export curl="curl --silent"
-    export wget="wget -q"
-    export gitclone="git clone -q"
-    export grep="grep -q"
-fi
+# Set debug variables
+source debug.sh
 
 # Set up apt-get
 sudo $aptget update
