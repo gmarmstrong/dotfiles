@@ -15,4 +15,8 @@ function trash() { mv "$@" "~/.Trash"; } # FIXME
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
