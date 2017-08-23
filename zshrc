@@ -2,6 +2,8 @@
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# Zsh configuration
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME=robbyrussell
 source $ZSH/oh-my-zsh.sh
@@ -22,10 +24,9 @@ if [ -d $HOME/bin ] ; then
     PATH=$HOME/bin:$PATH
 fi
 
-# Source zshrc appropriate to operating system
+# Source secondary zshrc appropriate to operating system
 case "$OSTYPE" in
     darwin*)    source dotfiles/zshrc-macos ;;
     linux*)     source dotfiles/zshrc-linux ;;
 esac
-
 
