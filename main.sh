@@ -63,7 +63,7 @@ mkdir .ssh
 eval "$sshkeygen -t rsa -b 4096 -C "$email" -f ~/.ssh/id_rsa_github"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa_github
-eval "$curl -u $github_username --data '{"title":"'"$github_keyname"'","key":"'"$(cat ~/.ssh/id_rsa_github.pub)"'"}' https://api.github.com/user/keys"
+eval "$curl -u $github_username --data "'{"title":"'"$github_keyname"'","key":"'"$(cat ~/.ssh/id_rsa_github.pub)"'"}'" https://api.github.com/user/keys"
 
 # Install vim and vim-plug
 # TODO Use either wget or curl, not both
