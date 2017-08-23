@@ -65,7 +65,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" ================ Word wrapping ====================
+" ================ Word wrapping ==================
 
 "Word wrapping.
 set wrap
@@ -75,7 +75,7 @@ set nolist
 set textwidth=0
 set wrapmargin=0
 
-" ================ Filetype functions ===============
+" ================ Filetype functions =============
 
 " *.py: F5 --> python2
 autocmd BufNewFile,BufRead *.py map <F6> :!python2 %<CR>
@@ -83,9 +83,10 @@ autocmd BufNewFile,BufRead *.py map <F6> :!python2 %<CR>
 " *.py: F6 --> python3
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
 
-" *.txt, *.tex: F5 --> spell checking
+" *.txt, *.tex, *.html: F5 --> spell checking
 autocmd BufNewFile,BufRead *.txt map <F5> :set spell! spelllang=en_us<CR>
 autocmd BufNewFile,BufRead *.tex map <F5> :set spell! spelllang=en_us<CR>
+autocmd BufNewFile,BufRead *.html map <F5> :set spell! spelllang=en_us<CR>
 
 " *.tex: F6 --> pdflatex
 autocmd BufNewFile,BufRead *.tex map <F6> :!pdflatex %<CR>
@@ -113,10 +114,3 @@ else
     colorscheme Tomorrow
 endif
 highlight LineNr ctermfg=grey
-
-" ================= Autocorrection ================
-
-" You can create your own little autocorrection dictionary here.
-:abbr hte the
-:abbr teh the
-:abbr @@ guthrie.armstrong@gmail.com
