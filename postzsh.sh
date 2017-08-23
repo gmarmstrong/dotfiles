@@ -19,35 +19,30 @@ while [[ $# -gt 0 ]]; do
     shift # Shift after checking all cases to get the next option
 done
 
-# Use zshrc from dotfiles repository
+# Toggle command verbosity
 if $debug
 then
-    export github_username=$(git config --global user.name)
-    if curl --head https://github.com/$github_username/dotfiles/blob/master/zshrc | head -n 1 | grep "HTTP/1.[01] [23].."
-    then
-        mv ~/.zshrc ~/.zshrc-omz-original
-        ln -s dotfiles/zshrc-linux ~/.zshrc
-        source ~/.zshrc
-    fi
+    export aptget="apt-get -y"
+    export curl="curl"
+    export grep="grep"
 else
-    export github_username=$(git config --global user.name)
-    if curl -s --head https://github.com/$github_username/dotfiles/blob/master/zshrc | head -n 1 | grep -q "HTTP/1.[01] [23].."
-    then
-        mv ~/.zshrc ~/.zshrc-omz-original
-        ln -s dotfiles/zshrc-linux ~/.zshrc
-        source ~/.zshrc
-    fi
+    export aptget="apt-get -y -qq"
+    export curl="curl --silent"
+    export grep="grep -q"
+fi
+
+# Use zshrc from dotfiles repository
+export github_username=$(git config --global user.name)
+if $curl --head https://github.com/$github_username/dotfiles/blob/master/zshrc | head -n 1 | $grep "HTTP/1.[01] [23].."
+then
+    mv ~/.zshrc ~/.zshrc-omz-original
+    ln -s dotfiles/zshrc-linux ~/.zshrc
+    source ~/.zshrc
 fi
 
 # Set up X11
-if $debug
-then
-    sudo apt-get -y install i3 suckless-tools rxvt-unicode-256color xinit xorg ttf-anonymous-pro
-else
-    sudo apt-get -y -qq install i3 suckless-tools rxvt-unicode-256color xinit xorg ttf-anonymous-pro
-fi
+sudo $aptget -y install i3 suckless-tools rxvt-unicode-256color xinit xorg ttf-anonymous-pro
 ln -s dotfiles/Xresources .Xresources
 ln -s dotfiles/xinitrc .xinitrc
 mkdir -p .config/i3
 ln -s dotfiles/i3/config .config/i3/config
-

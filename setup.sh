@@ -19,6 +19,26 @@ while [[ $# -gt 0 ]]; do
     shift # Shift after checking all cases to get the next option
 done
 
+# Toggle command verbosity
+if $debug
+then
+    export sshkeygen="ssh-keygen"
+    export aptget="apt-get -y"
+    export curl="curl"
+    export wget="wget"
+    export gitclone="git clone"
+    export grep="grep"
+    export ping="ping"
+else
+    export sshkeygen="ssh-keygen -q"
+    export aptget="apt-get -y -qq"
+    export curl="curl --silent"
+    export wget="wget -q"
+    export gitclone="git clone -q"
+    export grep="grep -q"
+    export ping="ping -q"
+fi
+
 # Test Debian
 if ! [ -f "/etc/debian_version" ];
 then
@@ -27,39 +47,18 @@ then
 fi
 
 # Test connection
-if $debug
+if ! $ping -c 1 google.com
 then
-    if ! ping -c 1 google.com
-    then
-        echo Internet connection failed, aborting.
-        exit 1
-    fi
-else
-    if ! ping -q -c 1 google.com
-    then
-        echo Internet connection failed, aborting.
-        exit 1
-    fi
+    echo Internet connection failed, aborting.
+    exit 1
 fi
 
 # Download post-install scripts
-if $debug
-then
-    wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/main.sh
-    wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/postzsh.sh
-else
-    wget -q https://raw.githubusercontent.com/gmarmstrong/post-install/master/main.sh
-    wget -q https://raw.githubusercontent.com/gmarmstrong/post-install/master/postzsh.sh
-fi
+$wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/main.sh
+$wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/postzsh.sh
 
 # Set up sudo
 export user=$(whoami)
-if $debug
-then
-    su root -c "apt-get -y install sudo"
-    su root -c "adduser $user sudo"
-else
-    su root -c "apt-get -y -qq install sudo"
-    su root -c "adduser $user sudo"
-fi
+su root -c "$aptget -y install sudo"
+su root -c "adduser $user sudo"
 
