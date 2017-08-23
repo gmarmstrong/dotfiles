@@ -74,8 +74,8 @@ eval "$wget -O ~/.vim/colors/Tomorrow-Night.vim https://raw.githubusercontent.co
 eval "$curl -fL -o ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
 # Get dotfiles
-gitfunc() { $curl --head https://github.com/$github_username/dotfiles.git | head -n 1 | grep "HTTP/1.[01] [23].."; }
-gitfunc2() { $curl --head https://github.com/$github_username/dotfiles/blob/master/vimrc | head -n 1 | $grep "HTTP/1.[01] [23].."; }
+gitfunc() { eval "$curl --head https://github.com/$github_username/dotfiles.git | head -n 1 | grep 'HTTP/1.[01] [23]..'"; }
+gitfunc2() { eval "$curl --head https://github.com/$github_username/dotfiles/blob/master/vimrc | head -n 1 | $grep 'HTTP/1.[01] [23]..'"; }
 if gitfunc; then
     eval "$gitclone ssh://git@github.com/$github_username/dotfiles.git"
     if gitfunc2; then
