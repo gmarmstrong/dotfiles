@@ -8,5 +8,5 @@ This is my dotfiles repository. There are many like it, but this one is mine.
 * [`xinitrc`](https://wiki.archlinux.org/index.php/Xinit#xinitrc) configures X startup.
 * [`Xresources`](https://wiki.archlinux.org/index.php/X_resources) configures X client applications.
 * [`zshrc`](https://wiki.archlinux.org/index.php/Zsh#Configure_Zsh) sets environment variables and aliases for [Zsh](http://zsh.sourceforge.net).
-* [`zshrc-linux`] sets Linux-specific Zsh configurations.
-* [`zshrc-macos`] sets macOS-specific Zsh configurations.
+* `zshrc-linux` sets Linux-specific Zsh configurations.
+* `zshrc-macos` sets macOS-specific Zsh configurations.
