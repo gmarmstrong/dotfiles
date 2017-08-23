@@ -16,9 +16,3 @@ bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Update PATH for the Google Cloud SDK.
-if [ -f '/Users/guthrie/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/guthrie/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# Enable shell command completion for gcloud.
-if [ -f '/Users/guthrie/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/guthrie/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
