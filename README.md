@@ -12,6 +12,7 @@ $ newgrp -
 $ bash main.sh
 $ zsh postzsh.sh
 $ rm setup.sh main.sh postzsh.sh debug.sh
+$ killall -u $(whoami)
 ```
 Finally, `startx`!
 
