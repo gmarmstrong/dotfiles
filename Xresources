@@ -15,7 +15,7 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
 ! font settings
-URxvt.font: xft:Anonymous Pro:Regular:size=12:antialiasing=True
+URxvt.font: xft:Anonymous Pro:Regular:size=14:antialiasing=True
 
 Xft.hinting:    true
 Xft.antialias:  true
