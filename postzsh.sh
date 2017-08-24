@@ -44,3 +44,7 @@ if [ -f dotfiles/i3/config ]; then
     mkdir -p .config/i3
     ln -s dotfiles/i3/config .config/i3/config
 fi
+
+# Force logout
+sudo $aptget install killall
+killall -u $(whoami)
