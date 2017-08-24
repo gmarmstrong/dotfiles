@@ -48,5 +48,4 @@ fi
 # TODO Symlink and process dotfiles/gitignore_global
 
 # Force logout
-sudo $aptget install psmisc
-killall -u $(whoami)
+pkill -u $(whoami)
