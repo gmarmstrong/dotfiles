@@ -24,8 +24,8 @@ source debug.sh
 
 # Use zshrc from dotfiles repository
 export github_username=$(git config --global user.name)
-gitfunc() { eval "$curl --head https://github.com/$github_username/dotfiles/blob/master/zshrc | head -n 1 | $grep 'HTTP/1.[01] [23]..'"; }
-if gitfunc; then
+zshrc_exists() { eval "$curl --head https://github.com/$github_username/dotfiles/blob/master/zshrc | head -n 1 | $grep 'HTTP/1.[01] [23]..'"; }
+if zshrc_exists; then
     mv ~/.zshrc ~/.zshrc-omz-original
     ln -s dotfiles/zshrc ~/.zshrc
     source ~/.zshrc
