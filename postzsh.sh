@@ -24,9 +24,9 @@ source debug.sh
 
 # Use zshrc from dotfiles repository
 export github_username=$(git config --global user.name)
-if [ -f dotfiles/zshrc ]; then
+if [ -f ~/dotfiles/zshrc ]; then
     mv ~/.zshrc ~/.zshrc-omz-original
-    ln -s dotfiles/zshrc ~/.zshrc
+    ln -s ~/dotfiles/zshrc ~/.zshrc
     source ~/.zshrc
 fi
 
@@ -34,15 +34,15 @@ fi
 eval "sudo $aptget install i3 suckless-tools rxvt-unicode-256color xinit xorg ttf-anonymous-pro"
 
 # Symlink X11-related dotfiles
-if [ -f dotfiles/Xresources ]; then
-    ln -s dotfiles/Xresources .Xresources
+if [ -f ~/dotfiles/Xresources ]; then
+    ln -s ~/dotfiles/Xresources ~/.Xresources
 fi
-if [ -f dotfiles/xinitrc ]; then
-    ln -s dotfiles/xinitrc .xinitrc
+if [ -f ~/dotfiles/xinitrc ]; then
+    ln -s ~/dotfiles/xinitrc ~/.xinitrc
 fi
-if [ -f dotfiles/i3/config ]; then
-    mkdir -p .config/i3
-    ln -s dotfiles/i3/config .config/i3/config
+if [ -f ~/dotfiles/i3/config ]; then
+    mkdir -p ~/.config/i3
+    ln -s ~/dotfiles/i3/config ~/.config/i3/config
 fi
 
 # TODO Symlink and process dotfiles/gitignore_global

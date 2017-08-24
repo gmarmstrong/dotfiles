@@ -80,7 +80,7 @@ vimrc_exists() { eval "$curl --head https://github.com/$github_username/dotfiles
 if dotfiles_exist; then
     eval "$gitclone ssh://git@github.com/$github_username/dotfiles.git"
     if vimrc_exists; then
-        ln -s dotfiles/vimrc ~/.vimrc
+        ln -s ~/dotfiles/vimrc ~/.vimrc
     fi
 fi
 
