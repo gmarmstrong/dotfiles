@@ -30,7 +30,7 @@ eval "sudo $aptget upgrade"
 eval "sudo $aptget autoremove"
 
 # # Install VirtualBox guest additions
-# # FIXME Incomplete
+# # TODO Incomplete
 # if $debug
 # then
 #     sudo apt-get -y install make
