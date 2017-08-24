@@ -46,5 +46,5 @@ if [ -f dotfiles/i3/config ]; then
 fi
 
 # Force logout
-sudo $aptget install killall
+sudo $aptget install psmisc
 killall -u $(whoami)
