@@ -45,6 +45,8 @@ if [ -f dotfiles/i3/config ]; then
     ln -s dotfiles/i3/config .config/i3/config
 fi
 
+# TODO Symlink and process dotfiles/gitignore_global
+
 # Force logout
 sudo $aptget install psmisc
 killall -u $(whoami)
