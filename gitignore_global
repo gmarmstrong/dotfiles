@@ -1,0 +1,9 @@
+# TeX
+*.aux
+*.log
+*.out
+
+# macOS
+.DS_Store
+.Spotlight-V100
+.Trashes
