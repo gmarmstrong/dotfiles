@@ -31,7 +31,7 @@ if [ -f dotfiles/zshrc ]; then
 fi
 
 # Install X11-related packages
-eval "sudo $aptget -y install i3 suckless-tools rxvt-unicode-256color xinit xorg ttf-anonymous-pro"
+eval "sudo $aptget install i3 suckless-tools rxvt-unicode-256color xinit xorg ttf-anonymous-pro"
 
 # Symlink X11-related dotfiles
 if [ -f dotfiles/Xresources ]; then
