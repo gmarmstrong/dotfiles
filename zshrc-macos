@@ -5,6 +5,9 @@ plugins=(git git-flow osx)
 alias vim='/usr/local/Cellar/macvim/8.0-136/MacVim.app/Contents/MacOS/Vim'
 alias icloud='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Personal\ files'
 
+# Add SSH identities to the agent
+ssh-add -A
+
 # iTerm2 configuration 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 DISABLE_AUTO_TITLE="true"
