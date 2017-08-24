@@ -2,7 +2,7 @@
 
 # main.sh
 
-# TODO Link ssh config
+# TODO Link or generate ssh config
 
 # Set default values
 debug=false
