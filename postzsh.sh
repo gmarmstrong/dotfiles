@@ -24,19 +24,26 @@ source debug.sh
 
 # Use zshrc from dotfiles repository
 export github_username=$(git config --global user.name)
-zshrc_exists() { eval "$curl --head https://github.com/$github_username/dotfiles/blob/master/zshrc | head -n 1 | $grep 'HTTP/1.[01] [23]..'"; }
-if zshrc_exists; then
+if [ -f dotfiles/zshrc ]; then
     mv ~/.zshrc ~/.zshrc-omz-original
     ln -s dotfiles/zshrc ~/.zshrc
     source ~/.zshrc
 fi
 
-# Set up X11
+# Install X11-related packages
 eval "sudo $aptget -y install i3 suckless-tools rxvt-unicode-256color xinit xorg ttf-anonymous-pro"
-ln -s dotfiles/Xresources .Xresources
-ln -s dotfiles/xinitrc .xinitrc
-mkdir -p .config/i3
-ln -s dotfiles/i3/config .config/i3/config
+
+# Symlink X11-related dotfiles
+if [ -f dotfiles/Xresources ]; then
+    ln -s dotfiles/Xresources .Xresources
+fi
+if [ -f dotfiles/xinitrc ]; then
+    ln -s dotfiles/xinitrc .xinitrc
+fi
+if [ -f dotfiles/i3/config ]; then
+    mkdir -p .config/i3
+    ln -s dotfiles/i3/config .config/i3/config
+fi
 
 # Force logout to change default shell
 user=$(whoami)
