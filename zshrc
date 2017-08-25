@@ -5,7 +5,6 @@ export PATH="/usr/local/opt/curl/bin:$PATH"
 
 # Zsh configuration
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME=robbyrussell
 source $ZSH/oh-my-zsh.sh
 
 # Custom functions
