@@ -109,7 +109,7 @@ autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 " ================ Color settings =================
 
 syntax on
-
+colorscheme Tomorrow
 " " Set color scheme based on remote status
 " if g:remoteSession
 "     colorscheme Tomorrow-Night
