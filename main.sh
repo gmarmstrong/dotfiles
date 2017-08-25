@@ -60,10 +60,10 @@ git config --global user.email "$email"
 
 # Generate key and upload to GitHub
 mkdir .ssh
-eval "$sshkeygen -t rsa -b 4096 -C "$email" -f ~/.ssh/id_rsa_github"
+eval "$sshkeygen -t rsa -b 4096 -C "$email" -f ~/.ssh/id_rsa"
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa_github
-myjson='{"title":"'"$github_keyname"'","key":"'"$(cat ~/.ssh/id_rsa_github.pub)"'"}'
+ssh-add ~/.ssh/id_rsa
+myjson='{"title":"'"$github_keyname"'","key":"'"$(cat ~/.ssh/id_rsa.pub)"'"}'
 eval "$curl -u $github_username --data '$myjson' https://api.github.com/user/keys"
 
 # Install vim and vim-plug
