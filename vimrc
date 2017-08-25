@@ -110,10 +110,11 @@ autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 
 syntax on
 
-" Set color scheme based on remote status
-if g:remoteSession
-    colorscheme Tomorrow-Night
-else
-    colorscheme Tomorrow
-endif
+" " Set color scheme based on remote status
+" if g:remoteSession
+"     colorscheme Tomorrow-Night
+" else
+"     colorscheme Tomorrow
+" endif
+
 highlight LineNr ctermfg=grey
