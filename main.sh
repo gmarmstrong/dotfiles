@@ -91,7 +91,7 @@ vim +PlugInstall +qall
 # Silence message of the day
 touch ~/.hushlogin
 
-# Set up zsh
+# Install zsh
 eval "sudo $aptget install zsh zsh-doc"
 
 # Set up oh-my-zsh (this must be the last command of this script)
