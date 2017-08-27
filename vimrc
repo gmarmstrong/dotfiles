@@ -90,6 +90,9 @@ autocmd BufNewFile,BufRead *.py map <F6> :!python2 %<CR>
 " *.py: F6 --> python3
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
 
+" *.rst: F5 --> rst2html.py
+autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % '%:r'.html<CR>
+
 " *.txt, *.tex, *.html: F5 --> spell checking
 autocmd BufNewFile,BufRead *.txt map <F5> :set spell! spelllang=en_us<CR>
 autocmd BufNewFile,BufRead *.tex map <F5> :set spell! spelllang=en_us<CR>
@@ -109,6 +112,9 @@ autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
 
 " *.hs: F6 --> ghci
 autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
+
+" *.md: F5 --> pandoc
+autocmd BufNewFile,BufRead *.md map <F5> :!pandoc % -o %:r.html<CR>
 
 " ================ Color settings =================
 
