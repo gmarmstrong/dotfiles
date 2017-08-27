@@ -40,6 +40,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" =============== Show whitespace ============
+
+set list
+set list listchars=tab:»·,trail:␣
+
 " ================ Persistent Undo ================
 
 " Store undo history across sessions.
@@ -73,7 +78,6 @@ filetype indent on
 "Word wrapping.
 set wrap
 set linebreak
-set nolist
 "Prevent automatic linebreaks in newly entered text
 set textwidth=0
 set wrapmargin=0
