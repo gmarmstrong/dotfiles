@@ -85,7 +85,7 @@ set wrapmargin=0
 " ================ Filetype functions =============
 
 " *.py: F5 --> python2
-autocmd BufNewFile,BufRead *.py map <F6> :!python2 %<CR>
+autocmd BufNewFile,BufRead *.py map <F5> :!python2 %<CR>
 
 " *.py: F6 --> python3
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
