@@ -14,9 +14,10 @@ function trash() { mv "$@" ~/.Trash } # FIXME
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 
-# SSH aliases
+# Aliases
 alias nike='ssh gma@nike.cs.uga.edu'
 alias gmarmstrong='ssh guthrie@gmarmstrong.org'
+alias tree="tree -a -I '__pycache__|.git|*.pyc'"
 
 # Add ~/bin to path
 if [ -d $HOME/bin ] ; then
