@@ -91,7 +91,7 @@ autocmd BufNewFile,BufRead *.py map <F6> :!python2 %<CR>
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
 
 " *.rst: F5 --> rst2html.py
-autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % '%:r'.html<CR>
+autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % docdev/'%:r'.html<CR>
 
 " *.txt, *.tex, *.html: F5 --> spell checking
 autocmd BufNewFile,BufRead *.txt map <F5> :set spell! spelllang=en_us<CR>
