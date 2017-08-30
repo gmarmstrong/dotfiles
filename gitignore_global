@@ -1,7 +1,37 @@
+# If nothing else, GPG.
+secring.*
+
 # TeX
 *.aux
+*.lof
 *.log
+*.lot
+*.fls
 *.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.dvi
+*-converted-to.*
+
+# TeX: bibtex/biblatex/biber
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# TeX: beamer
+*.nav
+*.pre
+*.snm
+*.vrb
+
+# TeX: listings
+*.lol
 
 # macOS
 *.DS_Store
@@ -31,3 +61,40 @@ Session.vim
 .netrwhist
 *~
 tags
+
+# Haskell
+dist
+dist-*
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+.hpc
+.hsenv
+.cabal-sandbox/
+cabal.sandbox.config
+*.prof
+*.aux
+*.hp
+*.eventlog
+.stack-work/
+cabal.project.local
+.HTF/
+.ghc.environment.*
+
+# Java
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+
