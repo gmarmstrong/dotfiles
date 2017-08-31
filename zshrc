@@ -15,7 +15,6 @@ bindkey -v
 bindkey -v '^?' backward-delete-char
 bindkey -M viins 'jk' vi-cmd-mode
 
-
 # Aliases
 alias nike='ssh gma@nike.cs.uga.edu'
 alias gmarmstrong='ssh guthrie@gmarmstrong.org'
