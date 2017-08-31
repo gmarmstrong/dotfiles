@@ -90,6 +90,10 @@ autocmd BufNewFile,BufRead *.py map <F5> :!python2 %<CR>
 " *.py: F6 --> python3
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
 
+" *.py: 80 column limit
+autocmd BufNewFile,BufRead *.py highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd BufNewFile,BufRead *.py match OverLength /\%81v.\+/
+
 " *.rst: F5 --> rst2html.py
 autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % docdev/'%:r'.html<CR>
 
@@ -129,7 +133,3 @@ else
 endif
 
 highlight LineNr ctermfg=grey
-
-" ================ 80-column limit =================
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
