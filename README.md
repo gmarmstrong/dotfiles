@@ -1,6 +1,8 @@
+# dotfiles
+
 This is my dotfiles repository. There are many like it, but this one is mine.
 
-# Description
+## Description
 
 * `gitignore_global`
 lists global [gitignore](https://git-scm.com/docs/gitignore) rules.
