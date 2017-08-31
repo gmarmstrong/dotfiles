@@ -12,7 +12,9 @@ function trash() { mv "$@" ~/.Trash } # FIXME
 
 # Vi-like shell
 bindkey -v
+bindkey -v '^?' backward-delete-char
 bindkey -M viins 'jk' vi-cmd-mode
+
 
 # Aliases
 alias nike='ssh gma@nike.cs.uga.edu'
