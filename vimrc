@@ -120,11 +120,12 @@ autocmd BufNewFile,BufRead *.md map <F5> :!pandoc % -o %:r.html<CR>
 
 syntax on
 colorscheme Tomorrow
-" " Set color scheme based on remote status
-" if g:remoteSession
-"     colorscheme Tomorrow-Night
-" else
-"     colorscheme Tomorrow
-" endif
+
+" Set color scheme based on remote status
+if g:remoteSession
+    colorscheme default
+else
+    colorscheme Tomorrow
+endif
 
 highlight LineNr ctermfg=grey
