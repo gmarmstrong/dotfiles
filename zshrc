@@ -7,15 +7,10 @@ export PATH="/usr/local/opt/curl/bin:$PATH"
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# History by substring
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-
 # Vi-like shell
 bindkey -v
 bindkey -v '^?' backward-delete-char
 bindkey -M viins 'jk' vi-cmd-mode
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
 
 # Aliases
 alias nike='ssh gma@nike.cs.uga.edu'

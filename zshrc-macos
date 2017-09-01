@@ -1,5 +1,8 @@
 # Zsh plugins
 plugins=(git git-flow osx)
+source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # Aliases
 alias vim='/usr/local/Cellar/macvim/8.0-136/MacVim.app/Contents/MacOS/Vim'
