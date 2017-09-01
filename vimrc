@@ -123,7 +123,6 @@ autocmd BufNewFile,BufRead *.md map <F5> :!pandoc % -o %:r.html<CR>
 " ================ Color settings =================
 
 syntax on
-colorscheme Tomorrow
 
 " Set color scheme based on remote status
 if g:remoteSession
