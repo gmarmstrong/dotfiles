@@ -7,6 +7,9 @@ bindkey -M vicmd 'j' history-substring-search-down
 # Aliases
 alias vim='/usr/local/Cellar/macvim/8.0-136/MacVim.app/Contents/MacOS/Vim'
 
+# Calibre CLI
+export PATH="/Applications/calibre.app/Contents/console.app/Contents/MacOS/:$PATH"
+
 # iTerm2 configuration 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 DISABLE_AUTO_TITLE="true"
