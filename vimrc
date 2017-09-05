@@ -98,10 +98,12 @@ autocmd BufNewFile,BufRead *.py match OverLength /\%81v.\+/
 " *.rst: F5 --> rst2html.py
 autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % docdev/'%:r'.html<CR>
 
-" *.txt, *.tex, *.html: F5 --> spell checking
+" *.txt, *.tex, *.html, *.md, *.markdown : F5 --> spell checking
 autocmd BufNewFile,BufRead *.txt map <F5> :set spell! spelllang=en_us<CR>
 autocmd BufNewFile,BufRead *.tex map <F5> :set spell! spelllang=en_us<CR>
 autocmd BufNewFile,BufRead *.html map <F5> :set spell! spelllang=en_us<CR>
+autocmd BufNewFile,BufRead *.md map <F5> :set spell! spelllang=en_us<CR>
+autocmd BufNewFile,BufRead *.markdown map <F5> :set spell! spelllang=en_us<CR>
 
 " *.tex: F6 --> pdflatex
 autocmd BufNewFile,BufRead *.tex map <F6> :!pdflatex %<CR>
