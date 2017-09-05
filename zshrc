@@ -14,7 +14,6 @@ bindkey -M viins 'jk' vi-cmd-mode
 
 # Aliases
 alias nike='ssh gma@nike.cs.uga.edu'
-alias gmarmstrong='ssh guthrie@gmarmstrong.org'
 alias tree="tree -a -I '__pycache__|.git|*.pyc'"
 
 # Add ~/bin to path
