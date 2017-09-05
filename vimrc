@@ -120,9 +120,6 @@ autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
 " *.hs: F6 --> ghci
 autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 
-" *.md: F5 --> pandoc
-autocmd BufNewFile,BufRead *.md map <F5> :!pandoc % -o %:r.html<CR>
-
 " ================ Color settings =================
 
 syntax on
