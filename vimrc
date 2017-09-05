@@ -29,6 +29,7 @@ Plug 'lervag/vimtex'                "LaTeX support
 Plug 'vim-syntastic/syntastic'      "Syntax checking
 Plug 'scrooloose/nerdtree'          "Tree explorer
 Plug 'Xuyuanp/nerdtree-git-plugin'  "Git support for NERDTree
+Plug 'vim-scripts/applescript.vim'  "AppleScript syntax highlighting
 call plug#end()
 
 " Syntastic settings
