@@ -27,6 +27,7 @@ export github_username=$(git config --global user.name)
 if [ -f ~/dotfiles/zshrc ]; then
     mv ~/.zshrc ~/.zshrc-omz-original
     ln -s ~/dotfiles/zshrc ~/.zshrc
+    git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
     source ~/.zshrc
 fi
 
