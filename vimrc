@@ -9,7 +9,6 @@ let g:remoteSession = ($SSH_CLIENT != "")
 set number                      "Show line numbers
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set showmode                    "Show current mode in bottom window
-set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set clipboard=unnamed           "y(ank) and p(ull) copy to the system clipboard
 set shortmess=I                 "Disable startup message.
