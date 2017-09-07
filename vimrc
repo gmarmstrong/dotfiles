@@ -45,15 +45,6 @@ let g:syntastic_check_on_wq = 0
 set list
 set list listchars=tab:»·,trail:␣
 
-" ================ Persistent Undo ================
-
-" Store undo history across sessions.
-if has('persistent_undo') && !isdirectory(expand('~').'/.vim/backups')
-    silent !mkdir ~/.vim/backups > /dev/null 2>&1
-    set undodir=~/.vim/backups
-    set undofile
-endif
-
 " ================ Indentation ====================
 
 set autoindent          "Open (o and O) lines with appropriate indentation
