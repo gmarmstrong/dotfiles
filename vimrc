@@ -12,9 +12,6 @@ set showmode                    "Show current mode in bottom window
 set autoread                    "Reload files changed outside vim
 set clipboard=unnamed           "y(ank) and p(ull) copy to the system clipboard
 set shortmess=I                 "Disable startup message.
-if has("gui_running")
-    set guifont=Anonymous Pro:h14
-endif
 
 " Map jk to escape
 inoremap jk <esc>
