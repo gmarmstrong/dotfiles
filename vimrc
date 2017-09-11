@@ -6,6 +6,7 @@ let g:remoteSession = ($SSH_CLIENT != "")
 
 " ================ General settings ===============
 
+set ruler                       "Display line/column number, position, etc.
 set number                      "Show line numbers
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set showmode                    "Show current mode in bottom window
