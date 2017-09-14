@@ -12,7 +12,8 @@ set backspace=indent,eol,start  "Allow backspace in insert mode
 set showmode                    "Show current mode in bottom window
 set autoread                    "Reload files changed outside vim
 set clipboard=unnamed           "y(ank) and p(ull) copy to the system clipboard
-set shortmess=I                 "Disable startup message.
+set shortmess=I                 "Disable startup message
+set shortmess+=W                "Disable write message
 
 " Map jk to escape
 inoremap jk <esc>
