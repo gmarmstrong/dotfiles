@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')   "Note the single quotes
 Plug 'lervag/vimtex'                "LaTeX support
 Plug 'scrooloose/nerdtree'          "Tree explorer
 Plug 'Xuyuanp/nerdtree-git-plugin'  "Git support for NERDTree
+Plug 'majutsushi/tagbar'            "Display tags in a window
 call plug#end()
 
 " =============== Show whitespace ============
