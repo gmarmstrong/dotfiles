@@ -21,11 +21,14 @@ inoremap jk <esc>
 " ================ Plugin settings ================
 
 " Plugins
-call plug#begin('~/.vim/plugged')   "Note the single quotes
-Plug 'lervag/vimtex'                "LaTeX support
-Plug 'scrooloose/nerdtree'          "Tree explorer
-Plug 'Xuyuanp/nerdtree-git-plugin'  "Git support for NERDTree
-Plug 'majutsushi/tagbar'            "Display tags in a window
+call plug#begin('~/.vim/plugged')       "Note the single quotes
+Plug 'lervag/vimtex'                    "LaTeX support
+Plug 'scrooloose/nerdtree'              "Tree explorer
+Plug 'Xuyuanp/nerdtree-git-plugin'      "Git support for NERDTree
+Plug 'majutsushi/tagbar'                "Display tags in a window
+Plug 'discoloda/c-conceal'              "Conceal for C
+Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
+Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 call plug#end()
 
 " =============== Show whitespace ============
