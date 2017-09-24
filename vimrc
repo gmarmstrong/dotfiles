@@ -1,10 +1,13 @@
+" === General settings ===
+
 " Be vim, not vi!
 set nocompatible
 
 " Detect remote status
 let g:remoteSession = ($SSH_CLIENT != "")
 
-" ================ General settings ===============
+" Map jk to escape
+inoremap jk <esc>
 
 set ruler                       "Display line/column number, position, etc.
 set number                      "Show line numbers
@@ -15,10 +18,7 @@ set clipboard=unnamed           "y(ank) and p(ull) copy to the system clipboard
 set shortmess=I                 "Disable startup message
 set shortmess+=W                "Disable write message
 
-" Map jk to escape
-inoremap jk <esc>
-
-" ================ Plugin settings ================
+" === Plugin settings ===
 
 " Plugins
 call plug#begin('~/.vim/plugged')       "Note the single quotes
@@ -32,12 +32,12 @@ Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 call plug#end()
 
-" =============== Show whitespace ============
+" === Show whitespace ===
 
 set list
 set list listchars=tab:»·,trail:␣
 
-" ================ Indentation ====================
+" === Indentation ===
 
 set autoindent          "Open (o and O) lines with appropriate indentation
 set smartindent         "Be smart
@@ -56,7 +56,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" ================ Word wrapping ==================
+" === Word wrapping ===
 
 "Word wrapping.
 set wrap
@@ -65,7 +65,7 @@ set linebreak
 set textwidth=0
 set wrapmargin=0
 
-" ================ Filetype functions =============
+" === Filetype functions ===
 
 " *.py: F5 --> python2
 autocmd BufNewFile,BufRead *.py map <F5> :!python2 %<CR>
@@ -102,7 +102,7 @@ autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
 " *.hs: F6 --> ghci
 autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 
-" ================ Color settings =================
+" === Color settings ===
 
 syntax on
 highlight LineNr ctermfg=grey
