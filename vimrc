@@ -23,14 +23,13 @@ set shortmess+=W                "Disable write message
 " Plugins
 call plug#begin('~/.vim/plugged')       "Note the single quotes
 Plug 'lervag/vimtex'                    "LaTeX support
-Plug 'scrooloose/nerdtree'              "Tree explorer
-Plug 'Xuyuanp/nerdtree-git-plugin'      "Git support for NERDTree
-Plug 'majutsushi/tagbar'                "Display tags in a window
-Plug 'tpope/vim-fugitive'               "Git wrapper
 Plug 'discoloda/c-conceal'              "Conceal for C
 Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 call plug#end()
+
+" netrw settings
+let g:netrw_banner = 0
 
 " === Show whitespace ===
 
