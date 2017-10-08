@@ -26,10 +26,15 @@ Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'discoloda/c-conceal'              "Conceal for C
 Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 " netrw settings
 let g:netrw_banner = 0
+
+" vim-markdown settings
+let g:vim_markdown_folding_disabled = 1
 
 " === Show whitespace ===
 
@@ -95,8 +100,9 @@ autocmd BufNewFile,BufRead *.tex map <F7> :!biber %:r<CR>
 " *.R: F6 --> Rscript
 autocmd BufNewFile,BufRead *.R map <F6> :!Rscript %<CR>
 
-" *.html: F6 --> open
+" *.html, *.md: F6 --> open
 autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
+autocmd BufNewFile,BufRead *.md map <F6> :!open %<CR>
 
 " *.hs: F6 --> ghci
 autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
