@@ -25,10 +25,15 @@ call plug#begin('~/.vim/plugged')       "Note the single quotes
 Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
+Plug 'godlygeek/tabular'                "Markdown dependency
+Plug 'plasticboy/vim-markdown'          "Markdown support
 call plug#end()
 
 " netrw settings
 let g:netrw_banner = 0
+
+" vim-markdown settings
+let g:vim_markdown_folding_disabled = 1
 
 " === Show whitespace ===
 
@@ -71,12 +76,19 @@ autocmd BufNewFile,BufRead *.py map <F5> :!python2 %<CR>
 " *.py: F6 --> python3
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
 
-" *.py: 80 column limit
+" *.txt, *.md: 79 column wrap
+set wrapmargin=79
+set textwidth=79
+
+" *.py, *.tex: 80 column limit
 autocmd BufNewFile,BufRead *.py highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 autocmd BufNewFile,BufRead *.py match OverLength /\%81v.\+/
+autocmd BufNewFile,BufRead *.tex highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd BufNewFile,BufRead *.tex match OverLength /\%81v.\+/
 
 " *.rst: F5 --> rst2html.py
-autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % docdev/'%:r'.html<CR>
+"autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % docdev/'%:r'.html<CR>
+autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % '%:r'.html<CR>
 
 " *.txt, *.tex, *.html, *.md, *.markdown : F5 --> spell checking
 autocmd BufNewFile,BufRead *.txt map <F5> :set spell! spelllang=en_us<CR>
@@ -88,17 +100,21 @@ autocmd BufNewFile,BufRead *.markdown map <F5> :set spell! spelllang=en_us<CR>
 " *.tex: F6 --> pdflatex
 autocmd BufNewFile,BufRead *.tex map <F6> :!pdflatex %<CR>
 
-" *.tex: F7 --> biber
-autocmd BufNewFile,BufRead *.tex map <F7> :!biber %:r<CR>
-
 " *.R: F6 --> Rscript
 autocmd BufNewFile,BufRead *.R map <F6> :!Rscript %<CR>
 
-" *.html: F6 --> open
+" *.html, *.md: F6 --> open
 autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
+autocmd BufNewFile,BufRead *.md map <F6> :!open %<CR>
 
 " *.hs: F6 --> ghci
 autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
+
+" *.md, *.txt: no line numbers or tildes
+autocmd BufNewFile,BufRead *.md set nonumber
+autocmd BufNewFile,BufRead *.txt set nonumber
+autocmd BufNewFile,BufRead *.md highlight EndOfBuffer ctermfg=white ctermbg=white
+autocmd BufNewFile,BufRead *.txt highlight EndOfBuffer ctermfg=white ctermbg=white
 
 " === Color settings ===
 
