@@ -77,7 +77,10 @@ autocmd BufNewFile,BufRead *.py map <F5> :!python2 %<CR>
 " *.py: F6 --> python3
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
 
-" *.py: 80 column limit
+" *.txt, *.md: 79 column wrap
+set wrapmargin=79
+set textwidth=79
+
 autocmd BufNewFile,BufRead *.py highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 autocmd BufNewFile,BufRead *.py match OverLength /\%81v.\+/
 
