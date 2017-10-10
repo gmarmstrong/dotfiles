@@ -26,8 +26,8 @@ Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'discoloda/c-conceal'              "Conceal for C
 Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'                "Markdown dependency
+Plug 'plasticboy/vim-markdown'          "Markdown support
 call plug#end()
 
 " netrw settings
