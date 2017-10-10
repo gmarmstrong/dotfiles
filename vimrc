@@ -23,7 +23,6 @@ set shortmess+=W                "Disable write message
 " Plugins
 call plug#begin('~/.vim/plugged')       "Note the single quotes
 Plug 'lervag/vimtex'                    "LaTeX support
-Plug 'discoloda/c-conceal'              "Conceal for C
 Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 call plug#end()
