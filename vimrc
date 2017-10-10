@@ -101,9 +101,6 @@ autocmd BufNewFile,BufRead *.markdown map <F5> :set spell! spelllang=en_us<CR>
 " *.tex: F6 --> pdflatex
 autocmd BufNewFile,BufRead *.tex map <F6> :!pdflatex %<CR>
 
-" *.tex: F7 --> biber
-autocmd BufNewFile,BufRead *.tex map <F7> :!biber %:r<CR>
-
 " *.R: F6 --> Rscript
 autocmd BufNewFile,BufRead *.R map <F6> :!Rscript %<CR>
 
