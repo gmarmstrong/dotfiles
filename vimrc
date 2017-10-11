@@ -81,9 +81,9 @@ set wrapmargin=79
 set textwidth=79
 
 " *.py, *.tex: 80 column limit
-autocmd BufNewFile,BufRead *.py highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd BufNewFile,BufRead *.py highlight OverLength ctermbg=red ctermfg=white
 autocmd BufNewFile,BufRead *.py match OverLength /\%81v.\+/
-autocmd BufNewFile,BufRead *.tex highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd BufNewFile,BufRead *.tex highlight OverLength ctermbg=red ctermfg=white
 autocmd BufNewFile,BufRead *.tex match OverLength /\%81v.\+/
 
 " *.rst: F5 --> rst2html.py
