@@ -77,8 +77,8 @@ autocmd BufNewFile,BufRead *.py map <F5> :!python2 %<CR>
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
 
 " *.txt, *.md: 79 column wrap
-set wrapmargin=79
-set textwidth=79
+autocmd BufNewFile,BufRead *.txt set wrapmargin=79
+autocmd BufNewFile,BufRead *.md set textwidth=79
 
 " *.py, *.tex: 80 column limit
 autocmd BufNewFile,BufRead *.py highlight OverLength ctermbg=red ctermfg=white
