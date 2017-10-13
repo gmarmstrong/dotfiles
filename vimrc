@@ -27,6 +27,7 @@ Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'plasticboy/vim-markdown'          "Markdown support
+Plug 'junegunn/goyo.vim'                "Distractionless writing
 call plug#end()
 
 " netrw settings
@@ -34,6 +35,9 @@ let g:netrw_banner = 0
 
 " vim-markdown settings
 let g:vim_markdown_folding_disabled = 1
+
+" goyo.vim settings
+map <leader>f :Goyo <bar> highlight StatusLineNC ctermfg=white<CR>
 
 " === Show whitespace ===
 
