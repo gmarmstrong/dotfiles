@@ -26,7 +26,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Source secondary zshrc appropriate to operating system
 case "$OSTYPE" in
-    darwin*)    source dotfiles/zshrc-macos ;;
-    linux*)     source dotfiles/zshrc-linux ;;
+    darwin*)    source ~/dotfiles/zshrc-macos ;;
+    linux*)     source ~/dotfiles/zshrc-linux ;;
 esac
 
