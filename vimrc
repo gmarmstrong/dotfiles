@@ -109,7 +109,7 @@ autocmd BufNewFile,BufRead *.R map <F6> :!Rscript %<CR>
 
 " *.html, *.md: F6 --> open
 autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
-autocmd BufNewFile,BufRead *.md map <F6> :!open %<CR>
+" autocmd BufNewFile,BufRead *.md map <F6> :!open %<CR>
 
 " *.hs: F6 --> ghci
 autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
