@@ -3,6 +3,10 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
+# Process AsciiDoc files through an XML stage so that xmllint can
+# find AsciiDoc's catalog files
+export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
+
 # Zsh configuration
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
