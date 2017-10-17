@@ -69,7 +69,7 @@ filetype indent on
 set wrap
 set linebreak
 "Prevent automatic linebreaks in newly entered text
-set textwidth=0
+set textwidth=80
 set wrapmargin=0
 
 " === Filetype functions ===
@@ -83,6 +83,7 @@ autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
 " *.txt, *.md: 79 column wrap
 autocmd BufNewFile,BufRead *.txt set wrapmargin=79
 autocmd BufNewFile,BufRead *.md set textwidth=79
+autocmd BufNewFile,BufRead *.markdown set textwidth=79
 
 " *.py, *.tex: 80 column limit
 autocmd BufNewFile,BufRead *.py highlight OverLength ctermbg=red ctermfg=white
