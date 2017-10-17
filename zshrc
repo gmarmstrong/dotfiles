@@ -19,7 +19,7 @@ bindkey -M viins 'jk' vi-cmd-mode
 # Aliases
 alias nike='ssh -x gma@nike.cs.uga.edu'
 alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.DS_Store|.Spotlight-V100|.Trashes'"
-alias new="newsbeuter -x reload print-unread"
+alias new="newsboat -x reload print-unread"
 
 # Add ~/bin to path
 if [ -d $HOME/bin ] ; then
