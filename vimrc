@@ -117,8 +117,10 @@ autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 
 " *.md, *.txt: no line numbers or tildes
 autocmd BufNewFile,BufRead *.md set nonumber
+autocmd BufNewFile,BufRead *.markdown set nonumber
 autocmd BufNewFile,BufRead *.txt set nonumber
 autocmd BufNewFile,BufRead *.md highlight EndOfBuffer ctermfg=white ctermbg=white
+autocmd BufNewFile,BufRead *.markdown highlight EndOfBuffer ctermfg=white ctermbg=white
 autocmd BufNewFile,BufRead *.txt highlight EndOfBuffer ctermfg=white ctermbg=white
 
 " === Color settings ===
