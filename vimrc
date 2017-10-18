@@ -69,6 +69,7 @@ filetype indent on
 "Word wrapping.
 set wrap
 set linebreak
+
 "Prevent automatic linebreaks in newly entered text
 set textwidth=80
 set wrapmargin=0
@@ -81,16 +82,22 @@ autocmd BufNewFile,BufRead *.py map <F5> :!python2 %<CR>
 " *.py: F6 --> python3
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
 
-" *.txt, *.md: 79 column wrap
-autocmd BufNewFile,BufRead *.txt set wrapmargin=79
-autocmd BufNewFile,BufRead *.md set textwidth=79
-autocmd BufNewFile,BufRead *.markdown set textwidth=79
+" 80 column wrap
+autocmd BufNewFile,BufRead *.txt call ColumnWrap()
+autocmd BufNewFile,BufRead *.md call ColumnWrap()
+autocmd BufNewFile,BufRead *.markdown call ColumnWrap()
+function ColumnWrap()
+    set wrapmargin=80
+    set formatoptions=t1
+endfunction
 
-" *.py, *.tex: 80 column limit
-autocmd BufNewFile,BufRead *.py highlight OverLength ctermbg=red ctermfg=white
-autocmd BufNewFile,BufRead *.py match OverLength /\%81v.\+/
-autocmd BufNewFile,BufRead *.tex highlight OverLength ctermbg=red ctermfg=white
-autocmd BufNewFile,BufRead *.tex match OverLength /\%81v.\+/
+" 80+ column warning
+autocmd BufNewFile,BufRead *.py call ColumnWarning()
+autocmd BufNewFile,BufRead *.tex call ColumnWarning()
+function ColumnWarning()
+    highlight OverLength ctermbg=red ctermfg=white
+    match OverLength /\%81v.\+/
+endfunction
 
 " *.rst: F5 --> rst2html.py
 "autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % docdev/'%:r'.html<CR>
@@ -111,18 +118,19 @@ autocmd BufNewFile,BufRead *.R map <F6> :!Rscript %<CR>
 
 " *.html, *.md: F6 --> open
 autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
-" autocmd BufNewFile,BufRead *.md map <F6> :!open %<CR>
+"autocmd BufNewFile,BufRead *.md map <F6> :!open %<CR>
 
 " *.hs: F6 --> ghci
 autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 
-" *.md, *.txt: no line numbers or tildes
-autocmd BufNewFile,BufRead *.md set nonumber
-autocmd BufNewFile,BufRead *.markdown set nonumber
-autocmd BufNewFile,BufRead *.txt set nonumber
-autocmd BufNewFile,BufRead *.md highlight EndOfBuffer ctermfg=white ctermbg=white
-autocmd BufNewFile,BufRead *.markdown highlight EndOfBuffer ctermfg=white ctermbg=white
-autocmd BufNewFile,BufRead *.txt highlight EndOfBuffer ctermfg=white ctermbg=white
+" no line numbers or tildes
+autocmd BufNewFile,BufRead *.md call NoNumber()
+autocmd BufNewFile,BufRead *.markdown call NoNumber()
+autocmd BufNewFile,BufRead *.txt call NoNumber()
+function NoNumber()
+    setlocal nonumber
+    highlight EndOfBuffer ctermfg=white ctermbg=white
+endfunction
 
 " === Color settings ===
 
