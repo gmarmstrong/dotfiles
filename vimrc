@@ -132,6 +132,9 @@ function NoNumber()
     highlight EndOfBuffer ctermfg=white ctermbg=white
 endfunction
 
+"Reformat paragraph with Q
+noremap Q gqap
+
 " === Color settings ===
 
 syntax on
