@@ -28,8 +28,6 @@ call plug#begin('~/.vim/plugged')       "Note the single quotes
 Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
-Plug 'godlygeek/tabular'                "Markdown dependency
-Plug 'plasticboy/vim-markdown'          "Markdown support
 Plug 'vim-scripts/MPage'                "Synchronous splits
 Plug 'junegunn/goyo.vim'                "Distractionless writing
 call plug#end()
