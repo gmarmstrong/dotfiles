@@ -18,6 +18,9 @@ set clipboard=unnamed           "y(ank) and p(ull) copy to the system clipboard
 set shortmess=I                 "Disable startup message
 set shortmess+=W                "Disable write message
 
+nmap <silent> <Leader>d :!dict <cword> \| less <CR>
+nmap <silent> <Leader>t :!open dict://<cword><CR><CR>
+
 " === Plugin settings ===
 
 " Plugins
