@@ -1,5 +1,5 @@
 export TERMINAL=urxvt
+export TERM=urxvt
 xrdb -load ~/.Xresources
-xsetroot -solid white
-xrandr --size 800x600
+xsetroot -solid black
 exec i3
