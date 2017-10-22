@@ -67,11 +67,11 @@ filetype indent on
 
 " === Word wrapping ===
 
-"Word wrapping.
+ "Word wrapping.
 set wrap
 set linebreak
 
-"Prevent automatic linebreaks in newly entered text
+ "Prevent automatic linebreaks in newly entered text
 set textwidth=80
 set wrapmargin=0
 
@@ -89,7 +89,7 @@ autocmd BufNewFile,BufRead *.md call ColumnWrap()
 autocmd BufNewFile,BufRead *.markdown call ColumnWrap()
 function ColumnWrap()
     set wrapmargin=80
-    set formatoptions=t1
+    set formatoptions=tcroqan1j
 endfunction
 
 " 80+ column warning
@@ -125,15 +125,16 @@ autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
 autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 
 " no line numbers or tildes
-autocmd BufNewFile,BufRead *.md call NoNumber()
-autocmd BufNewFile,BufRead *.markdown call NoNumber()
-autocmd BufNewFile,BufRead *.txt call NoNumber()
+"autocmd BufNewFile,BufRead *.md call NoNumber()
+"autocmd BufNewFile,BufRead *.markdown call NoNumber()
+"autocmd BufNewFile,BufRead *.txt call NoNumber()
+"autocmd BufNewFile,BufRead *.rst call NoNumber()
 function NoNumber()
     setlocal nonumber
     highlight EndOfBuffer ctermfg=white ctermbg=white
 endfunction
 
-"Reformat paragraph with Q
+" Reformat paragraph with Q
 noremap Q gqap
 
 " === Color settings ===
