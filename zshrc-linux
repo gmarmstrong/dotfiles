@@ -3,4 +3,10 @@ plugins=(git git-flow)
 source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-export TERM=rxvt-unicode-256color
+
+if (ps -e | grep X)
+then
+    export TERM=rxvt-unicode-256color
+else
+    export TERM=xterm-256color
+fi
