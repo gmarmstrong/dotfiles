@@ -3,8 +3,6 @@ plugins=(git git-flow osx zsh-history-substring-search)
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-# Aliases
-alias vim='/usr/local/Cellar/macvim/8.0-136/MacVim.app/Contents/MacOS/Vim'
 
 # Add ~/bin to path
 export PATH="~/bin:$PATH"
