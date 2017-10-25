@@ -8,9 +8,5 @@ bindkey -M vicmd 'j' history-substring-search-down
 export PATH="~/bin:$PATH"
 
 
-# iTerm2 configuration 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-DISABLE_AUTO_TITLE="true"
-
 # Fix italics highlighting
 export TERM="iterm2"
