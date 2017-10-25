@@ -7,8 +7,6 @@ bindkey -M vicmd 'j' history-substring-search-down
 # Add ~/bin to path
 export PATH="~/bin:$PATH"
 
-# Calibre CLI
-export PATH="/Applications/calibre.app/Contents/console.app/Contents/MacOS:$PATH"
 
 # iTerm2 configuration 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
