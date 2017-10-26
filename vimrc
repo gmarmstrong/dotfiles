@@ -68,13 +68,16 @@ filetype indent on
 
 " === Word wrapping ===
 
-"Word wrapping.
+" Word wrapping.
 set wrap
 set linebreak
 
-"Prevent automatic linebreaks in newly entered text
+" Prevent automatic linebreaks in newly entered text
 set textwidth=80
 set wrapmargin=0
+
+" Reformat paragraph with Q
+noremap Q gqap
 
 " === Filetype functions ===
 
@@ -125,9 +128,6 @@ function NoNumber()
     setlocal nonumber
     highlight EndOfBuffer ctermfg=white ctermbg=white
 endfunction
-
-" Reformat paragraph with Q
-noremap Q gqap
 
 " === Color settings ===
 
