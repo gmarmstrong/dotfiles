@@ -29,7 +29,8 @@ Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 Plug 'vim-scripts/MPage'                "Synchronous splits
-Plug 'junegunn/goyo.vim'                "Distractionless writing
+Plug 'godlygeek/tabular'                "Markdown dependency
+Plug 'gabrielelana/vim-markdown'        "Markdown support
 call plug#end()
 
 " netrw settings
