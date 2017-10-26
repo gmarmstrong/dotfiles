@@ -68,11 +68,11 @@ filetype indent on
 
 " === Word wrapping ===
 
- "Word wrapping.
+"Word wrapping.
 set wrap
 set linebreak
 
- "Prevent automatic linebreaks in newly entered text
+"Prevent automatic linebreaks in newly entered text
 set textwidth=80
 set wrapmargin=0
 
