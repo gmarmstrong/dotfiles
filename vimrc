@@ -84,15 +84,6 @@ autocmd BufNewFile,BufRead *.py map <F5> :!python2 %<CR>
 " *.py: F6 --> python3
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
 
-" 80 column wrap
-autocmd BufNewFile,BufRead *.txt call ColumnWrap()
-autocmd BufNewFile,BufRead *.md call ColumnWrap()
-autocmd BufNewFile,BufRead *.markdown call ColumnWrap()
-function ColumnWrap()
-    set wrapmargin=80
-    set formatoptions=tcroqan1j
-endfunction
-
 " 80+ column warning
 autocmd BufNewFile,BufRead *.py call ColumnWarning()
 autocmd BufNewFile,BufRead *.tex call ColumnWarning()
