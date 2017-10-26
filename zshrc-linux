@@ -4,5 +4,10 @@ source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-se
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-# Set TERM to urxvt
-export TERM=rxvt-unicode-256color
+# Set appropriate TERM
+if (ps -e | grep X)
+then
+    export TERM=rxvt-unicode-256color
+else
+    export TERM=xterm-256color
+fi
