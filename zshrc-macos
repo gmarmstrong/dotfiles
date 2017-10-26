@@ -1,10 +1,10 @@
-# Zsh plugins
+# Add python3 to PATH
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# oh-my-zsh plugins
 plugins=(git git-flow osx zsh-history-substring-search)
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-
-# Add ~/bin to path
-export PATH="~/bin:$PATH"
 
 # Set TERM to iTerm2
 export TERM="iterm2"
