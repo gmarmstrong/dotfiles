@@ -36,8 +36,8 @@ call plug#end()
 " netrw settings
 let g:netrw_banner = 0
 
-" vim-markdown settings
-let g:vim_markdown_folding_disabled = 1
+" vimtex settings
+let g:vimtex_compiler_latexmk = {'callback' : 0}
 
 " goyo.vim settings
 map <leader>f :Goyo <bar> highlight StatusLineNC ctermfg=white<CR>
