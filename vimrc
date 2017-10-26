@@ -117,10 +117,10 @@ autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
 autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 
 " no line numbers or tildes
-"autocmd BufNewFile,BufRead *.md call NoNumber()
-"autocmd BufNewFile,BufRead *.markdown call NoNumber()
-"autocmd BufNewFile,BufRead *.txt call NoNumber()
-"autocmd BufNewFile,BufRead *.rst call NoNumber()
+autocmd BufNewFile,BufRead *.md call NoNumber()
+autocmd BufNewFile,BufRead *.markdown call NoNumber()
+autocmd BufNewFile,BufRead *.txt call NoNumber()
+autocmd BufNewFile,BufRead *.rst call NoNumber()
 function NoNumber()
     setlocal nonumber
     highlight EndOfBuffer ctermfg=white ctermbg=white
