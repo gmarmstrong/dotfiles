@@ -16,6 +16,7 @@ sets Vim configurations.
 configures X startup.
 * [`Xresources`](https://wiki.archlinux.org/index.php/X_resources)
 configures X client applications.
+* `zshenv` is sourced first, even for non-interactive shells
 * [`zshrc`](https://wiki.archlinux.org/index.php/Zsh#Configure_Zsh)
 sets environment variables and aliases for [Zsh](http://zsh.sourceforge.net).
 * `zshrc-linux` sets Linux-specific Zsh configurations.
