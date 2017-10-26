@@ -29,14 +29,15 @@ Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 Plug 'vim-scripts/MPage'                "Synchronous splits
-Plug 'junegunn/goyo.vim'                "Distractionless writing
+Plug 'godlygeek/tabular'                "Markdown dependency
+Plug 'gabrielelana/vim-markdown'        "Markdown support
 call plug#end()
 
 " netrw settings
 let g:netrw_banner = 0
 
-" vim-markdown settings
-let g:vim_markdown_folding_disabled = 1
+" vimtex settings
+let g:vimtex_compiler_latexmk = {'callback' : 0}
 
 " goyo.vim settings
 map <leader>f :Goyo <bar> highlight StatusLineNC ctermfg=white<CR>
@@ -67,11 +68,11 @@ filetype indent on
 
 " === Word wrapping ===
 
- "Word wrapping.
+"Word wrapping.
 set wrap
 set linebreak
 
- "Prevent automatic linebreaks in newly entered text
+"Prevent automatic linebreaks in newly entered text
 set textwidth=80
 set wrapmargin=0
 
@@ -82,15 +83,6 @@ autocmd BufNewFile,BufRead *.py map <F5> :!python2 %<CR>
 
 " *.py: F6 --> python3
 autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
-
-" 80 column wrap
-autocmd BufNewFile,BufRead *.txt call ColumnWrap()
-autocmd BufNewFile,BufRead *.md call ColumnWrap()
-autocmd BufNewFile,BufRead *.markdown call ColumnWrap()
-function ColumnWrap()
-    set wrapmargin=80
-    set formatoptions=tcroqan1j
-endfunction
 
 " 80+ column warning
 autocmd BufNewFile,BufRead *.py call ColumnWarning()
@@ -125,10 +117,10 @@ autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
 autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
 
 " no line numbers or tildes
-"autocmd BufNewFile,BufRead *.md call NoNumber()
-"autocmd BufNewFile,BufRead *.markdown call NoNumber()
-"autocmd BufNewFile,BufRead *.txt call NoNumber()
-"autocmd BufNewFile,BufRead *.rst call NoNumber()
+autocmd BufNewFile,BufRead *.md call NoNumber()
+autocmd BufNewFile,BufRead *.markdown call NoNumber()
+autocmd BufNewFile,BufRead *.txt call NoNumber()
+autocmd BufNewFile,BufRead *.rst call NoNumber()
 function NoNumber()
     setlocal nonumber
     highlight EndOfBuffer ctermfg=white ctermbg=white

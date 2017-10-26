@@ -4,6 +4,7 @@ source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-se
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+# Set appropriate TERM
 if (ps -e | grep X)
 then
     export TERM=rxvt-unicode-256color
