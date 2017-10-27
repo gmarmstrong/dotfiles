@@ -13,7 +13,7 @@ fi
 # Check Internet connection
 if ! ping -c 1 google.com >& /dev/null;
 then
-    echo "Internet connection failed. Aborting."
+    echo "ERROR: Internet connection failed. Aborting."
     exit 1
 else
     echo "Internet connection successful."
