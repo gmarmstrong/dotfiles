@@ -2,7 +2,7 @@
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # oh-my-zsh plugins
-plugins=(git git-flow osx zsh-history-substring-search)
+plugins=(osx zsh-history-substring-search)
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 

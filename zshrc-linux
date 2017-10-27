@@ -1,5 +1,5 @@
 # Zsh plugins
-plugins=(git git-flow)
+plugins=()
 source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
