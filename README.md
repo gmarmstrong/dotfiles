@@ -4,7 +4,7 @@ This is my dotfiles repository. There are many like it, but this one is mine.
 
 ## Description
 
-* `Brewfile` Bundles [Homebrew](https://brew.sh/) dependencies. It should not
+* `Brewfile` bundles [Homebrew](https://brew.sh/) dependencies. It should not
   be given a dot before its name.
 * `gitignore_global` lists global
   [gitignore](https://git-scm.com/docs/gitignore) rules.
