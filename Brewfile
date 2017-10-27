@@ -38,11 +38,12 @@ brew 'youtube-dl'
 brew 'zsh'
 brew 'zsh-completions'
 
-# TODO Backblaze
 cask '1password'
 cask 'alfred'
+cask 'backblaze'
 cask 'calibre'
 cask 'caskroom/versions/firefox-beta'
+cask 'grandperspective'
 cask 'iterm2'
 cask 'mactex'
 cask 'microsoft-office'
