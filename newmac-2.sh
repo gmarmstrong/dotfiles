@@ -13,6 +13,7 @@ ln -s ~/dotfiles/zshrc ~/.zshrc >& /dev/null
 ln -s ~/dotfiles/vimrc ~/.vimrc >& /dev/null
 ln -s ~/dotfiles/zshenv ~/.zshenv >& /dev/null
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global >& /dev/null
+ln -s ~/dotfiles/Brewfile ~/Brewfile >& /dev/null
 
 # Symlink iCloud Drive
 if ! [ -d ~/iCloud ]
