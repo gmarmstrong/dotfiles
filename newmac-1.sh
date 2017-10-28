@@ -55,19 +55,19 @@ then
     git clone git@github.com:gmarmstrong/dotfiles.git
 fi
 
-# # Clone scripts repository
-# if ! [ -e ~/scripts ]
-# then
-#     echo "Downloading scripts."
-#     git clone git@github.com:gmarmstrong/scripts.git
-# fi
-#
-# # Clone applescripts repository
-# if ! [ -e ~/applescripts ]
-# then
-#     echo "Downloading AppleScripts."
-#     git clone git@github.com:gmarmstrong/applescripts.git
-# fi
+# Clone scripts repository
+if ! [ -e ~/scripts ]
+then
+    echo "Downloading scripts."
+    git clone git@github.com:gmarmstrong/scripts.git
+fi
+
+# Clone applescripts repository
+if ! [ -e ~/applescripts ]
+then
+    echo "Downloading AppleScripts."
+    git clone git@github.com:gmarmstrong/applescripts.git
+fi
 
 # Install Homebrew
 if test ! $(which brew)
