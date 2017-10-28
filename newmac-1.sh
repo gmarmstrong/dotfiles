@@ -36,7 +36,7 @@ git config --global user.email "$email"
 if ! [ -f ~/.ssh/id_rsa ] # Check that no key exists
 then
     echo "Generating key."
-    mkdir .ssh >& /dev/null
+    mkdir ~/.ssh >& /dev/null
     read -p "Enter a unique name for your GitHub key: " github_keyname
     ssh-keygen -q -t rsa -b 4096 -C "$email" -f "~/.ssh/id_rsa"
     eval "$(ssh-agent -s)" &> /dev/null
