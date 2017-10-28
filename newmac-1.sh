@@ -84,33 +84,23 @@ brew update
 brew upgrade
 brew bundle
 
+# Download OpenVPN configuration files (for Private Internet Access)
+if [ -e "/Applications/Tunnelblick.app" ]
+then
+    echo "Downloading OpenVPN configuration files."
+    open "/Applications/Tunnelblick.app"
+    wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
+    unzip openvpn.zip -d openvpn
+    open openvpn/*
+    rm openvpn.zip
+    # TODO Automate this. Watch how Tunnelblick does it (each configuration gets its own subdirectory.)
+    echo "Opened the configuration files for manual installation."
+    echo "You can delete ~/openvpn/ when you're done."
+fi
+
 # Install oh-my-zsh
 if ! [ -e ~/.oh-my-zsh ]
 then
     echo "Installing oh-my-zsh."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
-# FIXME Everything after this point needs to be in a separate script
-exit 0
-
-# Symlink dotfiles
-echo "Symlinking dotfiles."
-mv ~/.zshrc ~/.zshrc-omz
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/zshenv ~/.zshenv
-ln -s ~/dotfiles/zshrc ~/.zshrc
-ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
-
-# Install zsh-history-substring-search
-git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
-
-# Point Git to global exclusion file
-git config --global core.excludesfile ~/.gitignore_global
-
-# Install vim-plug and plugins
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +qall
-vim +PlugInstall +qall
-
-# Prevent buyer's remorse, stage two
-echo "All done. Enjoy! 😊"
