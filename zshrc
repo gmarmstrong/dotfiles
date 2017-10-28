@@ -23,4 +23,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 case "$OSTYPE" in
     darwin*)    source ~/dotfiles/zshrc-macos ;;
     linux*)     source ~/dotfiles/zshrc-linux ;;
-esac # WARNING: Code after this line will not be loaded.
+esac # WARNING: Code after this line will not (necessarily) be loaded.
