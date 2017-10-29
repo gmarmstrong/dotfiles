@@ -63,3 +63,5 @@ cask 'virtualbox-extension-pack'
 cask 'vlc'
 
 cask 'font-anonymous-pro'
+cask 'font-roboto-mono'
+cask 'font-inconsolata'
