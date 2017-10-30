@@ -1,6 +1,6 @@
 # Aliases
 alias nike='ssh -x gma@nike.cs.uga.edu'
-alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.DS_Store|.Spotlight-V100|.Trashes'"
+alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.DS_Store|.Spotlight-V100|.Trashes|.sass-cache'"
 alias new="newsbeuter -x reload print-unread"
 
 # Add ~/bin to path
