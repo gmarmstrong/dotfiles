@@ -116,7 +116,14 @@ autocmd BufNewFile,BufRead *.R map <F6> :!Rscript %<CR>
 
 " *.html, *.md: F6 --> open
 autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
-"autocmd BufNewFile,BufRead *.md map <F6> :!open %<CR>
+
+" *.md, markdown: F6 --> pandoc and open
+autocmd BufNewFile,BufRead *.md map <F6> :call OpenPandocHTML()<CR><CR><CR>
+autocmd BufNewFile,BufRead *.markdown map <F6> :call OpenPandocHTML()<CR><CR><CR>
+function OpenPandocHTML()
+    !pandoc -f markdown -t html % -o %:r.html
+    !open %:r.html
+endfunction
 
 " *.hs: F6 --> ghci
 autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
