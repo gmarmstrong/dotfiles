@@ -98,12 +98,15 @@ endfunction
 "autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % docdev/'%:r'.html<CR>
 autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % '%:r'.html<CR>
 
-" *.txt, *.tex, *.html, *.md, *.markdown : F5 --> spell checking
-autocmd BufNewFile,BufRead *.txt map <F5> :set spell! spelllang=en_us<CR>
-autocmd BufNewFile,BufRead *.tex map <F5> :set spell! spelllang=en_us<CR>
-autocmd BufNewFile,BufRead *.html map <F5> :set spell! spelllang=en_us<CR>
-autocmd BufNewFile,BufRead *.md map <F5> :set spell! spelllang=en_us<CR>
-autocmd BufNewFile,BufRead *.markdown map <F5> :set spell! spelllang=en_us<CR>
+" Spell checking
+autocmd BufNewFile,BufRead *.txt map <F5> :call SetSpell()<CR>
+autocmd BufNewFile,BufRead *.tex map <F5> :call SetSpell()<CR>
+autocmd BufNewFile,BufRead *.html map <F5> :call SetSpell()<CR>
+autocmd BufNewFile,BufRead *.md map <F5> :call SetSpell()<CR>
+autocmd BufNewFile,BufRead *.markdown map <F5> :call SetSpell()<CR>
+function SetSpell()
+    set spell! spelllang=en_us
+endfunction
 
 " *.tex: F6 --> pdflatex
 autocmd BufNewFile,BufRead *.tex map <F6> :!pdflatex %<CR>
