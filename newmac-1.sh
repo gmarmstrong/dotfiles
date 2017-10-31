@@ -28,10 +28,10 @@ fi
 
 # Collect GitHub information and configure Git
 # TODO Only do this if Git is not configured.
-read -p "Enter email used for GitHub: " email
+read -p "Enter email used for GitHub: " gh_email
 read -p "Enter GitHub username: " github_username
 git config --global user.name "$github_username"
-git config --global user.email "$email"
+git config --global user.email "$gh_email"
 
 # Generate key and upload to GitHub
 if ! [ -f ~/.ssh/id_rsa ] # Check that no key exists
@@ -39,7 +39,7 @@ then
     echo "Generating key."
     mkdir ~/.ssh >& /dev/null
     read -p "Enter a unique name for your GitHub key: " github_keyname
-    ssh-keygen -q -t rsa -b 4096 -C "$email" -f "~/.ssh/id_rsa"
+    ssh-keygen -q -t rsa -b 4096 -C "$gh_email" -f "~/.ssh/id_rsa"
     eval "$(ssh-agent -s)" &> /dev/null
     ssh-add "~/.ssh/id_rsa" &> /dev/null
     myjson='{"title":"'"$github_keyname"'","key":"'"$(cat ~/.ssh/id_rsa.pub)"'"}'
