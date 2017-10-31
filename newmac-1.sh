@@ -27,6 +27,7 @@ then
 fi
 
 # Collect GitHub information and configure Git
+# TODO Only do this if Git is not configured.
 read -p "Enter email used for GitHub: " email
 read -p "Enter GitHub username: " github_username
 git config --global user.name "$github_username"
