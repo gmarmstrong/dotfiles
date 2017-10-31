@@ -82,4 +82,4 @@ cask 'caskroom/fonts/font-anonymous-pro'
 cask 'caskroom/fonts/font-roboto-mono'
 cask 'caskroom/fonts/font-inconsolata'
 
-# TODO Add mas Xcode and id number
+mas 'Xcode', id: 497799835
