@@ -2,6 +2,7 @@
 secring.*
 
 # TeX
+*.pdf
 *.aux
 *.lof
 *.log
