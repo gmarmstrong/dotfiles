@@ -79,6 +79,13 @@ else
     echo "Homebrew already installed."
 fi
 
+# Sign in to Mac App Store
+# TODO Skip if already signed in to Mac App Store
+echo "Signing in to the Mac App Store"
+brew install mas
+read -p "Enter email used for Mac App Store: " mas_email
+mas signin "$(mas_email)"
+
 # Download all programs
 echo "Downloading and updating programs."
 brew update
