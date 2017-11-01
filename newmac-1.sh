@@ -34,7 +34,8 @@ git config --global user.name "$github_username"
 git config --global user.email "$gh_email"
 
 # Generate key and upload to GitHub
-if ! [ -f ~/.ssh/id_rsa ] # Check that no key exists
+mkdir ~/.ssh
+if ! [ -e ~/.ssh/id_rsa ] # Check that no key exists
 then
     echo "Generating key."
     mkdir ~/.ssh >& /dev/null
