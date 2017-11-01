@@ -8,8 +8,6 @@ tap 'homebrew/core'
 
 brew 'ack'
 brew 'atool'
-brew 'autoconf'
-brew 'automake'
 brew 'awscli'
 brew 'blueutil'
 brew 'cabal-install'
