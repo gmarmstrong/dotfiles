@@ -85,7 +85,7 @@ fi
 echo "Signing in to the Mac App Store"
 brew install mas
 read -p "Enter email used for Mac App Store: " mas_email
-mas signin "$(mas_email)"
+mas signin "($mas_email)"
 
 # Download all programs
 echo "Downloading and updating programs."
