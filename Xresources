@@ -20,7 +20,6 @@ URxvt.font: xft:Anonymous Pro:Regular:size=12:antialiasing=True
 Xft.hinting:    true
 Xft.antialias:  true
 
-
 ! Base16 Default Light
 ! Scheme: Chris Kempson (http://chriskempson.com)
 
@@ -75,4 +74,3 @@ Xft.antialias:  true
     *.color19:      base02
     *.color20:      base04
     *.color21:      base06
-
