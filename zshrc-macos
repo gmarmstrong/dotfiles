@@ -8,3 +8,6 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # Set TERM to iTerm2
 export TERM="iterm2"
+
+# iTerm2 shell integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
