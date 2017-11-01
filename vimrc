@@ -72,7 +72,7 @@ set wrap
 set linebreak
 
 " Prevent automatic linebreaks in newly entered text
-set textwidth=80
+set textwidth=0
 set wrapmargin=0
 
 " Reformat paragraph with Q
