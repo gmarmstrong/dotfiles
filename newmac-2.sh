@@ -13,13 +13,12 @@ ln -s ~/dotfiles/zshrc ~/.zshrc >& /dev/null
 ln -s ~/dotfiles/vimrc ~/.vimrc >& /dev/null
 ln -s ~/dotfiles/zshenv ~/.zshenv >& /dev/null
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global >& /dev/null
-ln -s ~/dotfiles/Brewfile ~/Brewfile >& /dev/null
 
 # Symlink iCloud Drive
 if ! [ -d ~/iCloud ]
 then
     echo "Creating iCloud Drive shortcut."
-    ln -s "~/Library/Mobile Documents/com~apple~CloudDocs/" "~/iCloud"
+    ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/Personal ~/iCloud
 fi
 
 # Point Git to global exclusion file
