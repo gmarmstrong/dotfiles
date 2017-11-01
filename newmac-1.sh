@@ -89,6 +89,7 @@ mas signin "($mas_email)"
 
 # Download all programs
 echo "Downloading and updating programs."
+ln -s ~/dotfiles/Brewfile ~/Brewfile
 brew update
 brew upgrade
 brew bundle
