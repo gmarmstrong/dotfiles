@@ -84,4 +84,4 @@ cask 'caskroom/fonts/font-roboto-mono'
 cask 'caskroom/fonts/font-inconsolata'
 
 mas 'Xcode', id: 497799835
-mas 'macOS High Sierra', id: 1246284741
+# mas 'macOS High Sierra', id: 1246284741
