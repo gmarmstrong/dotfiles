@@ -1,27 +1,85 @@
-" === General settings ===
+" ==============================================================================
+" META
 
-" Be vim, not vi!
-set nocompatible
+" Hide line numbers
+function NoNumber()
+    setlocal nonumber
+endfunction
 
-" Detect remote status
-let g:remoteSession = ($SSH_CLIENT != "")
+" Highlight columns exceeding 80
+function ColumnWarning()
+    highlight OverLength ctermbg=red ctermfg=white
+    match OverLength /\%81v.\+/
+endfunction
+
+" Compile to HTML and open
+function OpenPandocHTML()
+    !pandoc -f markdown -t html % -o %:r.html
+    !open %:r.html
+endfunction
+
+" Compile and open LaTeX
+function OpenTeX()
+    autocmd BufNewFile,BufRead *.tex map <F6> :!pdflatex %<CR>
+endfunction
+
+" ==============================================================================
+" ESSENTIAL
 
 " Map jk to escape
 inoremap jk <esc>
 
+" Be vim, not vi!
+set nocompatible
+
+" Detect filetype
+filetype on
+
+" ==============================================================================
+" REMOTE
+
+" Detect remote status
+let g:remoteSession = ($SSH_CLIENT != "")
+
+" ==============================================================================
+" INTERFACE
+
 set ruler                       "Display line/column number, position, etc.
 set number                      "Show line numbers
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set showmode                    "Show current mode in bottom window
-set autoread                    "Reload files changed outside vim
-set clipboard=unnamed           "y(ank) and p(ull) copy to the system clipboard
 set shortmess=I                 "Disable startup message
 set shortmess+=W                "Disable write message
+
+" ==============================================================================
+" DISPLAY
+
+" Reload changed files
+set autoread
+
+" Show whitespace
+set list
+set list listchars=tab:»·,trail:␣
+
+" Color
+syntax on
+highlight LineNr ctermfg=lightgrey
+
+" ==============================================================================
+" INPUT
+
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set showmode                    "Show current mode in bottom window
+set clipboard=unnamed           "y(ank) and p(ull) copy to the system clipboard
+
+" ==============================================================================
+" DICTIONARY
 
 nmap <silent> <Leader>d :!dict <cword> \| less <CR>
 nmap <silent> <Leader>t :!open dict://<cword><CR><CR>
 
-" === Plugin settings ===
+" ==============================================================================
+" PLUGINS
+
+filetype plugin on
 
 " Plugins
 call plug#begin('~/.vim/plugged')       "Note the single quotes
@@ -38,15 +96,8 @@ let g:netrw_banner = 0
 " vimtex settings
 let g:vimtex_compiler_latexmk = {'callback' : 0}
 
-" goyo.vim settings
-map <leader>f :Goyo <bar> highlight StatusLineNC ctermfg=white<CR>
-
-" === Show whitespace ===
-
-set list
-set list listchars=tab:»·,trail:␣
-
-" === Indentation ===
+" ==============================================================================
+" INDENTATION
 
 set autoindent          "Open (o and O) lines with appropriate indentation
 set smartindent         "Be smart
@@ -55,90 +106,54 @@ set shiftwidth=4        "Set width of reindent operations (<< and >>)
 set tabstop=4           "Tab characters appear 4 spaces wide
 set expandtab           "Insert spaces instead of tabs
 set breakindent         "Indent wrapped lines
+filetype indent on      "Indent with filetype in mind
 
-" Auto indent pasted text
+" Indent pasted text
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
 
-" Enable file type detection
-filetype on
-filetype plugin on
-filetype indent on
+" ==============================================================================
+" WRAPPING
 
-" === Word wrapping ===
+set wrap            "Enable wrapping
+set textwidth=0     "Column after which to break
+set linebreak       "Wrap at column, not at border
+set wrapmargin=0    "Distance from the window border to wrap
 
-" Word wrapping.
-set wrap
-set linebreak
+" ==============================================================================
+" PYTHON
 
-" Prevent automatic linebreaks in newly entered text
-set textwidth=0
-set wrapmargin=0
-
-" Reformat paragraph with Q
-noremap Q gqap
-
-" === Filetype functions ===
-
-" *.py: F5 --> python2
+" Map F5 to compile
 autocmd BufNewFile,BufRead *.py map <F5> :!python2 %<CR>
-
-" *.py: F6 --> python3
-autocmd BufNewFile,BufRead *.py map <F6> :!python3 %<CR>
+autocmd BufNewFile,BufRead *.py map <F5> :!python3 %<CR>
 
 " 80+ column warning
 autocmd BufNewFile,BufRead *.py call ColumnWarning()
-autocmd BufNewFile,BufRead *.tex call ColumnWarning()
-function ColumnWarning()
-    highlight OverLength ctermbg=red ctermfg=white
-    match OverLength /\%81v.\+/
-endfunction
 
-" *.rst: F5 --> rst2html.py
-"autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % docdev/'%:r'.html<CR>
-autocmd BufNewFile,BufRead *.rst map <F5> :!rst2html.py % '%:r'.html<CR>
+" ==============================================================================
+" R
 
-" Spell checking
-autocmd BufNewFile,BufRead *.txt map <F5> :call SetSpell()<CR>
-autocmd BufNewFile,BufRead *.tex map <F5> :call SetSpell()<CR>
-autocmd BufNewFile,BufRead *.html map <F5> :call SetSpell()<CR>
-autocmd BufNewFile,BufRead *.md map <F5> :call SetSpell()<CR>
-autocmd BufNewFile,BufRead *.markdown map <F5> :call SetSpell()<CR>
-function SetSpell()
-    set spell! spelllang=en_us
-endfunction
+" Map F5 to compile
+autocmd FileType r map <F5> :!Rscript %<CR>
 
-" *.tex: F6 --> pdflatex
-autocmd BufNewFile,BufRead *.tex map <F6> :!pdflatex %<CR>
+" ==============================================================================
+" Haskell
 
-" *.R: F6 --> Rscript
-autocmd BufNewFile,BufRead *.R map <F6> :!Rscript %<CR>
+" Map F5 to compile
+autocmd BufNewFile,BufRead *.hs map <F5> :!ghci %<CR>
 
-" *.html, *.md: F6 --> open
-autocmd BufNewFile,BufRead *.html map <F6> :!open %<CR>
+" ==============================================================================
+" PROSE
 
-" *.md, markdown: F6 --> pandoc and open
-autocmd BufNewFile,BufRead *.md map <F6> :call OpenPandocHTML()<CR><CR><CR>
-autocmd BufNewFile,BufRead *.markdown map <F6> :call OpenPandocHTML()<CR><CR><CR>
-function OpenPandocHTML()
-    !pandoc -f markdown -t html % -o %:r.html
-    !open %:r.html
-endfunction
+" Disable line numbers
+autocmd FileType latex,markdown,text call NoNumber()
 
-" *.hs: F6 --> ghci
-autocmd BufNewFile,BufRead *.hs map <F6> :!ghci %<CR>
+" Map F5 to toggle spell checking
+autocmd FileType latex,markdown,text,rst,html set spell spelllang=en_us
+autocmd FileType latex,markdown,text,rst,html map <F5> :set spell! spelllang=en_us<CR>
 
-" no line numbers or tildes
-autocmd BufNewFile,BufRead *.md call NoNumber()
-autocmd BufNewFile,BufRead *.markdown call NoNumber()
-autocmd BufNewFile,BufRead *.txt call NoNumber()
-autocmd BufNewFile,BufRead *.rst call NoNumber()
-function NoNumber()
-    setlocal nonumber
-    highlight EndOfBuffer ctermfg=white ctermbg=white
-endfunction
-
-" === Color settings ===
-
-syntax on
-highlight LineNr ctermfg=lightgrey
+" Map F6 to open
+autocmd FileType html map <F6> :!open % <CR>
+autocmd FileType rst map <F6> :!rst2html.py % '%:r'.html<CR>
+autocmd FileType markdown map <F6> :call OpenPandocHTML()<CR><CR><CR>
+autocmd FileType tex map <F6> :call OpenTeX()
