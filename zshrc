@@ -1,8 +1,3 @@
-# Aliases
-alias nike='ssh -x gma@nike.cs.uga.edu'
-alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.DS_Store|.Spotlight-V100|.Trashes|.sass-cache'"
-alias new="newsbeuter -x reload print-unread"
-
 # Add ~/bin to path
 if [ -d $HOME/bin ] ; then
     PATH=$HOME/bin:$PATH
@@ -11,6 +6,11 @@ fi
 # oh-my-zsh configuration
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# Aliases
+alias nike='ssh -x gma@nike.cs.uga.edu'
+alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.DS_Store|.Spotlight-V100|.Trashes|.sass-cache'"
+alias new="newsbeuter -x reload print-unread"
 
 # Vi-like shell
 bindkey -v
