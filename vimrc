@@ -48,6 +48,7 @@ set ruler                       "Display line/column number, position, etc.
 set number                      "Show line numbers
 set shortmess=I                 "Disable startup message
 set shortmess+=W                "Disable write message
+let g:netrw_banner = 0          "Hide banner in file browser
 
 " ==============================================================================
 " DISPLAY
@@ -89,9 +90,6 @@ Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'gabrielelana/vim-markdown'        "Markdown support
 call plug#end()
-
-" netrw settings
-let g:netrw_banner = 0
 
 " vimtex settings
 let g:vimtex_compiler_latexmk = {'callback' : 0}
