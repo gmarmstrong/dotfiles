@@ -11,7 +11,7 @@ This is my dotfiles repository. There are many like it, but this one is mine.
 * [`i3/config`](http://i3wm.org/docs/userguide.html#configuring) configures the
   i3 window manager.
 * `janitor.sh` executes system maintenance tasks.
-* [`vimrc`](http://vimdoc.sourceforge.net/htmldoc/starting.html#vimrc) sets Vim
+* [`vimrc`](http://vimhelp.appspot.com/starting.txt.html#vimrc) sets Vim
   configurations.
 * [`xinitrc`](https://wiki.archlinux.org/index.php/Xinit#xinitrc) configures X
   startup.
