@@ -1,6 +1,7 @@
 #!/bin/bash
-
 # System maintenance script
+
+sudo -v
 
 sudo tlmgr update --self
 sudo tlmgr update --all
