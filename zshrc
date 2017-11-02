@@ -53,4 +53,4 @@ case "$OSTYPE" in
             export TERM=xterm-256color
         fi
         ;;
-esac # WARNING: Code after this line will not (necessarily) be loaded.
+esac
