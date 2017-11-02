@@ -146,7 +146,7 @@ autocmd BufNewFile,BufRead *.hs map <F5> :!ghci %<CR>
 " PROSE
 
 " Disable line numbers
-autocmd FileType latex,markdown,text call NoNumber()
+autocmd FileType latex,markdown,text,rst,html call NoNumber()
 
 " Map F5 to toggle spell checking
 autocmd FileType latex,markdown,text,rst,html set spell spelllang=en_us
