@@ -20,5 +20,3 @@ This is my dotfiles repository. There are many like it, but this one is mine.
 * `zshenv` is sourced first, even for non-interactive shells
 * [`zshrc`](https://wiki.archlinux.org/index.php/Zsh#Configure_Zsh) sets
   environment variables and aliases for [Zsh](http://zsh.sourceforge.net).
-* `zshrc-linux` sets Linux-specific Zsh configurations.
-* `zshrc-macos` sets macOS-specific Zsh configurations.
