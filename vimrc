@@ -52,20 +52,6 @@ set shortmess+=W                "Disable write message
 let g:netrw_banner = 0          "Hide banner in file browser
 
 " ==============================================================================
-" DISPLAY
-
-" Reload changed files
-set autoread
-
-" Show whitespace
-set list
-set list listchars=tab:»·,trail:␣
-
-" Color
-syntax on
-highlight LineNr ctermfg=lightgrey
-
-" ==============================================================================
 " INPUT
 
 set backspace=indent,eol,start  "Allow backspace in insert mode
@@ -90,10 +76,29 @@ Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'gabrielelana/vim-markdown'        "Markdown support
+Plug 'chriskempson/base16-vim'          "Colorschemes
 call plug#end()
 
 " vimtex settings
 let g:vimtex_compiler_latexmk = {'callback' : 0}
+
+" ==============================================================================
+" DISPLAY
+
+" Reload changed files
+set autoread
+
+" Show whitespace
+set list
+set list listchars=tab:»·,trail:␣
+
+" Color
+syntax on                               "Enable syntax highlighting
+
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
 
 " ==============================================================================
 " INDENTATION
