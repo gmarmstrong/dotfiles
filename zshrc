@@ -17,8 +17,36 @@ bindkey -v
 bindkey -v '^?' backward-delete-char
 bindkey -M viins 'jk' vi-cmd-mode
 
-# Source secondary zshrc appropriate to operating system
+# System-specific settings
 case "$OSTYPE" in
-    darwin*)    source ~/dotfiles/zshrc-macos ;;
-    linux*)     source ~/dotfiles/zshrc-linux ;;
+    darwin*)
+        # Add python3 to PATH
+        export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+        # oh-my-zsh plugins
+        plugins=(osx zsh-history-substring-search)
+        bindkey -M vicmd 'k' history-substring-search-up
+        bindkey -M vicmd 'j' history-substring-search-down
+
+        # Set TERM to iTerm2
+        export TERM="iterm2"
+
+        # iTerm2 shell integration
+        test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+    linux*)
+        # oh-my-zsh plugins
+        plugins=()
+        source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+        bindkey -M vicmd 'k' history-substring-search-up
+        bindkey -M vicmd 'j' history-substring-search-down
+
+        # Set appropriate TERM
+        if (ps -e | grep X)
+        then
+            export TERM=rxvt-unicode-256color
+        else
+            export TERM=xterm-256color
+        fi
+        ;;
 esac # WARNING: Code after this line will not (necessarily) be loaded.
