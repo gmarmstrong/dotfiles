@@ -14,7 +14,7 @@ if [ -d ~/.vim/plugged ]; then
 fi
 
 # Operating-specific actions
-case "$OSTYPE in
+case "$OSTYPE" in
     darwin*)
         brew upgrade
         brew update
