@@ -1,11 +1,9 @@
+export PS1="%d %% "
+
 # Add ~/bin to path
 if [ -d $HOME/bin ] ; then
     PATH=$HOME/bin:$PATH
 fi
-
-# oh-my-zsh configuration
-export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias nike='ssh -x gma@nike.cs.uga.edu'
@@ -30,11 +28,6 @@ case "$OSTYPE" in
         # Add python3 to PATH
         export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
-        # oh-my-zsh plugins
-        plugins=(osx zsh-history-substring-search)
-        bindkey -M vicmd 'k' history-substring-search-up
-        bindkey -M vicmd 'j' history-substring-search-down
-
         # Set TERM to iTerm2
         export TERM="iterm2"
 
@@ -43,12 +36,6 @@ case "$OSTYPE" in
 
         ;;
     linux*)
-        # oh-my-zsh plugins
-        plugins=()
-        source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-        bindkey -M vicmd 'k' history-substring-search-up
-        bindkey -M vicmd 'j' history-substring-search-down
-
         # Set appropriate TERM
         if (ps -e | grep X)
         then
