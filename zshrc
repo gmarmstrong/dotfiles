@@ -34,6 +34,7 @@ case "$OSTYPE" in
         # iTerm2 shell integration
         test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+        ;;
     linux*)
         # oh-my-zsh plugins
         plugins=()
