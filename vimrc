@@ -1,5 +1,5 @@
 " ==============================================================================
-" META
+" FUNCTIONS
 
 " Hide line numbers
 function NoNumber()
