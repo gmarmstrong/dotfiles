@@ -14,6 +14,7 @@ alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.DS_Store|.Spotlight-V100|
 alias new="newsbeuter -x reload print-unread"
 alias ls="ls -FH"
 alias ll="ls -FHA"
+alias l="ls -FHAl"
 
 # Vi-like shell
 bindkey -v
