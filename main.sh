@@ -69,9 +69,6 @@ eval "$curl -u $github_username --data '$myjson' https://api.github.com/user/key
 # Install vim and vim-plug
 # TODO Use either wget or curl, not both
 eval "sudo $aptget install vim"
-mkdir -p ~/.vim/colors
-eval "$wget -O ~/.vim/colors/Tomorrow.vim https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow.vim"
-eval "$wget -O ~/.vim/colors/Tomorrow-Night.vim https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night.vim"
 eval "$curl -fL -o ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
 # Get dotfiles
