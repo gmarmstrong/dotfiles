@@ -43,7 +43,6 @@ brew 'wget'
 brew 'xz'
 brew 'youtube-dl'
 brew 'zsh'
-brew 'zsh-completions'
 
 cask '1password'
 cask 'alfred'
