@@ -56,7 +56,7 @@ let g:netrw_banner = 0          "Hide banner in file browser
 
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set showmode                    "Show current mode in bottom window
-set clipboard=unnamed           "y(ank) and p(ull) copy to the system clipboard
+set clipboard=unnamed           "yank and pull to the system clipboard
 
 " ==============================================================================
 " DICTIONARY
@@ -147,8 +147,8 @@ autocmd BufNewFile,BufRead *.hs map <F5> :!ghci %<CR>
 autocmd FileType latex,markdown,text,rst,html call NoNumber()
 
 " Map F5 to toggle spell checking
-autocmd FileType latex,markdown,text,rst,html set spell spelllang=en_us
-autocmd FileType latex,markdown,text,rst,html map <F5> :set spell! spelllang=en_us<CR>
+autocmd FileType latex,markdown,text,rst,html setlocal spell spelllang=en_us
+autocmd FileType latex,markdown,text,rst,html map <F5> :setlocal spell! spelllang=en_us<CR>
 
 " Map F6 to open
 autocmd FileType html map <F6> :!open % <CR>
