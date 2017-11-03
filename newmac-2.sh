@@ -17,16 +17,6 @@ fi
 # Point Git to global exclusion file
 git config --global core.excludesfile ~/.gitignore_global
 
-# Install base16-tomorrow.itermcolors
-wget https://raw.githubusercontent.com/martinlindhe/base16-iterm2/master/itermcolors/base16-tomorrow.itermcolors
-open base16-tomorrow.itermcolors
-rm base16-tomorrow.itermcolors
-
-# Install base16-shell
-if [ ! -d "$HOME/.config/base16-shell" ]; then
-    git clone https://github.com/chriskempson/base16-shell.git "$HOME/.config/base16-shell"
-fi
-
 # Install vim-plug
 if ! [ -e ~/.vim/autoload/plug.vim ]
 then
