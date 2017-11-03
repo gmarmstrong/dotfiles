@@ -8,18 +8,14 @@ https://www.schneier.com/blog/atom.xml                  "~Bruce Schneier"       
 https://jvns.ca/atom.xml                                "~Julia Evans"                      "individual"
 https://mathbabe.org/feed/                              "~Cathy O'Neil"                     "individual"
 http://slatestarcodex.com/feed/                         "~Scott Alexander"                  "individual"
-
 https://hnrss.org/newest?points=100                     "~Hacker News"                      "aggregators"
-
 https://www.aclu.org/taxonomy/channel-term/1/feed       "~American Civil Liberties Union"   "orgs"
 https://www.eff.org/rss/updates.xml                     "~Electronic Frontier Foundations"  "orgs"
-
 http://feeds.propublica.org/propublica/main             "~ProPublica"                       "news"
 https://fivethirtyeight.com/economics/feed/             "~FiveThirtyEight: Economics"       "news"
 https://fivethirtyeight.com/politics/feed/              "~FiveThirtyEight: Politics"        "news"
 https://rss.nytimes.com/services/xml/rss/nyt/US.xml     "~The New York Times: U.S."         "news"
 https://rss.nytimes.com/services/xml/rss/nyt/World.xml  "~The New York Times: World"        "news"
-
 http://www.theonion.com/feeds/rss                       "~The Onion"                        "humor"
 https://www.newyorker.com/feed/humor/borowitz-report    "~Borowitz Report"                  "humor"
 https://xkcd.com/rss.xml                                "~xkcd"                             "humor"
