@@ -1,5 +1,8 @@
-# If nothing else, GPG.
+# If nothing else, confidentiality
 secring.*
+.ssh/id_rsa
+.ssh/id_rsa.pub
+.gnupg
 
 # TeX
 *.pdf
@@ -60,6 +63,7 @@ Temporary Items
 [._]sw[a-p]
 Session.vim
 .netrwhist
+.viminfo
 *~
 tags
 
