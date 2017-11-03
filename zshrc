@@ -2,7 +2,7 @@ export PS1="%d %% "
 
 # Add ~/bin to path
 if [ -d $HOME/bin ] ; then
-    PATH=$HOME/bin:$PATH
+    PATH="$HOME/bin:$PATH"
 fi
 
 # Aliases
