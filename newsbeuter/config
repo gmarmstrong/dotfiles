@@ -1,0 +1,7 @@
+# ~/.config/newsbeuter/config
+
+browser open
+reload-threads 6
+auto-reload yes
+goto-next-feed no
+# text-width 80 # Only works properly with newsboat

@@ -10,8 +10,12 @@ This is my dotfiles repository. There are many like it, but this one is mine.
   [gitignore](https://git-scm.com/docs/gitignore) rules.
 * [`i3/config`](http://i3wm.org/docs/userguide.html#configuring) configures the
   i3 window manager.
-* `janitor` executes system maintenance tasks. It does not need to be symlinked.
+* `janitor` executes system maintenance tasks. It does not need to be
+  symlinked.
 * `macos` executes system setup tasks. It does not need to be symlinked.
+* `newsbeuter/config` configures the
+  [newsbeuter](https://github.com/akrennmair/newsbeuter) feed reader (but I
+  need to switch to [newsboat](https://github.com/newsboat/newsboat)!)
 * [`vimrc`](http://vimhelp.appspot.com/starting.txt.html#vimrc) sets Vim
   configurations.
 * [`xinitrc`](https://wiki.archlinux.org/index.php/Xinit#xinitrc) configures X
