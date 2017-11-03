@@ -16,6 +16,7 @@ alias new="newsbeuter -x reload print-unread"
 alias ls="ls -FH"
 alias ll="ls -FHA"
 alias l="ls -FHAl"
+alias rm='echo "Be responsible; use trash!"; false'
 
 # Vi-like shell
 bindkey -v
