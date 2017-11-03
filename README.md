@@ -10,11 +10,10 @@ Create a VirtualBox virtual machine and install Debian (64-bit) stable netinst (
 ```
 $ wget https://goo.gl/iYPSNz -O setup
 $ wget https://goo.gl/zQCqoW -O debug
-$ bash setup.sh
+$ ./setup
 $ newgrp sudo
 $ newgrp -
-$ bash main.sh
-$ zsh postzsh.sh
+$ ./post-install
 ```
 Log back in.
 ```
