@@ -76,7 +76,6 @@ Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'gabrielelana/vim-markdown'        "Markdown support
-Plug 'chriskempson/base16-vim'          "Colorschemes
 call plug#end()
 
 " vimtex settings
@@ -94,11 +93,6 @@ set list listchars=tab:»·,trail:␣
 
 " Color
 syntax on                               "Enable syntax highlighting
-
-if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
-endif
 
 " ==============================================================================
 " INDENTATION
