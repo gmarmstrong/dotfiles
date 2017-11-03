@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Move ~/.zshrc if not symlinked (i.e., if oh-my-zsh was just installed)
-if ! [ -h ~/.zshrc ]
-then
-    echo "~/.zshrc was not a symbolic link. Moved it to ~/.zshrc-old."
-    mv ~/.zshrc ~/.zshrc-old
-fi
-
 # Symlink dotfiles
 echo "Symlinking dotfiles."
 ln -s ~/dotfiles/zshrc ~/.zshrc >& /dev/null
@@ -32,13 +25,6 @@ rm base16-tomorrow.itermcolors
 # Install base16-shell
 if [ ! -d "$HOME/.config/base16-shell" ]; then
     git clone https://github.com/chriskempson/base16-shell.git "$HOME/.config/base16-shell"
-fi
-
-# Install zsh-history-substring-search
-if ! [ -e ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search ]
-then
-    "Installing zsh-history-substring-search."
-    git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
 fi
 
 # Install vim-plug

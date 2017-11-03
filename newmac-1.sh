@@ -108,9 +108,13 @@ then
     echo "You can delete ~/openvpn/ when you're done."
 fi
 
-# Install oh-my-zsh
-if ! [ -e ~/.oh-my-zsh ]
-then
-    echo "Installing oh-my-zsh."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# Use pure prompt
+mkdir .zfunctions >& /dev/null
+if [ ! -e "$HOME/.zfunctions/pure_prompt_setup" ]; then
+    wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh -O "$HOME/.zfunctions/prompt_pure_setup"
 fi
+if [ ! -e "$HOME/.zfunctions/async" ]; then
+    wget https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh -O "$HOME/.zfunctions/async"
+fi
+
+# TODO Combine scripts now that oh-my-zsh is not used
