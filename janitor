@@ -10,6 +10,7 @@ sudo tlmgr update --all
 # See https://stackoverflow.com/a/3452888/6791398
 pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install --quiet --upgrade
 
+# Update Vim plugins
 if [ -d ~/.vim/plugged ]; then
     vim +PlugInstall +qall
 fi
