@@ -18,14 +18,14 @@ fi
 # Operating-specific actions
 case "$OSTYPE" in
     darwin*)
+        mas upgrade
         brew upgrade
         brew update
         brew bundle
         brew bundle check
+        brew bundle cleanup
         brew doctor
         brew style
-        brew prune
-        mas upgrade
         ;;
     linux*)
         sudo apt-get update
