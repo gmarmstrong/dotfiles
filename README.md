@@ -26,11 +26,16 @@ and `apt-get`.
 
 ### `newsbeuter/`
 
-These files configure [newsbeuter](https://github.com/akrennmair/newsbeuter), my RSS reader (newsbeuter is unmaintained, I need to switch to [newsboat](https://github.com/newsboat/newsboat)), and list the sites I follow. Its files can be symlinked into `~/.config/newsbeuter/` or into `~/.newsbeuter` (newsboat will use its own name).
+These files configure [newsbeuter](https://github.com/akrennmair/newsbeuter),
+my RSS reader (newsbeuter is unmaintained, I need to switch to
+[newsboat](https://github.com/newsboat/newsboat)), and list the sites I follow.
+Its files can be symlinked into `~/.config/newsbeuter/` or into `~/.newsbeuter`
+(newsboat will use its own name).
 
 ### `vimrc`
 
-This file [configures Vim](http://vimhelp.appspot.com/starting.txt.html#vimrc). It should be symlinked to `~/.vimrc`.
+This file [configures Vim](http://vimhelp.appspot.com/starting.txt.html#vimrc).
+It should be symlinked to `~/.vimrc`.
 
 ### `zshenv` and `zshrc`
 
@@ -44,25 +49,29 @@ even in non-interactive sessions. They should be symlinked to `~/.zshenv` and
 
 ### `Brewfile`
 
-This file bundles [Homebrew](https://brew.sh/) dependencies. It should be symlinked to `~/Brewfile`. It contains five lists: `taps`, `brew`, `cask`, `fonts`, and `mas`.
+This file bundles [Homebrew](https://brew.sh/) dependencies. It should be
+symlinked to `~/Brewfile`. It contains five lists: `taps`, `brew`, `cask`,
+`fonts`, and `mas`.
 
 ### `macos`
 
-TODO `macos` executes system setup tasks. It does not need to be symlinked.
+This file executes system setup tasks. Like `janitor`, it is an executable that
+is infrequently used, but it is usually only run once on a system.
 
 ## Linux settings
 
 ### `xinitrc`
 
-TODO [`xinitrc`](https://wiki.archlinux.org/index.php/Xinit#xinitrc) configures X
-startup.
+This file is sourced every time X starts. It sources `Xresources`, sets the
+background, and launches the window manager.
 
 ### `Xresources`
 
-TODO [`Xresources`](https://wiki.archlinux.org/index.php/X_resources) configures X
-client applications.
+This file configures visual preferences for X. It holds a color scheme, font
+settings, and settings for the `urxvt` terminal emulator.
 
 ### `i3/config`
 
-TODO [`i3/config`](http://i3wm.org/docs/userguide.html#configuring) configures the
-i3 window manager.
+This file [configures i3 window
+manager](http://i3wm.org/docs/userguide.html#configuring). Most of it is the
+default.
