@@ -61,7 +61,6 @@ myjson='{"title":"'"$github_keyname"'","key":"'"$(cat ~/.ssh/id_rsa.pub)"'"}'
 eval "$curl -u $github_username --data '$myjson' https://api.github.com/user/keys"
 
 # Install vim and vim-plug
-# TODO Use either wget or curl, not both
 eval "sudo $aptget install vim"
 eval "$curl -fL -o ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
