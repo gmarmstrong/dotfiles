@@ -80,16 +80,21 @@ else
     echo "Homebrew already installed."
 fi
 
+# Install mas
+if [ ! command -v mas ]; then
+    brew install mas
+fi
+
 # Sign in to Mac App Store
-# TODO Skip if already signed in to Mac App Store
-echo "Signing in to the Mac App Store"
-brew install mas
-read -p "Enter email used for Mac App Store: " mas_email
-mas signin "($mas_email)"
+if [ -z $(mas account) ]; then
+    echo "Signing in to the Mac App Store"
+    read -p "Enter email used for Mac App Store: " mas_email
+    mas signin "$mas_email"
+fi
 
 # Symlink dotfiles
 echo "Symlinking dotfiles."
-ln -s ~/dotfiles/Brewfile ~/Brewfile
+ln -s ~/dotfiles/Brewfile ~/Brewfile >& /dev/null
 ln -s ~/dotfiles/zshrc ~/.zshrc >& /dev/null
 ln -s ~/dotfiles/vimrc ~/.vimrc >& /dev/null
 ln -s ~/dotfiles/zshenv ~/.zshenv >& /dev/null
