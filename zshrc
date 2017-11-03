@@ -5,6 +5,9 @@ if [ -d $HOME/bin ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# Add ~/.zfunctions to $fpath
+fpath=( "$HOME/.zfunctions" $fpath )
+
 # Aliases
 alias nike='ssh -x gma@nike.cs.uga.edu'
 alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.DS_Store|.Spotlight-V100|.Trashes|.sass-cache'"
