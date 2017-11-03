@@ -97,10 +97,9 @@ ln -s ~/dotfiles/gitignore_global ~/.gitignore_global >& /dev/null
 
 # Download all programs
 echo "Downloading and updating programs."
-ln -s ~/dotfiles/Brewfile ~/Brewfile
 brew update
 brew upgrade
-brew bundle
+brew bundle --file="$HOME/Brewfile"
 
 # Download OpenVPN configuration files (for Private Internet Access)
 if [ -e "/Applications/Tunnelblick.app" ]
