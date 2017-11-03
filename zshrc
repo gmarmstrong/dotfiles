@@ -1,4 +1,3 @@
-export PS1="%d %% "
 
 # Add ~/bin to path
 if [ -d $HOME/bin ] ; then
