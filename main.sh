@@ -89,8 +89,31 @@ vim +PlugInstall +qall
 touch ~/.hushlogin
 
 # Install zsh
-eval "sudo $aptget install zsh zsh-doc"
+eval "sudo $aptget install zsh"
 
-# Set up oh-my-zsh (this must be the last command of this script)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# Use zshrc from dotfiles repository
+export github_username=$(git config --global user.name)
+if [ -f ~/dotfiles/zshrc ]; then
+    ln -s ~/dotfiles/zshrc ~/.zshrc
+    source ~/.zshrc
+fi
 
+# Install X11-related packages
+eval "sudo $aptget install i3 suckless-tools rxvt-unicode-256color xinit xorg ttf-anonymous-pro"
+
+# Symlink X11-related dotfiles
+if [ -f ~/dotfiles/Xresources ]; then
+    ln -s ~/dotfiles/Xresources ~/.Xresources
+fi
+if [ -f ~/dotfiles/xinitrc ]; then
+    ln -s ~/dotfiles/xinitrc ~/.xinitrc
+fi
+if [ -f ~/dotfiles/i3/config ]; then
+    mkdir -p ~/.config/i3
+    ln -s ~/dotfiles/i3/config ~/.config/i3/config
+fi
+
+# TODO Symlink and process dotfiles/gitignore_global
+
+# Force logout
+pkill -u $(whoami)
