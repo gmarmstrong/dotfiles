@@ -107,7 +107,9 @@ if [ -f ~/dotfiles/i3/config ]; then
     ln -s ~/dotfiles/i3/config ~/.config/i3/config
 fi
 
-# TODO Symlink and process dotfiles/gitignore_global
+# Symlink and process gitignore_global
+ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
 
 # Force logout
 pkill -u $(whoami)
