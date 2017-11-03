@@ -1,11 +1,7 @@
 #!/bin/bash
 
-# setup.sh
-
-# Set default values
-debug=false
-
 # Check for debug flag
+debug=false
 while [[ $# -gt 0 ]]; do
     key="$1"
     case "$key" in
@@ -18,8 +14,6 @@ while [[ $# -gt 0 ]]; do
     esac
     shift # Shift after checking all cases to get the next option
 done
-
-# Set debug variables
 source debug.sh
 
 # Test Debian

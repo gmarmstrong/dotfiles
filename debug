@@ -1,5 +1,3 @@
-# debug.sh
-
 # Toggle command verbosity
 if $debug
 then
@@ -19,4 +17,3 @@ else
     grep='grep -q'
     ping='ping -q'
 fi
-
