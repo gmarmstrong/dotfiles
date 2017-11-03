@@ -121,9 +121,8 @@ set wrapmargin=0    "Distance from the window border to wrap
 " ==============================================================================
 " PYTHON
 
-" Map F5 to compile
-autocmd BufNewFile,BufRead *.py map <F5> :!python2 %<CR>
-autocmd BufNewFile,BufRead *.py map <F5> :!python3 %<CR>
+" Map F5 to execute
+autocmd BufNewFile,BufRead *.py map <F5> :!./%<CR>
 
 " 80+ column warning
 autocmd BufNewFile,BufRead *.py call ColumnWarning()
