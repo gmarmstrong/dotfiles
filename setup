@@ -36,12 +36,10 @@ if ! pingfunc; then
     exit 1
 fi
 
-# Download post-install scripts
-eval "$wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/main.sh"
-eval "$wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/postzsh.sh"
+# Download post-install script
+eval "$wget https://raw.githubusercontent.com/gmarmstrong/post-install/master/post-install"
 
 # Set up sudo
 export user=$(whoami)
 su root -c "$aptget -y install sudo"
 su root -c "adduser $user sudo"
-
