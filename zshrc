@@ -1,3 +1,5 @@
+# Save history to file
+HISTFILE="$HOME/.zsh_history"
 
 # Add ~/bin to path
 if [ -d $HOME/bin ] ; then
