@@ -16,6 +16,7 @@ This is my dotfiles repository. There are many like it, but this one is mine.
 * `newsbeuter/config` configures the
   [newsbeuter](https://github.com/akrennmair/newsbeuter) feed reader (but I
   need to switch to [newsboat](https://github.com/newsboat/newsboat)!)
+* `newsbeuter/urls` lists the sites I follow.
 * [`vimrc`](http://vimhelp.appspot.com/starting.txt.html#vimrc) sets Vim
   configurations.
 * [`xinitrc`](https://wiki.archlinux.org/index.php/Xinit#xinitrc) configures X
