@@ -3,3 +3,13 @@ reload-threads 6
 auto-reload yes
 goto-next-feed no
 # text-width 80 # Only works properly with newsboat
+
+bind-key k up
+bind-key j down
+bind-key K prev-feed
+bind-key J next-feed
+bind-key K prev
+bind-key J next
+bind-key u pageup
+bind-key d pagedown
+bind-key U show-urls
