@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # dotfiles
 
 This is my dotfiles repository. There are many like it, but this one is mine.
@@ -52,6 +53,16 @@ even in non-interactive sessions. They should be symlinked to `~/.zshenv` and
 This file bundles [Homebrew](https://brew.sh/) dependencies. It should be
 symlinked to `~/Brewfile`. It contains five lists: `taps`, `brew`, `cask`,
 `fonts`, and `mas`.
+
+### `newmac`
+
+Post-installation script for new Apple computers. To use it, do:
+
+```bash
+cd
+git clone https://github.com/gmarmstrong/new-mac
+./new-mac/newmac
+```
 
 ### `macos`
 
