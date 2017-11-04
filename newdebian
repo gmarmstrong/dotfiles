@@ -1,0 +1,114 @@
+#!/bin/bash
+
+# TODO Link or generate ssh config
+
+# Check for debug flag
+debug=false
+while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+        -d|--debug)
+            debug=true
+            ;;
+        *) # Do something with extra options
+            echo "Unknown option '$key'"
+            ;;
+    esac
+    shift # Shift after checking all cases to get the next option
+done
+source debug.sh
+
+# Set up apt-get
+eval "sudo $aptget update"
+eval "sudo $aptget upgrade"
+eval "sudo $aptget autoremove"
+
+# # Install VirtualBox guest additions
+# # FIXME
+# if $debug
+# then
+#     sudo apt-get -y install make
+#     sudo mount -t iso9660 /dev/cdrom /media/cdrom
+#     cd /media/cdrom
+#     sudo sh ./VBoxLinuxAdditions.run
+# else
+#     sudo apt-get -y -qq install make
+#     sudo mount -t iso9660 /dev/cdrom /media/cdrom # TODO Possibly silence
+#     cd /media/cdrom
+#     sudo sh ./VBoxLinuxAdditions.run # TODO Possibly silence
+# fi
+# cd ~
+
+# Install pip and pip3
+eval "sudo $aptget install curl"
+eval "$curl https://bootstrap.pypa.io/get-pip.py | sudo python"
+eval "$curl https://bootstrap.pypa.io/get-pip.py | sudo python3"
+
+# Set up git and GitHub
+eval "sudo $aptget install git git-flow git-doc git-email"
+read -p "Enter email used for GitHub: " email
+read -p "Enter GitHub username: " github_username
+read -p "Enter a unique name for your GitHub key: " github_keyname
+git config --global user.name "$github_username"
+git config --global user.email "$email"
+
+# Generate key and upload to GitHub
+mkdir .ssh
+eval "$sshkeygen -t rsa -b 4096 -C "$email" -f ~/.ssh/id_rsa"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+myjson='{"title":"'"$github_keyname"'","key":"'"$(cat ~/.ssh/id_rsa.pub)"'"}'
+eval "$curl -u $github_username --data '$myjson' https://api.github.com/user/keys"
+
+# Install vim and vim-plug
+eval "sudo $aptget install vim"
+eval "$curl -fL -o ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+
+# Get dotfiles
+dotfiles_exist() { eval "$curl --head https://github.com/$github_username/dotfiles.git | head -n 1 | $grep 'HTTP/1.[01] [23]..'"; }
+vimrc_exists() { eval "$curl --head https://github.com/$github_username/dotfiles/blob/master/vimrc | head -n 1 | $grep 'HTTP/1.[01] [23]..'"; }
+if dotfiles_exist; then
+    eval "$gitclone ssh://git@github.com/$github_username/dotfiles.git"
+    if vimrc_exists; then
+        ln -s ~/dotfiles/vimrc ~/.vimrc
+    fi
+fi
+
+# Install vim plugins
+vim +qall
+vim +PlugInstall +qall
+
+# Silence message of the day
+touch ~/.hushlogin
+
+# Install zsh
+eval "sudo $aptget install zsh"
+
+# Use zshrc from dotfiles repository
+export github_username=$(git config --global user.name)
+if [ -f ~/dotfiles/zshrc ]; then
+    ln -s ~/dotfiles/zshrc ~/.zshrc
+    source ~/.zshrc
+fi
+
+# Install X11-related packages
+eval "sudo $aptget install i3 suckless-tools rxvt-unicode-256color xinit xorg ttf-anonymous-pro"
+
+# Symlink X11-related dotfiles
+if [ -f ~/dotfiles/Xresources ]; then
+    ln -s ~/dotfiles/Xresources ~/.Xresources
+fi
+if [ -f ~/dotfiles/xinitrc ]; then
+    ln -s ~/dotfiles/xinitrc ~/.xinitrc
+fi
+if [ -f ~/dotfiles/i3/config ]; then
+    mkdir -p ~/.config/i3
+    ln -s ~/dotfiles/i3/config ~/.config/i3/config
+fi
+
+# Symlink and process gitignore_global
+ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
+
+# Force logout
+pkill -u $(whoami)
