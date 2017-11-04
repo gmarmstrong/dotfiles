@@ -26,15 +26,8 @@ prompt pure
 # System-specific settings
 case "$OSTYPE" in
     darwin*)
-        # Add python3 to PATH
-        export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-
-        # Set TERM to iTerm2
+        # Use iTerm2 shell integration
         export TERM="iterm2"
-
-        # iTerm2 shell integration
-        test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
         ;;
     linux*)
         # Set appropriate TERM
