@@ -52,13 +52,6 @@ else
     echo "Key already exists."
 fi
 
-# Clone dotfiles repository
-if ! [ -e ~/dotfiles ]
-then
-    echo "Downloading dotfiles."
-    git clone git@github.com:gmarmstrong/dotfiles.git
-fi
-
 # Clone scripts repository
 if ! [ -e ~/scripts ]
 then

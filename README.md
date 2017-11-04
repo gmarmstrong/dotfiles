@@ -18,7 +18,7 @@ files that don't contain information worth saving or sharing (like `*.swp` and
 `*.class` (Java output) and `.pdf` (LaTeX output) which can be recompiled from
 the tracked source code.
 
-### `janitor`
+### `scripts/janitor`
 
 This file updates package managers. It's more of a maintenance script than a
 configuration file. It currently handles `tlmgr`, `pip3`, `vim-plug`, `brew`,
@@ -53,19 +53,19 @@ This file bundles [Homebrew](https://brew.sh/) dependencies. It should be
 symlinked to `~/Brewfile`. It contains five lists: `taps`, `brew`, `cask`,
 `fonts`, and `mas`.
 
-### `newmac`
+### `script/newmac`
 
 Post-installation script for new Apple computers. To use it, do:
 
 ```bash
 cd
-git clone https://github.com/gmarmstrong/new-mac
-./new-mac/newmac
+git clone https://github.com/gmarmstrong/dotfiles
+.dotfiles/scripts/newmac
 ```
 
-### `macos`
+### `scripts/macos`
 
-This file executes system setup tasks. Like `janitor`, it is an executable that
+This file executes system setup tasks. Like `scripts/janitor`, it is an executable that
 is infrequently used, but it is usually only run once on a system.
 
 ## Linux settings
