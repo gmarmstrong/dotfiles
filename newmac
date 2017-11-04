@@ -83,7 +83,8 @@ else
 fi
 
 # Install mas
-if [ ! command -v mas ]; then
+if ! command -v mas >& /dev/null
+then
     brew install mas
 fi
 
