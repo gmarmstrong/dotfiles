@@ -57,12 +57,6 @@ symlinked to `~/Brewfile`. It contains five lists: `taps`, `brew`, `cask`,
 
 Post-installation script for new Apple computers. To use it, do:
 
-```bash
-cd
-git clone https://github.com/gmarmstrong/dotfiles
-.dotfiles/scripts/newmac
-```
-
 ### `scripts/macos`
 
 This file executes system setup tasks. Like `scripts/janitor`, it is an executable that
