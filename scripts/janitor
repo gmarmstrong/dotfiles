@@ -1,8 +1,8 @@
 #!/bin/bash
-# System maintenance script
 
 sudo -v
 
+# Update TeX Live
 sudo tlmgr update --self
 sudo tlmgr update --all
 
