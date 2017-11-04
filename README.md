@@ -67,8 +67,8 @@ background, and launches the window manager.
 
 ### `Xresources`
 
-This file configures visual preferences for X. It holds a color scheme, font
-settings, and settings for the `urxvt` terminal emulator.
+This file configures visual preferences for X (font settings, `urxvt` settings,
+etc.)
 
 ### `i3/config`
 
