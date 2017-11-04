@@ -1,11 +1,6 @@
 # Save history to file
 HISTFILE="$HOME/.zsh_history"
 
-# Add ~/bin to path
-if [ -d $HOME/bin ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
 # Add ~/.zfunctions to $fpath
 fpath=( "$HOME/.zfunctions" $fpath )
 
