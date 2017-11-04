@@ -14,7 +14,7 @@ while [[ $# -gt 0 ]]; do
     esac
     shift # Shift after checking all cases to get the next option
 done
-source debug.sh
+source newdebian-debug
 
 # Test Debian
 if ! [ -f "/etc/debian_version" ];

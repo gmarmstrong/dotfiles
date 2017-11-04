@@ -16,7 +16,7 @@ while [[ $# -gt 0 ]]; do
     esac
     shift # Shift after checking all cases to get the next option
 done
-source debug.sh
+source newdebian-debug
 
 # Set up apt-get
 eval "sudo $aptget update"
