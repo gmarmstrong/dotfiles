@@ -66,10 +66,14 @@ is infrequently used, but it is usually only run once on a system.
 
 ### `scripts/newdebian*`
 
-These files set up new Debian virtual machines. To use it:
+These files set up new Debian virtual machines. To use it, do the following
+(add the `-d` or `--debug` flags when running the scripts to increase
+verbosity).
 
-1. Create a VirtualBox virtual machine and install [Debian (64-bit) stable netinst](https://www.debian.org/CD/netinst/).
-2. Power off the system and insert VBoxGuestAdditions.iso into the IDE Secondary Master optical drive
+1. Create a VirtualBox virtual machine and install [Debian (64-bit) stable
+   netinst](https://www.debian.org/CD/netinst/).
+2. Power off the system and insert VBoxGuestAdditions.iso into the IDE
+   Secondary Master optical drive
 3. Start the virtual machine and log in to the user account.
 4. Run the following commands and respond to prompts along the way.
 
