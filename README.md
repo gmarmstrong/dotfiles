@@ -58,10 +58,6 @@ This file bundles [Homebrew](https://brew.sh/) dependencies. It should be
 symlinked to `~/Brewfile`. It contains five lists: `taps`, `brew`, `cask`,
 `fonts`, and `mas`.
 
-### `script/newmac`
-
-Post-installation script for new Apple computers. To use it, do:
-
 ### `scripts/macos`
 
 This file executes system setup tasks. Like `scripts/janitor`, it is an executable that
