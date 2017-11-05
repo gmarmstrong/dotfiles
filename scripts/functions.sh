@@ -88,7 +88,8 @@ symlink_agnostic_dotfiles() {
 }
 
 become_sudoer() {
-    if [[ $linux_distro == Debian ]] || [[ $linux_distro == ubuntu ]]
+    # FIXME Likely needs relog
+    if [[ $linux_distro == Debian ]] || [[ $linux_distro == Ubuntu ]]
     then
         su root -c "apt-get -y install sudo"
         su root -c "adduser $(whoami) sudo"
