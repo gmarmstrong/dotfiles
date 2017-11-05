@@ -135,7 +135,7 @@ autocmd BufNewFile,BufRead *.py call ColumnWarning()
 autocmd FileType r map <F5> :!Rscript %<CR>
 
 " ==============================================================================
-" Haskell
+" HASKELL
 
 " Map F5 to compile
 autocmd BufNewFile,BufRead *.hs map <F5> :!ghci %<CR>
