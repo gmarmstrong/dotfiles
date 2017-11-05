@@ -167,13 +167,11 @@ become_sudoer
 git_setup
 
 symlink_agnostic_dotfiles
-if [ $operating_system == Linux ]
-then
+test $operating_system == Darwin && symlink_darwin_dotfiles
+if [ $operating_system == Linux ]; then
     symlink_linux_dotfiles
     read -p "Do you want to use X11 on this system? (y/n) "
     test $REPLY =~ ^[Yy]$ && symlink_x11_dotfiles
-elif [ $operating_system == Darwin ]
-    symlink_darwin_dotfiles
 fi
 
 # Check user privileges
