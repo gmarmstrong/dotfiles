@@ -39,9 +39,8 @@ fi
 mkdir ~/.ssh
 if ! [ -e ~/.ssh/id_rsa ] # Check that no key exists
 then
-    echo "Generating key."
+    echo "Generating SSH key..."
     read -p "Enter a unique name for your GitHub key: " github_keyname
-    echo "Generating SSH key."
     ssh-keygen -q -t rsa -b 4096 -C "$gh_email"
     eval "$(ssh-agent -s)" &> /dev/null
     ssh-add "~/.ssh/id_rsa" &> /dev/null
