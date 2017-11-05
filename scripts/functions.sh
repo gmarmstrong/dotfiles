@@ -191,3 +191,14 @@ vim_setup() {
     vim +qall
     vim +PlugInstall +qall
 }
+
+install_pure_prompt() {
+    if ! [ -d "$HOME/.zfunctions" ]
+        mkdir "$HOME/.zfunctions"
+    fi
+    if [ ! -e "$HOME/.zfunctions/pure_prompt_setup" ] || [ ! -e "$HOME/.zfunctions/async" ]
+    then
+        wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh -O "$HOME/.zfunctions/prompt_pure_setup"
+        wget https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh -O "$HOME/.zfunctions/async"
+    fi
+}

@@ -12,22 +12,11 @@ symlink_agnostic_dotfiles
 test $operating_system == Darwin && symlink_darwin_dotfiles
 test $operating_system == Linux && symlink_linux_dotfiles
 setup_package_manager
-
 # TODO Install VirtualBox guest additions
 # TODO Install pip and pip3
-
 generate_key
 github_auth
 vim_setup
+install_pure_prompt
 
-
-# Install pure prompt
-mkdir "$HOME/.zfunctions"
-if [ ! -e "$HOME/.zfunctions/pure_prompt_setup" ] || [ ! -e "$HOME/.zfunctions/async" ]
-then
-    wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh -O "$HOME/.zfunctions/prompt_pure_setup"
-    wget https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh -O "$HOME/.zfunctions/async"
-fi
-
-# Finish setup
 echo "All done! You should log out and log back in now."
