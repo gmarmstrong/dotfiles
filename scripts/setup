@@ -120,6 +120,31 @@ become_sudoer() {
     fi
 }
 
+homebrew_setup() {
+    if ! [ command -v brew ]
+    then
+        echo "Installing Homebrew."
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+    if ! [ command -v mas ]
+    then
+        echo "Installing mas."
+        brew install mas
+    fi
+    if [ -z $(mas account) ]; then
+        echo "Signing in to the Mac App Store"
+        read -p "Enter email used for Mac App Store: " mas_email
+        mas signin "$mas_email"
+    fi
+    brew bundle --file="$HOME/Brewfile"
+}
+
+aptget_setup() {
+    sudo apt-get update
+    sudo apt-get upgrade
+    cat "$HOME/dotfiles/packages.txt" | xargs sudo apt-get install
+}
+
 test_internet_connection
 
 symlink_agnostic_dotfiles
@@ -152,31 +177,15 @@ if [ sudo -v ]
     if [ $operating_system == Linux ]
         if [ $linux_distro == Debian ] || [ $linux_distro == Ubuntu ]
         then
-            sudo apt-get update
-            sudo apt-get upgrade
-            cat "$HOME/dotfiles/packages.txt" | xargs sudo apt-get install
+            aptget_setup
         elif [ $linux_distro == RedHat ]
             # TODO Install and update software with Red Hat package manager
         fi
-
     elif [ $operating_system == Darwin ]
-        if ! [ command -v brew ]
-        then
-            echo "Installing Homebrew."
-            /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        fi
-        if ! [ command -v mas ]
-        then
-            echo "Installing mas."
-            brew install mas
-        fi
-        if [ -z $(mas account) ]; then
-            echo "Signing in to the Mac App Store"
-            read -p "Enter email used for Mac App Store: " mas_email
-            mas signin "$mas_email"
-        fi
-        brew bundle --file="$HOME/Brewfile"
+        homebrew_setup
     else
+        echo "Operating system unknown. Aborting."
+        exit 1
     fi
 fi
 
