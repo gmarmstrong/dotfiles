@@ -27,8 +27,6 @@ get_linux_distro() {
             ubuntu) linux_distro=Ubuntu ;;
             *) exit 1 ;;
         esac
-    elif [ -f /etc/redhat-release ]
-        linux_distro=RedHat
     else
         echo "Distribution unknown. Aborting."
         exit 1
@@ -94,8 +92,6 @@ become_sudoer() {
     then
         su root -c "apt-get -y install sudo"
         su root -c "adduser $(whoami) sudo"
-    elif [[ $linux_distro == redhat ]]
-        # TODO Become Red Hat sudoer
     fi
 }
 
@@ -125,10 +121,6 @@ aptget_setup() {
     cat "$HOME/dotfiles/packages.txt" | xargs sudo apt-get install
 }
 
-yum_setup() {
-    sudo yum upgrade
-}
-
 git_setup() {
     echo "Configuring Git..."
     git config --global core.excludesfile "$HOME/.gitignore_global"
@@ -156,7 +148,6 @@ setup_package_manager() {
                 case $linux_distro
                     Debian) aptget_setup ;;
                     Ubuntu) aptget_setup ;;
-                    RedHat) yum_setup ;;
                 esac
                 ;;
             Darwin) homebrew_setup ;;
