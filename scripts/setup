@@ -146,6 +146,10 @@ aptget_setup() {
     cat "$HOME/dotfiles/packages.txt" | xargs sudo apt-get install
 }
 
+yum_setup() {
+    sudo yum upgrade
+}
+
 test_internet_connection
 
 symlink_agnostic_dotfiles
@@ -176,11 +180,15 @@ fi
 # Set up package manager and install programs
 if [ sudo -v ]
     if [ $operating_system == Linux ]
+    then
         if [ $linux_distro == Debian ] || [ $linux_distro == Ubuntu ]
         then
             aptget_setup
         elif [ $linux_distro == RedHat ]
-            # TODO Install and update software with Red Hat package manager
+            if [ command -v yum ]
+            then
+                yum_setup
+            fi
         fi
     elif [ $operating_system == Darwin ]
         homebrew_setup
