@@ -13,7 +13,7 @@ test $operating_system == Darwin && symlink_darwin_dotfiles
 test $operating_system == Linux && symlink_linux_dotfiles
 setup_package_manager
 # TODO Install VirtualBox guest additions
-# TODO Install pip and pip3
+install_pip
 generate_key
 github_auth
 vim_setup

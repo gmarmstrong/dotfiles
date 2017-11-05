@@ -191,3 +191,8 @@ install_pure_prompt() {
         wget https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh -O "$HOME/.zfunctions/async"
     fi
 }
+
+install_pip() {
+    curl https://bootstrap.pypa.io/get-pip.py | sudo python
+    curl https://bootstrap.pypa.io/get-pip.py | sudo python3
+}
