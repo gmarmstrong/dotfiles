@@ -173,15 +173,11 @@ check_user_privileges() {
 }
 
 test_internet_connection
-become_sudoer
+check_user_privileges
 git_setup
-
 symlink_agnostic_dotfiles
 test $operating_system == Darwin && symlink_darwin_dotfiles
 test $operating_system == Linux && symlink_linux_dotfiles
-
-# Check user privileges
-echo "Checking user privileges..."
 
 # Set up package manager and install programs
 if [ sudo -v ]
