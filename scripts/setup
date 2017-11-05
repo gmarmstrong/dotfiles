@@ -108,6 +108,7 @@ symlink_agnostic_dotfiles() {
     ln -s "$HOME/dotfiles/vimrc" "$HOME/.vimrc"
     ln -s "$HOME/dotfiles/zshenv" "$HOME/.zshenv"
     ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
+    touch "$HOME/.hushlogin"
 }
 
 become_sudoer() {
@@ -242,9 +243,6 @@ fi
 curl -fL -o $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +qall
 vim +PlugInstall +qall
-
-# Silence message of the day
-touch "$HOME/.hushlogin"
 
 # Install pure prompt
 mkdir "$HOME/.zfunctions"
