@@ -10,7 +10,7 @@ it](https://dotfiles.github.io/), but this one is mine.
 A cross-platform post-installation script for setting up new computers. To use
 it, do:
 
-```
+```bash
    cd
    ."$HOME/dotfiles/scripts/setup"
    newgrp sudo
@@ -74,28 +74,6 @@ This file executes system setup tasks. Like `scripts/janitor`, it is an executab
 is infrequently used, but it is usually only run once on a system.
 
 ## Linux settings
-
-### `scripts/newdebian*`
-
-These files set up new Debian virtual machines. To use it, do the following
-(add the `-d` or `--debug` flags when running the scripts to increase
-verbosity).
-
-1. Create a VirtualBox virtual machine and install [Debian (64-bit) stable
-   netinst](https://www.debian.org/CD/netinst/).
-2. Power off the system and insert VBoxGuestAdditions.iso into the IDE
-   Secondary Master optical drive
-3. Start the virtual machine and log in to the user account.
-4. Run the following commands and respond to prompts along the way.
-
-```bash
-$ ./dotfiles/scripts/newdebian-setup
-$ newgrp sudo
-$ newgrp -
-$ ./dotfiles/scripts/newdebian
-```
-
-5. Log back in and enter `startx`.
 
 ### `xinitrc`
 
