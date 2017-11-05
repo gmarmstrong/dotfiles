@@ -185,3 +185,9 @@ github_auth() {
         eval "curl -u $github_username --data '$myjson' https://api.github.com/user/keys"
     fi
 }
+
+vim_setup() {
+    curl -fL -o $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    vim +qall
+    vim +PlugInstall +qall
+}
