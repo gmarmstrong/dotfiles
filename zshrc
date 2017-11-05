@@ -1,4 +1,6 @@
 # Save history to file
+HISTSIZE=1000000
+SAVEHIST=$HISTSIZE
 HISTFILE="$HOME/.zsh_history"
 
 # Add ~/.zfunctions to $fpath
