@@ -134,7 +134,7 @@ git_setup() {
     git config --global core.excludesfile "$HOME/.gitignore_global"
     if ! [ git config user.email ] || [ git config user.name ]
     then
-        read -p "Enter email used for GitHub: " gh_email
+        read -p "Enter email used for GitHub: " github_email
         git config --global user.email "$gh_email"
         read -p "Enter GitHub username: " github_username
         git config --global user.name "$github_username"
