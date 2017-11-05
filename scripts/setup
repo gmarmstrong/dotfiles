@@ -16,18 +16,8 @@ test_internet_connection() {
 
 get_operating_system() {
     case "$OSTYPE" in
-        darwin*)
-            echo "Operating system detected: Darwin"
-            operating_system=Darwin
-            ;;
-        linux*)
-            echo "Operating systemd etected: Linux"
-            operating_system=Linux
-            ;;
-        *)
-            echo "Operating system unknown. Aborting."
-            exit 1
-            ;;
+        darwin*) operating_system=Darwin ;;
+        linux*) operating_system=Linux ;;
     esac
 }
 
