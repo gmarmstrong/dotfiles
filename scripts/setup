@@ -121,6 +121,7 @@ become_sudoer() {
 }
 
 homebrew_setup() {
+    get_macintosh_version
     if ! [ command -v brew ]
     then
         echo "Installing Homebrew."
