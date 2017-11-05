@@ -148,3 +148,18 @@ check_user_privileges() {
         test $REPLY =~ ^[Yy]$ && become_sudoer
     fi
 }
+
+setup_package_manager() {
+    if [ sudo -v ]
+        case $operating_system in
+            Linux)
+                case $linux_distro
+                    Debian) aptget_setup ;;
+                    Ubuntu) aptget_setup ;;
+                    RedHat) yum_setup ;;
+                esac
+                ;;
+            Darwin) homebrew_setup ;;
+        esac
+    fi
+}

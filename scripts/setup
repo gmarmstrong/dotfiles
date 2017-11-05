@@ -11,19 +11,7 @@ git_setup
 symlink_agnostic_dotfiles
 test $operating_system == Darwin && symlink_darwin_dotfiles
 test $operating_system == Linux && symlink_linux_dotfiles
-
-# Set up package manager and install programs
-if [ sudo -v ]
-    case $operating_sytem in
-        Linux)
-            case $linux_distro in
-                Debian) aptget_setup ;;
-                Ubuntu) aptget_setup ;;
-                RedHat) yum_setup ;;
-            esac
-        Darwin) homebrew_setup ;;
-    esac
-fi
+setup_package_manager
 
 # TODO Install VirtualBox guest additions
 # TODO Install pip and pip3
