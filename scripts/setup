@@ -85,15 +85,16 @@ get_macintosh_version() {
     esac
 }
 
-symlink_x11_dotfiles() {
-    echo "Symlinking X11 dotfiles..."
-    ln -s "$HOME/dotfiles/Xresources" "$HOME/.Xresources"
-    ln -s "$HOME/dotfiles/i3" "$HOME/.i3"
-    ln -s "$HOME/dotfiles/xinitrc" "$HOME/.xinitrc"
-}
-
-symlink_linux_dotfiles() { 
+symlink_linux_dotfiles() {
     echo "Symlinking Linux dotfiles..."
+    read -p "Do you want to use X11 on this system? (y/n) "
+    if [ $REPLY =~ ^[Yy]$ ]
+    then
+        echo "Symlinking X11 dotfiles..."
+        ln -s "$HOME/dotfiles/Xresources" "$HOME/.Xresources"
+        ln -s "$HOME/dotfiles/i3" "$HOME/.i3"
+        ln -s "$HOME/dotfiles/xinitrc" "$HOME/.xinitrc"
+    fi
 }
 
 symlink_darwin_dotfiles() {
@@ -177,11 +178,7 @@ git_setup
 
 symlink_agnostic_dotfiles
 test $operating_system == Darwin && symlink_darwin_dotfiles
-if [ $operating_system == Linux ]; then
-    symlink_linux_dotfiles
-    read -p "Do you want to use X11 on this system? (y/n) "
-    test $REPLY =~ ^[Yy]$ && symlink_x11_dotfiles
-fi
+test $operating_system == Linux && symlink_linux_dotfiles
 
 # Check user privileges
 echo "Checking user privileges..."
