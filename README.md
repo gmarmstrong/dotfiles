@@ -5,6 +5,12 @@ it](https://dotfiles.github.io/), but this one is mine.
 
 ## Global settings
 
+### `scripts/setup`
+
+*This file is in development.* Post-installation script that combines
+`scripts/newmac` and `scripts/newdebian*`. It can be run on any Unix-like
+system.
+
 ### `gitignore_global`
 
 This file lists global [gitignore](https://git-scm.com/docs/gitignore) rules.
