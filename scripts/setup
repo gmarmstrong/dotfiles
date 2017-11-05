@@ -16,17 +16,7 @@ setup_package_manager
 # TODO Install VirtualBox guest additions
 # TODO Install pip and pip3
 
-# Generate SSH key
-echo "Generating SSH key..."
-mkdir "$HOME/.ssh"
-if ! [ -e "$HOME/.ssh/id_rsa" ]
-then
-    read -p "Enter a unique name for your key: " github_keyname
-    ssh-keygen -t rsa -b 4096 -C "$gh_email"
-    eval "$(ssh-agent -s)"
-    ssh-add "$HOME/.ssh/id_rsa"
-fi
-
+generate_key
 github_auth
 
 # Install Vim, vim-plug, and Vim plugins

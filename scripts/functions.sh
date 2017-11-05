@@ -164,6 +164,20 @@ setup_package_manager() {
     fi
 }
 
+generate_key() {
+    if ! [ -d "$HOME/.ssh" ]
+        mkdir "$HOME/.ssh"
+    fi
+    if ! [ -e "$HOME/.ssh/id_rsa" ]
+    then
+        echo "Generating SSH key..."
+        read -p "Enter a unique name for your key: " github_keyname
+        ssh-keygen -t rsa -b 4096 -C "$gh_email"
+        eval "$(ssh-agent -s)"
+        ssh-add "$HOME/.ssh/id_rsa"
+    fi
+}
+
 github_auth() {
     if ! [ ssh -T git@github.com ]
         echo "Uploading public key to GitHub..."
