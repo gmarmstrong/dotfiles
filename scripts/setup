@@ -162,6 +162,14 @@ git_setup() {
     fi
 }
 
+check_user_privileges() {
+    if [ ! sudo -v ] && [ $operating_system == Linux ]
+    then
+        read -p "No super user privileges detected. Do you want to try to get them? (y/n) "
+        test $REPLY =~ ^[Yy]$ && become_sudoer
+    fi
+}
+
 test_internet_connection
 become_sudoer
 git_setup
@@ -176,18 +184,6 @@ fi
 
 # Check user privileges
 echo "Checking user privileges..."
-if [ sudo -v ]
-then
-    echo "Super user privileges detected."
-else
-    if [ $operating_system == "Linux" ]
-    then
-        read -p "No super user privileges detected. Do you want to try to get them? (y/n) "
-        test $REPLY =~ ^[Yy]$ && become_sudoer
-    else
-        echo "No super user privileges detected. Aborting."
-    fi
-fi
 
 # Set up package manager and install programs
 if [ sudo -v ]
