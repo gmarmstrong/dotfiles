@@ -75,6 +75,7 @@ symlink_linux_dotfiles() {
 symlink_darwin_dotfiles() {
     echo "Symlinking Darwin dotfiles..."
     ln -s "$HOME/dotfiles/Brewfile" "$HOME/Brewfile"
+    ln -s "$HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Personal" "$HOME/iCloud"
 }
 
 symlink_agnostic_dotfiles() {
