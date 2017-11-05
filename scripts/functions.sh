@@ -46,11 +46,11 @@ get_macintosh_version() {
             macintosh_version="El Capitan"
             ;;
         10.12*)
-            echo "Maintosh version detected: macOS Sierra 10.12 (2016)
+            echo "Maintosh version detected: macOS Sierra 10.12 (2016)"
             macintosh_version="Sierra"
             ;;
         10.13*)
-            echo "Manitosh version detected: macOS High Sierra 10.13 (2017)
+            echo "Manitosh version detected: macOS High Sierra 10.13 (2017)"
             macintosh_version="High Sierra"
             ;;
         *)
