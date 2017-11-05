@@ -8,3 +8,7 @@ xinit
 rxvt-unicode-256color
 texlive-full
 vim
+zsh
+wget
+python
+python3
