@@ -123,10 +123,10 @@ set wrapmargin=0    "Distance from the window border to wrap
 " PYTHON
 
 " Map F5 to execute
-autocmd BufNewFile,BufRead *.py map <F5> :!./%<CR>
+autocmd FileType python map <F5> :!./%<CR>
 
 " 80+ column warning
-autocmd BufNewFile,BufRead *.py call ColumnWarning()
+autocmd FileType python call ColumnWarning()
 
 " ==============================================================================
 " R
@@ -138,7 +138,13 @@ autocmd FileType r map <F5> :!Rscript %<CR>
 " HASKELL
 
 " Map F5 to compile
-autocmd BufNewFile,BufRead *.hs map <F5> :!ghci %<CR>
+autocmd FileType haskell map <F5> :!ghci %<CR>
+
+" ==============================================================================
+" SHELL
+
+" Map F5 to execute
+autocmd FileType sh,zsh map <F5> :!./%<CR>
 
 " ==============================================================================
 " PROSE
