@@ -165,9 +165,7 @@ setup_package_manager() {
 }
 
 generate_key() {
-    if ! [ -d "$HOME/.ssh" ]
-        mkdir "$HOME/.ssh"
-    fi
+    mkdir -p "$HOME/.ssh"
     if ! [ -e "$HOME/.ssh/id_rsa" ]
     then
         echo "Generating SSH key..."
