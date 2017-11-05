@@ -199,7 +199,7 @@ install_pip() {
     curl https://bootstrap.pypa.io/get-pip.py | sudo python3
 }
 
-# Download OpenVPN configuration files (for Private Internet Access)
+# Install OpenVPN configuration files (for Private Internet Access)
 setup_vpn() {
     # TODO Set up VPN on Linux
     if [ -e "/Applications/Tunnelblick.app" ]
