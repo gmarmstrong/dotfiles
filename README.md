@@ -7,9 +7,7 @@ it](https://dotfiles.github.io/), but this one is mine.
 
 ### `scripts/setup`
 
-*This file is in development.* Post-installation script that combines
-`scripts/newmac` and `scripts/newdebian*`. It can be run on any Unix-like
-system.
+A cross-platform post-installation script for setting up new computers.
 
 ### `gitignore_global`
 
