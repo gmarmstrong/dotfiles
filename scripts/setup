@@ -26,21 +26,11 @@ get_linux_distro() {
         . /etc/os-release
         # TODO Add more cases that use /etc/os-release
         case "$ID" in
-            debian)
-                echo "Distribution detected: Debian"
-                linux_distro=Debian
-                ;;
-            ubuntu)
-                echo "Distribution detected: Ubuntu"
-                linux_distro=Ubuntu
-                ;;
-            *)
-                echo "Distribution unknown. Aborting."
-                exit 1
-                ;;
+            debian) linux_distro=Debian ;;
+            ubuntu) linux_distro=Ubuntu ;;
+            *) exit 1 ;;
         esac
     elif [ -f /etc/redhat-release ]
-        echo "Distribution detected: Red Hat"
         linux_distro=RedHat
     else
         echo "Distribution unknown. Aborting."
@@ -103,11 +93,11 @@ symlink_agnostic_dotfiles() {
 }
 
 become_sudoer() {
-    if [[ $distro == Debian ]] || [[ $distro == ubuntu ]]
+    if [[ $linux_distro == Debian ]] || [[ $linux_distro == ubuntu ]]
     then
         su root -c "apt-get -y install sudo"
         su root -c "adduser $(whoami) sudo"
-    elif [[ $distro == redhat ]]
+    elif [[ $linux_distro == redhat ]]
         # TODO Become Red Hat sudoer
     fi
 }
