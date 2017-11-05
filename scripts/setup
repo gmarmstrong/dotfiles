@@ -151,6 +151,7 @@ yum_setup() {
 }
 
 test_internet_connection
+become_sudoer
 
 symlink_agnostic_dotfiles
 if [ $operating_system == Linux ]
