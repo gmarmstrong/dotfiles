@@ -150,8 +150,21 @@ yum_setup() {
     sudo yum upgrade
 }
 
+git_setup() {
+    echo "Configuring Git..."
+    git config --global core.excludesfile "$HOME/.gitignore_global"
+    if ! [ git config user.email ] || [ git config user.name ]
+    then
+        read -p "Enter email used for GitHub: " gh_email
+        git config --global user.email "$gh_email"
+        read -p "Enter GitHub username: " github_username
+        git config --global user.name "$github_username"
+    fi
+}
+
 test_internet_connection
 become_sudoer
+git_setup
 
 symlink_agnostic_dotfiles
 if [ $operating_system == Linux ]
@@ -201,17 +214,6 @@ fi
 
 # TODO Install VirtualBox guest additions
 # TODO Install pip and pip3
-
-# Collect GitHub information and configure Git
-echo "Configuring Git..."
-git config --global core.excludesfile "$HOME/.gitignore_global"
-if ! [ git config user.email ] || [ git config user.name ]
-then
-    read -p "Enter email used for GitHub: " gh_email
-    git config --global user.email "$gh_email"
-    read -p "Enter GitHub username: " github_username
-    git config --global user.name "$github_username"
-fi
 
 # Generate SSH key
 echo "Generating SSH key..."
