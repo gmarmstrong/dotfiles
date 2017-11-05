@@ -30,9 +30,9 @@ fi
 if ! git config user.email >& /dev/null
 then
     read -p "Enter email used for GitHub: " gh_email
-    git config --global user.name "$github_username"
-    read -p "Enter GitHub username: " github_username
     git config --global user.email "$gh_email"
+    read -p "Enter GitHub username: " github_username
+    git config --global user.name "$github_username"
 fi
 
 # Generate key and upload to GitHub
