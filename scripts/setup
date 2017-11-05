@@ -184,27 +184,11 @@ if [ sudo -v ]
     case $operating_sytem in
         Linux)
             case $linux_distro in
-                Debian)
-                    aptget_setup
-                    ;;
-                Ubuntu)
-                    aptget_setup
-                    ;;
-                RedHat)
-                    yum_setup
-                    ;;
-                *)
-                    echo "Distribution unknown. Aborting."
-                    exit 1
-                    ;;
+                Debian) aptget_setup ;;
+                Ubuntu) aptget_setup ;;
+                RedHat) yum_setup ;;
             esac
-        Darwin)
-            homebrew_setup
-            ;;
-        *)
-            echo "Operating system unknown. Aborting."
-            exit 1
-            ;;
+        Darwin) homebrew_setup ;;
     esac
 fi
 
