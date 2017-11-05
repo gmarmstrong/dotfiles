@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Check macOS
-if uname | grep -vq Darwin;
+# Check operating system
+echo "Verifying operating system..."
+if uname | grep -q Darwin;
 then
+    echo "Congrats on the new Mac! 😃"
+else
     echo "ERROR: Operating system is not macOS. Aborting."
     exit 1
-else
-    # Prevent buyer's remorse, stage one
-    echo "Congrats on the new Mac! 😃"
 fi
 
 # Check Internet connection
