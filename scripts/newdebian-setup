@@ -19,14 +19,14 @@ source ~/dotfiles/scripts/newdebian-debug
 # Test Debian
 if ! [ -f "/etc/debian_version" ];
 then
-    echo Operating system not Debian, aborting.
+    echo "Operating system not Debian, aborting."
     exit 1
 fi
 
 # Test connection
 pingfunc() { eval "$ping -c 1 google.com"; }
 if ! pingfunc; then
-    echo Internet connection failed, aborting.
+    echo "Internet connection failed, aborting."
     exit 1
 fi
 
