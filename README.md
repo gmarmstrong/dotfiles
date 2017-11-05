@@ -5,7 +5,7 @@ it](https://dotfiles.github.io/), but this one is mine.
 
 ## Global settings
 
-### `scripts/setup*`
+### `scripts/*setup`
 
 A cross-platform post-installation script for setting up new computers. To use
 it, do:
