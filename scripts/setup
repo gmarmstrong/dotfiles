@@ -213,7 +213,7 @@ then
     git config --global user.name "$github_username"
 fi
 
-# Generate SSH key and upload it to GitHub
+# Generate SSH key
 echo "Generating SSH key..."
 mkdir "$HOME/.ssh"
 if ! [ -e "$HOME/.ssh/id_rsa" ]
