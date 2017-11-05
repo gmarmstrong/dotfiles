@@ -153,7 +153,7 @@ autocmd FileType sh,zsh map <F5> :!./%<CR>
 autocmd FileType latex,markdown,text,rst,html call NoNumber()
 
 " Map F5 to toggle spell checking
-autocmd FileType latex,markdown,text,rst,html setlocal spell spelllang=en_us
+autocmd FileType latex,markdown,rst,html setlocal spell spelllang=en_us
 autocmd FileType latex,markdown,text,rst,html map <F5> :setlocal spell! spelllang=en_us<CR>
 
 " Map F6 to open
