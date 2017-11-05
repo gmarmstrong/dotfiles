@@ -163,3 +163,11 @@ setup_package_manager() {
         esac
     fi
 }
+
+github_auth() {
+    if ! [ ssh -T git@github.com ]
+        echo "Uploading public key to GitHub..."
+        myjson='{"title":"'"$github_keyname"'","key":"'"$(cat $HOME/.ssh/id_rsa.pub)"'"}'
+        eval "curl -u $github_username --data '$myjson' https://api.github.com/user/keys"
+    fi
+}
