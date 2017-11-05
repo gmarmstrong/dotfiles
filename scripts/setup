@@ -187,23 +187,31 @@ echo "Checking user privileges..."
 
 # Set up package manager and install programs
 if [ sudo -v ]
-    if [ $operating_system == Linux ]
-    then
-        if [ $linux_distro == Debian ] || [ $linux_distro == Ubuntu ]
-        then
-            aptget_setup
-        elif [ $linux_distro == RedHat ]
-            if [ command -v yum ]
-            then
-                yum_setup
-            fi
-        fi
-    elif [ $operating_system == Darwin ]
-        homebrew_setup
-    else
-        echo "Operating system unknown. Aborting."
-        exit 1
-    fi
+    case $operating_sytem in
+        Linux)
+            case $linux_distro in
+                Debian)
+                    aptget_setup
+                    ;;
+                Ubuntu)
+                    aptget_setup
+                    ;;
+                RedHat)
+                    yum_setup
+                    ;;
+                *)
+                    echo "Distribution unknown. Aborting."
+                    exit 1
+                    ;;
+            esac
+        Darwin)
+            homebrew_setup
+            ;;
+        *)
+            echo "Operating system unknown. Aborting."
+            exit 1
+            ;;
+    esac
 fi
 
 # TODO Install VirtualBox guest additions
