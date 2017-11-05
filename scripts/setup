@@ -7,17 +7,3 @@ exit 0
 
 test_internet_connection
 check_user_privileges
-git_setup
-symlink_agnostic_dotfiles
-test $operating_system == Darwin && symlink_darwin_dotfiles
-test $operating_system == Linux && symlink_linux_dotfiles
-setup_package_manager
-# TODO Install VirtualBox guest additions
-install_pip
-generate_key
-github_auth
-vim_setup
-install_pure_prompt
-test $operating_system = Darwin && setup_vpn
-
-echo "All done! You should log out and log back in now."
