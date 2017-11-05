@@ -198,3 +198,20 @@ install_pip() {
     curl https://bootstrap.pypa.io/get-pip.py | sudo python
     curl https://bootstrap.pypa.io/get-pip.py | sudo python3
 }
+
+# Download OpenVPN configuration files (for Private Internet Access)
+setup_vpn() {
+    # TODO Set up VPN on Linux
+    if [ -e "/Applications/Tunnelblick.app" ]
+    then
+        echo "Downloading OpenVPN configuration files."
+        open "/Applications/Tunnelblick.app"
+        wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
+        unzip openvpn.zip -d openvpn
+        open openvpn/*
+        rm openvpn.zip
+        # TODO Automate this. Watch how Tunnelblick does it (each configuration gets its own subdirectory.)
+        echo "Opened the configuration files for manual installation."
+        echo "You can delete ~/openvpn/ when you're done."
+    fi
+}

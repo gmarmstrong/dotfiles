@@ -18,5 +18,6 @@ generate_key
 github_auth
 vim_setup
 install_pure_prompt
+test $operating_system = Darwin && setup_vpn
 
 echo "All done! You should log out and log back in now."
