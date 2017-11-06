@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Authenticate user upfront
 sudo -v
 
 # Update TeX Live
