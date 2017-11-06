@@ -93,7 +93,10 @@ set list listchars=tab:»·,trail:␣
 
 " Color
 syntax on                               "Enable syntax highlighting
-highlight LineNr ctermfg=grey
+highlight LineNr ctermfg=lightgrey
+highlight VertSplit ctermbg=lightgrey ctermfg=lightgrey
+highlight StatusLine ctermbg=lightgrey ctermfg=lightgrey
+highlight StatusLineNC ctermbg=lightgrey ctermfg=lightgrey
 
 " ==============================================================================
 " INDENTATION
