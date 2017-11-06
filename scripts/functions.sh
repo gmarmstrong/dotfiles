@@ -15,6 +15,7 @@ get_operating_system() {
     case "$OSTYPE" in
         darwin*) operating_system=Darwin ;;
         linux*) operating_system=Linux ;;
+        *) exit 1 ;;
     esac
 }
 
