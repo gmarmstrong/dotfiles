@@ -77,6 +77,7 @@ Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'gabrielelana/vim-markdown'        "Markdown support
 Plug 'airblade/vim-gitgutter'           "Git diff in the gutter
+Plug 'scrooloose/syntastic'             "Syntax checking
 call plug#end()
 
 " vimtex settings
