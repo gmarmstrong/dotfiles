@@ -173,6 +173,7 @@ generate_key() {
 
 github_auth() {
     if ! [ ssh -T git@github.com ]
+    then
         echo "Uploading public key to GitHub..."
         myjson='{"title":"'"$github_keyname"'","key":"'"$(cat $HOME/.ssh/id_rsa.pub)"'"}'
         eval "curl -u $github_username --data '$myjson' https://api.github.com/user/keys"
@@ -186,9 +187,7 @@ vim_setup() {
 }
 
 install_pure_prompt() {
-    if ! [ -d "$HOME/.zfunctions" ]
-        mkdir "$HOME/.zfunctions"
-    fi
+    test ! -d "$HOME/.zfunctions" && mkdir/.zfunctions
     if [ ! -e "$HOME/.zfunctions/pure_prompt_setup" ] || [ ! -e "$HOME/.zfunctions/async" ]
     then
         wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh -O "$HOME/.zfunctions/prompt_pure_setup"
