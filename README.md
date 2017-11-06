@@ -11,11 +11,13 @@ A cross-platform post-installation script for setting up new computers. To use
 it, do:
 
 ```bash
-   cd
-   ."$HOME/dotfiles/scripts/setup"
+   cd "$HOME"
+   wget --no-check-certificate https://github.com/gmarmstrong/dotfiles/blob/master/scripts/setup
+   wget --no-check-certificate https://github.com/gmarmstrong/dotfiles/blob/master/scripts/post-setup
+   ./setup
    newgrp sudo
    newgrp -
-   ."$HOME/dotfiles/scripts/post-setup"
+   ./post-setup
    logout
 ```
 
