@@ -37,7 +37,7 @@ get_linux_distro() {
 get_macintosh_version() {
     # TODO Verify https://docs.brew.sh/Installation.html#requirements
     echo "Detecting Macintosh version."
-    case sw_vers -productVersion in
+    case $(sw_vers -productVersion) in
         10.10*)
             echo "Macintosh version detected: Mac OS X Yosemite 10.10 (2014)"
             macintosh_version="Yosemite"
@@ -146,9 +146,10 @@ check_user_privileges() {
 
 setup_package_manager() {
     if [ sudo -v ]
+    then
         case $operating_system in
             Linux)
-                case $linux_distro
+                case $linux_distro in
                     Debian) aptget_setup ;;
                     Ubuntu) aptget_setup ;;
                 esac
