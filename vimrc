@@ -76,6 +76,7 @@ Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
 Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'gabrielelana/vim-markdown'        "Markdown support
+Plug 'airblade/vim-gitgutter'           "Git diff in the gutter
 call plug#end()
 
 " vimtex settings
