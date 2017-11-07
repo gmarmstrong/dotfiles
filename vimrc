@@ -94,6 +94,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" base16 settings
+if $TERM == "iterm2" || $TERM == "*256color"    "Neat!
+    let base16colorspace=256                    "Access 256 colorspace
+endif
+
 " ==============================================================================
 " DISPLAY
 
