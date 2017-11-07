@@ -49,6 +49,7 @@ set ruler                       "Display line/column number, position, etc.
 set number                      "Show line numbers
 set shortmess=I                 "Disable startup message
 set shortmess+=W                "Disable write message
+set shortmess+=a                "Disable <Enter> message
 set showmode                    "Show current mode in bottom window
 let g:netrw_banner = 0          "Hide banner in file browser
 
