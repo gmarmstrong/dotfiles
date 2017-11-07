@@ -5,7 +5,7 @@ exit 0
 
 . "$HOME/dotfiles/scripts/functions.sh"
 
-# TODO Always link .iterm2_definition if $SSH_CLIENT is set (before setting TERM)
+# TODO Always link and tic .iterm2_definition if $SSH_CLIENT is set (before setting TERM)
     # i.e., before sourcing zshrc
 
 test_internet_connection
