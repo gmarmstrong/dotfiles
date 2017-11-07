@@ -199,15 +199,6 @@ install_antigen() {
     fi
 }
 
-install_pure_prompt() {
-    test ! -d "$HOME/.zfunctions" && mkdir/.zfunctions
-    if [ ! -e "$HOME/.zfunctions/pure_prompt_setup" ] || [ ! -e "$HOME/.zfunctions/async" ]
-    then
-        wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh -O "$HOME/.zfunctions/prompt_pure_setup"
-        wget https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh -O "$HOME/.zfunctions/async"
-    fi
-}
-
 install_pip() {
     curl https://bootstrap.pypa.io/get-pip.py | sudo python
     curl https://bootstrap.pypa.io/get-pip.py | sudo python3
