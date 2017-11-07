@@ -35,9 +35,17 @@ case "$OSTYPE" in
         # Set appropriate TERM
         if (ps -e | grep X)
         then
-            export TERM=rxvt-unicode-256color
+            if [ command -v rxvt-unicode-256color ]
+            then
+                export TERM=rxvt-unicode-256color
+            else
+                export TERM=xterm-256color
+            fi
+        elif [ $SSH_CLIENT ]
+        then
+            export TERM=$TERM
         else
-            export TERM=xterm-256color
+            export TERM=xterm
         fi
         ;;
 esac
