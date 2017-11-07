@@ -9,14 +9,6 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 # Add ~/.zfunctions to $fpath
 fpath=( "$HOME/.zfunctions" $fpath )
 
-# Aliases
-alias nike='ssh -x gma@nike.cs.uga.edu'
-alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.DS_Store|.Spotlight-V100|.Trashes|.sass-cache'"
-alias new="newsbeuter -x reload print-unread"
-alias ls="ls -FH"
-alias ll="ls -FHA"
-alias l="ls -FHAlh"
-
 function del() { mv "$@" ~/.Trash/; }
 
 # antigen (does not seem to work on RHEL)
@@ -77,4 +69,13 @@ case "$OSTYPE" in
         ;;
 esac
 
+# Vi-like shell input
 vi_like_shell
+
+# Aliases
+alias nike='ssh -x gma@nike.cs.uga.edu'
+alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.DS_Store|.Spotlight-V100|.Trashes|.sass-cache'"
+alias new="newsbeuter -x reload print-unread"
+alias ls="ls -FH"
+alias ll="ls -FHA"
+alias l="ls -FHAlh"
