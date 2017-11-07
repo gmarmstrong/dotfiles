@@ -26,6 +26,12 @@ get_linux_distro() {
         case "$ID" in
             debian) linux_distro=Debian ;;
             ubuntu) linux_distro=Ubuntu ;;
+            # TODO Debian-based cases (Kali, Ubuntu Server)
+            # TODO Raspbian case
+            # TODO Red Hat cases (RHEL, Fedora)
+            # TODO Windows Subsystem for Linux case
+            # TODO ArchLinux case
+            # TODO Gentoo case
             *) exit 1 ;;
         esac
     else
