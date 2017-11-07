@@ -165,6 +165,11 @@ setup_package_manager() {
     fi
 }
 
+base16_setup() {
+    mkdir "$HOME/.config"
+    git clone https://github.com/chriskempson/base16-shell.git "$HOME/.config/base16-shell"
+}
+
 generate_key() {
     mkdir -p "$HOME/.ssh"
     if ! [ -e "$HOME/.ssh/id_rsa" ]
