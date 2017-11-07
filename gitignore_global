@@ -56,6 +56,11 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Linux
+.fuse_hidden*
+.Trash-*
+.nfs*
+
 # Vim
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
