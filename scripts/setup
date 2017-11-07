@@ -5,5 +5,7 @@ exit 0
 
 . "$HOME/dotfiles/scripts/functions.sh"
 
+# TODO Detect remote status with $SSH_CLIENT environment variable
+
 test_internet_connection
 check_user_privileges
