@@ -1,3 +1,7 @@
+# See also https://github.com/search?utf8=%E2%9C%93&q=path%3Anewsboat+filename%3Aurls&type=Code
+# See also https://github.com/search?utf8=%E2%9C%93&q=path%3Anewsbeuter+filename%3Aurls&type=Code
+# See also https://github.com/brianclemens/dotfiles/blob/master/.newsbeuter/urls
+
 http://gmarmstrong.org/feed.xml                         "~Guthrie McAfee Armstrong"         "individual"
 http://loup-vaillant.fr/updates                         "~Loup Vaillant"                    "individual"
 https://sanctum.geek.nz/arabesque/feed/                 "~Tom Ryder"                        "individual"
