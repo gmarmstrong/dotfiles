@@ -33,6 +33,10 @@ vi_like_shell() {
     bindkey -M vicmd 'j' history-substring-search-down # down with j in normal mode
 }
 
+# Tab completion
+zstyle ':completion:*' special-dirs true
+autoload -Uz compinit
+compinit
 
 # System-specific settings
 case "$OSTYPE" in
