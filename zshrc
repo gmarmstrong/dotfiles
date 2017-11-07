@@ -20,6 +20,9 @@ function del() { mv "$@" ~/.Trash/; }
 antigen_setup() {
     antigen use oh-my-zsh
     antigen bundle zsh-users/zsh-history-substring-search
+    if [[ $OSTYPE =~ darwin* ]]; then
+        antigen bundle osx
+    fi
     antigen apply
 }
 
