@@ -192,6 +192,13 @@ vim_setup() {
     vim +PlugInstall +qall
 }
 
+install_antigen() {
+    if [ $operating_system == Linux ]
+    then
+        curl -L git.io/antigen > "$HOME/.antigen.zsh"
+    fi
+}
+
 install_pure_prompt() {
     test ! -d "$HOME/.zfunctions" && mkdir/.zfunctions
     if [ ! -e "$HOME/.zfunctions/pure_prompt_setup" ] || [ ! -e "$HOME/.zfunctions/async" ]

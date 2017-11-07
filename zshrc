@@ -16,10 +16,12 @@ alias l="ls -FHAlh"
 
 function del() { mv "$@" ~/.Trash/; }
 
-# Vi-like shell
-bindkey -v
-bindkey -v '^?' backward-delete-char
-bindkey -M viins 'jk' vi-cmd-mode
+# antigen
+antigen_setup() {
+    antigen use oh-my-zsh
+    antigen bundle zsh-users/zsh-history-substring-search
+    antigen apply
+}
 
 # pure zsh prompt
 autoload -U promptinit; promptinit
@@ -30,6 +32,9 @@ case "$OSTYPE" in
     darwin*)
         # Use iTerm2 shell integration
         export TERM="iterm2"
+
+        # Use Homebrew antigen
+        source /usr/local/share/antigen/antigen.zsh
         ;;
     linux*)
         # Set appropriate TERM
@@ -47,5 +52,9 @@ case "$OSTYPE" in
         else
             export TERM=xterm
         fi
+        source "$HOME/.antigen.zsh"
         ;;
 esac
+
+antigen_setup
+vi_like_shell

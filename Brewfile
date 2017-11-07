@@ -7,6 +7,7 @@ tap 'homebrew/bundle'
 tap 'homebrew/core'
 
 brew 'ack'
+brew 'antigen'
 brew 'atool'
 brew 'awscli'
 brew 'blueutil'
