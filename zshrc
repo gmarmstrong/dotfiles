@@ -23,9 +23,6 @@ antigen_setup() {
     antigen apply
 }
 
-# pure zsh prompt
-autoload -U promptinit; promptinit
-prompt pure
 
 # System-specific settings
 case "$OSTYPE" in
