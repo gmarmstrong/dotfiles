@@ -56,6 +56,7 @@ case "$OSTYPE" in
 
         # Use Homebrew antigen
         source /usr/local/share/antigen/antigen.zsh
+        antigen_setup
         ;;
     linux*)
         # Set appropriate TERM
@@ -76,5 +77,4 @@ case "$OSTYPE" in
         ;;
 esac
 
-antigen_setup
 vi_like_shell
