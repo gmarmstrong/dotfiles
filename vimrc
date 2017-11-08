@@ -4,6 +4,7 @@
 " Hide line numbers
 function NoNumber()
     setlocal nonumber
+    setlocal norelativenumber
 endfunction
 
 " Highlight columns exceeding 80
@@ -45,8 +46,8 @@ let g:remoteSession = ($SSH_CLIENT != "")
 " ==============================================================================
 " INTERFACE
 
-set ruler                       "Display line/column number, position, etc.
-set number                      "Show line numbers (combine with relativenumber)
+setlocal ruler                       "Display line/column number, position, etc.
+setlocal number                      "Show line numbers (combine with relativenumber)
 set relativenumber              "Show relative line numebrs (combine with number)
 set shortmess=I                 "Disable startup message
 set shortmess+=W                "Disable write message
