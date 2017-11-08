@@ -93,6 +93,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let syntastic_mode_map = { 'passive_filetypes': ['html'] } "Leave Jekyll alone
 
 " base16 settings
 if $TERM == "iterm2" || $TERM == "*256color"    "Neat!
