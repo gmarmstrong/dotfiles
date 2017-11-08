@@ -101,7 +101,7 @@ let g:syntastic_check_on_wq = 0
 let syntastic_mode_map = { 'passive_filetypes': ['html'] } "Leave Jekyll alone
 
 " base16 settings
-if $TERM == "iterm2" || $TERM == "*256color"    "Neat!
+if $TERM =~ "iterm2" || $TERM =~ ".*256color"   "TODO Test 2nd condition
     let base16colorspace=256                    "Access 256 colorspace
 endif
 
