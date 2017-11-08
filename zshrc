@@ -49,6 +49,8 @@ case "$OSTYPE" in
         # Use Homebrew antigen
         source /usr/local/share/antigen/antigen.zsh
         antigen_setup
+
+        test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
         ;;
     linux*)
         # Set appropriate TERM
