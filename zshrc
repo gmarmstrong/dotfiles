@@ -14,6 +14,7 @@ function del() { mv "$@" ~/.Trash/; }
 # antigen (does not seem to work on RHEL)
 antigen_setup() {
     antigen use oh-my-zsh
+    antigen bundle pass
     antigen bundle zsh-users/zsh-history-substring-search
     antigen bundle zsh-users/zsh-syntax-highlighting
     if [[ $OSTYPE =~ darwin* ]]; then
