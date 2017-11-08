@@ -29,7 +29,7 @@ vi_like_shell() {
     bindkey -v # generally be vi-like
     bindkey -M viins '^?' backward-delete-char # delete beyond initial character
     bindkey -M viins 'jk' vi-cmd-mode # exit vi insert mode with jk
-    if [[ $OSTYPE == Darwin ]]; then
+    if [[ $OSTYPE = darwin* ]]; then
         bindkey -M vicmd 'k' history-substring-search-up # up with k in normal mode
         bindkey -M vicmd 'j' history-substring-search-down # down with j in normal mode
     fi
