@@ -64,7 +64,7 @@ case "$OSTYPE" in
         then
             export TERM=$TERM
         else
-            export TERM=xterm
+            export TERM=linux
         fi
         ;;
 esac
