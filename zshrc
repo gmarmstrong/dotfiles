@@ -6,9 +6,6 @@ HISTFILE="$HOME/.zsh_history"
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-# Add ~/.zfunctions to $fpath
-fpath=( "$HOME/.zfunctions" $fpath )
-
 function del() { mv "$@" ~/.Trash/; }
 
 # antigen (does not seem to work on RHEL)
