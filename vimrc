@@ -76,8 +76,6 @@ filetype plugin on
 " Plugins
 call plug#begin('~/.vim/plugged')       "Note the single quotes
 Plug 'lervag/vimtex'                    "LaTeX support
-Plug 'enomsg/vim-haskellconcealplus'    "Conceal for Haskell
-Plug 'ehamberg/vim-cute-python'         "Conceal for Python
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'gabrielelana/vim-markdown'        "Markdown support
 Plug 'airblade/vim-gitgutter'           "Git diff in the gutter
