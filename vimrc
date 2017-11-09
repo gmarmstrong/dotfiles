@@ -173,7 +173,8 @@ autocmd FileType sh,zsh map <F5> :!./%<CR>
 " ==============================================================================
 " PASS
 
-" Start on the 2nd line and conceal the first line
+" Start on (or create) the 2nd line and conceal the first line
+autocmd BufNewFile,BufRead */pass.*/* if line('$') == 1 | $put _ | endif
 autocmd BufNewFile,BufRead */pass.*/* 2
 autocmd BufNewFile,BufRead */pass.*/* syntax match Concealed '\%1l.*' conceal cchar=⚠️
 autocmd BufNewFile,BufRead */pass.*/* set conceallevel=1
