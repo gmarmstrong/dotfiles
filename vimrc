@@ -49,6 +49,7 @@ setlocal relativenumber         "Show relative line numebrs (combine with number
 set shortmess=I                 "Disable startup message
 set shortmess+=W                "Disable write message
 set shortmess+=a                "Disable <Enter> message
+set cmdheight=2                 "Avoid hit-enter prompts
 set showmode                    "Show current mode in bottom window
 let g:netrw_banner = 0          "Hide banner in file browser
 
