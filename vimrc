@@ -37,9 +37,6 @@ set nocompatible
 " Detect filetype
 filetype on
 
-" ==============================================================================
-" REMOTE
-
 " Detect remote status
 let g:remoteSession = ($SSH_CLIENT != "")
 
