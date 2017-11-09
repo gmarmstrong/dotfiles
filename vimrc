@@ -172,6 +172,14 @@ autocmd FileType haskell map <F5> :!ghci %<CR>
 autocmd FileType sh,zsh map <F5> :!./%<CR>
 
 " ==============================================================================
+" PASS
+
+" Start on the 2nd line and conceal the first line
+autocmd BufNewFile,BufRead */pass.*/* 2
+autocmd BufNewFile,BufRead */pass.*/* syntax match Concealed '\%1l.*' conceal cchar=⚠️
+autocmd BufNewFile,BufRead */pass.*/* set conceallevel=1
+
+" ==============================================================================
 " PROSE
 
 " Disable line numbers
