@@ -27,6 +27,8 @@ case "$OSTYPE" in
         brew bundle cleanup
         brew doctor
         brew style
+        echo "Check the calibre changelog https://calibre-ebook.com/whats-new for new releases."
+        echo "Then do \`brew cask reinstall calibre\` if a new update is available."
         ;;
     linux*)
         sudo apt-get update
