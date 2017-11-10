@@ -48,7 +48,6 @@ brew 'xz'
 brew 'youtube-dl'
 brew 'zsh'
 
-cask '1password'
 cask 'alfred'
 cask 'backblaze'
 cask 'calibre'

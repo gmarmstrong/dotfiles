@@ -48,6 +48,10 @@ case "$OSTYPE" in
         antigen_setup
 
         test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+        function rm() {
+            echo "Woah, there! Use trash instead, or prepend rm with a backslash."
+        }
         ;;
     linux*)
         # Set appropriate TERM
