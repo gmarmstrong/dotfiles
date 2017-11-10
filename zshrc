@@ -17,7 +17,6 @@ antigen_setup() {
     if [[ $OSTYPE =~ darwin* ]]; then
         antigen bundle osx
     fi
-    antigen theme refined
     antigen apply
 }
 
