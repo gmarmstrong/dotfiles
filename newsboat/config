@@ -1,12 +1,14 @@
+# General preferences
 browser open
 reload-threads 6
 auto-reload yes
 goto-next-feed no
-highlight article "^Title: .*$" default default bold
 text-width 80 # Only works properly with newsboat
+download-path ~/Download
 
 # Unbind dangerous keys
 unbind-key A
+unbind-key C
 
 # Use vi-like page(up|down) while retaining show-urls.
 bind-key u pageup
@@ -14,11 +16,11 @@ bind-key d pagedown
 bind-key U show-urls
 
 # Define (prev|next)-feed second. Overrides (prev|next) in article list.
+bind-key    K up
 bind-key    K prev
+bind-key    J down
 bind-key    J next
 
 # Basic navigation
 bind-key    k up
 bind-key    j down
-bind-key    p prev-unread
-bind-key    n next-unread
