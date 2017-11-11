@@ -43,12 +43,10 @@ bind-key u pageup
 bind-key d pagedown
 bind-key U show-urls
 
-# Define (prev|next)-feed second. Overrides (prev|next) in article list.
+# Basic vi-like navigation
 bind-key    K up
 bind-key    K prev
 bind-key    J down
 bind-key    J next
-
-# Basic navigation
 bind-key    k up
 bind-key    j down
