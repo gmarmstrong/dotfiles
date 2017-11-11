@@ -19,12 +19,6 @@ function OpenPandocHTML()
     !open %:r.html
 endfunction
 
-" Compile and open LaTeX
-function OpenTeX()
-    !pdflatex %
-    !open %:r.pdf
-endfunction
-
 " ==============================================================================
 " ESSENTIAL
 
@@ -189,4 +183,3 @@ autocmd FileType latex,markdown,text,rst,html map <F5> :setlocal spell! spelllan
 autocmd FileType html map <F6> :!open % <CR>
 autocmd FileType rst map <F6> :!rst2html.py % '%:r'.html<CR>
 autocmd FileType markdown map <F6> :call OpenPandocHTML()<CR><CR><CR>
-autocmd FileType tex map <F6> :call OpenTeX()<CR>
