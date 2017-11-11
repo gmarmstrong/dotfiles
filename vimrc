@@ -31,9 +31,6 @@ endfunction
 " Map jk to escape
 inoremap jk <esc>
 
-" Be vim, not vi!
-set nocompatible
-
 " Detect filetype
 filetype on
 
