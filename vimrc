@@ -112,7 +112,6 @@ set list
 set list listchars=tab:»·,trail:␣
 
 " Color
-syntax on                               "Enable syntax highlighting
 colorscheme base16-tomorrow             "Depends on chriskempson/base16-vim
 highlight LineNr ctermfg=lightgrey
 highlight VertSplit ctermbg=lightgrey ctermfg=lightgrey
