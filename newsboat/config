@@ -32,7 +32,7 @@ urlview-title-format "Dialogs"
 show-keymap-hint no
 
 # Formatting
-feedlist-format "%U %3 %t"
+feedlist-format "%U %t"
 articlelist-format "%t"
 highlight article "^Feed: .*$" white default
 highlight article "^Title: .*$" white default bold
