@@ -41,13 +41,11 @@ This file updates package managers. It's more of a maintenance script than a
 configuration file. It currently handles `tlmgr`, `pip3`, `vim-plug`, `brew`,
 and `apt-get`.
 
-### `newsbeuter/`
+### `newsboat/`
 
-These files configure [newsbeuter](https://github.com/akrennmair/newsbeuter),
-my RSS reader (newsbeuter is unmaintained, I need to switch to
-[newsboat](https://github.com/newsboat/newsboat)), and list the sites I follow.
-Its files can be symlinked into `~/.config/newsbeuter/` or into `~/.newsbeuter`
-(newsboat will use its own name).
+These files configure the [newsboat](https://github.com/newsboat/newsboat) RSS
+reader, and list the sites I follow.  Its files can be symlinked into
+`~/.config/newsboat/` or `~/.newsboat`.
 
 ### `vimrc`
 
