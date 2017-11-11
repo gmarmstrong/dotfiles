@@ -137,49 +137,49 @@ set wrapmargin=0    "Distance from the window border to wrap
 " PYTHON
 
 " Map F5 to execute
-autocmd FileType python map <F5> :!./%<CR>
+autocmd! FileType python map <F5> :!./%<CR>
 
 " 80+ column warning
-autocmd FileType python call ColumnWarning()
+autocmd! FileType python call ColumnWarning()
 
 " ==============================================================================
 " R
 
 " Map F5 to compile
-autocmd FileType r map <F5> :!Rscript %<CR>
+autocmd! FileType r map <F5> :!Rscript %<CR>
 
 " ==============================================================================
 " HASKELL
 
 " Map F5 to compile
-autocmd FileType haskell map <F5> :!ghci %<CR>
+autocmd! FileType haskell map <F5> :!ghci %<CR>
 
 " ==============================================================================
 " SHELL
 
 " Map F5 to execute
-autocmd FileType sh,zsh map <F5> :!./%<CR>
+autocmd! FileType sh,zsh map <F5> :!./%<CR>
 
 " ==============================================================================
 " PASS
 
 " Start on (or create) the 2nd line and conceal the first line
-autocmd BufNewFile,BufRead */pass.*/* if line('$') == 1 | $put _ | endif
-autocmd BufNewFile,BufRead */pass.*/* 2
-autocmd BufNewFile,BufRead */pass.*/* syntax match Concealed '\%1l.*' conceal cchar=⚠️
-autocmd BufNewFile,BufRead */pass.*/* set conceallevel=1
+autocmd! BufNewFile,BufRead */pass.*/* if line('$') == 1 | $put _ | endif
+autocmd! BufNewFile,BufRead */pass.*/* 2
+autocmd! BufNewFile,BufRead */pass.*/* syntax match Concealed '\%1l.*' conceal cchar=⚠️
+autocmd! BufNewFile,BufRead */pass.*/* set conceallevel=1
 
 " ==============================================================================
 " PROSE
 
 " Disable line numbers
-autocmd FileType latex,markdown,text,rst,html call NoNumber()
+autocmd! FileType latex,markdown,text,rst,html call NoNumber()
 
 " Map F5 to toggle spell checking
-autocmd FileType latex,markdown,rst,html setlocal spell spelllang=en_us
-autocmd FileType latex,markdown,text,rst,html map <F5> :setlocal spell! spelllang=en_us<CR>
+autocmd! FileType latex,markdown,rst,html setlocal spell spelllang=en_us
+autocmd! FileType latex,markdown,text,rst,html map <F5> :setlocal spell! spelllang=en_us<CR>
 
 " Map F6 to open
-autocmd FileType html map <F6> :!open % <CR>
-autocmd FileType rst map <F6> :!rst2html.py % '%:r'.html<CR>
-autocmd FileType markdown map <F6> :call OpenPandocHTML()<CR><CR><CR>
+autocmd! FileType html map <F6> :!open % <CR>
+autocmd! FileType rst map <F6> :!rst2html.py % '%:r'.html<CR>
+autocmd! FileType markdown map <F6> :call OpenPandocHTML()<CR><CR><CR>
