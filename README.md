@@ -77,13 +77,16 @@ is infrequently used, but it is usually only run once on a system.
 
 ### `xinitrc`
 
-This file is sourced every time X starts. It sources `Xresources`, sets the
-background, and launches the window manager.
+This file is sourced every time X is started by xinit. It sources `Xresources`,
+sets the background, and launches the window manager. [This ArchWiki
+article](https://wiki.archlinux.org/index.php/Xinit) gives a good overview of
+xinit.
 
 ### `Xresources`
 
-This file configures visual preferences for X (font settings, `urxvt` settings,
-etc.)
+This file configures [visual preferences for
+X](https://wiki.archlinux.org/index.php/x_resources) (font settings, `urxvt`
+settings, etc.)
 
 ### `i3/config`
 
