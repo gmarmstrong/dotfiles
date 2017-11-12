@@ -121,10 +121,6 @@ set expandtab           "Insert spaces instead of tabs
 set breakindent         "Indent wrapped lines
 filetype indent on      "Indent with filetype in mind
 
-" Indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
-
 " ==============================================================================
 " WRAPPING
 
