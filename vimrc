@@ -1,12 +1,6 @@
 " ==============================================================================
 " FUNCTIONS
 
-" Hide line numbers
-function NoNumber() abort
-    setlocal nonumber
-    setlocal norelativenumber
-endfunction
-
 " Highlight columns exceeding 80
 function ColumnWarning() abort
     highlight OverLength ctermbg=red ctermfg=white
@@ -24,7 +18,6 @@ endfunction
 
 setlocal ruler                  "Display line/column number, position, etc.
 setlocal number                 "Show line numbers (combine with relativenumber)
-setlocal relativenumber         "Show relative line numebrs (combine with number)
 set shortmess=I                 "Disable startup message
 set shortmess+=W                "Disable write message
 set shortmess+=a                "Disable <Enter> message
@@ -157,7 +150,7 @@ autocmd BufNewFile,BufRead */pass.*/* set conceallevel=1
 " PROSE
 
 " Disable line numbers
-autocmd FileType latex,markdown,text,rst,html call NoNumber()
+autocmd FileType latex,markdown,text,rst,html setlocal nonumber
 
 " Map F5 to toggle spell checking
 autocmd FileType latex,markdown,rst,html setlocal spell spelllang=en_us
