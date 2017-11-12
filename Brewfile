@@ -51,7 +51,6 @@ brew 'zsh'
 
 cask 'alfred'
 cask 'backblaze'
-cask 'calibre'
 cask 'caskroom/versions/firefox-beta'
 cask 'caskroom/versions/java8'
 cask 'clamxav'
