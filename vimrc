@@ -86,7 +86,6 @@ set list listchars=tab:»·,trail:␣
 
 " Color
 colorscheme base16-tomorrow             "Depends on chriskempson/base16-vim
-highlight LineNr ctermfg=lightgrey
 highlight VertSplit ctermbg=lightgrey ctermfg=lightgrey
 highlight StatusLine ctermbg=lightgrey ctermfg=lightgrey
 highlight StatusLineNC ctermbg=lightgrey ctermfg=lightgrey
