@@ -88,7 +88,7 @@ symlink_darwin_dotfiles() {
 symlink_agnostic_dotfiles() {
     echo "Symlinking system-agnostic dotfiles..."
     ln -s "$HOME/dotfiles/gitignore_global" "$HOME/.gitignore_global"
-    ln -s "$HOME/dotfiles/newsbeuter" "$HOME/.newsbeuter"
+    ln -s "$HOME/dotfiles/newsboat" "$HOME/.newsboat"
     ln -s "$HOME/dotfiles/vimrc" "$HOME/.vimrc"
     ln -s "$HOME/dotfiles/zshenv" "$HOME/.zshenv"
     ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
