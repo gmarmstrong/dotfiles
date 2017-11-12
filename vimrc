@@ -20,13 +20,7 @@ function OpenPandocHTML() abort
 endfunction
 
 " ==============================================================================
-" ESSENTIAL
-
-" Map jk to escape
-inoremap jk <esc>
-
-" Detect filetype
-filetype on
+" SSH
 
 " Detect remote status
 let g:remoteSession = ($SSH_CLIENT != "")
@@ -47,6 +41,9 @@ let g:netrw_banner = 0          "Hide banner in file browser
 " ==============================================================================
 " INPUT
 
+" Map jk to escape
+inoremap jk <esc>
+
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set clipboard=unnamed           "yank and pull to the system clipboard
 
@@ -61,8 +58,6 @@ endif
 
 " ==============================================================================
 " PLUGINS
-
-filetype plugin on
 
 " Plugins
 call plug#begin('~/.vim/plugged')       "Note the single quotes
@@ -119,7 +114,6 @@ set shiftwidth=4        "Set width of reindent operations (<< and >>)
 set tabstop=4           "Tab characters appear 4 spaces wide
 set expandtab           "Insert spaces instead of tabs
 set breakindent         "Indent wrapped lines
-filetype indent on      "Indent with filetype in mind
 
 " ==============================================================================
 " WRAPPING
