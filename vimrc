@@ -2,19 +2,19 @@
 " FUNCTIONS
 
 " Hide line numbers
-function NoNumber()
+function NoNumber() abort
     setlocal nonumber
     setlocal norelativenumber
 endfunction
 
 " Highlight columns exceeding 80
-function ColumnWarning()
+function ColumnWarning() abort
     highlight OverLength ctermbg=red ctermfg=white
     match OverLength /\%81v.\+/
 endfunction
 
 " Compile to HTML and open
-function OpenPandocHTML()
+function OpenPandocHTML() abort
     !pandoc -f markdown -t html % -o %:r.html
     !open %:r.html
 endfunction
