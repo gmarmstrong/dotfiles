@@ -7,8 +7,8 @@ function ColumnWarning() abort
     match OverLength /\%81v.\+/
 endfunction
 
-" Compile to HTML and open
-function OpenPandocHTML() abort
+" Compile Markdown to HTML and open
+function BrowserMarkdown() abort
     !pandoc -f markdown -t html % -o %:r.html
     !open %:r.html
 endfunction
@@ -159,4 +159,4 @@ autocmd FileType latex,markdown,text,rst,html map <F5> :setlocal spell! spelllan
 " Map F6 to open
 autocmd FileType html map <F6> :!open % <CR>
 autocmd FileType rst map <F6> :!rst2html.py % '%:r'.html<CR>
-autocmd FileType markdown map <F6> :call OpenPandocHTML()<CR><CR><CR>
+autocmd FileType markdown map <F6> :call BrowserMarkdown()<CR><CR><CR>
