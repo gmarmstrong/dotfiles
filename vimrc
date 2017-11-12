@@ -20,12 +20,6 @@ function OpenPandocHTML() abort
 endfunction
 
 " ==============================================================================
-" SSH
-
-" Detect remote status
-let g:remoteSession = ($SSH_CLIENT != "")
-
-" ==============================================================================
 " INTERFACE
 
 setlocal ruler                  "Display line/column number, position, etc.
