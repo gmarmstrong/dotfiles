@@ -9,7 +9,7 @@ endfunction
 
 " Compile Markdown to HTML and open
 function BrowserMarkdown() abort
-    !pandoc -f markdown -t html % -o %:r.html
+    !pandoc -s -f markdown -t html % -o %:r.html
     !open %:r.html
 endfunction
 
