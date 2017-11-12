@@ -33,11 +33,10 @@ urlview-title-format "Dialogs"
 show-keymap-hint no
 
 # Formatting
-feedlist-format "%U %t"
+feedlist-format "%-4U %t"
 articlelist-format "%t"
 highlight article "^Feed: .*$" white default
 highlight article "^Title: .*$" white default bold
-highlight article "^(Author|Link|Podcast Download URL):.*$" black black
 
 # Use vi-like page(up|down) while retaining show-urls.
 bind-key u pageup
