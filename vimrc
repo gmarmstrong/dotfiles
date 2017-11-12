@@ -53,10 +53,10 @@ set clipboard=unnamed           "yank and pull to the system clipboard
 " ==============================================================================
 " DICTIONARY
 
-nmap <silent> <Leader>d :!dict <cword> \| less <CR>
+nnoremap <silent> <Leader>d :!dict <cword> \| less <CR>
 
 if has('mac')
-    nmap <silent> <Leader>t :!open dict://<cword><CR><CR>
+    nnoremap <silent> <Leader>t !open dict://<cword><CR><CR>
 endif
 
 " ==============================================================================
