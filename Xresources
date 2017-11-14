@@ -1,3 +1,5 @@
+URxvt.internalBorder: 15
+
 ! hide scrollbar
 URxvt.scrollBar: false
 
@@ -15,6 +17,10 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
 ! font settings
-URxvt.font: xft:Anonymous Pro:Regular:size=12:antialiasing=True
-Xft.hinting:    true
-Xft.antialias:  true
+URxvt.font: xft:Anonymous Pro:Regular:size=12:antialias=True
+Xft.autohint: 1
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
