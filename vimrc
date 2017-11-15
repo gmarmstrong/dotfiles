@@ -139,11 +139,21 @@ autocmd FileType sh,zsh map <F5> :!./%<CR>
 " ==============================================================================
 " PASS
 
-" Start on (or create) the 2nd line and conceal the first line
-autocmd BufNewFile,BufRead */pass.*/* if line('$') == 1 | $put _ | endif
-autocmd BufNewFile,BufRead */pass.*/* 2
-autocmd BufNewFile,BufRead */pass.*/* syntax match Concealed '\%1l.*' conceal cchar=⚠️
-autocmd BufNewFile,BufRead */pass.*/* set conceallevel=1
+" https://lists.zx2c4.com/pipermail/password-store/2017-November/003122.html
+augroup passconceal
+    autocmd!
+
+    " Create the second line if it does not already exist
+    autocmd BufNewFile,BufRead */pass.*/* if line('$') == 1 | $put _ | endif
+
+    " Jump to the second line
+    autocmd BufNewFile,BufRead */pass.*/* 2
+
+    " Conceal the first line with a unicode character
+    autocmd BufNewFile,BufRead */pass.*/* syntax match Concealed '\%1l.*' conceal cchar=⚠️
+    autocmd BufNewFile,BufRead */pass.*/* set conceallevel=1
+
+augroup END
 
 " ==============================================================================
 " PROSE
