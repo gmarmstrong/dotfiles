@@ -28,7 +28,9 @@ brew 'jq'
 brew 'make'
 brew 'mas'
 brew 'mutt'
+brew 'msmtp'
 brew 'newsboat'
+brew 'offlineimap'
 brew 'p7zip'
 brew 'pandoc'
 brew 'pass'
@@ -74,5 +76,5 @@ brew 'maven'
 
 cask 'caskroom/fonts/font-inconsolata'
 
-# mas 'macOS High Sierra', id: 1246284741
+#mas 'macOS High Sierra', id: 1246284741
 mas 'Xcode', id: 497799835
