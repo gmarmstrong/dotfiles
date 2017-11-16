@@ -68,6 +68,13 @@ case "$OSTYPE" in
         }
         ;;
     linux*)
+        # Use system antigen
+        if [ -e /usr/share/zsh-antigen ]
+        then
+            export ADOTDIR=$HOME/.local/share/antigen
+            source /usr/share/zsh-antigen/antigen.zsh
+            antigen_setup
+        fi
         # Set appropriate TERM
         if (ps -e | grep X)
         then
