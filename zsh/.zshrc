@@ -16,7 +16,7 @@ export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 export TASKRC="$HOME/.config/task/config"
 export TASKDATA="$HOME/.local/share/task/"
 
-BASE16_SHELL=$HOME/.config/base16-shell/
+BASE16_SHELL=$HOME/.local/share/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 function del() { mv "$@" ~/.Trash/; }
