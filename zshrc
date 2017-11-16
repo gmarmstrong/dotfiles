@@ -1,7 +1,13 @@
 # Save history to file
 HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
-HISTFILE="$HOME/.zsh_history"
+HISTFILE="$HOME/.local/share/zsh/zsh_history"
+export LESSHISTFILE="$HOME/.cache/less/history"
+export LESSKEY="$HOME/.config/less/keys"
+
+# Tell Vim to follow XDG conventions
+export VIMDOTDIR="$HOME/.config/vim"
+export VIMINIT='let $MYVIMRC="$VIMDOTDIR/vimrc" | source $MYVIMRC'
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
@@ -35,7 +41,7 @@ vi_like_shell() {
 # Tab completion
 zstyle ':completion:*' special-dirs true
 autoload -Uz compinit
-compinit
+compinit -d $HOME/.cache/zsh/zcompdump
 
 # System-specific settings
 case "$OSTYPE" in
