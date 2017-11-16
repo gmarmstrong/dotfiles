@@ -1,4 +1,4 @@
-calc
+apcalc
 curl
 dict
 diction
@@ -13,7 +13,6 @@ imagemagick
 lemonbar
 man-db
 mutt
-newsboat
 ntp
 pandoc
 pass
