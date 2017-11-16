@@ -55,6 +55,7 @@ brew 'youtube-dl'
 brew 'zsh'
 
 cask 'alfred'
+cask 'android-file-transfer'
 cask 'backblaze'
 cask 'caskroom/versions/java8'
 cask 'firefox'
