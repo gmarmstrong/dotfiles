@@ -16,6 +16,7 @@ mutt
 ntp
 pandoc
 pass
+psmisc
 python
 python3
 ranger
