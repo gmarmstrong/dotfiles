@@ -14,6 +14,11 @@ function BrowserMarkdown() abort
 endfunction
 
 " ==============================================================================
+" FILETYPE DETECTION
+
+set modeline
+
+" ==============================================================================
 " INTERFACE
 
 setlocal ruler                  "Display line/column number, position, etc.
