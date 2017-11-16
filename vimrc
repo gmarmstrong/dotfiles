@@ -57,7 +57,7 @@ Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'gabrielelana/vim-markdown'        "Markdown support
 Plug 'airblade/vim-gitgutter'           "Git diff in the gutter
-Plug 'scrooloose/syntastic'             "Syntax checking
+"Plug 'scrooloose/syntastic'             "Syntax checking
 Plug 'chriskempson/base16-vim'          "Colorschemes
 call plug#end()
 
