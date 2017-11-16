@@ -61,7 +61,7 @@ endif
 " PLUGINS
 
 " Plugins
-call plug#begin('~/.vim/plugged')       "Note the single quotes
+call plug#begin('~/.config/vim/plugged')       "Note the single quotes
 Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'gabrielelana/vim-markdown'        "Markdown support
