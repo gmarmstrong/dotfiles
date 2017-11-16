@@ -3,12 +3,6 @@
 This is my dotfiles repository. [There are many like
 it](https://dotfiles.github.io/), but this one is mine.
 
-I try to follow the XDG Base Directory Specification. Here are some resources
-on that topic:
-* <https://wiki.archlinux.org/index.php/XDG_Base_Directory_support>
-* <https://github.com/grawity/dotfiles/blob/master/.dotfiles.notes>
-* <https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html>
-
 ## Global settings
 
 ### `scripts/*setup`
