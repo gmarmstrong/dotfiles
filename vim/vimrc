@@ -5,7 +5,7 @@ set undodir=$HOME/.cache/vim/undo
 set directory=$HOME/.cache/vim/swap
 set backupdir=$HOME/.cache/vim/backup
 set viminfo+='1000,n$HOME/.cache/vim/viminfo
-set runtimepath=$HOME/.config/vim,$HOME/.config/vim/after,$VIMRUNTIME
+set runtimepath=$HOME/.config/vim,$HOME/.config/vim/after,$HOME/.local/share/vim,$VIMRUNTIME
 
 " ==============================================================================
 " FUNCTIONS
@@ -61,7 +61,7 @@ endif
 " PLUGINS
 
 " Plugins
-call plug#begin('~/.config/vim/plugged')       "Note the single quotes
+call plug#begin('$HOME/.local/share/vim/plugged')       "Note the single quotes
 Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'gabrielelana/vim-markdown'        "Markdown support
@@ -73,15 +73,15 @@ call plug#end()
 " vimtex settings
 let g:vimtex_compiler_latexmk = {'callback' : 0}
 
-" syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let syntastic_mode_map = { 'passive_filetypes': ['html'] } "Leave Jekyll alone
+"" syntastic settings
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let syntastic_mode_map = { 'passive_filetypes': ['html'] } "Leave Jekyll alone
 
 " base16 settings
 if $TERM =~ "iterm2" || $TERM =~ ".*256color"   "TODO Test 2nd condition
