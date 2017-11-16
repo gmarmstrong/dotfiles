@@ -77,6 +77,7 @@ vi_like_shell
 
 # Aliases
 alias nike='ssh -x gma@nike.cs.uga.edu'
+alias nikex='ssh -Y gma@nike.cs.uga.edu'
 alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.DS_Store|.Spotlight-V100|.Trashes|.sass-cache'"
 alias new="newsboat -x reload print-unread"
 alias news="newsboat"
