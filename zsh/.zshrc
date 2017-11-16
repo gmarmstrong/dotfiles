@@ -57,6 +57,7 @@ case "$OSTYPE" in
         export TERM="iterm2"
 
         # Use Homebrew antigen
+        export ADOTDIR=$HOME/.local/share/antigen
         source /usr/local/share/antigen/antigen.zsh
         antigen_setup
 
