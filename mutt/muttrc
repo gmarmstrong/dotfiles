@@ -1,0 +1,34 @@
+# General, sorted lexicographically with :sort /set /
+  set delete            = yes
+  set forward_format    = "Fwd: %s"
+  set forward_quote
+  set header_cache      = "$HOME/.cache/mutt/cache/header"
+unset help
+  set include
+  set index_format      = "%4C %Z %[%b %d] %-30.30L %s"
+  set mail_check        = 60
+  set mailcap_path      = "$HOME/.config/mutt/mailcap"
+  set mbox_type         = Maildir
+  set message_cachedir  = "$HOME/.cache/mutt/cache/message"
+  set realname          = "Guthrie Armstrong"
+  set reverse_alias     = yes
+  set sort=threads
+  set sort_alias        = alias
+  set sort_aux          = reverse-last-date-received
+  set sort_browser      = date
+  set tmpdir            = "$HOME/.cache/mutt/tmp"
+  set use_from          = yes
+
+# Colors
+color indicator color000 color250
+color error     color160 color000
+
+# Folder hooks
+folder-hook Personal/* "source $HOME/.config/mutt/accounts/personal"
+folder-hook UGA/* "source $HOME/.config/mutt/accounts/uga"
+
+# Source other files
+source "$HOME/.config/mutt/accounts/personal"  # Default account
+source "$HOME/.config/mutt/macros"
+source "$HOME/.local/share/mutt/mailboxes"
+source "$HOME/.muttaliases"

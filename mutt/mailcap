@@ -1,0 +1,16 @@
+# Images
+image/jpg; $HOME/.config/mutt/view_attachment.sh %s jpg
+image/jpeg; $HOME/.config/mutt/view_attachment.sh %s jpg
+image/pjpeg; $HOME/.config/mutt/view_attachment.sh %s jpg
+image/png; $HOME/.config/mutt/view_attachment.sh %s png
+image/gif; $HOME/.config/mutt/view_attachment.sh %s gif
+image/tiff; $HOME/.config/mutt/view_attachment.sh %s gif
+
+# PDFs
+application/pdf; $HOME/.config/mutt/view_attachment.sh %s pdf
+
+# HTML
+text/html; $HOME/.config/mutt/view_attachment.sh %s html
+
+# Unidentified files
+application/octet-stream; $HOME/.config/mutt/view_attachment.sh %s "-"
