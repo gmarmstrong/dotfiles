@@ -1,4 +1,4 @@
 export TERM=urxvt
-xrdb -load ~/.Xresources
+xrdb -load ~/.config/X11/Xresources
 xsetroot -solid black
 exec i3
