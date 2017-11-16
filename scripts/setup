@@ -1,5 +1,15 @@
 #!/bin/bash
 
+## To install, enter:
+#   cd "$HOME"
+#   wget --no-check-certificate https://github.com/gmarmstrong/dotfiles/blob/master/scripts/setup
+#   wget --no-check-certificate https://github.com/gmarmstrong/dotfiles/blob/master/scripts/post-setup
+#   ./setup
+#   newgrp sudo
+#   newgrp -
+#   ./post-setup
+#   logout
+
 echo "This script isn't done yet!"
 exit 0
 
