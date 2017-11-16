@@ -8,5 +8,5 @@ export PATH="$HOME/.local/bin:$PATH"
 # Set $EDITOR
 export EDITOR="vim"
 
-# Set $ZDOTDIR (this should be the last line)
+# Set $ZDOTDIR
 export ZDOTDIR="$HOME/.config/zsh"
