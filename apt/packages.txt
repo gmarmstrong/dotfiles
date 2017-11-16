@@ -36,3 +36,4 @@ xinit
 youtube-dl
 zathura
 zsh
+zsh-antigen
