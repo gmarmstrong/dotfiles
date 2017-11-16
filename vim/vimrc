@@ -1,4 +1,13 @@
 " ==============================================================================
+" VIM
+
+set undodir=$HOME/.cache/vim/undo
+set directory=$HOME/.cache/vim/swap
+set backupdir=$HOME/.cache/vim/backup
+set viminfo+='1000,n$HOME/.cache/vim/viminfo
+set runtimepath=$HOME/.config/vim,$HOME/.config/vim/after,$VIMRUNTIME
+
+" ==============================================================================
 " FUNCTIONS
 
 " Highlight columns exceeding 80
