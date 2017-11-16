@@ -55,7 +55,7 @@ brew 'zsh'
 
 cask 'alfred'
 cask 'backblaze'
-cask 'caskroom/versions/firefox-beta'
+cask 'firefox'
 cask 'caskroom/versions/java8'
 cask 'grandperspective'
 cask 'iterm2'
