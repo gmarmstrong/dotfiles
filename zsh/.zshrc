@@ -5,9 +5,16 @@ HISTFILE="$HOME/.local/share/zsh/zsh_history"
 export LESSHISTFILE="$HOME/.cache/less/history"
 export LESSKEY="$HOME/.config/less/keys"
 
-# Tell Vim to follow XDG conventions
+# Vim XDG conventions
 export VIMDOTDIR="$HOME/.config/vim"
 export VIMINIT='let $MYVIMRC="$VIMDOTDIR/vimrc" | source $MYVIMRC'
+
+# password-store XDG conventions
+export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
+
+# Taskwarrior XDG conventions
+export TASKRC="$HOME/.config/task/config"
+export TASKDATA="$HOME/.local/share/task/"
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
