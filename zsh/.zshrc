@@ -76,9 +76,9 @@ case "$OSTYPE" in
             antigen_setup
         fi
         # Set appropriate TERM
-        if (ps -e | grep X)
+        if (ps -e | grep X) &> /dev/null
         then
-            if [ command -v rxvt-unicode-256color ]
+            if command -v urxvt > /dev/null
             then
                 export TERM=rxvt-unicode-256color
             else
