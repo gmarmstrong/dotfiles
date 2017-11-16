@@ -4,6 +4,9 @@
 # 'man task-sync' or 'man taskrc'
 # Use the command 'task show' to see all defaults and overrides
 
+# Verbosity
+verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
+
 # Files
 data.location=~/.local/share/task
 
