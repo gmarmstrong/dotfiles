@@ -6,7 +6,7 @@ export LESSHISTFILE="$HOME/.cache/less/history"
 export LESSKEY="$HOME/.config/less/keys"
 
 # Vim XDG conventions
-export VIMDOTDIR="$HOME/.vim"
+export VIMDOTDIR="$HOME/.local/share/vim"
 export VIMINIT='let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC'
 
 # password-store XDG conventions
