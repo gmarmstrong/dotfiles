@@ -1,0 +1,13 @@
+# IMAP
+set folder="$HOME/.local/share/offlineimap/mail/UGA"
+set spoolfile="+Inbox"
+set mbox="+Archive"
+
+# SMTP
+set from="guthrie.armstrong25@uga.edu"
+set sendmail="msmtp -a UGA"
+set postponed="+Drafts"
+set record="+Sent"
+
+# Account-specific macros
+macro index s "<save-message>=Archive<enter><enter>" "Archive"
