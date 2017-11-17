@@ -68,10 +68,17 @@ case "$OSTYPE" in
         }
         ;;
     linux*)
-        # Set appropriate TERM
-        if (ps -e | grep X)
+        # Use system antigen
+        if [ -e /usr/share/zsh-antigen ]
         then
-            if [ command -v rxvt-unicode-256color ]
+            export ADOTDIR=$HOME/.local/share/antigen
+            source /usr/share/zsh-antigen/antigen.zsh
+            antigen_setup
+        fi
+        # Set appropriate TERM
+        if (ps -e | grep X) &> /dev/null
+        then
+            if command -v urxvt > /dev/null
             then
                 export TERM=rxvt-unicode-256color
             else
