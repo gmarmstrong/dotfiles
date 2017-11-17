@@ -49,16 +49,16 @@ then
 fi
 
 # Authenticate with GitHub
-if ! [ ssh -T git@github.com ]
+if ! ssh -T git@github.com
 then
     echo "Uploading public key to GitHub..."
     myjson='{"title":"'"$keyname"'","key":"'"$(cat $HOME/.ssh/id_rsa.pub)"'"}'
-    eval "curl -u $github_username --data '$myjson' https://api.github.com/user/keys"
+    eval "curl -u gmarmstrong --data '$myjson' https://api.github.com/user/keys"
 fi
 
 # Install projects from GitHub
 git clone https://github.com/chriskempson/base16-shell.git "$HOME/.local/share/base16-shell"
-git clone https://github.com/gmarmstrong/passwords.git "$HOME/.local/share/password-store"
+git clone git@github.com:gmarmstrong/passwords.git "$HOME/.local/share/password-store"
 curl -fLo "$HOME/.local/bin/clustergit" "https://raw.githubusercontent.com/mnagel/clustergit/master/clustergit"
 curl -fLo "$HOME/.local/share/vim/autoload/plug.vim" "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
