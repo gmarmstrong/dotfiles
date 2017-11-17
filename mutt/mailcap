@@ -1,4 +1,5 @@
 # FIXME Use Linux mailcap
+# TODO Remove view_attachment.sh
 
 # Images
 image/jpg; $HOME/.config/mutt/view_attachment.sh %s jpg
