@@ -1,4 +1,6 @@
 # General, sorted lexicographically with :sort /set /
+  set crypt_replysign   = yes
+  set crypt_replysignencrypted = yes
   set delete            = yes
   set forward_format    = "Fwd: %s"
   set forward_quote
@@ -10,6 +12,9 @@ unset help
   set mailcap_path      = "$HOME/.config/mutt/mailcap"
   set mbox_type         = Maildir
   set message_cachedir  = "$HOME/.cache/mutt/cache/message"
+  set pgp_auto_decode   = yes
+  set pgp_sign_as       = 6C14881E29F61A8CD505E5C54952ED1C9B16CDCB
+  set pgp_use_gpg_agent = yes
   set realname          = "Guthrie Armstrong"
   set reverse_alias     = yes
   set sort=threads
@@ -31,4 +36,4 @@ folder-hook UGA/* "source $HOME/.config/mutt/accounts/uga"
 source "$HOME/.config/mutt/accounts/personal"  # Default account
 source "$HOME/.config/mutt/macros"
 source "$HOME/.local/share/mutt/mailboxes"
-source "$HOME/contacts/muttaliases"
+source "$HOME/.gpg.rc"
