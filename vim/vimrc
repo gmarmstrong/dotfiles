@@ -70,7 +70,7 @@ call plug#end()
 let g:vimtex_compiler_latexmk = {'callback' : 0}
 
 " base16 settings
-if $TERM =~ "iterm2" || $TERM =~ ".*256color"   "TODO Test 2nd condition, remove 1st
+if $TERM =~ ".*256color"
     let base16colorspace=256                    "Access 256 colorspace
 endif
 
