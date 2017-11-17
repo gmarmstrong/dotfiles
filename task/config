@@ -5,8 +5,7 @@ verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 data.location=~/.local/share/task
 
 # Color theme
-# FIXME Use Debian path
-include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
+include /usr/share/taskwarrior/light-256.theme
 
 # Default command
 report.custom.columns=id,project,tags,recur,due.relative,description
