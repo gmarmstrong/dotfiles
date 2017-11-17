@@ -93,7 +93,7 @@ set list
 set list listchars=tab:»·,trail:␣
 
 " Color
-colorscheme base16-tomorrow
+colorscheme base16-default-dark
 highlight VertSplit ctermbg=lightgrey ctermfg=lightgrey
 highlight StatusLine ctermbg=lightgrey ctermfg=lightgrey
 highlight StatusLineNC ctermbg=lightgrey ctermfg=lightgrey

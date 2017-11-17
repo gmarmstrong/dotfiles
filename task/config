@@ -5,7 +5,7 @@ verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 data.location=~/.local/share/task
 
 # Color theme
-include /usr/share/taskwarrior/light-256.theme
+include /usr/share/taskwarrior/dark-256.theme
 
 # Default command
 report.custom.columns=id,project,tags,recur,due.relative,description
