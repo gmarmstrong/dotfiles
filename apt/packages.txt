@@ -28,7 +28,7 @@ task
 texlive-full
 trash-cli
 tree
-ttf-anonymous-pro
+ttf-inconsolata
 units
 urlview
 vim
