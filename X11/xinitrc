@@ -1,5 +1,6 @@
 export TERM=urxvt
 export TERMINAL=urxvt
 xrdb -load "$HOME/.config/X11/Xresources"
-"$HOME/.config/feh/fehbg" &
+"$HOME/.fehbg" &
+unclutter -idle 3 &
 exec i3
