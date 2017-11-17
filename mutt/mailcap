@@ -1,3 +1,5 @@
+# FIXME Use Linux mailcap
+
 # Images
 image/jpg; $HOME/.config/mutt/view_attachment.sh %s jpg
 image/jpeg; $HOME/.config/mutt/view_attachment.sh %s jpg
