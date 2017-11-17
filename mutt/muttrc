@@ -34,7 +34,7 @@ folder-hook UGA/* "source $HOME/.config/mutt/accounts/uga"
 
 # Source other files
 source "$HOME/.config/mutt/accounts/personal"   # Default account
+source "$HOME/.config/mutt/gpg.rc"
 source "$HOME/.config/mutt/macros"
-source "$HOME/.gpg.rc"
 source "$HOME/.local/share/mutt/mailboxes"
 source "gpg --decrypt --quiet $HOME/.config/mutt/contacts.gpg |"
