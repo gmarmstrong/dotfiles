@@ -1,5 +1,5 @@
 export TERM=urxvt
 export TERMINAL=urxvt
 xrdb -load "$HOME/.config/X11/Xresources"
-xsetroot -solid white
+"$HOME/.config/feh/fehbg" &
 exec i3
