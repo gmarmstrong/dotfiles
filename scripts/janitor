@@ -1,40 +1,71 @@
 #!/bin/bash
 
+if [[ "$OSTYPE" =~  linux* ]]
+then
+    echo "Linux operating system confirmed."
+else
+    echo "Operating system not Linux. Aborting."
+    exit 1
+fi
+
+if [ -f "/etc/debian_version" ]
+then
+    echo "Debian distribution confirmed."
+else
+    echo "Distribution not Debian. Aborting."
+    exit 1
+fi
+
+echo "Testing Internet connection..."
+if ping -c 1 google.com >& /dev/null
+then
+    echo "Internet connection successful."
+else
+    echo "Internet connection failed. Aborting."
+    exit 1
+fi
+
 # Authenticate user upfront
 sudo -v
 
-# Update TeX Live
-sudo tlmgr update --self
-sudo tlmgr update --all
+# Use apt-get
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get autoremove
+sudo apt-get clean
+sudo apt-get check
 
-# Upgrade all Python 3 packages
-# See https://stackoverflow.com/a/3452888/6791398
-pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install --quiet --upgrade
+# TODO Create directory tree.txt skeleton
 
-# Update Vim plugins
-if [ -d ~/.vim/plugged ]; then
-    vim +PlugInstall +qall
+# Generate SSH key pair
+mkdir "$HOME/.ssh"
+if ! [ -e "$HOME/.ssh/id_rsa" ]
+then
+    echo "Generating SSH key..."
+    read -p "Enter a unique name for your key: " keyname
+    ssh-keygen -t rsa -b 4096 -C "guthrie.armstrong@gmail.com"
+    eval "$(ssh-agent -s)"
+    ssh-add "$HOME/.ssh/id_rsa"
 fi
 
-# Operating-specific actions
-case "$OSTYPE" in
-    darwin*)
-        mas upgrade
-        brew upgrade
-        brew update
-        brew bundle
-        brew bundle check
-        brew bundle cleanup
-        brew doctor
-        brew style
-        echo "Check the calibre changelog https://calibre-ebook.com/whats-new for new releases."
-        echo "Then do \`brew cask reinstall calibre\` if a new update is available."
-        ;;
-    linux*)
-        sudo apt-get update
-        sudo apt-get upgrade
-        sudo apt-get clean
-        sudo apt-get autoremove
-        sudo apt-get check
-        ;;
-esac
+# Authenticate with GitHub
+if ! [ ssh -T git@github.com ]
+then
+    echo "Uploading public key to GitHub..."
+    myjson='{"title":"'"$keyname"'","key":"'"$(cat $HOME/.ssh/id_rsa.pub)"'"}'
+    eval "curl -u $github_username --data '$myjson' https://api.github.com/user/keys"
+fi
+
+# Install projects from GitHub
+git clone https://github.com/chriskempson/base16-shell.git "$HOME/.local/share/base16-shell"
+git clone https://github.com/gmarmstrong/passwords.git "$HOME/.local/share/password-store"
+curl -fLo "$HOME/.local/bin/clustergit" "https://raw.githubusercontent.com/mnagel/clustergit/master/clustergit"
+curl -fLo "$HOME/.local/share/vim/autoload/plug.vim" "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+
+# Install Vim plugins
+vim +qall
+vim +PlugInstall +qall
+
+# Update TeX Live
+tlmgr update --self
+tlmgr update --all

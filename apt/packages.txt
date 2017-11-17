@@ -4,6 +4,7 @@ dict
 diction
 feh
 ffmpeg
+firefox
 git
 grep
 gzip

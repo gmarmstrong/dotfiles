@@ -27,9 +27,6 @@ antigen_setup() {
     antigen bundle pass
     antigen bundle zsh-users/zsh-history-substring-search
     antigen bundle zsh-users/zsh-syntax-highlighting
-    if [[ $OSTYPE =~ darwin* ]]; then
-        antigen bundle osx
-    fi
     antigen apply
 }
 
@@ -39,10 +36,8 @@ vi_like_shell() {
     bindkey -v # generally be vi-like
     bindkey -M viins '^?' backward-delete-char # delete beyond initial character
     bindkey -M viins 'jk' vi-cmd-mode # exit vi insert mode with jk
-    if [[ $OSTYPE = darwin* ]]; then
-        bindkey -M vicmd 'k' history-substring-search-up # up with k in normal mode
-        bindkey -M vicmd 'j' history-substring-search-down # down with j in normal mode
-    fi
+    bindkey -M vicmd 'k' history-substring-search-up # up with k in normal mode
+    bindkey -M vicmd 'j' history-substring-search-down # down with j in normal mode
 }
 
 # Tab completion
@@ -51,6 +46,7 @@ autoload -Uz compinit
 compinit -d $HOME/.cache/zsh/zcompdump
 
 # System-specific settings
+# TODO Flatten to Linux-only
 case "$OSTYPE" in
     darwin*)
         # Use iTerm2 shell integration
@@ -99,7 +95,7 @@ vi_like_shell
 # Aliases
 alias nike='ssh -x gma@nike.cs.uga.edu'
 alias nikex='ssh -Y gma@nike.cs.uga.edu'
-alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.DS_Store|.Spotlight-V100|.Trashes|.sass-cache'"
+alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.sass-cache'"
 alias new="newsboat -x reload print-unread"
 alias news="newsboat"
 alias ls="ls -GFH"

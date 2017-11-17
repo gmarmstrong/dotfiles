@@ -19,7 +19,7 @@ endfunction
 " Compile Markdown to HTML and open
 function BrowserMarkdown() abort
     !pandoc -s -f markdown -t html % -o %:r.html
-    !open %:r.html
+    !firefox%:r.html
 endfunction
 
 " ==============================================================================
@@ -53,10 +53,6 @@ set clipboard=unnamed           "yank and pull to the system clipboard
 
 nnoremap <silent> <Leader>d :!dict <cword> \| less <CR>
 
-if has('mac')
-    nnoremap <silent> <Leader>t !open dict://<cword><CR><CR>
-endif
-
 " ==============================================================================
 " PLUGINS
 
@@ -67,25 +63,14 @@ Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'gabrielelana/vim-markdown'        "Markdown support
 Plug 'airblade/vim-gitgutter'           "Git diff in the gutter
-"Plug 'scrooloose/syntastic'             "Syntax checking
 Plug 'chriskempson/base16-vim'          "Colorschemes
 call plug#end()
 
 " vimtex settings
 let g:vimtex_compiler_latexmk = {'callback' : 0}
 
-"" syntastic settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let syntastic_mode_map = { 'passive_filetypes': ['html'] } "Leave Jekyll alone
-
 " base16 settings
-if $TERM =~ "iterm2" || $TERM =~ ".*256color"   "TODO Test 2nd condition
+if $TERM =~ "iterm2" || $TERM =~ ".*256color"   "TODO Test 2nd condition, remove 1st
     let base16colorspace=256                    "Access 256 colorspace
 endif
 
@@ -100,7 +85,7 @@ set list
 set list listchars=tab:»·,trail:␣
 
 " Color
-colorscheme base16-tomorrow             "Depends on chriskempson/base16-vim
+colorscheme base16-tomorrow
 highlight VertSplit ctermbg=lightgrey ctermfg=lightgrey
 highlight StatusLine ctermbg=lightgrey ctermfg=lightgrey
 highlight StatusLineNC ctermbg=lightgrey ctermfg=lightgrey
@@ -134,12 +119,6 @@ autocmd FileType python map <F5> :!./%<CR>
 autocmd FileType python call ColumnWarning()
 
 " ==============================================================================
-" R
-
-" Map F5 to compile
-autocmd FileType r map <F5> :!Rscript %<CR>
-
-" ==============================================================================
 " HASKELL
 
 " Map F5 to compile
@@ -166,7 +145,7 @@ augroup passconceal
 
     " Conceal the first line with a unicode character
     autocmd BufNewFile,BufRead */pass.*/* syntax match Concealed '\%1l.*' conceal cchar=⚠️
-    autocmd BufNewFile,BufRead */pass.*/* set conceallevel=1
+    autocmd BufNewFile,BufRead */pass.*/* setlocal conceallevel=1
 
 augroup END
 
@@ -181,6 +160,6 @@ autocmd FileType latex,markdown,rst,html setlocal spell spelllang=en_us
 autocmd FileType latex,markdown,text,rst,html map <F5> :setlocal spell! spelllang=en_us<CR>
 
 " Map F6 to open
-autocmd FileType html map <F6> :!open % <CR>
+autocmd FileType html map <F6> :!firefox % <CR>
 autocmd FileType rst map <F6> :!rst2html.py % '%:r'.html<CR>
 autocmd FileType markdown map <F6> :call BrowserMarkdown()<CR><CR><CR>

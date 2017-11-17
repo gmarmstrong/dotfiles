@@ -33,7 +33,9 @@ localfolders = $HOME/.local/share/offlineimap/mail/UGA
 type = Gmail
 remoteuser = guthrie.armstrong@gmail.com
 remotepasseval = get_pass("Google_mutt-macos")
+# FIXME Use Debian path
 sslcacertfile = /usr/local/etc/openssl/cert.pem
+#sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Repository UGA-Remote]
 type = IMAP
@@ -41,5 +43,7 @@ remotehost = outlook.office365.com
 remoteuser = gma84213@uga.edu
 remotepasseval = get_pass("UGA-MyID")
 ssl = yes
+# FIXME Use Debian path
 sslcacertfile = /usr/local/etc/openssl/cert.pem
+#sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda folder: folder not in ['Calendar', 'Calendar/Birthdays', 'Calendar/United States holidays', 'Contacts', 'Contacts/Skype for Business Contacts', 'Deleted Items', 'Journal', 'Notes', 'Sync Issues', 'Sync Issues/Conflicts', 'Sync Issues/Local Failures', 'Sync Issues/Server Failures', 'Tasks']
