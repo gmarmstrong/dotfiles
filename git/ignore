@@ -4,6 +4,9 @@ secring.*
 .ssh/id_rsa.pub
 .gnupg
 
+# Python
+*.py[cod]
+
 # TeX
 *.pdf
 *.aux
