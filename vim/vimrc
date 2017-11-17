@@ -62,6 +62,7 @@ endif
 
 " Plugins
 call plug#begin('$HOME/.local/share/vim/plugged')       "Note the single quotes
+Plug 'jamessan/vim-gnupg'               "Edit encrypted files
 Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'godlygeek/tabular'                "Markdown dependency
 Plug 'gabrielelana/vim-markdown'        "Markdown support
