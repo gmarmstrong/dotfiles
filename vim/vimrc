@@ -31,7 +31,7 @@ set modeline
 " INTERFACE
 
 setlocal ruler                  "Display line/column number, position, etc.
-setlocal number                 "Show line numbers (combine with relativenumber)
+setlocal nonumber               "Show line numbers
 set shortmess=I                 "Disable startup message
 set shortmess+=W                "Disable write message
 set shortmess+=a                "Disable <Enter> message
@@ -65,6 +65,14 @@ Plug 'gabrielelana/vim-markdown'        "Markdown support
 Plug 'airblade/vim-gitgutter'           "Git diff in the gutter
 Plug 'chriskempson/base16-vim'          "Colorschemes
 call plug#end()
+
+" vim-gitgutter settings
+let g:gitgutter_override_sign_column_highlight = 0
+if exists('&signcolumn')
+    set signcolumn=yes
+else
+    let g:gitgutter_sign_column_always = 1
+endif
 
 " vimtex settings
 let g:vimtex_compiler_latexmk = {'callback' : 0}
