@@ -1,3 +1,4 @@
+! border between text and edge of window
 URxvt.internalBorder: 15
 
 ! hide scrollbar
