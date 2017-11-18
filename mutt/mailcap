@@ -1,19 +1,13 @@
-# FIXME Use Linux mailcap
-# TODO Remove view_attachment.sh
-
 # Images
-image/jpg; $HOME/.config/mutt/view_attachment.sh %s jpg
-image/jpeg; $HOME/.config/mutt/view_attachment.sh %s jpg
-image/pjpeg; $HOME/.config/mutt/view_attachment.sh %s jpg
-image/png; $HOME/.config/mutt/view_attachment.sh %s png
-image/gif; $HOME/.config/mutt/view_attachment.sh %s gif
-image/tiff; $HOME/.config/mutt/view_attachment.sh %s gif
+image/jpg; feh %s
+image/jpeg; feh %s
+image/pjpeg; feh %s
+image/png; feh %s
+image/gif; feh %s
+image/tiff; feh %s
 
 # PDFs
-application/pdf; $HOME/.config/mutt/view_attachment.sh %s pdf
+application/pdf; zathura %s
 
 # HTML
-text/html; $HOME/.config/mutt/view_attachment.sh %s html
-
-# Unidentified files
-application/octet-stream; $HOME/.config/mutt/view_attachment.sh %s "-"
+text/html; firefox -new-tab %s & sleep 5
