@@ -66,9 +66,9 @@ alias nikex='ssh -Y gma@nike.cs.uga.edu'
 alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.sass-cache'"
 alias new="newsboat -x reload print-unread"
 alias news="newsboat"
-alias ls="ls -GFH"
-alias ll="ls -GFHA"
-alias l="ls -GFHAlh"
+alias ls="LC_COLLATE=C ls -GFH -w 80"
+alias ll="LC_COLLATE=C ls -GFHA -w 80"
+alias l="LC_COLLATE=C ls -GFHAlh -w 80"
 
 function rm() {
     echo "Woah, there! Use trash instead."
