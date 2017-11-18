@@ -46,7 +46,6 @@ let g:netrw_banner = 0          "Hide banner in file browser
 inoremap jk <esc>
 
 set backspace=indent,eol,start  "Allow backspace in insert mode
-set clipboard=unnamed           "yank and pull to the system clipboard
 
 " ==============================================================================
 " DICTIONARY
