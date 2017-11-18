@@ -1,6 +1,6 @@
 # IMAP
 set folder="$HOME/.local/share/offlineimap/mail/Personal"
-set spoolfile="+Inbox"
+set spoolfile="+INBOX"
 set mbox="+[Gmail].All Mail"
 set trash="+[Gmail].Trash"
 
