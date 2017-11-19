@@ -15,7 +15,7 @@ unset help
   set pgp_auto_decode   = yes
   set pgp_sign_as       = 6C14881E29F61A8CD505E5C54952ED1C9B16CDCB
   set pgp_use_gpg_agent = yes
-  set realname          = "Guthrie Armstrong"
+  set realname          = "Guthrie McAfee Armstrong"
   set reverse_alias     = yes
   set sort=threads
   set sort_alias        = alias
