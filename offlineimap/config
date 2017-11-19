@@ -16,10 +16,14 @@ footer          = "\n"
 [Account Personal]
 localrepository = Personal-Local
 remoterepository = Personal-Remote
+autorefresh = 10
+quick = 5
 
 [Account UGA]
 localrepository = UGA-Local
 remoterepository = UGA-Remote
+autorefresh = 10
+quick = 5
 
 [Repository Personal-Local]
 type = Maildir
@@ -32,8 +36,10 @@ localfolders = $HOME/.local/share/offlineimap/mail/UGA
 [Repository Personal-Remote]
 type = Gmail
 remoteuser = guthrie.armstrong@gmail.com
-remotepasseval = get_pass("Google_mutt-macos")
+remotepasseval = get_pass("Google_mutt")
+ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+keepalive = 60
 
 [Repository UGA-Remote]
 type = IMAP
@@ -43,3 +49,4 @@ remotepasseval = get_pass("UGA-MyID")
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda folder: folder not in ['Calendar', 'Calendar/Birthdays', 'Calendar/United States holidays', 'Contacts', 'Contacts/Skype for Business Contacts', 'Deleted Items', 'Journal', 'Notes', 'Sync Issues', 'Sync Issues/Conflicts', 'Sync Issues/Local Failures', 'Sync Issues/Server Failures', 'Tasks']
+keepalive = 60
