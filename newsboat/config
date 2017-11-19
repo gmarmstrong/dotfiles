@@ -15,9 +15,9 @@ unbind-key C
 # Color
 color background white black
 color listnormal white black
-color listfocus white color250
+color listfocus white color235
 color listnormal_unread white black bold
-color listfocus_unread white color250 bold
+color listfocus_unread white color235 bold
 color info white black bold
 color article white black
 
