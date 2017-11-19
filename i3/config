@@ -27,6 +27,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# lock screen
+set $lock exec i3lock -c 181818
+bindsym $mod+Escape $lock
+
 # rofi
 set $rofi_run exec rofi -show run
 set $rofi_win exec rofi -show window
