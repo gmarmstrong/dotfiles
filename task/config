@@ -14,3 +14,9 @@ report.custom.filter=status:pending
 report.custom.labels=ID,Project,Tags,Recur,Due,Description
 report.custom.sort=due+,project+
 default.command=custom
+
+# Inbox view
+report.in.columns=id,description
+report.in.description=Inbox
+report.in.filter=status:pending limit:page (+in)
+report.in.labels=ID,Description
