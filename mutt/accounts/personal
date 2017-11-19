@@ -6,9 +6,8 @@ set trash="+[Gmail].Trash"
 
 # SMTP
 set from="guthrie.armstrong@gmail.com"
-set sendmail="msmtp -a Personal"
+set sendmail="msmtp -a Personal -C $HOME/.config/msmtp/msmtprc"
 set postponed="+[Gmail].Drafts"
-set record="+[Gmail].Sent"
 
 # Account-specific macros
 macro index s "<save-message>=[Gmail].All Mail<enter><enter>" "Archive"

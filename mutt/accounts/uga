@@ -5,7 +5,7 @@ set mbox="+Archive"
 
 # SMTP
 set from="guthrie.armstrong25@uga.edu"
-set sendmail="msmtp -a UGA"
+set sendmail="msmtp -a UGA -C $HOME/.config/msmtp/msmtprc"
 set postponed="+Drafts"
 set record="+Sent Items"
 
