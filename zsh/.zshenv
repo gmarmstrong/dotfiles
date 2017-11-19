@@ -4,7 +4,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Set Android SDK location
-ANDROID_SDK_HOME="$HOME/.config/android"
+ANDROID_SDK_HOME="$HOME/.local/share/android"
 
 # Set $XINITRC
 export XINITRC="$HOME/.config/X11/xinitrc"
