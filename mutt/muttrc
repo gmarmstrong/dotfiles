@@ -8,12 +8,11 @@
 unset help
   set include
   set index_format      = "%4C %Z %[%b %d] %-30.30L %s"
-  set mail_check        = 60
   set mailcap_path      = "$HOME/.config/mutt/mailcap"
   set mbox_type         = Maildir
   set message_cachedir  = "$HOME/.cache/mutt/cache/message"
   set pgp_auto_decode   = yes
-  set pgp_sign_as       = 6C14881E29F61A8CD505E5C54952ED1C9B16CDCB
+  set pgp_sign_as       = A6874A978748345711806F1B2FCB765FA428EB48
   set pgp_use_gpg_agent = yes
   set realname          = "Guthrie McAfee Armstrong"
   set reverse_alias     = yes
