@@ -70,7 +70,7 @@ alias ls="LC_COLLATE=C ls -GFH -w 80"
 alias ll="LC_COLLATE=C ls -GFHA -w 80"
 alias l="LC_COLLATE=C ls -GFHAlh -w 80"
 alias feh="feh --image-bg black --scale-down --auto-zoom"
-alias space="find -maxdepth 1 -exec du -sh "{}" \; | sort -h"
+alias space="sudo find -maxdepth 1 -exec du -sh "{}" \; | sort -h"
 alias backup="sudo rsync -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/home/*/.cache/*'} / /media/usb"
 
 function rm() {
