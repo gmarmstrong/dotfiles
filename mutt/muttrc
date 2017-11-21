@@ -24,6 +24,7 @@ unset help
   set use_from          = yes
 
 # Colors
+color status    color000 color250
 color indicator color000 color250
 color error     color160 color000
 
