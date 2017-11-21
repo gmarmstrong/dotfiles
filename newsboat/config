@@ -1,5 +1,5 @@
 # General preferences
-browser open
+browser firefox
 reload-threads 6
 refresh-on-startup yes
 goto-next-feed no
