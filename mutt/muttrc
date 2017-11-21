@@ -28,6 +28,9 @@ color status    color000 color250
 color indicator color000 color250
 color error     color160 color000
 
+# Autoview
+auto_view text/html
+
 # Folder hooks
 folder-hook Personal/* "source $HOME/.config/mutt/accounts/personal"
 folder-hook UGA/* "source $HOME/.config/mutt/accounts/uga"
