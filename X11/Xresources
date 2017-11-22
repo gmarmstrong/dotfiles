@@ -17,9 +17,6 @@ URxvt.scrollTtyKeypress: true
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
-! clear scrollback with Ctrl-l (lowercase "ell")
-URxvt.keysym.Control-l: command:\033c
-
 ! font settings
 URxvt.font: xft:Inconsolata:Regular:size=14:antialias=True
 Xft.autohint: 1
