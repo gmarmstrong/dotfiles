@@ -34,6 +34,7 @@ i3
 imagemagick
 installation-report
 laptop-detect
+latex2html
 less
 libacl1
 libapparmor1
@@ -90,6 +91,7 @@ sqlite3
 sxiv
 tar
 taskwarrior
+texi2html
 texlive-full
 trash-cli
 tree
@@ -107,8 +109,8 @@ x11-common
 x11-xserver-utils
 xclip
 xinit
-xorg
 xloadimage
+xorg
 xz-utils
 youtube-dl
 zathura
