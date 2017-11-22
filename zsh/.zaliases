@@ -12,7 +12,7 @@ alias nikex='ssh -Y gma@nike.cs.uga.edu'
 # general aliases
 alias new="newsboat -x reload print-unread"
 alias news="newsboat"
-alias sxiv="sxiv -b -a -- $@"
+alias sxiv="sxiv -b -a -- $@ &"
 
 # backup aliases
 alias backup="sudo rsync -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/home/*/.cache/*'} / /media/usb"
