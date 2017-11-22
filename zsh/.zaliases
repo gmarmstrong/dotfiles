@@ -1,0 +1,17 @@
+# file aliases
+alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.sass-cache'"
+alias ls="LC_COLLATE=C ls -GFH -w 80"
+alias ll="LC_COLLATE=C ls -GFHA -w 80"
+alias l="LC_COLLATE=C ls -GFHAlh -w 80"
+alias space="sudo find -maxdepth 1 -exec du -sh "{}" \; | sort -h"
+
+# SSH aliases
+alias nike='ssh -x gma@nike.cs.uga.edu'
+alias nikex='ssh -Y gma@nike.cs.uga.edu'
+
+# newsboat aliases
+alias new="newsboat -x reload print-unread"
+alias news="newsboat"
+
+# backup aliases
+alias backup="sudo rsync -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/home/*/.cache/*'} / /media/usb"

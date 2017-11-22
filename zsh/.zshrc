@@ -60,19 +60,8 @@ bindkey -M viins 'jk' vi-cmd-mode # exit vi insert mode with jk
 bindkey -M vicmd 'k' history-substring-search-up # up with k in normal mode
 bindkey -M vicmd 'j' history-substring-search-down # down with j in normal mode
 
-# Aliases
-alias nike='ssh -x gma@nike.cs.uga.edu'
-alias nikex='ssh -Y gma@nike.cs.uga.edu'
-alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.sass-cache'"
-alias new="newsboat -x reload print-unread"
-alias news="newsboat"
-alias ls="LC_COLLATE=C ls -GFH -w 80"
-alias ll="LC_COLLATE=C ls -GFHA -w 80"
-alias l="LC_COLLATE=C ls -GFHAlh -w 80"
-alias feh="feh --image-bg black --scale-down --auto-zoom"
-alias space="sudo find -maxdepth 1 -exec du -sh "{}" \; | sort -h"
-alias backup="sudo rsync -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/home/*/.cache/*'} / /media/usb"
-
 function rm() {
     echo "Woah, there! Use trash instead."
 }
+
+source $HOME/.config/zsh/.zaliases
