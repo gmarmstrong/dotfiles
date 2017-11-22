@@ -56,8 +56,8 @@ nnoremap <silent> <Leader>d :!dict <cword> \| less <CR>
 " ==============================================================================
 " PLUGINS
 
-" Plugins
-call plug#begin('$HOME/.local/share/vim/plugged')       "Note the single quotes
+" Plugins (note the single quotes)
+call plug#begin('$HOME/.local/share/vim/plugged')
 Plug 'jamessan/vim-gnupg'               "Edit encrypted files
 Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'godlygeek/tabular'                "Markdown dependency
