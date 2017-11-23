@@ -92,6 +92,7 @@ sqlite3
 sxiv
 tar
 taskwarrior
+tasksh
 texi2html
 texlive-full
 tmux
