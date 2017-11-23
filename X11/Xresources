@@ -5,7 +5,7 @@ URxvt.termName: rxvt-unicode-256color
 URxvt.iso14755: false
 
 ! border between text and edge of window
-URxvt.internalBorder: 15
+URxvt.internalBorder: 30
 
 ! hide scrollbar
 URxvt.scrollBar: false
