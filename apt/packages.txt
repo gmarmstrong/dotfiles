@@ -94,6 +94,7 @@ tar
 taskwarrior
 texi2html
 texlive-full
+tmux
 trash-cli
 tree
 unclutter
