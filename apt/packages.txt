@@ -59,6 +59,8 @@ mutt
 ncurses-base
 ncurses-doc
 ncurses-term
+network-manager
+network-manager-openvpn
 ntp
 offlineimap
 openssh-client
