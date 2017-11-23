@@ -1,3 +1,9 @@
+! set $TERM
+URxvt.termName: rxvt-unicode-256color
+
+! disable automatic Ctrl+Shift bindings
+URxvt.iso14755: false
+
 ! border between text and edge of window
 URxvt.internalBorder: 15
 

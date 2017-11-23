@@ -36,22 +36,6 @@ then
     antigen apply
 fi
 
-# Set appropriate TERM
-if (ps -e | grep X) &> /dev/null
-then
-    if command -v urxvt > /dev/null
-    then
-        export TERM=rxvt-unicode-256color
-    else
-        export TERM=xterm-256color
-    fi
-elif [ $SSH_CLIENT ]
-then
-    export TERM=$TERM
-else
-    export TERM=linux
-fi
-
 # Vi-like shell input
 # See: `man zshzle`
 bindkey -v # generally be vi-like
