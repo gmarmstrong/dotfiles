@@ -27,11 +27,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# rofi
-set $rofi_run exec rofi -show run
-set $rofi_win exec rofi -show window
-bindsym $mod+d $rofi_run
-bindsym $mod+Tab $rofi_win
+# dmenu
+bindsym $mod+d exec "dmenu_run"
 
 # change focus
 bindsym $mod+h focus left

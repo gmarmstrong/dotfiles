@@ -82,7 +82,6 @@ python3-pip
 qrencode
 ranger
 readline-common
-rofi
 rsync
 ruby
 ruby-dev
