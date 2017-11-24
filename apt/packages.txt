@@ -10,6 +10,7 @@ debianutils
 dict
 diction
 diffutils
+dmenu
 doc-debian
 e2fslibs
 ffmpeg
@@ -82,6 +83,7 @@ python3-pip
 qrencode
 ranger
 readline-common
+rig
 rsync
 ruby
 ruby-dev
@@ -91,8 +93,8 @@ sensible-utils
 sqlite3
 sxiv
 tar
-taskwarrior
 tasksh
+taskwarrior
 texi2html
 texlive-full
 tmux
@@ -108,6 +110,7 @@ vlc
 w3m
 wget
 wget
+whois
 x11-common
 x11-xserver-utils
 xclip
