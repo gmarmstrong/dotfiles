@@ -6,6 +6,7 @@ set directory=$HOME/.cache/vim/swap
 set backupdir=$HOME/.cache/vim/backup
 set viminfo+='1000,n$HOME/.cache/vim/viminfo
 set runtimepath=$HOME/.config/vim,$HOME/.config/vim/after,$HOME/.local/share/vim,$VIMRUNTIME
+set spellfile=$HOME/.local/share/vim/spell/en.utf-8.add
 
 " ==============================================================================
 " FUNCTIONS
