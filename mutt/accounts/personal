@@ -3,6 +3,7 @@ set folder="$HOME/.local/share/offlineimap/mail/Personal"
 set spoolfile="+INBOX"
 set mbox="+[Gmail].All Mail"
 set trash="+[Gmail].Trash"
+set record=""
 
 # SMTP
 set from="guthrie.armstrong@gmail.com"
