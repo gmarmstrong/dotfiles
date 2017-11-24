@@ -66,6 +66,8 @@ ntp
 offlineimap
 openssh-client
 openvpn
+p7zip
+p7zip-full
 pandoc
 pass
 pdfgrep
