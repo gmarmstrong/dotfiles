@@ -22,6 +22,7 @@ secring.*
 *.cb2
 *.dvi
 *-converted-to.*
+*.fdb_latexmk
 
 # TeX: bibtex/biblatex/biber
 *.bbl
