@@ -15,4 +15,4 @@ alias news="newsboat"
 alias sxiv="sxiv -b -a"
 
 # backup aliases
-alias backup="sudo rsync -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/home/*/.cache/*','/home/*/.local/share/Trash/*','/home/*/.local/share/offlineimap/*'} / /media/usb"
+alias backup="sudo rsync --delete-excluded -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/var/backups/*','/var/lock/*','/var/run/*','/lost+found','/home/*/.cache/*','/home/*/.local/share/Trash/*','/home/*/.local/share/offlineimap/*'} / /media/usb"
