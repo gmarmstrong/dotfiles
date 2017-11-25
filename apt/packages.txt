@@ -115,6 +115,7 @@ wget
 whois
 x11-common
 x11-xserver-utils
+xbacklight
 xclip
 xinit
 xloadimage
