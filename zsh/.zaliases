@@ -4,6 +4,9 @@ alias ls="LC_COLLATE=C ls --color=auto -GFH -w 80"
 alias ll="LC_COLLATE=C ls --color=auto -GFHA -w 80"
 alias l="LC_COLLATE=C ls --color=auto -GFHAlh -w 80"
 alias space="sudo find -maxdepth 1 -exec du -sh "{}" \; | sort -h"
+function rm() {
+    echo "Woah, there! Use trash instead."
+}
 
 # SSH aliases
 alias nike='ssh -x gma@nike.cs.uga.edu'
