@@ -18,6 +18,10 @@ font pango:Inconsolata, FontAwesome 12
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+# Media button keybindings
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
