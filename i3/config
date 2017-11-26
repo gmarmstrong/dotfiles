@@ -103,7 +103,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+Escape exit
 # lock screen
-bindsym $mod+Escape exec "i3lock -c 181818"
+bindsym $mod+Escape exec "physlock"
 
 # resize window
 bindsym $mod+Ctrl+h resize shrink width 10 px or 10 ppt
