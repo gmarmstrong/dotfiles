@@ -3,4 +3,5 @@ export TERMINAL=urxvt
 xrdb -load "$HOME/.config/X11/Xresources"
 xsetbg -tile "$HOME/.config/X11/181818.jpg"
 unclutter -root -idle 2 &
+nm-applet &
 exec i3
