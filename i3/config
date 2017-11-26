@@ -24,6 +24,9 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 bindsym XF86AudioMute exec "amixer sset Master toggle"
 bindsym XF86AudioRaiseVolume exec "amixer sset Master 5%+"
 bindsym XF86AudioLowerVolume exec "amixer sset Master 5%-"
+bindsym Print exec "scrot --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mv $f ~/images/screenshots'"
+bindsym Shift+Print exec "scrot --focuesd --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mv $f ~/images/screenshots'"
+bindsym Ctrl+Print exec "sleep 0.2; scrot --select --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mv $f ~/images/screenshots'"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
