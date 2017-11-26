@@ -1,7 +1,12 @@
 acpi
 adb
+alsa-tools
+alsa-utils
 apcalc
 apt-listchanges
+ardour
+audacity
+busybox
 cups
 curl
 debian-archive-keyring
@@ -70,14 +75,17 @@ p7zip
 p7zip-full
 pandoc
 pass
+pavucontrol
 pdfgrep
 perl
+physlock
 pinentry-curses
 pkg-config
 poppler-utils
 powertop
 printer-driver-foo2zjs
 psmisc
+pulseaudio
 python
 python-pip
 python3
@@ -110,6 +118,7 @@ vim
 vim-doc
 vlc
 w3m
+weather-util
 wget
 wget
 whois
@@ -121,6 +130,7 @@ xinit
 xloadimage
 xorg
 xz-utils
+xzdec
 youtube-dl
 zathura
 zsh
