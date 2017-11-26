@@ -2,5 +2,5 @@ export TERM=urxvt
 export TERMINAL=urxvt
 xrdb -load "$HOME/.config/X11/Xresources"
 xsetbg -tile "$HOME/.config/X11/181818.jpg"
-unclutter -idle 2 &
+unclutter -root -idle 2 &
 exec i3
