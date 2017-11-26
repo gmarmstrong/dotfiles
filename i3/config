@@ -21,6 +21,9 @@ font pango:Inconsolata, FontAwesome 12
 # Media button keybindings
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+bindsym XF86AudioMute exec "amixer sset Master toggle"
+bindsym XF86AudioRaiseVolume exec "amixer sset Master 5%+"
+bindsym XF86AudioLowerVolume exec "amixer sset Master 5%-"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
