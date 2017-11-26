@@ -35,12 +35,14 @@ remoteuser = guthrie.armstrong@gmail.com
 remotepasseval = get_pass("Google_mutt")
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+auth_mechanisms = LOGIN
 
 [Repository UGA-Remote]
 type = IMAP
 remotehost = outlook.office365.com
 remoteuser = gma84213@uga.edu
 remotepasseval = get_pass("school/UGA-MyID")
+auth_mechanisms = LOGIN
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda folder: folder not in ['Calendar', 'Calendar/Birthdays', 'Calendar/United States holidays', 'Contacts', 'Contacts/Skype for Business Contacts', 'Deleted Items', 'Journal', 'Notes', 'Sync Issues', 'Sync Issues/Conflicts', 'Sync Issues/Local Failures', 'Sync Issues/Server Failures', 'Tasks']
