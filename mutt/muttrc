@@ -16,7 +16,7 @@ unset help
   set pgp_use_gpg_agent = yes
   set realname          = "Guthrie McAfee Armstrong"
   set reverse_alias     = yes
-  set sort=threads
+  set sort              = threads
   set sort_alias        = alias
   set sort_aux          = reverse-last-date-received
   set sort_browser      = date
