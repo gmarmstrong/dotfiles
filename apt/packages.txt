@@ -111,6 +111,7 @@ taskwarrior
 texi2html
 texlive-full
 tmux
+torbrowser-launcher
 trash-cli
 tree
 unclutter
