@@ -5,43 +5,12 @@ general {
     separator = ""
 }
 
-order += "disk /"
-order += "run_watch DHCP"
-order += "path_exists VPN"
-order += "wireless wlp3s0"
-order += "ethernet enp0s25"
 order += "battery 0"
 order += "battery 1"
 order += "tztime local"
 
-disk "/" {
-        format = "%free free"
-        low_threshold = 50
-}
-
-run_watch DHCP {
-        format = "--- %title %status,"
-        pidfile = "/var/run/dhclient*.pid"
-}
-
-path_exists VPN {
-        format = "%title %status,"
-        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
-        path = "/proc/sys/net/ipv4/conf/tun0"
-}
-
-wireless wlp3s0 {
-        format_up = "%essid%quality,"
-        format_down = "Wi-Fi down"
-}
-
-ethernet enp0s25 {
-        format_up = "Ethernet up"
-        format_down = "Ethernet down"
-}
-
 battery 0 {
-        format = "--- Batteries: %percentage %status"
+        format = "%percentage %status"
         integer_battery_capacity = true
         last_full_capacity = true
         format_down = "NONE"
@@ -69,5 +38,5 @@ battery 1 {
 }
 
 tztime local {
-        format = "--- %Y-%m-%d %H:%M"
+        format = "    %Y-%m-%d %H:%M    "
 }
