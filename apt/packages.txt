@@ -18,6 +18,8 @@ diffutils
 dmenu
 doc-debian
 e2fslibs
+exfat-fuse
+exfat-utils
 ffmpeg
 file
 findutils
