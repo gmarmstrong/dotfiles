@@ -97,6 +97,7 @@ ranger
 readline-common
 rig
 rsync
+rtorrent
 ruby
 ruby-dev
 rxvt-unicode-256color
