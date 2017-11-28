@@ -29,6 +29,10 @@ bindsym Shift+XF86AudioLowerVolume exec "amixer sset Master unmute && amixer sse
 bindsym Print exec "scrot --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mv $f ~/images/screenshots'"
 bindsym Shift+Print exec "scrot --focuesd --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mv $f ~/images/screenshots'"
 bindsym Ctrl+Print exec "sleep 0.2; scrot --select --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mv $f ~/images/screenshots'"
+bindsym XF86Calculator exec "urxvt -e calc"
+bindsym XF86HomePage exec "firefox"
+bindsym Mod4+l exec "physlock"
+bindsym Mod4+e exec "urxvt -e ranger"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -107,8 +111,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+Escape exit
-# lock screen
-bindsym $mod+Escape exec "physlock"
 
 # resize window
 bindsym $mod+Ctrl+h resize shrink width 10 px or 10 ppt
