@@ -1,5 +1,5 @@
 # IMAP
-set folder="$XDG_DATA_HOME/share/offlineimap/mail/Personal"
+set folder="$XDG_DATA_HOME/offlineimap/mail/Personal"
 set spoolfile="+INBOX"
 set mbox="+[Gmail].All Mail"
 set trash="+[Gmail].Trash"
