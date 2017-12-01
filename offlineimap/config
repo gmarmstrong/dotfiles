@@ -1,13 +1,13 @@
 [general]
-pythonfile      = $HOME/.config/offlineimap/offlineimap.py
-metadata        = $HOME/.local/share/offlineimap/metadata
+pythonfile      = $XDG_CONFIG_HOME/offlineimap/offlineimap.py
+metadata        = $XDG_DATA_HOME/offlineimap/metadata
 accounts        = Personal,UGA
 maxsyncaccounts = 6
 ui              = ttyui
 
 [mbnames]
 enabled         = yes
-filename        = $HOME/.local/share/mutt/mailboxes
+filename        = $XDG_DATA_HOME/mutt/mailboxes
 header          = "mailboxes "
 peritem         = "+%(accountname)s/%(foldername)s"
 sep             = " "
@@ -23,11 +23,11 @@ remoterepository = UGA-Remote
 
 [Repository Personal-Local]
 type = Maildir
-localfolders = $HOME/.local/share/offlineimap/mail/Personal
+localfolders = $XDG_DATA_HOME/offlineimap/mail/Personal
 
 [Repository UGA-Local]
 type = Maildir
-localfolders = $HOME/.local/share/offlineimap/mail/UGA
+localfolders = $XDG_DATA_HOME/offlineimap/mail/UGA
 
 [Repository Personal-Remote]
 type = Gmail

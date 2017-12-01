@@ -16,7 +16,6 @@ base-passwd
 bash
 busybox
 bzip2
-cmus
 coreutils
 cpio
 cron
@@ -169,6 +168,7 @@ x11-common
 x11-xserver-utils
 xbacklight
 xclip
+xdg-user-dirs
 xdg-utils
 xinit
 xloadimage

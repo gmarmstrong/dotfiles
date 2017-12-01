@@ -1,5 +1,5 @@
 # vim: ft=muttrc
 
 # Macros
-macro index ,1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/personal<enter><change-folder>!<enter>'
-macro index ,2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/uga<enter><change-folder>!<enter>'
+macro index ,1 '<sync-mailbox><enter-command>source $XDG_CONFIG_HOME/mutt/accounts/personal<enter><change-folder>!<enter>'
+macro index ,2 '<sync-mailbox><enter-command>source $XDG_CONFIG_HOME/mutt/accounts/uga<enter><change-folder>!<enter>'

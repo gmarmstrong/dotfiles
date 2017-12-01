@@ -1,12 +1,12 @@
 " ==============================================================================
 " VIM
 
-set undodir=$HOME/.cache/vim/undo
-set directory=$HOME/.cache/vim/swap
-set backupdir=$HOME/.cache/vim/backup
-set viminfo+='1000,n$HOME/.cache/vim/viminfo
-set runtimepath=$HOME/.config/vim,$HOME/.config/vim/after,$HOME/.local/share/vim,$VIMRUNTIME
-set spellfile=$HOME/.local/share/vim/spell/en.utf-8.add
+set undodir=$XDG_CACHE_HOME/vim/undo
+set directory=$XDG_CACHE_HOME/vim/swap
+set backupdir=$XDG_CACHE_HOME/vim/backup
+set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim,$VIMRUNTIME
+set spellfile=$XDG_DATA_HOME/vim/spell/en.utf-8.add
 
 " ==============================================================================
 " FUNCTIONS
@@ -58,7 +58,7 @@ nnoremap <silent> <Leader>d :!dict <cword> \| less <CR>
 " PLUGINS
 
 " Plugins (note the single quotes)
-call plug#begin('$HOME/.local/share/vim/plugged')
+call plug#begin('$XDG_DATA_HOME/vim/plugged')
 Plug 'jamessan/vim-gnupg'               "Edit encrypted files
 Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'godlygeek/tabular'                "Markdown dependency

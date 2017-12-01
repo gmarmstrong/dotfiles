@@ -1,11 +1,11 @@
 # IMAP
-set folder="$HOME/.local/share/offlineimap/mail/UGA"
+set folder="$XDG_DATA_HOME/offlineimap/mail/UGA"
 set spoolfile="+INBOX"
 set mbox="+Archive"
 
 # SMTP
 set from="guthrie.armstrong25@uga.edu"
-set sendmail="msmtp -a UGA -C $HOME/.config/msmtp/msmtprc"
+set sendmail="msmtp -a UGA -C $XDG_CONFIG_HOME/msmtp/msmtprc"
 set postponed="+Drafts"
 set record="+Sent Items"
 

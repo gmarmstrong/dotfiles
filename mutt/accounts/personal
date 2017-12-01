@@ -1,5 +1,5 @@
 # IMAP
-set folder="$HOME/.local/share/offlineimap/mail/Personal"
+set folder="$XDG_DATA_HOME/share/offlineimap/mail/Personal"
 set spoolfile="+INBOX"
 set mbox="+[Gmail].All Mail"
 set trash="+[Gmail].Trash"
@@ -7,7 +7,7 @@ set record=""
 
 # SMTP
 set from="guthrie.armstrong@gmail.com"
-set sendmail="msmtp -a Personal -C $HOME/.config/msmtp/msmtprc"
+set sendmail="msmtp -a Personal -C $XDG_CONFIG_HOME/msmtp/msmtprc"
 set postponed="+[Gmail].Drafts"
 
 # Account-specific macros
