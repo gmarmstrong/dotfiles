@@ -8,6 +8,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
+# Set GnuPG directory location
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+
 # Set Android SDK location
 export ANDROID_SDK_HOME="$XDG_DATA_HOME/android"
 
