@@ -16,6 +16,7 @@ export XINITRC="$HOME/.config/X11/xinitrc"
 export EDITOR="vim"
 
 # Set $ZDOTDIR
+# FIXME This puts .zcompdir here
 export ZDOTDIR="$HOME/.config/zsh"
 
 # Set Vim locations
