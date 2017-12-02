@@ -8,6 +8,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
+# Set w3m directory location
+export WWW_HOME="$XDG_CONFIG_HOME/w3m"
+
 # Set GnuPG directory location
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
