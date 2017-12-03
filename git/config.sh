@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Comply with XDG Base Directory Specification
 git_config_dir="$XDG_CONFIG_HOME/git"
