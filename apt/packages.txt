@@ -147,6 +147,7 @@ tasksh
 taskwarrior
 texi2html
 texlive-full
+timewarrior
 tmux
 torbrowser-launcher
 traceroute
