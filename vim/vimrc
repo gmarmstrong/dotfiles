@@ -47,7 +47,11 @@ let g:netrw_banner = 0          "Hide banner in file browser
 " Map jk to escape
 inoremap jk <esc>
 
-set backspace=indent,eol,start  "Allow backspace in insert mode
+" Use X11 clipboard
+set clipboard=unnamedplus
+
+"Allow backspace in insert mode
+set backspace=indent,eol,start
 
 " ==============================================================================
 " DICTIONARY
