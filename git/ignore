@@ -96,3 +96,6 @@ target/
 
 # Jekyll
 .sass-cache
+
+# ncmpcpp
+error.log
