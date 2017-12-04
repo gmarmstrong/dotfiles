@@ -12,7 +12,7 @@ unset help
   set mbox_type         = Maildir
   set message_cachedir  = "$XDG_CACHE_HOME/mutt/cache/message"
   set pgp_auto_decode   = yes
-  set pgp_sign_as       = A6874A978748345711806F1B2FCB765FA428EB48
+  set pgp_sign_as       = 9497A5EC433A4476190F3066100B37EAF2164C8B
   set pgp_use_gpg_agent = yes
   set realname          = "Guthrie McAfee Armstrong"
   set reverse_alias     = yes
