@@ -21,6 +21,7 @@ unset help
   set sort_alias        = alias
   set sort_aux          = reverse-last-date-received
   set sort_browser      = date
+  set text_flowed       = yes
   set tmpdir            = "$XDG_CACHE_HOME/mutt/tmp"
   set use_from          = yes
 
