@@ -1,3 +1,7 @@
+timew
+todo_count=$(task status:pending and \(+OVERDUE or due:today or due:tomorrow\) count)
+echo "You have $todo_count tasks due soon."
+
 # Save history to file
 HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
@@ -34,7 +38,3 @@ bindkey -M vicmd 'k' history-substring-search-up # up with k in normal mode
 bindkey -M vicmd 'j' history-substring-search-down # down with j in normal mode
 
 source $XDG_CONFIG_HOME/zsh/.zaliases
-timew
-todo_count=$(task status:pending and \(+OVERDUE or due:today or due:tomorrow\) count)
-echo "You have $todo_count tasks due soon."
-echo
