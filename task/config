@@ -5,14 +5,14 @@ verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 data.location=~/.local/share/task
 
 # Color theme
-include /usr/share/taskwarrior/dark-256.theme
+include /usr/share/taskwarrior/no-color.theme
 
 # Default command
 report.custom.columns=id,project,tags,recur,due.relative,description
 report.custom.description=Things to do right now
 report.custom.filter=status:pending and +READY
 report.custom.labels=ID,Project,Tags,Recur,Due,Description
-report.custom.sort=due+,project+
+report.custom.sort=project+,due+
 default.command=custom
 
 # Executive report
