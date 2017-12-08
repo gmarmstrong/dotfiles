@@ -18,6 +18,6 @@ default.command=custom
 # Executive report
 report.executive.columns=project,due,description
 report.executive.description=Daily executive report
-report.executive.filter=status:pending and project.not:ThinkPad and project.not:iOS and +READY
+report.executive.filter=status:pending and project.not:System +READY
 report.executive.labels=Project,Due,Description
 report.executive.sort=due+,project+
