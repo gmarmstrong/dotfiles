@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+HDMI_STATUS=$(</sys/class/drm/card0/card0-HDMI-A-1/status )
+
+if [ "connected" == "$HDMI_STATUS" ]; then
+    /usr/bin/xrandr --output HDMI1 --left-of eDP1 --auto
+else
+    /usr/bin/xrandr --output HDMI1 --off
+    exit
+fi
