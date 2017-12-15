@@ -15,6 +15,13 @@ report.custom.labels=ID,Project,Tags,Recur,Due,Description
 report.custom.sort=project+,due+
 default.command=custom
 
+# donetoday report
+report.donetoday.columns=project,due,description
+report.donetoday.description=Tasks completed today
+report.donetoday.filter=end:today and status.not:deleted and project.not:System
+report.donetoday.labels=Project,Due,Description
+report.donetoday.sort=project+
+
 # Executive report
 report.executive.columns=project,due,description
 report.executive.description=Daily executive report
