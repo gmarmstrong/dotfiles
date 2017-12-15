@@ -16,6 +16,7 @@ base-passwd
 bash
 busybox
 bzip2
+calibre
 coreutils
 cpio
 cron
