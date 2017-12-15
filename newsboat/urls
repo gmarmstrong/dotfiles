@@ -13,6 +13,7 @@ https://fivethirtyeight.com/economics/feed/                 "~FiveThirtyEight: E
 https://fivethirtyeight.com/politics/feed/                  "~FiveThirtyEight: Politics"        "news"
 https://rss.nytimes.com/services/xml/rss/nyt/US.xml         "~The New York Times: U.S."         "news"
 https://rss.nytimes.com/services/xml/rss/nyt/World.xml      "~The New York Times: World"        "news"
+http://feeds.bbci.co.uk/news/world/rss.xml                  "~BBC World News"                   "news"
 https://hnrss.org/newest?points=100                         "~Hacker News"                      "aggregators"
 https://www.reddit.com/r/changemyview/.rss                  "~/r/changemyview"                  "aggregators"
 https://www.reddit.com/r/TrueReddit/.rss                    "~/r/TrueReddit"                    "aggregators"
