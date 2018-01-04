@@ -157,7 +157,6 @@ trash-cli
 tree
 tzdata
 udev
-unclutter
 units
 urlview
 util-linux
