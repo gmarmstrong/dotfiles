@@ -10,5 +10,5 @@ image/tiff; feh %s
 application/pdf; zathura %s
 
 # HTML
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
+#text/html; w3m -I %{charset} -T text/html; copiousoutput;
 text/html; firefox -new-tab %s & sleep 5
