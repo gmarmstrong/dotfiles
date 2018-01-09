@@ -1,5 +1,11 @@
+# The Old Reader
+oldreader-login "guthrie.armstrong@gmail.com"
+oldreader-passwordeval "pass The-Old-Reader"
+#oldreader-show-special-feeds no
+urls-source "oldreader"
+
 # Unbind keys
-unbind-key A
+#unbind-key A
 unbind-key C
 unbind-key ^K
 
