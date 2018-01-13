@@ -137,12 +137,6 @@ autocmd FileType python call ColumnWarning()
 autocmd FileType haskell map <F5> :!ghci %<CR>
 
 " ==============================================================================
-" SHELL
-
-" Map F5 to execute
-autocmd FileType sh,zsh map <F5> :!./%<CR>
-
-" ==============================================================================
 " PASS
 
 " https://lists.zx2c4.com/pipermail/password-store/2017-November/003122.html
