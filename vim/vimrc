@@ -122,12 +122,6 @@ set linebreak       "Wrap at column, not at border
 set wrapmargin=0    "Distance from the window border to wrap
 
 " ==============================================================================
-" HASKELL
-
-" Map F5 to compile
-autocmd FileType haskell map <F5> :!ghci %<CR>
-
-" ==============================================================================
 " PASS
 
 " https://lists.zx2c4.com/pipermail/password-store/2017-November/003122.html
