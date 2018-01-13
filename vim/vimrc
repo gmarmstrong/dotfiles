@@ -23,6 +23,12 @@ function BrowserMarkdown() abort
     !firefox "%:r.html"
 endfunction
 
+" Enable spell checking and toggle with F5
+function SpellCheck() abort
+    setlocal spell spelllang=en_us
+    map <F5> :setlocal spell! spelllang=en_us<CR>
+endfunction
+
 " ==============================================================================
 " FILETYPE DETECTION
 
