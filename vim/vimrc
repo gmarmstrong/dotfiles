@@ -122,15 +122,6 @@ set linebreak       "Wrap at column, not at border
 set wrapmargin=0    "Distance from the window border to wrap
 
 " ==============================================================================
-" PYTHON
-
-" Map F5 to execute
-autocmd FileType python map <F5> :!./%<CR>
-
-" 80+ column warning
-autocmd FileType python call ColumnWarning()
-
-" ==============================================================================
 " HASKELL
 
 " Map F5 to compile
