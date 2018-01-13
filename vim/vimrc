@@ -19,9 +19,8 @@ endfunction
 
 " Compile Markdown to HTML and open
 function BrowserMarkdown() abort
-    " FIXME Does not work with files with spaces
-    !pandoc -s -f markdown -t html % -o %:r.html
-    !firefox %:r.html
+    !pandoc -s -f markdown -t html "%" -o "%:r.html"
+    !firefox "%:r.html"
 endfunction
 
 " ==============================================================================
