@@ -23,9 +23,10 @@ then
     export ADOTDIR=$XDG_DATA_HOME/antigen
     source /usr/share/zsh-antigen/antigen.zsh
     antigen use oh-my-zsh
-    antigen bundle pass
+    antigen theme robbyrussell
     antigen bundle zsh-users/zsh-history-substring-search
     antigen bundle zsh-users/zsh-syntax-highlighting
+    antigen bundle pass
     antigen apply
 fi
 
