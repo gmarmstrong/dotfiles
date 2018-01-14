@@ -87,6 +87,7 @@ lsb-base
 make
 man-db
 manpages
+maven
 mime-support
 mount
 mpd
@@ -102,6 +103,8 @@ network-manager-openvpn
 network-manager-openvpn-gnome
 ntp
 offlineimap
+openjdk-8-jdk
+openjdk-8-jre
 openssh-client
 openvpn
 p7zip
