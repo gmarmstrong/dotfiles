@@ -23,6 +23,7 @@ secring.*
 *.dvi
 *-converted-to.*
 *.fdb_latexmk
+*.synctex.gz
 
 # TeX: bibtex/biblatex/biber
 *.bbl
