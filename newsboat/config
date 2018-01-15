@@ -15,7 +15,6 @@ reload-threads 6
 refresh-on-startup yes
 goto-next-feed no
 text-width 80 # Only works properly with newsboat
-download-path ~/Download
 unbind-key O
 bind-key O open-all-unread-in-browser-and-mark-read
 
