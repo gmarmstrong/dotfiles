@@ -1,8 +1,8 @@
 # file management aliases
 alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.sass-cache'"
-alias ls="LC_COLLATE=C ls --color=auto -GFH -w 80"
-alias ll="LC_COLLATE=C ls --color=auto -GFHA -w 80"
-alias l="LC_COLLATE=C ls --color=auto -GFHAlh -w 80"
+alias ls="LC_COLLATE=C ls --color=auto -FH -w 80"
+alias ll="LC_COLLATE=C ls --color=auto -FHA -w 80"
+alias l="LC_COLLATE=C ls --color=auto -FHAlh -w 80"
 alias space="find -maxdepth 1 -exec du -sh "{}" \; | sort -h"
 alias suspace="sudo find -maxdepth 1 -exec du -sh "{}" \; | sort -h"
 
