@@ -1,6 +1,11 @@
-timew
-todo_count=$(task status:pending and \(+OVERDUE or due:today or due:tomorrow\) count)
-echo "You have $todo_count tasks due soon."
+# Display Timewarrior and Taskwarrior status
+if command -v timew >& /dev/null; then
+    timew
+fi
+if command -v task >& /dev/null; then
+    todo_count=$(task status:pending and \(+OVERDUE or due:today or due:tomorrow\) count)
+    echo "You have $todo_count tasks due soon."
+fi
 
 # Save history to file
 HISTSIZE=1000000
