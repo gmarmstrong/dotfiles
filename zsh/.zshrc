@@ -40,7 +40,11 @@ fi
 bindkey -v # generally be vi-like
 bindkey -M viins '^?' backward-delete-char # delete beyond initial character
 bindkey -M viins 'jk' vi-cmd-mode # exit vi insert mode with jk
-bindkey -M vicmd 'k' history-substring-search-up # up with k in normal mode
-bindkey -M vicmd 'j' history-substring-search-down # down with j in normal mode
+if command -v history-substring-search-up >& /dev/null; then
+    bindkey -M vicmd 'k' history-substring-search-up # up with k in normal mode
+fi
+if command -v history-substring-search-down >& /dev/null; then
+    bindkey -M vicmd 'j' history-substring-search-down # down with j in normal mode
+fi
 
 source $XDG_CONFIG_HOME/zsh/.zaliases
