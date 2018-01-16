@@ -49,7 +49,7 @@ then
 fi
 
 # Authenticate with GitHub
-if ! ssh -T git@github.com
+if ssh -T git@github.com
 then
     echo "Uploading public key to GitHub..."
     myjson='{"title":"'"$keyname"'","key":"'"$(cat $HOME/.ssh/id_rsa.pub)"'"}'
