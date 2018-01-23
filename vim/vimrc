@@ -68,6 +68,7 @@ nnoremap <silent> <Leader>d :!dict <cword> \| less <CR>
 
 " Plugins (note the single quotes)
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
+Plug 'junegunn/goyo.vim'                "Distraction-free writing
 Plug 'jamessan/vim-gnupg'               "Edit encrypted files
 Plug 'lervag/vimtex'                    "LaTeX support
 Plug 'godlygeek/tabular'                "Markdown dependency
@@ -75,6 +76,9 @@ Plug 'gabrielelana/vim-markdown'        "Markdown support
 Plug 'airblade/vim-gitgutter'           "Git diff in the gutter
 Plug 'chriskempson/base16-vim'          "Colorschemes
 call plug#end()
+
+" goyo settings
+map <leader>G :Goyo<CR>
 
 " vim-gitgutter settings
 let g:gitgutter_override_sign_column_highlight = 0
