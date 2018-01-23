@@ -14,6 +14,9 @@ export WWW_HOME="$XDG_CONFIG_HOME/w3m"
 # Set GnuPG directory location
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
+# Set GPG_TTY
+export GPG_TTY=$(tty)
+
 # Set Android SDK location
 export ANDROID_SDK_HOME="$XDG_DATA_HOME/android"
 
