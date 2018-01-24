@@ -2,8 +2,7 @@
 oldreader-login "guthrie.armstrong@gmail.com"
 oldreader-passwordeval "pass The-Old-Reader"
 unbind-key s
-oldreader-flag-star "s"
-#oldreader-show-special-feeds no
+bind-key s oldreader-flag-star
 urls-source "oldreader"
 
 # Unbind keys
