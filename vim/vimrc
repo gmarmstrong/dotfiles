@@ -21,6 +21,7 @@ endfunction
 function BrowserMarkdown() abort
     !pandoc -s -f markdown -t html "%" -o "%:r.html"
     !firefox "%:r.html"
+    !rm "%:r.html"
 endfunction
 
 " Enable spell checking and toggle with F5
