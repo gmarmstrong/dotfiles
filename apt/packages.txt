@@ -167,6 +167,7 @@ util-linux
 vim
 vim-common
 vim-doc
+virtualbox
 vlc
 w3m
 w3m
