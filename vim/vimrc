@@ -80,6 +80,7 @@ call plug#end()
 
 " goyo settings
 map <leader>G :Goyo<CR>
+let g:goyo_width = 81
 
 " vim-gitgutter settings
 let g:gitgutter_override_sign_column_highlight = 0
