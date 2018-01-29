@@ -151,3 +151,9 @@ augroup passconceal
     autocmd BufNewFile,BufRead */pass.*/* setlocal conceallevel=1
 
 augroup END
+
+" ==============================================================================
+" TABS
+
+" Don't spell-check guitar tablature
+autocmd BufNewFile,BufRead */resources/tablature/* setlocal nospell
