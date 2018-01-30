@@ -31,7 +31,7 @@ color indicator color000 color250
 color error     color160 color000
 
 # Autoview
-auto_view text/html
+auto_view text/plain
 
 # Folder hooks
 folder-hook Personal/* "source $XDG_CONFIG_HOME/mutt/accounts/personal"
