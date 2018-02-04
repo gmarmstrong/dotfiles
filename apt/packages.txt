@@ -47,6 +47,9 @@ fonts-inconsolata
 gcc-6-base
 gettext
 gettext-base
+ghc
+ghc-doc
+ghc-prof
 git
 git-doc
 git-email
@@ -54,6 +57,7 @@ gnupg
 gnupg-agent
 grep
 gzip
+haskell-doc
 hostname
 html-xml-utils
 htop
