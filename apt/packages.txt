@@ -163,6 +163,8 @@ traceroute
 transmission
 trash-cli
 tree
+ttf-dejavu
+ttf-liberation
 tzdata
 udev
 units
