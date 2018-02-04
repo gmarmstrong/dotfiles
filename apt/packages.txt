@@ -176,7 +176,6 @@ vim-doc
 virtualbox
 vlc
 w3m
-w3m
 weather-util
 wget
 whois
