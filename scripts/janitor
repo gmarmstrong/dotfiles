@@ -49,6 +49,9 @@ then
     ssh-add "$HOME/.ssh/id_rsa"
 fi
 
+# Configure git
+source "$HOME/dotfiles/git/config.sh"
+
 # Authenticate with GitHub
 if ssh -T git@github.com
 then
