@@ -14,11 +14,14 @@ autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 
 # Prompt
+if [ ! -d "$HOME/.zfunctions" ]; then
+    mkdir -p "$HOME/.zfunctions"
+fi
 if [ ! -f "$HOME/.zfunctions/prompt_pure_setup" ]; then
-    wget https://github.com/sindresorhus/pure/blob/master/pure.zsh -O "$HOME/.zfunctions/prompt_pure_setup"
+    wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh -O "$HOME/.zfunctions/prompt_pure_setup"
 fi
 if [ ! -f "$HOME/.zfunctions/async" ]; then
-    wget https://github.com/sindresorhus/pure/blob/master/async.zsh -O "$HOME/.zfunctions/async"
+    wget https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh -O "$HOME/.zfunctions/async"
 fi
 fpath=( "$HOME/.zfunctions" $fpath )
 autoload -Uz promptinit
