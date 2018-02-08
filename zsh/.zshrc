@@ -21,10 +21,4 @@ bindkey -M viins 'jk' vi-cmd-mode # exit vi insert mode with jk
 bindkey -M vicmd 'k' history-beginning-search-backward
 bindkey -M vicmd 'j' history-beginning-search-forward
 
-# Safely "trash" files
-trash() {
-    mkdir -p "$HOME/.local/share/Trash/files" > /dev/null 2>&1;
-    mv --backup=numbered "$@" --target-directory="$HOME/.local/share/Trash/files/";
-}
-
 source $XDG_CONFIG_HOME/zsh/.zaliases
