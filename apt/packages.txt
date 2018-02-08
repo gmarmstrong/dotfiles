@@ -109,6 +109,7 @@ ntp
 offlineimap
 openjdk-8-jdk
 openjdk-8-jre
+openjfx
 openssh-client
 openvpn
 p7zip
