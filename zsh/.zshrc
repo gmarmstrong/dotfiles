@@ -13,6 +13,18 @@ zstyle ':completion:*' special-dirs true
 autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 
+# Prompt
+if [ ! -f "$HOME/.zfunctions/prompt_pure_setup" ]; then
+    wget https://github.com/sindresorhus/pure/blob/master/pure.zsh -O "$HOME/.zfunctions/prompt_pure_setup"
+fi
+if [ ! -f "$HOME/.zfunctions/async" ]; then
+    wget https://github.com/sindresorhus/pure/blob/master/async.zsh -O "$HOME/.zfunctions/async"
+fi
+fpath=( "$HOME/.zfunctions" $fpath )
+autoload -Uz promptinit
+promptinit
+prompt pure
+
 # Vi-like shell input
 # See: `man zshzle`
 bindkey -v # generally be vi-like
