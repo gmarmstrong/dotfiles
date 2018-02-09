@@ -195,4 +195,3 @@ xzdec
 youtube-dl
 zathura
 zsh
-zsh-antigen
