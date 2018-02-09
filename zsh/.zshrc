@@ -13,10 +13,12 @@ zstyle ':completion:*' special-dirs true
 autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 
-# Prompt
+# .zfunctions directory
 if [ ! -d "$HOME/.zfunctions" ]; then
     mkdir -p "$HOME/.zfunctions"
 fi
+
+# Prompt
 if [ ! -f "$HOME/.zfunctions/prompt_pure_setup" ]; then
     wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh -O "$HOME/.zfunctions/prompt_pure_setup"
 fi
@@ -37,3 +39,9 @@ bindkey -M vicmd 'k' history-beginning-search-backward
 bindkey -M vicmd 'j' history-beginning-search-forward
 
 source $XDG_CONFIG_HOME/zsh/.zaliases
+
+# Syntax highlighting
+if [ ! -d "$HOME/.zfunctions/zsh-syntax-highlighting" ]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zfunctions/zsh-syntax-highlighting"
+fi
+source "$HOME/.zfunctions/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
