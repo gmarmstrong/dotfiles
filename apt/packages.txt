@@ -101,6 +101,7 @@ ncmpcpp
 ncurses-base
 ncurses-doc
 ncurses-term
+neovim
 network-manager
 network-manager-gnome
 network-manager-openvpn
@@ -171,9 +172,6 @@ udev
 units
 urlview
 util-linux
-vim
-vim-common
-vim-doc
 virtualbox
 vlc
 w3m

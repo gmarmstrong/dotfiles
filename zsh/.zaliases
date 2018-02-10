@@ -16,6 +16,8 @@ alias news="newsboat"
 alias sxiv="sxiv -b -a"
 alias led="ledger --pedantic -f $HOME/resources/papers/finance/ledger/journal.txt"
 alias zathura="zathura --fork"
+alias vim="nvim"
+alias vi="nvim"
 
 # backup aliases
 alias backup="sudo rsync --verbose --delete-excluded -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/var/backups/*','/var/lock/*','/var/run/*','/lost+found','/home/*/.cache/*','/home/*/.local/share/Trash/*','/home/*/.local/share/offlineimap/*'} / /media/usb"
