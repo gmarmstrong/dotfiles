@@ -12,20 +12,20 @@ set spellfile=$XDG_DATA_HOME/vim/spell/en.utf-8.add
 " FUNCTIONS
 
 " Highlight columns exceeding 80
-function ColumnWarning() abort
+function! ColumnWarning() abort
     highlight OverLength ctermbg=red ctermfg=white
     match OverLength /\%81v.\+/
 endfunction
 
 " Compile Markdown to HTML and open
-function BrowserMarkdown() abort
+function! BrowserMarkdown() abort
     !pandoc -s -f markdown -t html "%" -o "%:r.html"
     !firefox "%:r.html"
     !rm "%:r.html"
 endfunction
 
 " Enable spell checking and toggle with F5
-function SpellCheck() abort
+function! SpellCheck() abort
     setlocal spell spelllang=en_us
     map <F5> :setlocal spell! spelllang=en_us<CR>
 endfunction
