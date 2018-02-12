@@ -16,3 +16,4 @@ git config --file "$git_config_dir/config" diff.gpg.textconv "gpg --no-tty --dec
 git config --file "$git_config_dir/config" user.signingkey 100B37EAF2164C8B
 git config --file "$git_config_dir/config" commit.gpgsign true
 git config --file "$git_config_dir/config" gpg.program gpg
+git config --file "$git_config_dir/config" core.editor nvim
