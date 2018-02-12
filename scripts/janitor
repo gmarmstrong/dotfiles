@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO Install urxvt-resize-font
+
 if [[ "$OSTYPE" =~  linux* ]]
 then
     echo "Linux operating system confirmed."

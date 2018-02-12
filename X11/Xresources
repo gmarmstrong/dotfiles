@@ -32,9 +32,9 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-! disable perl extensions
+! perl extensions
 URxvt.perl-ext:
-URxvt.perl-ext-common:
+URxvt.perl-ext-common: resize-font
 
 ! Base16 Default Dark
 ! Scheme: Chris Kempson (http://chriskempson.com)
