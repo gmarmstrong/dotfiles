@@ -74,15 +74,12 @@ Plug 'jamessan/vim-gnupg'                       "Edit encrypted files
 Plug 'lervag/vimtex'                            "LaTeX support
 Plug 'godlygeek/tabular'                        "Markdown dependency
 Plug 'gabrielelana/vim-markdown'                "Markdown support
-"Plug 'airblade/vim-gitgutter'                   "Git diff in the gutter
+Plug 'tpope/vim-fugitive'                       "Git wrapper
+Plug 'tpope/vim-rhubarb'                        "GitHub vim-fugitive extension
 Plug 'chriskempson/base16-vim'                  "Colorschemes
 "Plug 'gmarmstrong/rhymer'                       "Rhyming assistant (master)
 Plug 'gmarmstrong/rhymer', {'branch': 'devel'}  "Rhyming assistant (devel)
 call plug#end()
-
-" nvim-completion-manager settings
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " goyo settings
 map <leader>G :Goyo<CR>
