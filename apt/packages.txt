@@ -15,6 +15,7 @@ base-files
 base-passwd
 bash
 busybox
+byzanz
 bzip2
 calibre
 coreutils
@@ -38,6 +39,7 @@ doc-debian
 e2fslibs
 exfat-fuse
 ffmpeg
+fig
 file
 findutils
 firefox-esr
@@ -61,6 +63,7 @@ haskell-doc
 hostname
 html-xml-utils
 htop
+hub
 i3
 imagemagick
 installation-report
@@ -110,6 +113,7 @@ ntp
 offlineimap
 openjdk-8-jdk
 openjdk-8-jre
+openjdk-9-jdk
 openjfx
 openssh-client
 openvpn
@@ -169,6 +173,7 @@ ttf-dejavu
 ttf-liberation
 tzdata
 udev
+unclutter
 units
 urlview
 util-linux
