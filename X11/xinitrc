@@ -2,5 +2,6 @@ export TERM=urxvt
 export TERMINAL=urxvt
 xrdb -load "$XDG_CONFIG_HOME/X11/Xresources"
 xsetbg -tile "$XDG_CONFIG_HOME/X11/181818.jpg"
+unclutter &
 nm-applet &
 exec i3
