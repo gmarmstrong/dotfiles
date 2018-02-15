@@ -73,17 +73,19 @@ Plug 'junegunn/goyo.vim'                        "Distraction-free writing
 Plug 'jamessan/vim-gnupg'                       "Edit encrypted files
 Plug 'lervag/vimtex'                            "LaTeX support
 Plug 'godlygeek/tabular'                        "Markdown dependency
-Plug 'gabrielelana/vim-markdown'                "Markdown support
+Plug 'plasticboy/vim-markdown'                  "Markdown support
 Plug 'tpope/vim-fugitive'                       "Git wrapper
 Plug 'tpope/vim-rhubarb'                        "GitHub vim-fugitive extension
 Plug 'chriskempson/base16-vim'                  "Colorschemes
-"Plug 'gmarmstrong/rhymer'                       "Rhyming assistant (master)
 Plug 'gmarmstrong/rhymer', {'branch': 'devel'}  "Rhyming assistant (devel)
 call plug#end()
 
 " goyo settings
 map <leader>G :Goyo<CR>
 let g:goyo_width = 81
+
+" vim-gitgutter settings
+let g:vim_markdown_folding_disabled = 1
 
 " vim-gitgutter settings
 let g:gitgutter_override_sign_column_highlight = 0

@@ -5,7 +5,7 @@ setlocal nonumber
 setlocal complete+=kspell
 
 " Map F5 to toggle spell checking
-set SpellCheck()
+call SpellCheck()
 
 " Map F6 to open
 map <F6> :!firefox "%" <CR>
