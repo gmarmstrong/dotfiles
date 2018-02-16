@@ -21,7 +21,13 @@ endfunction
 function! BrowserMarkdown() abort
     !pandoc -s -f markdown -t html "%" -o "%:r.html"
     !firefox "%:r.html"
-    !rm "%:r.html"
+endfunction
+
+" Remove Markdown compiled HTML
+function! CleanHTML() abort
+    if (&filetype == 'markdown')
+        !trash "%:r.html"
+    endif
 endfunction
 
 " Enable spell checking and toggle with F5
