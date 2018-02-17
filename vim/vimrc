@@ -82,6 +82,7 @@ Plug 'godlygeek/tabular'                        "Markdown dependency
 Plug 'plasticboy/vim-markdown'                  "Markdown support
 Plug 'tpope/vim-fugitive'                       "Git wrapper
 Plug 'tpope/vim-rhubarb'                        "GitHub vim-fugitive extension
+Plug 'airblade/vim-gitgutter'                   "Git diff in the gutter
 Plug 'chriskempson/base16-vim'                  "Colorschemes
 Plug 'gmarmstrong/rhymer', {'branch': 'devel'}  "Rhyming assistant (devel)
 call plug#end()
@@ -90,7 +91,7 @@ call plug#end()
 map <leader>G :Goyo<CR>
 let g:goyo_width = 81
 
-" vim-gitgutter settings
+" vim-markdown settings
 let g:vim_markdown_folding_disabled = 1
 
 " vim-gitgutter settings
@@ -100,6 +101,7 @@ if exists('&signcolumn')
 else
     let g:gitgutter_sign_column_always = 1
 endif
+set updatetime=100
 
 " vimtex settings
 let g:vimtex_compiler_latexmk = {'callback' : 0}
@@ -121,6 +123,11 @@ set list listchars=tab:»·,trail:␣
 
 " Color
 colorscheme base16-default-dark
+highlight SignColumn ctermbg=181818
+highlight GitGutterAdd ctermbg=181818
+highlight GitGutterChange ctermbg=181818
+highlight GitGutterDelete ctermbg=181818
+highlight GitGutterChangeDelete ctermbg=181818
 
 " ==============================================================================
 " INDENTATION
