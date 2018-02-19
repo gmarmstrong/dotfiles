@@ -84,7 +84,9 @@ Plug 'tpope/vim-fugitive'                       "Git wrapper
 Plug 'tpope/vim-rhubarb'                        "GitHub vim-fugitive extension
 Plug 'airblade/vim-gitgutter'                   "Git diff in the gutter
 Plug 'chriskempson/base16-vim'                  "Colorschemes
-Plug 'gmarmstrong/rhymer', {'branch': 'devel'}  "Rhyming assistant (devel)
+Plug 'gmarmstrong/vim-muse',                    "Lyric poetry assistant
+Plug 'junegunn/vader.vim'                       "Vimscript test framework
+Plug 'majutsushi/tagbar'                        "Ctags browser
 call plug#end()
 
 " goyo settings
