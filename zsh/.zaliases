@@ -19,10 +19,8 @@ alias sxiv="sxiv -b -a"
 alias led="ledger --pedantic -f $HOME/resources/papers/finance/ledger/journal.txt"
 alias zathura="zathura --fork"
 
-if command -v nvim &>2; then
-    alias vim="nvim"
-    alias vi="nvim"
-fi
+# neovim aliases
+command -v nvim >/dev/null 2>&1 && alias vim="nvim" && alias vi="nvim"
 
 # backup aliases
 alias backup="sudo rsync --verbose --delete-excluded -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/var/backups/*','/var/lock/*','/var/run/*','/lost+found','/home/*/.cache/*','/home/*/.local/share/Trash/*','/home/*/VirtualBox VMs/*','/home/*/.local/share/offlineimap/*','/home/*/nltk_data'} / /media/usb"
