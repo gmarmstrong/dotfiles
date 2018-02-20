@@ -4,6 +4,7 @@ oldreader-passwordeval "pass The-Old-Reader"
 unbind-key s
 bind-key s oldreader-flag-star
 urls-source "oldreader"
+oldreader-min-items 500
 
 # Unbind keys
 #unbind-key A
