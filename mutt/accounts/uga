@@ -2,6 +2,7 @@
 set folder="$XDG_DATA_HOME/offlineimap/mail/UGA"
 set spoolfile="+INBOX"
 set mbox="+Archive"
+set trash="Deleted Items"
 
 # SMTP
 set from="guthrie.armstrong25@uga.edu"
