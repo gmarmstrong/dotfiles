@@ -19,7 +19,7 @@ alias sxiv="sxiv -b -a"
 alias led="ledger --pedantic -f $HOME/resources/papers/finance/ledger/journal.txt"
 alias zathura="zathura --fork"
 
-if [ -x "nvim" ]; then
+if command -v nvim &>2; then
     alias vim="nvim"
     alias vi="nvim"
 fi
