@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Save history to file
 HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
@@ -5,6 +7,7 @@ HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export LESSKEY="$XDG_CONFIG_HOME/less/keys"
 
+# Color scheme
 BASE16_SHELL=$XDG_DATA_HOME/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
@@ -13,12 +16,10 @@ zstyle ':completion:*' special-dirs true
 autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 
-# .zfunctions directory
+# Prompt
 if [ ! -d "$HOME/.zfunctions" ]; then
     mkdir -p "$HOME/.zfunctions"
 fi
-
-# Prompt
 if [ ! -f "$HOME/.zfunctions/prompt_pure_setup" ]; then
     wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh -O "$HOME/.zfunctions/prompt_pure_setup"
 fi

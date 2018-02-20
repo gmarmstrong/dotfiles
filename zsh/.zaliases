@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # file management aliases
 alias tree="tree -a -I '__pycache__|*.pyc|target|.git|.sass-cache'"
 alias ls="LC_COLLATE=C ls --color=auto -FH -w 80"
@@ -16,8 +18,11 @@ alias news="newsboat"
 alias sxiv="sxiv -b -a"
 alias led="ledger --pedantic -f $HOME/resources/papers/finance/ledger/journal.txt"
 alias zathura="zathura --fork"
-alias vim="nvim"
-alias vi="nvim"
+
+if [ -x "nvim" ]; then
+    alias vim="nvim"
+    alias vi="nvim"
+fi
 
 # backup aliases
 alias backup="sudo rsync --verbose --delete-excluded -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/var/backups/*','/var/lock/*','/var/run/*','/lost+found','/home/*/.cache/*','/home/*/.local/share/Trash/*','/home/*/VirtualBox VMs/*','/home/*/.local/share/offlineimap/*','/home/*/nltk_data'} / /media/usb"

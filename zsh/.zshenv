@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Set directory environment variables
 export dotfiles="$HOME/dotfiles"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -7,6 +9,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # Set $PATH
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+# Set $TEXMFHOME
+export TEXMFHOME="$XDG_DATA_DIR/texmf"
 
 # Set w3m directory location
 export WWW_HOME="$XDG_CONFIG_HOME/w3m"
