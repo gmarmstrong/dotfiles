@@ -11,4 +11,7 @@ call SpellCheck()
 map <F6> :call BrowserMarkdown()<CR><CR><CR>
 
 " Map F7 to clean
-map <F6> :call CleanHTML()<CR><CR><CR>
+map <F7> :call CleanHTML()<CR><CR><CR>
+
+" TODO Map F8 to render with GitHub's Markdown API
+" https://developer.github.com/v3/markdown/
