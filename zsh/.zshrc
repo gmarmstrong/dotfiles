@@ -46,3 +46,5 @@ if [ ! -d "$HOME/.zfunctions/zsh-syntax-highlighting" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zfunctions/zsh-syntax-highlighting"
 fi
 source "$HOME/.zfunctions/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
