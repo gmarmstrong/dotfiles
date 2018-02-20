@@ -75,18 +75,20 @@ nnoremap <silent> <Leader>d :echo system("dict " . expand('<cword>'))<CR>
 
 " Plugins (note the single quotes)
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
-Plug 'junegunn/goyo.vim'                        "Distraction-free writing
-Plug 'jamessan/vim-gnupg'                       "Edit encrypted files
-Plug 'lervag/vimtex'                            "LaTeX support
-Plug 'godlygeek/tabular'                        "Markdown dependency
-Plug 'plasticboy/vim-markdown'                  "Markdown support
-Plug 'tpope/vim-fugitive'                       "Git wrapper
-Plug 'tpope/vim-rhubarb'                        "GitHub vim-fugitive extension
-Plug 'airblade/vim-gitgutter'                   "Git diff in the gutter
-Plug 'chriskempson/base16-vim'                  "Colorschemes
-Plug 'gmarmstrong/vim-muse',                    "Lyric poetry assistant
-Plug 'junegunn/vader.vim'                       "Vimscript test framework
-Plug 'majutsushi/tagbar'                        "Ctags browser
+Plug 'junegunn/goyo.vim'                                " Distraction-free writing
+Plug 'jamessan/vim-gnupg'                               " Edit encrypted files
+Plug 'lervag/vimtex'                                    " LaTeX support
+Plug 'godlygeek/tabular'                                " Markdown dependency
+Plug 'plasticboy/vim-markdown'                          " Markdown support
+Plug 'tpope/vim-fugitive'                               " Git wrapper
+Plug 'tpope/vim-rhubarb'                                " GitHub vim-fugitive extension
+Plug 'airblade/vim-gitgutter'                           " Git diff in the gutter
+Plug 'chriskempson/base16-vim'                          " Colorschemes
+"Plug 'gmarmstrong/vim-muse', {'branch': 'master'}       " Writing assistant
+Plug 'gmarmstrong/vim-muse', {'branch': 'devel'}        " Dev vim-muse
+"Plug '$HOME/projects/vim-muse', {'branch': 'devel'}     " Local dev of vim-muse
+Plug 'junegunn/vader.vim'                               " Vimscript test framework
+Plug 'majutsushi/tagbar'                                " Ctags browser
 call plug#end()
 
 " goyo settings
