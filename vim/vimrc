@@ -89,19 +89,22 @@ Plug 'tpope/vim-fugitive'                               " Git wrapper
 Plug 'tpope/vim-rhubarb'                                " GitHub vim-fugitive extension
 Plug 'airblade/vim-gitgutter'                           " Git diff in the gutter
 Plug 'chriskempson/base16-vim'                          " Colorschemes
-"Plug 'gmarmstrong/vim-muse', {'branch': 'master'}       " Writing assistant
-Plug 'gmarmstrong/vim-muse', {'branch': 'devel'}        " Dev vim-muse
+Plug 'gmarmstrong/vim-muse', {'branch': 'master'}       " Writing assistant
+"Plug 'gmarmstrong/vim-muse', {'branch': 'devel'}        " Dev vim-muse
 "Plug '$HOME/projects/vim-muse', {'branch': 'devel'}     " Local dev of vim-muse
 Plug 'junegunn/vader.vim'                               " Vimscript test framework
 Plug 'majutsushi/tagbar'                                " Ctags browser
+Plug '$HOME/projects/fzf'                               " Fuzzy finder
 call plug#end()
 
 " goyo settings
 map <leader>G :Goyo<CR>
-let g:goyo_width = 81
+let g:goyo_width = 85
 
 " vim-markdown settings
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_disabled = 1 " Disable folding
+set conceallevel=2                      " Syntax conceal
+let g:vim_markdown_frontmatter = 1      " Jekyll front matter
 
 " vim-gitgutter settings
 let g:gitgutter_override_sign_column_highlight = 0
