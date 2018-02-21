@@ -44,14 +44,15 @@ set modeline
 " ==============================================================================
 " INTERFACE
 
-setlocal ruler                  "Display line/column number, position, etc.
-setlocal nonumber               "Show line numbers
-set shortmess=I                 "Disable startup message
-set shortmess+=W                "Disable write message
-set shortmess+=a                "Disable <Enter> message
-set cmdheight=2                 "Avoid hit-enter prompts
-set noshowmode                  "Don't show current mode
-let g:netrw_banner = 0          "Hide banner in file browser
+setlocal ruler                                  "Display line/column number, position, etc.
+setlocal nonumber                               "Show line numbers
+set shortmess=I                                 "Disable startup message
+set shortmess+=W                                "Disable write message
+set shortmess+=a                                "Disable <Enter> message
+set cmdheight=2                                 "Avoid hit-enter prompts
+set noshowmode                                  "Don't show current mode
+set noshowcmd                                   "Don't show partial commands
+let g:netrw_banner = 0                          "Hide banner in file browser
 
 " ==============================================================================
 " INPUT
