@@ -91,8 +91,8 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # multiple monitors
-workspace 1 output HDMI1
-workspace 2 output eDP1
+workspace 1 output eDP1
+workspace 10 output HDMI1
 
 # switch to workspace
 bindsym $mod+1 workspace 1
