@@ -59,6 +59,11 @@ let g:netrw_banner = 0          "Hide banner in file browser
 " Map jk to escape
 inoremap jk <esc>
 
+" Better leader sequences
+let mapleader="\<Space>"
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :wq<CR>
+
 " Use X11 clipboard
 set clipboard=unnamedplus
 
