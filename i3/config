@@ -56,10 +56,16 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left 20
+bindsym $mod+Shift+j move down 20
+bindsym $mod+Shift+k move up 20
+bindsym $mod+Shift+l move right 20
+
+# resize window
+bindsym $mod+Ctrl+h resize shrink width 20 px or 20 ppt
+bindsym $mod+Ctrl+j resize grow height 20 px or 20 ppt
+bindsym $mod+Ctrl+k resize shrink height 20 px or 20 ppt
+bindsym $mod+Ctrl+l resize grow width 20 px or 20 ppt
 
 # split in "horizontal" orientation (really vertical)
 bindsym $mod+Shift+Control+v split h
