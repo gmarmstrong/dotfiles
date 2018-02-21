@@ -39,6 +39,7 @@ sudo apt-get clean
 sudo apt-get check
 
 # TODO Create directory tree.txt skeleton
+# TODO Create regular file ~/.cache/vim/viminfo
 
 # Generate SSH key pair
 mkdir "$HOME/.ssh"
