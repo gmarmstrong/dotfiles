@@ -46,8 +46,8 @@ bindsym $mod+Shift+q kill
 
 # dmenu
 bindsym $mod+d exec "dmenu_run"
-bindsym XF86Search exec "dmenu_run"
-bindsym XF86LaunchA exec "passmenu"
+bindsym XF86LaunchA exec "dmenu_run"
+bindsym XF86Explorer exec "passmenu"
 
 # change focus
 bindsym $mod+h focus left
