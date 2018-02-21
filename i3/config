@@ -125,12 +125,6 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+Escape exit
 
-# resize window
-bindsym $mod+Ctrl+h resize shrink width 10 px or 10 ppt
-bindsym $mod+Ctrl+j resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+k resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+l resize grow width 10 px or 10 ppt
-
 ## Base16 Default Dark
 # Author: Chris Kempson (http://chriskempson.com)
 #
