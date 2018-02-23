@@ -86,12 +86,11 @@ Plug 'tpope/vim-fugitive'                               " Git wrapper
 Plug 'tpope/vim-rhubarb'                                " GitHub vim-fugitive extension
 Plug 'airblade/vim-gitgutter'                           " Git diff in the gutter
 Plug 'chriskempson/base16-vim'                          " Colorschemes
-Plug 'gmarmstrong/vim-muse', {'branch': 'master'}       " Writing assistant
+"Plug 'gmarmstrong/vim-muse', {'branch': 'master'}       " Writing assistant
 "Plug 'gmarmstrong/vim-muse', {'branch': 'devel'}        " Dev vim-muse
-"Plug '$HOME/projects/vim-muse', {'branch': 'devel'}     " Local dev of vim-muse
+"Plug '$HOME/projects/vim-muse', {'branch': 'devel'}     " Local dev vim-muse
 Plug 'junegunn/vader.vim'                               " Vimscript test framework
 Plug 'majutsushi/tagbar'                                " Ctags browser
-Plug '$HOME/projects/fzf'                               " Fuzzy finder
 call plug#end()
 
 " goyo settings
