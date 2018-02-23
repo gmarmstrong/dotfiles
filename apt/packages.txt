@@ -11,6 +11,8 @@ aptitude
 ardour
 asciidoc
 audacity
+autoconf
+automake
 base-files
 base-passwd
 bash
@@ -22,6 +24,7 @@ coreutils
 cpio
 cron
 cryptsetup
+ctags
 cups
 curl
 dbus-x11
@@ -39,13 +42,14 @@ doc-debian
 e2fslibs
 exfat-fuse
 ffmpeg
-fig
+figlet
 file
 findutils
 firefox-esr
 firmware-iwlwifi
 fonts-font-awesome
 fonts-inconsolata
+g++
 gcc-6-base
 gettext
 gettext-base
@@ -57,6 +61,9 @@ git-doc
 git-email
 gnupg
 gnupg-agent
+gnuplot-doc
+golang-1.8
+golang-1.8-go
 grep
 gzip
 haskell-doc
@@ -69,6 +76,7 @@ imagemagick
 installation-report
 iptables
 iputils-ping
+isag
 keyboard-configuration
 laptop-detect
 laptop-detect
@@ -129,7 +137,11 @@ perl-base
 physlock
 pinentry-curses
 pkg-config
+pkg-config
+plantuml
 poppler-utils
+postgresql
+postgresql-doc
 powertop
 printer-driver-foo2zjs
 psmisc
@@ -153,6 +165,7 @@ scrot
 sed
 sensible-utils
 sqlite3
+sshfs
 suckless-tools
 sudo
 sxiv
@@ -162,6 +175,7 @@ tasksh
 taskwarrior
 texi2html
 texlive-full
+tig
 timewarrior
 tmux
 torbrowser-launcher
@@ -175,6 +189,7 @@ tzdata
 udev
 unclutter
 units
+unzip
 urlview
 util-linux
 virtualbox
