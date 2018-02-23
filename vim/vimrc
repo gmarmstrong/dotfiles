@@ -7,6 +7,7 @@ set backupdir=$XDG_CACHE_HOME/vim/backup
 set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim,$VIMRUNTIME
 set spellfile=$XDG_DATA_HOME/vim/spell/en.utf-8.add
+set modeline
 
 " ==============================================================================
 " FUNCTIONS
@@ -35,11 +36,6 @@ function! SpellCheck() abort
     setlocal spell spelllang=en_us
     map <F5> :setlocal spell! spelllang=en_us<CR>
 endfunction
-
-" ==============================================================================
-" FILETYPE DETECTION
-
-set modeline
 
 " ==============================================================================
 " INTERFACE
@@ -108,7 +104,7 @@ set conceallevel=2                      " Syntax conceal
 let g:vim_markdown_frontmatter = 1      " Jekyll front matter
 
 " vim-gitgutter settings
-let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_override_sign_column_highlight = 1
 if exists('&signcolumn')
     set signcolumn=yes
 else
@@ -121,6 +117,7 @@ let g:vimtex_compiler_latexmk = {'callback' : 0}
 
 " base16 settings
 if $TERM =~ ".*256color"
+    set t_Co=256                                " Enable 256 colors
     let base16colorspace=256                    "Access 256 colorspace
 endif
 
@@ -136,11 +133,12 @@ set list listchars=tab:»·,trail:␣
 
 " Color
 colorscheme base16-default-dark
-highlight SignColumn ctermbg=181818
-highlight GitGutterAdd ctermbg=181818
-highlight GitGutterChange ctermbg=181818
-highlight GitGutterDelete ctermbg=181818
-highlight GitGutterChangeDelete ctermbg=181818
+highlight clear SignColumn
+highlight clear LineNr
+highlight clear GitGutterAdd
+highlight clear GitGutterChange
+highlight clear GitGutterDelete
+highlight clear GitGutterChangeDelete
 
 " ==============================================================================
 " INDENTATION
