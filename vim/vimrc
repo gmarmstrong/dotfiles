@@ -18,6 +18,12 @@ function! ColumnWarning() abort
     match OverLength /\%81v.\+/
 endfunction
 
+" Highlight columns exceeding 80
+function! ColumnWarningPython() abort
+    highlight OverLength ctermbg=red ctermfg=white
+    match OverLength /\%80v.\+/
+endfunction
+
 " Compile Markdown to HTML and open
 function! BrowserMarkdown() abort
     !pandoc -s -f markdown -t html "%" -o "%:r.html"

@@ -5,4 +5,4 @@ map <F5> :!python "%"<CR>
 map <F6> :!python3 "%"<CR>
 
 " 80+ column warning
-call ColumnWarning()
+call ColumnWarningPython()
