@@ -170,6 +170,7 @@ set wrapmargin=0    "Distance from the window border to wrap
 " PASS
 
 " https://lists.zx2c4.com/pipermail/password-store/2017-November/003122.html
+" https://gmarmstrong.org/2017/11/09/using-pass-vim-conceal.html
 augroup passconceal
     autocmd!
 
