@@ -55,6 +55,8 @@ set cmdheight=2                                 "Avoid hit-enter prompts
 set noshowmode                                  "Don't show current mode
 set noshowcmd                                   "Don't show partial commands
 let g:netrw_banner = 0                          "Hide banner in file browser
+set wildmode=longest,list,full                  "Improve :edit tab completion
+set wildmenu                                    "Improve :edit tab completion
 
 " ==============================================================================
 " INPUT
