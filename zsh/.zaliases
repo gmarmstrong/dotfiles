@@ -27,4 +27,4 @@ command -v nvim >/dev/null 2>&1 && alias svim="nvim -u \"$HOME/.config/vim/vimrc
 command -v nvim >/dev/null 2>&1 || alias svim="vim -u \"$HOME/.config/vim/vimrc_secure\""
 
 # backup aliases
-alias backup="sudo rsync --verbose --delete-excluded -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/var/backups/*','/var/lock/*','/var/run/*','/lost+found','/home/*/.cache/*','/home/*/.local/share/Trash/*','/home/*/VirtualBox VMs/*','/home/*/.local/share/offlineimap/*','/home/*/nltk_data'} / /media/usb"
+alias backup="sudo rsync --verbose --delete-excluded -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/var/backups/*','/var/lock/*','/var/run/*','/lost+found','/home/*/.cache/*','/home/*/.local/share/Trash/*','/var/cache','/home/*/VirtualBox VMs/*','/home/*/.local/share/offlineimap/*','/home/*/nltk_data'} / /media/usb"
