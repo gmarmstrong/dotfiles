@@ -11,7 +11,7 @@ mpd_connection_timeout = 5
 mpd_music_dir = ~/resources/music
 
 #
-#mpd_crossfade_time = 5
+mpd_crossfade_time = 0
 #
 
 ##### music visualizer #####
