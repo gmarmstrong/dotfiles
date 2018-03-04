@@ -11,7 +11,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Set $TEXMFHOME
-export TEXMFHOME="$XDG_DATA_DIR/texmf"
+export TEXMFHOME="$XDG_DATA_HOME/texmf"
 
 # Set w3m directory location
 export WWW_HOME="$XDG_CONFIG_HOME/w3m"
