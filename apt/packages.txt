@@ -45,10 +45,8 @@ ffmpeg
 figlet
 file
 findutils
-firefox-esr
+firefox
 firmware-iwlwifi
-fonts-font-awesome
-fonts-inconsolata
 g++
 gcc-6-base
 gettext
