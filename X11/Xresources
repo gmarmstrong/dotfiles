@@ -34,7 +34,7 @@ Xft.rgba: rgb
 
 ! perl extensions
 URxvt.perl-ext:
-URxvt.perl-ext-common: resize-font
+URxvt.perl-ext-common: font-size
 
 ! Base16 Default Dark
 ! Scheme: Chris Kempson (http://chriskempson.com)
