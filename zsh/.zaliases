@@ -16,7 +16,6 @@ alias nikex='ssh -Y gma@nike.cs.uga.edu'
 alias new="newsboat -x reload print-unread"
 alias news="newsboat"
 alias sxiv="sxiv -b -a"
-alias led="ledger --pedantic -f $HOME/resources/papers/finance/ledger/journal.txt"
 alias zathura="zathura --fork"
 
 # neovim aliases
