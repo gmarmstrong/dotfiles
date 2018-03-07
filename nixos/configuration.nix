@@ -4,7 +4,7 @@
 
   # Include results of hardware scan
   imports = [
-    ./hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix
   ];
 
   # GRUB 2
