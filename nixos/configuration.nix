@@ -41,6 +41,10 @@
   # GnuPG agent
   programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
+  # Zsh shell
+  programs.zsh.syntaxHighlighting.enable = true;
+  programs.zsh.enableCompletion = true;
+
   # Enable CUPS to print documents
   # services.printing.enable = true;
 
@@ -154,6 +158,7 @@
     pkgs.zathura
     pkgs.zip
     pkgs.zsh
+    pkgs.zsh-completions
   ];
 
 }

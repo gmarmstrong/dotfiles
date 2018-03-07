@@ -43,11 +43,3 @@ bindkey -M vicmd 'k' history-beginning-search-backward
 bindkey -M vicmd 'j' history-beginning-search-forward
 
 source $XDG_CONFIG_HOME/zsh/.zaliases
-
-# Syntax highlighting
-if [ ! -d "$HOME/.zfunctions/zsh-syntax-highlighting" ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zfunctions/zsh-syntax-highlighting"
-fi
-source "$HOME/.zfunctions/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
