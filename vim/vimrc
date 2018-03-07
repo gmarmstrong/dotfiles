@@ -98,6 +98,7 @@ Plug 'chriskempson/base16-vim'                          " Colorschemes
 "Plug '$HOME/projects/vim-muse', {'branch': 'devel'}     " Local dev vim-muse
 Plug 'junegunn/vader.vim'                               " Vimscript test framework
 "Plug 'majutsushi/tagbar'                                " Ctags browser
+Plug 'LnL7/vim-nix'                                     " Nix syntax
 call plug#end()
 
 " goyo settings
