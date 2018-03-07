@@ -7,7 +7,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 # Set $PATH
-export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Set $TEXMFHOME
@@ -18,12 +17,6 @@ export WWW_HOME="$XDG_CONFIG_HOME/w3m"
 
 # Set GnuPG directory location
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-
-# Set GPG_TTY
-export GPG_TTY=$(tty)
-
-# Set Android SDK location
-export ANDROID_SDK_HOME="$XDG_DATA_HOME/android"
 
 # Set RubyGems location
 export GEM_HOME="$XDG_DATA_HOME/gem"
