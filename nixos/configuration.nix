@@ -144,7 +144,6 @@
     pkgs.tree
     pkgs.unclutter
     pkgs.unzip
-    pkgs.vim
     pkgs.vlc
     pkgs.wget
     pkgs.xclip
