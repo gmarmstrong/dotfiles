@@ -86,6 +86,8 @@
     }
   ];
 
+  # TODO Install antigen
+  # TODO Install zotero
   # Packages
   environment.systemPackages = [
     pkgs.acpi
