@@ -34,6 +34,7 @@ export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 
 # Set $EDITOR
 export EDITOR="nvim"
+export SUDO_EDITOR="nvim"
 
 # Set $ZDOTDIR
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
