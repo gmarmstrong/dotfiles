@@ -12,9 +12,6 @@ taskd.server=taskwarrior.inthe.am:53589
 taskd.credentials=inthe_am/guthrie.armstrong/9cc08d9a-d660-471d-9556-6980a6a1162d
 taskd.trust=ignore hostname
 
-# Color theme
-include /usr/share/taskwarrior/dark-gray-256.theme
-
 # Default command
 report.custom.columns=id,project,tags,recur,due.relative,description
 report.custom.description=Things to do right now
