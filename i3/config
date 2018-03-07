@@ -150,6 +150,7 @@ set $base0F #a16946
 # Basic bar configuration using the Base16 variables.
 bar {
     status_command i3status
+    position top
 
     colors {
         background $base00
