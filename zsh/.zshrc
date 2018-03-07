@@ -1,9 +1,12 @@
 #!/usr/bin/env zsh
 
 # Save history to file
-HISTSIZE=1000000
-SAVEHIST=$HISTSIZE
-HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
+export HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"
+setopt appendhistory # append history instead of overwriting
+setopt sharehistory # share history across terminals
+setopt incappendhistory # add to history immediately after command
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export LESSKEY="$XDG_CONFIG_HOME/less/keys"
 
