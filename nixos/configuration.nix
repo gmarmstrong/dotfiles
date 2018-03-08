@@ -14,8 +14,12 @@
     device = "/dev/sda";
   };
 
-  # PulseAudio
-  hardware.pulseaudio.enable = true;
+  # Hardware
+  hardware.bluetooth.enable = true; # Enable Bluetooth
+  hardware.pulseaudio = {
+    enable = true;                  # Enable PulseAudio
+    package = pkgs.pulseaudioFull;  # Enable PulseAudio Bluetooth
+  };
 
   # Environment variables
   environment.variables.EDITOR = "nvim";
@@ -60,6 +64,7 @@
       xrdb -load "$HOME/.config/X11/Xresources" &
       . "$HOME/.fehbg" &
       nm-applet &
+      blueman-applet &
       unclutter &
     '';
     enable = true;
@@ -97,6 +102,7 @@
     ardour
     autoconf
     automake
+    blueman
     byzanz
     calc
     calibre
