@@ -87,6 +87,7 @@
       . "$HOME/.fehbg" &
       nm-applet &
       blueman-applet &
+      pasystray &
       unclutter &
     '';
     enable = true;
