@@ -1,6 +1,9 @@
 { config, pkgs, ...  }:
 
 {
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   # Include results of hardware scan
   imports = [
@@ -128,6 +131,7 @@
     gnumake
     gnupg
     htop
+    jetbrains.idea-ultimate
     jekyll
     json_c
     maven
