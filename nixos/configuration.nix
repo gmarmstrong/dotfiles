@@ -10,18 +10,31 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
-  # GRUB 2
-  boot.loader.grub = {
-    enable = true;
-    version = 2;
-    device = "/dev/sda";
+  # Declare startup devices and boot loaders
+  boot = {
+    initrd.luks.devices = [
+      {
+        name = "root";
+        device = "/dev/sda3"; # TODO Make system-agnostic
+        preLVM = true;
+      }
+    ];
+    loader.grub = {
+      enable = true;
+      version = 2;
+      device = "/dev/sda";
+    };
   };
 
-  # Hardware
-  hardware.bluetooth.enable = true; # Enable Bluetooth
-  hardware.pulseaudio = {
-    enable = true;                  # Enable PulseAudio
-    package = pkgs.pulseaudioFull;  # Enable PulseAudio Bluetooth
+  # Declare hardware, including Bluetooth and PulseAudio
+  hardware = {
+    bluetooth = {
+      enable = true;
+    };
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+    };
   };
 
   # Environment variables
@@ -38,8 +51,8 @@
 
   # Networking
   networking = {
-    hostName = "nixos"; # define hostname
-    networkmanager.enable = true; # enable networkmanager
+    hostName = "nixos";
+    networkmanager.enable = true;
   };
 
   # Set your time zone
@@ -90,17 +103,6 @@
   # NixOS release version
   system.stateVersion = "17.09";
 
-  # Startup device
-  # TODO Make system-agnostic
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
-      device = "/dev/sda3";
-      preLVM = true;
-    }
-  ];
-
-  # TODO Install antigen
   # TODO Install zotero
   # Packages
   environment.systemPackages = with pkgs; [
