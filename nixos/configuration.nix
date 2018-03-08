@@ -65,14 +65,14 @@
   programs.zsh.syntaxHighlighting.enable = true;
   programs.zsh.enableCompletion = true;
 
-  # Enable CUPS to print documents
-  # services.printing.enable = true;
+  ## Enable CUPS to print documents
+  #services.printing.enable = true;
 
   # Security
   security.sudo.enable = true;
 
-  # Physlock
-  services.physlock.enable = true; # TODO Allow all users (not available in 17.09)
+  ## Physlock (redundant alongside SLiM)
+  #services.physlock.enable = true; # TODO Allow all users (not available in 17.09)
 
   # X11 window system
   services.xserver = {
