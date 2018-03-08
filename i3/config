@@ -32,8 +32,9 @@ bindsym Shift+Print exec "scrot --focuesd --quality 100 %Y-%m-%d_%H-%M-%S.png -e
 bindsym Ctrl+Print exec "sleep 0.2; scrot --select --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mv $f ~/resources/images/screenshots'"
 bindsym XF86Calculator exec "urxvt -e calc"
 bindsym XF86HomePage exec "firefox"
-bindsym Mod4+l exec "slimlock"
 bindsym Mod4+e exec "urxvt -e ranger"
+ # TODO Use physlock instead of slimlock (see configuration.nix)
+bindsym Mod4+l exec "slimlock"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
