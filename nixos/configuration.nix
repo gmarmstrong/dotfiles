@@ -159,6 +159,7 @@
     rsync
     rxvt_unicode_with-plugins
     scrot
+    spotify
     sshfs
     stack
     sxiv
