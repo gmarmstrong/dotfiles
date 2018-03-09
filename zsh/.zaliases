@@ -13,17 +13,15 @@ alias nike='ssh -x gma@nike.cs.uga.edu'
 alias nikex='ssh -Y gma@nike.cs.uga.edu'
 
 # general aliases
-alias new="newsboat -x reload print-unread"
-alias news="newsboat"
 alias sxiv="sxiv -b -a"
 alias zathura="zathura --fork"
 
 # neovim aliases
 command -v nvim >/dev/null 2>&1 && alias vim="nvim" && alias vi="nvim"
 
-# "vimcognito" ;)
+# "vimcognito"
 command -v nvim >/dev/null 2>&1 && alias svim="nvim -u \"$HOME/.config/vim/vimrc_secure\""
 command -v nvim >/dev/null 2>&1 || alias svim="vim -u \"$HOME/.config/vim/vimrc_secure\""
 
-# backup aliases
-alias backup="sudo rsync --verbose --delete-excluded -aAXv --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/var/backups/*','/var/lock/*','/var/run/*','/lost+found','/home/*/.cache/*','/home/*/.local/share/Trash/*','/var/cache','/home/*/VirtualBox VMs/*','/home/*/.local/share/offlineimap/*','/home/*/nltk_data'} / /media/usb"
+# backup
+alias backup="sudo rsync --verbose --delete-excluded -aAXv --exclude={'/home/*/.cache/*','/home/*/.local/share/Trash/*'} /home /run/media/$USER/ca3036f2-022d-4b6e-bb03-ed762403fd3b"
