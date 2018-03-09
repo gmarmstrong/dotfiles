@@ -1,12 +1,6 @@
 " ==============================================================================
 " VIM
 
-set undodir=$XDG_CACHE_HOME/vim/undo
-set directory=$XDG_CACHE_HOME/vim/swap
-set backupdir=$XDG_CACHE_HOME/vim/backup
-set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim,$VIMRUNTIME
-set spellfile=$XDG_DATA_HOME/vim/spell/en.utf-8.add
 set modeline
 
 " ==============================================================================
@@ -39,8 +33,8 @@ endfunction
 
 " Enable spell checking and toggle with F5
 function! SpellCheck() abort
-    setlocal spell spelllang=en_us
-    map <F5> :setlocal spell! spelllang=en_us<CR>
+    setlocal spell spelllang=en
+    map <F5> :setlocal spell! spellang=en<CR>
 endfunction
 
 " ==============================================================================
@@ -84,7 +78,7 @@ nnoremap <silent> <Leader>d :echo system("dict " . expand('<cword>'))<CR>
 " PLUGINS
 
 " Plugins (note the single quotes)
-call plug#begin('$XDG_DATA_HOME/vim/plugged')
+call plug#begin()
 Plug 'junegunn/goyo.vim'                                " Full-screen editor
 Plug 'lervag/vimtex'                                    " LaTeX support
 Plug 'godlygeek/tabular'                                " Markdown dependency
