@@ -88,7 +88,7 @@
       nm-applet &
       blueman-applet &
       pasystray &
-      unclutter &
+      unclutter -root &
     '';
     enable = true;
     exportConfiguration = true;
