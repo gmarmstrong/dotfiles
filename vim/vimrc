@@ -122,8 +122,9 @@ let g:vimtex_view_general_viewer = 'zathura'
 
 " base16 settings
 if $TERM =~ ".*256color"
-    set t_Co=256                                " Enable 256 colors
+    set t_Co=256                                "Enable 256 colors
     let base16colorspace=256                    "Access 256 colorspace
+    colorscheme base16-gruvbox-dark-hard        "Color scheme
 endif
 
 " ==============================================================================
@@ -137,7 +138,6 @@ set list
 set list listchars=tab:»·,trail:␣
 
 " Color
-colorscheme base16-default-dark
 highlight clear SignColumn
 highlight clear LineNr
 highlight clear GitGutterAdd
