@@ -136,6 +136,7 @@
     gnupg
     htop
     jetbrains.idea-ultimate
+    jetbrains.pycharm-professional
     jekyll
     json_c
     maven
