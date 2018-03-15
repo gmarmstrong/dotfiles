@@ -132,6 +132,7 @@
     git
     gnome3.gnome_keyring
     gnumake
+    gparted
     gnupg
     htop
     jetbrains.idea-ultimate
