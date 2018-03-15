@@ -33,8 +33,8 @@ export SUDO_EDITOR="nvim"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Set Vim locations
-export VIMDOTDIR="$XDG_DATA_HOME/vim"
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export VIMDOTDIR="$XDG_DATA_HOME/nvim"
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/nvim/vimrc" | source $MYVIMRC'
 
 # Set pass directories
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
