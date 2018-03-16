@@ -122,6 +122,7 @@
     curl
     dict
     diction
+    djview
     dmenu
     feh
     figlet
