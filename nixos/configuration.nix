@@ -179,6 +179,7 @@
     xclip
     xdg-user-dirs
     xdg_utils
+    xpdf
     xorg.xbacklight
     youtube-dl
     zathura

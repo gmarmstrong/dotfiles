@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ranger supports enhanced previews.  If the option "use_preview_script"
 # is set to True and this file exists, this script will be called and its
 # output is displayed in ranger.  ANSI color codes are supported.
@@ -28,7 +28,7 @@ maxln=200    # Stop after $maxln lines.  Can be used like ls | head -n $maxln
 
 # Find out something about the file:
 mimetype=$(file --mime-type -Lb "$path")
-extension=$(/bin/echo -E "${path##*.}" | tr "[:upper:]" "[:lower:]")
+extension=$(echo -E "${path##*.}" | tr "[:upper:]" "[:lower:]")
 
 # Functions:
 # runs a command and saves its output into $output.  Useful if you need
@@ -36,7 +36,7 @@ extension=$(/bin/echo -E "${path##*.}" | tr "[:upper:]" "[:lower:]")
 try() { output=$(eval '"$@"'); }
 
 # writes the output of the previously used "try" command
-dump() { /bin/echo -E "$output"; }
+dump() { echo -E "$output"; }
 
 # a common post-processing function used after most commands
 trim() { head -n "$maxln"; }
