@@ -84,11 +84,11 @@
     displayManager.sessionCommands =
     ''
       xrdb -load "$HOME/.config/X11/Xresources" &
-      . "$HOME/.fehbg" &
       nm-applet &
       blueman-applet &
       pasystray &
       unclutter -root &
+      . "$HOME/.fehbg" &
     '';
     enable = true;
     exportConfiguration = true;
