@@ -122,7 +122,6 @@
     curl
     dict
     diction
-    djview
     dmenu
     feh
     figlet
@@ -169,6 +168,7 @@
     taskwarrior
     texlive.combined.scheme-full
     timewarrior
+    tor-browser-bundle-bin
     transmission
     trash-cli
     tree
