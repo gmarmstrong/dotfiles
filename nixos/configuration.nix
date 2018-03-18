@@ -1,5 +1,12 @@
 { config, pkgs, ...  }:
 
+# TODO Create skeleton directory tree
+# TODO Configure git (home-manager)
+# TODO Fetch passwords
+# TODO Install clustergit
+# TODO Install vim-plug
+# TODO Install vim plugins
+
 {
   nixpkgs.config = {
     allowUnfree = true;
@@ -104,7 +111,6 @@
   # NixOS release version
   system.stateVersion = "17.09";
 
-  # TODO Install zotero
   # Packages
   environment.systemPackages = with pkgs; [
     acpi
