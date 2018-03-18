@@ -42,4 +42,4 @@ set linebreak       "Wrap at column, not at border
 set wrapmargin=0    "Distance from the window border to wrap
 
 " Source gnupg.vim
-source $HOME/.config/vim/gnupg.vim
+source $HOME/.config/nvim/gnupg.vim

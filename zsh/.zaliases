@@ -20,8 +20,8 @@ alias zathura="zathura --fork"
 command -v nvim >/dev/null 2>&1 && alias vim="nvim" && alias vi="nvim"
 
 # "vimcognito"
-command -v nvim >/dev/null 2>&1 && alias svim="nvim -u \"$HOME/.config/vim/vimrc_secure\""
-command -v nvim >/dev/null 2>&1 || alias svim="vim -u \"$HOME/.config/vim/vimrc_secure\""
+command -v nvim >/dev/null 2>&1 && alias svim="nvim -u \"$HOME/.config/nvim/vimrc_secure\""
+command -v nvim >/dev/null 2>&1 || alias svim="vim -u \"$HOME/.config/nvim/vimrc_secure\""
 
 # backup
 alias backup="sudo rsync --verbose --delete-excluded -aAXv --exclude={'/home/*/.cache/*','/home/*/.local/share/Trash/*'} /home /run/media/$USER/ca3036f2-022d-4b6e-bb03-ed762403fd3b"
