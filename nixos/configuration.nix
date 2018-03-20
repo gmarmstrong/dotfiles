@@ -181,6 +181,7 @@
     unclutter
     unzip
     vlc
+    w3m
     wget
     xclip
     xdg-user-dirs
