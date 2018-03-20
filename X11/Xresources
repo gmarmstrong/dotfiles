@@ -36,6 +36,12 @@ Xft.rgba: rgb
 URxvt.perl-ext:
 URxvt.perl-ext-common: font-size
 
+! font-size
+URxvt.keysym.C-plus:    font-size:increase
+URxvt.keysym.C-minus:   font-size:decrease
+URxvt.keysym.C-equal:   font-size:reset
+URxvt.keysym.C-slash:   font-size:show
+
 ! Base16 Gruvbox dark, hard
 ! Scheme: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
