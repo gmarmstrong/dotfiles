@@ -171,9 +171,7 @@
     sshfs
     stack
     sxiv
-    taskwarrior
     texlive.combined.scheme-full
-    timewarrior
     tor-browser-bundle-bin
     transmission
     trash-cli
