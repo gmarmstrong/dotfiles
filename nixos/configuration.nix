@@ -83,7 +83,7 @@
 
   # X11 window system
   services.xserver = {
-    autorun = false;
+    autorun = true;
     serverFlagsSection = # Block tty access from lock screen
     ''
       Option "DontVTSwitch" "True"
