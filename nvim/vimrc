@@ -90,7 +90,7 @@ Plug 'chriskempson/base16-vim'                          " Colorschemes
 "Plug 'gmarmstrong/vim-muse', {'branch': 'master'}       " Writing assistant
 "Plug 'gmarmstrong/vim-muse', {'branch': 'devel'}        " Dev vim-muse
 "Plug '$HOME/projects/vim-muse', {'branch': 'devel'}     " Local dev vim-muse
-Plug 'junegunn/vader.vim'                               " Vimscript test framework
+"Plug 'junegunn/vader.vim'                               " Vimscript test framework
 "Plug 'majutsushi/tagbar'                                " Ctags browser
 Plug 'LnL7/vim-nix'                                     " Nix syntax
 call plug#end()
