@@ -22,7 +22,7 @@
     initrd.luks.devices = [
       {
         name = "root";
-        device = "/dev/sda3"; # TODO Make system-agnostic
+        device = "/dev/disk/by-uuid/5c42abea-a365-4e2c-b2bd-584ee69cca55";
         preLVM = true;
       }
     ];
@@ -138,12 +138,12 @@
     git
     gnome3.gnome_keyring
     gnumake
-    gparted
     gnupg
+    gparted
     htop
+    jekyll
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
-    jekyll
     json_c
     maven
     neovim
@@ -184,8 +184,8 @@
     xclip
     xdg-user-dirs
     xdg_utils
-    xpdf
     xorg.xbacklight
+    xpdf
     youtube-dl
     zathura
     zip
