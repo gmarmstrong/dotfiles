@@ -172,6 +172,7 @@
     stack
     sxiv
     texlive.combined.scheme-full
+    thunderbird
     tor-browser-bundle-bin
     transmission
     trash-cli
