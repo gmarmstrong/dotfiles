@@ -125,7 +125,7 @@ let g:vimtex_compiler_progname = 'nvr'
 if $TERM =~ ".*256color"
     set t_Co=256                                "Enable 256 colors
     let base16colorspace=256                    "Access 256 colorspace
-    colorscheme base16-gruvbox-dark-hard        "Color scheme
+    colorscheme base16-gruvbox-light-hard        "Color scheme
 endif
 
 " ==============================================================================
