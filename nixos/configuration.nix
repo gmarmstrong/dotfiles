@@ -151,6 +151,7 @@
     networkmanager.out
     networkmanager_openvpn
     networkmanagerapplet
+    nextcloud-client
     openjdk
     openssh
     p7zip
