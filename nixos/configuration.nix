@@ -141,6 +141,7 @@
     gnupg
     gparted
     htop
+    imagemagick
     jekyll
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
