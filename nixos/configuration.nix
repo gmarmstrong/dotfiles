@@ -117,6 +117,7 @@
     alsaLib
     alsaTools
     alsaUtils
+    androidsdk
     ardour
     autoconf
     automake
