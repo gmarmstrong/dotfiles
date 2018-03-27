@@ -94,6 +94,7 @@
       nm-applet &
       blueman-applet &
       pasystray &
+      nextcloud &
       unclutter -root &
       . "$HOME/.fehbg" &
     '';
