@@ -63,16 +63,22 @@ bindsym $mod+Shift+k move up 20
 bindsym $mod+Shift+l move right 20
 
 # resize window
-bindsym $mod+Ctrl+h resize shrink width 5 px or 5 ppt
-bindsym $mod+Ctrl+j resize grow height 5 px or 5 ppt
-bindsym $mod+Ctrl+k resize shrink height 5 px or 5 ppt
-bindsym $mod+Ctrl+l resize grow width 5 px or 5 ppt
+bindsym $mod+Ctrl+h resize grow left 5 px or 5 ppt
+bindsym $mod+Ctrl+j resize grow down 5 px or 5 ppt
+bindsym $mod+Ctrl+k resize grow up 5 px or 5 ppt
+bindsym $mod+Ctrl+l resize grow right 5 px or 5 ppt
+
+# resize window
+bindsym $mod+Ctrl+Shift+h resize shrink right 5 px or 5 ppt
+bindsym $mod+Ctrl+Shift+j resize shrink up 5 px or 5 ppt
+bindsym $mod+Ctrl+Shift+k resize shrink down 5 px or 5 ppt
+bindsym $mod+Ctrl+Shift+l resize shrink left 5 px or 5 ppt
 
 # split in "horizontal" orientation (really vertical)
-bindsym $mod+Shift+Control+v split h
+bindsym $mod+z splith
 
 # split in "vertical" orientation (really horizontal)
-bindsym $mod+Shift+Control+h split v
+bindsym $mod+x splitv
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
