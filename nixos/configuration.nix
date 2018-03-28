@@ -1,11 +1,12 @@
 { config, pkgs, ...  }:
 
-# TODO Create skeleton directory tree
-# TODO Configure git (home-manager)
-# TODO Fetch passwords
-# TODO Install clustergit
-# TODO Install vim-plug
-# TODO Install vim plugins
+# TODO home-manager
+# TODO home-manager: create skeleton directory tree
+# TODO home-manager: configure git
+# TODO home-manager: fetch password store
+# TODO home-manager: install clustergit
+# TODO home-manager: install user applications locally
+# TODO home-manager: install and run vim-plug
 
 {
   nixpkgs.config = {
@@ -72,14 +73,16 @@
   programs.zsh.syntaxHighlighting.enable = true;
   programs.zsh.enableCompletion = true;
 
-  ## Enable CUPS to print documents
+  ## TODO Enable CUPS to print documents
   #services.printing.enable = true;
 
   # Security
   security.sudo.enable = true;
 
   ## Physlock (redundant alongside SLiM)
-  #services.physlock.enable = true; # TODO Allow all users (not available in 17.09)
+  # TODO services.physlock.enable = true;
+  # TODO services.physlock.allowAnyUser = true; # Not available until 18.03
+  # TODO replace slimlock with physlock in i3/config
 
   # X11 window system
   services.xserver = {
