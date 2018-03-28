@@ -6,7 +6,7 @@ export SAVEHIST=$HISTSIZE
 export HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"
 setopt appendhistory # append history instead of overwriting
 setopt sharehistory # share history across terminals
-setopt incappendhistory # add to history immediately after command
+setopt incappendhistory # add commands to history immediately
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export LESSKEY="$XDG_CONFIG_HOME/less/keys"
 
@@ -33,9 +33,9 @@ prompt pure
 # Vi-like shell input
 # See: `man zshzle`
 bindkey -v # generally be vi-like
-bindkey -M viins '^?' backward-delete-char # delete beyond initial character
-bindkey -M viins 'jk' vi-cmd-mode # exit vi insert mode with jk
-bindkey -M vicmd 'k' history-beginning-search-backward
-bindkey -M vicmd 'j' history-beginning-search-forward
+bindkey -M viins '^?' backward-delete-char # allow deletion beyond insertion column
+bindkey -M viins 'jk' vi-cmd-mode # exit insert mode with jk
+bindkey -M vicmd 'k' history-beginning-search-backward # search up through history
+bindkey -M vicmd 'j' history-beginning-search-forward # search down through history
 
-source $XDG_CONFIG_HOME/zsh/.zaliases
+source $XDG_CONFIG_HOME/zsh/.zaliases # load aliases file
