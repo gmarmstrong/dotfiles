@@ -199,7 +199,6 @@
     zathura
     zip
     zsh
-    zsh-completions
   ];
 
 }
