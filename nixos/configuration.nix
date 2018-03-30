@@ -91,6 +91,7 @@
     ''
       Option "DontVTSwitch" "True"
     '';
+    # TODO displayManager.lightdm.enable = true; # depend on physlock
     displayManager.sessionCommands =
     ''
       xrdb -load "$HOME/.config/X11/Xresources" &
@@ -133,7 +134,6 @@
     curl
     dict
     diction
-    dmenu
     feh
     figlet
     file
@@ -172,6 +172,8 @@
     python
     python3
     ranger
+    rofi
+    rofi-pass
     rsync
     rxvt_unicode_with-plugins
     scrot
