@@ -185,6 +185,7 @@
     thunderbird
     tor-browser-bundle-bin
     transmission
+    transmission_gtk
     trash-cli
     tree
     unclutter
