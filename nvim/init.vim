@@ -83,8 +83,7 @@ Plug 'junegunn/goyo.vim'                                " Full-screen editor
 Plug 'lervag/vimtex'                                    " LaTeX support
 Plug 'godlygeek/tabular'                                " Markdown dependency
 Plug 'gabrielelana/vim-markdown'                        " Markdown support
-"Plug 'tpope/vim-fugitive'                               " git wrapper
-"Plug 'tpope/vim-rhubarb'                                " hub fugitive extension
+Plug 'tpope/vim-fugitive'                               " git wrapper
 Plug 'airblade/vim-gitgutter'                           " Git diff in SignColumn
 Plug 'chriskempson/base16-vim'                          " Colorschemes
 "Plug 'gmarmstrong/vim-muse', {'branch': 'master'}       " Writing assistant
