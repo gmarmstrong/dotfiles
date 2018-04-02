@@ -148,7 +148,6 @@
     htop
     hugo
     imagemagick
-    jekyll
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
     json_c
