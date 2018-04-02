@@ -183,6 +183,8 @@ augroup passconceal
     autocmd BufNewFile,BufRead */pass.*/* syntax match Concealed '\%1l.*' conceal cchar=⚠️
     autocmd BufNewFile,BufRead */pass.*/* setlocal conceallevel=1
 
+    autocmd BufNewFile,BufRead */pass.*/* setlocal nospell
+
 augroup END
 
 " ==============================================================================
