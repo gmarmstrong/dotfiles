@@ -146,6 +146,7 @@
     gnupg
     gparted
     htop
+    hugo
     imagemagick
     jekyll
     jetbrains.idea-ultimate
