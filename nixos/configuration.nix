@@ -73,8 +73,9 @@
   programs.zsh.syntaxHighlighting.enable = true;
   programs.zsh.enableCompletion = true;
 
-  ## TODO Enable CUPS to print documents
-  #services.printing.enable = true;
+  # CUPS for printing documents
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.hplip ];
 
   # Security
   security.sudo.enable = true;
