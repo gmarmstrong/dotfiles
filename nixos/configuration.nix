@@ -9,9 +9,8 @@
 # TODO home-manager: install and run vim-plug
 
 {
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+
+  nixpkgs.config.allowUnfree = true;
 
   imports = [
     /etc/nixos/hardware-configuration.nix
@@ -33,12 +32,14 @@
   };
 
   hardware = {
-    bluetooth = {
-      enable = true;
-    };
+    bluetooth.enable = true;
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
+    };
+    opengl = {
+      enable = true;
+      driSupport = true;
     };
   };
 
