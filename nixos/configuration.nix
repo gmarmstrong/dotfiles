@@ -83,9 +83,8 @@
   security.sudo.enable = true;
 
   ## Physlock (redundant alongside SLiM)
-  # TODO services.physlock.enable = true;
-  # TODO services.physlock.allowAnyUser = true; # Not available until 18.03
-  # TODO replace slimlock with physlock in i3/config
+  services.physlock.enable = true;
+  services.physlock.allowAnyUser = true;
 
   # X11 window system
   services.xserver = {
@@ -112,12 +111,14 @@
       accelProfile = "flat";
       tapping = false;
       tappingDragLock = false;
+      scrollMethod = "edge";
     };
+    multitouch.enable = true;
     windowManager.i3.enable = true;
   };
 
   # NixOS release version
-  system.stateVersion = "17.09";
+  system.stateVersion = "18.03";
 
   # Packages
   environment.systemPackages = with pkgs; [
@@ -180,6 +181,8 @@
     rsync
     rxvt_unicode_with-plugins
     scrot
+    signal-desktop
+    slack
     spotify
     sshfs
     stack
@@ -205,6 +208,7 @@
     youtube-dl
     zathura
     zip
+    zotero
     zsh
   ];
 

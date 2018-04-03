@@ -34,7 +34,7 @@ bindsym XF86Calculator exec "urxvt -e calc"
 bindsym XF86HomePage exec "firefox"
 bindsym Mod4+e exec "urxvt -e ranger"
  # TODO Use physlock instead of slimlock (see configuration.nix)
-bindsym Mod4+l exec "slimlock"
+bindsym Mod4+l exec "physlock"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
