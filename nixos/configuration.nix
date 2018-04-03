@@ -93,7 +93,6 @@
     ''
       Option "DontVTSwitch" "True"
     '';
-    # TODO displayManager.lightdm.enable = true; # depend on physlock
     displayManager.sessionCommands =
     ''
       xrdb -load "$HOME/.config/X11/Xresources" &
