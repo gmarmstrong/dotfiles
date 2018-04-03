@@ -42,9 +42,7 @@
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
-      support32Bit = true;
     };
-    opengl.driSupport32Bit = true;
   };
 
   # Environment variables
@@ -185,7 +183,6 @@
     spotify
     sshfs
     stack
-    steam
     sxiv
     texlive.combined.scheme-full
     thunderbird
