@@ -72,6 +72,7 @@
   security.sudo.enable = true;
 
   services = {
+    locate.enable = true;
     printing = {
       enable = true;
       drivers = [ pkgs.hplip ];
