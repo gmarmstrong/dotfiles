@@ -120,89 +120,37 @@
       alsaLib
       alsaTools
       alsaUtils
-      androidsdk
-      ardour
       autoconf
       automake
       blueman
-      byzanz
-      calc
-      calibre
       coreutils
       curl
-      dict
-      diction
-      feh
-      figlet
       file
-      firefox
       firmwareLinuxNonfree
-      ghc
       git
-      gnome3.gnome_keyring
-      gnumake
       gnupg
       gparted
+      home-manager
       htop
-      hugo
-      imagemagick
-      jetbrains.idea-ultimate
-      jetbrains.pycharm-professional
       json_c
-      libreoffice
-      maven
-      neovim
       networkmanager.out
       networkmanager_openvpn
       networkmanagerapplet
-      nextcloud-client
-      openjdk
-      openssh
       p7zip
-      pandoc
-      pass
       pasystray
       pavucontrol
-      postgresql
       powerstat
       powertop
       psmisc
-      python
-      python3
-      ranger
-      rofi
-      rofi-pass
-      rsync
-      rxvt_unicode_with-plugins
       scrot
-      signal-desktop
-      slack
-      spotify
       sshfs
-      stack
-      sxiv
-      texlive.combined.scheme-full
-      thunderbird
-      tor-browser-bundle-bin
-      transmission
-      transmission_gtk
-      trash-cli
-      tree
-      unclutter
       unzip
-      vlc
-      w3m
       wget
       xclip
       xdg-user-dirs
       xdg_utils
       xorg.xbacklight
-      xpdf
-      youtube-dl
-      zathura
       zip
-      zotero
-      zsh
     ];
   };
 
