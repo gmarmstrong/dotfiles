@@ -10,11 +10,14 @@
   nixpkgs.config.allowUnfree = true;
 
   programs = {
-    firefox.enable = true;
+
     home-manager = {
       enable = true;
       path = "$HOME/dotfiles/home-manager";
     };
+
+    firefox.enable = true;
+
     git = {
       enable = true;
       userName = "gmarmstrong";
@@ -32,6 +35,12 @@
         credential.helper = "cache";
       };
     };
+
+    rofi = {
+      enable = true;
+      scrollbar = false;
+    };
+
   };
 
   home.packages = with pkgs; [
