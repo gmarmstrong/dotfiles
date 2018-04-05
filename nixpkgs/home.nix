@@ -41,10 +41,12 @@
     figlet
     firefox
     gnome3.gnome_keyring
+    gnupg
     hugo
     imagemagick
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
+    json_c
     libreoffice
     maven
     neovim
@@ -62,9 +64,11 @@
     rofi-pass
     rsync
     rxvt_unicode_with-plugins
+    scrot
     signal-desktop
     slack
     spotify
+    sshfs
     sxiv
     texlive.combined.scheme-full
     thunderbird

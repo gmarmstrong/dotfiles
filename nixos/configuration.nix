@@ -120,19 +120,15 @@
       alsaLib
       alsaTools
       alsaUtils
-      autoconf
-      automake
       blueman
       coreutils
       curl
       file
       firmwareLinuxNonfree
       git
-      gnupg
       gparted
       home-manager
       htop
-      json_c
       networkmanager.out
       networkmanager_openvpn
       networkmanagerapplet
@@ -142,11 +138,8 @@
       powerstat
       powertop
       psmisc
-      scrot
-      sshfs
       unzip
       wget
-      xclip
       xdg-user-dirs
       xdg_utils
       xorg.xbacklight
