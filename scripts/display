@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO Support VGA
+
 HDMI_STATUS=$(</sys/class/drm/card0/card0-HDMI-A-1/status )
 
 if [ "connected" == "$HDMI_STATUS" ]; then
