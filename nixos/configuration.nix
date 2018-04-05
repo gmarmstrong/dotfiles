@@ -1,13 +1,5 @@
 { config, pkgs, ...  }:
 
-# TODO home-manager
-# TODO home-manager: create skeleton directory tree
-# TODO home-manager: configure git
-# TODO home-manager: fetch password store
-# TODO home-manager: install clustergit
-# TODO home-manager: install user applications locally
-# TODO home-manager: install and run vim-plug
-
 {
 
   nixpkgs.config.allowUnfree = true;

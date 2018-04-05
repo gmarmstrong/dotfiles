@@ -1,5 +1,10 @@
 { pkgs, ... }:
 
+# TODO create skeleton directory tree
+# TODO clone password-store
+# TODO install clustergit (use nixpkgs)
+# TODO configure X11
+
 {
 
   nixpkgs.config.allowUnfree = true;
