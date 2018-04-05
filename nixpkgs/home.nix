@@ -10,6 +10,23 @@
       enable = true;
       path = "https://github.com/rycee/home-manager/archive/release-17.09.tar.gz";
     };
+    git = {
+      enable = true;
+      userName = "gmarmstrong";
+      userEmail = "guthrie.armstrong@gmail.com";
+      signing.key = "100B37EAF2164C8B";
+      extraConfig = {
+        core = {
+          excludesFile = "$HOME/dotfiles/git/ignore";
+          attributesFile = "$HOME/dotfiles/git/attributes";
+          editor = "${pkgs.neovim}/bin/nvim";
+        };
+        # FIXME diff.gpg.textconv = "gpg --no-tty --decrypt --quiet";
+        commit.gpgsign = true;
+        gpg.program = "${pkgs.gnupg}/bin/gpg";
+        credential.helper = "cache";
+      };
+    };
   };
 
   home.packages = with pkgs; [
