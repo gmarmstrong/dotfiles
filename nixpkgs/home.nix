@@ -8,7 +8,7 @@
     firefox.enable = true;
     home-manager = {
       enable = true;
-      path = "https://github.com/rycee/home-manager/archive/master.tar.gz";
+      path = "$HOME/dotfiles/home-manager";
     };
     git = {
       enable = true;
