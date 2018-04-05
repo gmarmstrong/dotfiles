@@ -71,8 +71,6 @@
     sshfs
     sxiv
     texlive.combined.scheme-full
-    thunderbird
-    tor-browser-bundle-bin
     transmission_gtk
     trash-cli
     tree
@@ -80,7 +78,6 @@
     vlc
     w3m
     xclip
-    xpdf
     youtube-dl
     zathura
     zotero
