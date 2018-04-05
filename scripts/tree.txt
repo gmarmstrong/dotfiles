@@ -8,4 +8,3 @@ $HOME/.local
 $HOME/.local/share
 $HOME/.local/share/nvim
 $HOME/.local/share/nvim/site
-$HOME/.local/share/nvim/swap
