@@ -83,10 +83,8 @@
       ''
         xrdb -load "$HOME/.config/X11/Xresources" &
         nm-applet &
-        blueman-applet &
         pasystray &
         nextcloud &
-        unclutter -root &
         . "$HOME/.fehbg" &
       '';
       enable = true;

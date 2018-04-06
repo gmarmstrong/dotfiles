@@ -9,6 +9,16 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  systemd.user.startServices = true;
+
+  services = {
+    blueman-applet.enable = true;
+    unclutter = {
+      enable = true;
+      threshold = 5;
+    };
+  };
+
   programs = {
 
     home-manager = {
