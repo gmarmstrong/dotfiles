@@ -3,6 +3,9 @@
 {
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.packageOverrides = pkgs : rec {
+    i3Support = true;
+  };
 
   imports = [
     /etc/nixos/hardware-configuration.nix
