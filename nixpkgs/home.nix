@@ -63,6 +63,7 @@
     rofi = {
       enable = true;
       scrollbar = false;
+      terminal = "${pkgs.rxvt_unicode_with-plugins}/bin/urxvt";
     };
 
   };
