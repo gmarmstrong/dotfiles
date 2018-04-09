@@ -26,7 +26,21 @@
       path = "$HOME/dotfiles/home-manager";
     };
 
-    firefox.enable = true;
+    command-not-found.enable = true;
+
+    firefox = {
+      enable = true;
+      #enableAdobeFlash = true;
+      #enableGoogleTalk = true;
+      #enableIcedTea = true;
+    };
+
+    htop = {
+      enable = true;
+      fields = [ "PID" "USER" "PERCENT_CPU" "PERCENT_MEM" "TIME" "COMM" ];
+      hideThreads = true;
+      highlightBaseName = true;
+    };
 
     git = {
       enable = true;

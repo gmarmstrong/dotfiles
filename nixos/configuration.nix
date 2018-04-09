@@ -125,7 +125,6 @@
       git
       gparted
       home-manager
-      htop
       networkmanager.out
       networkmanager_openvpn
       networkmanagerapplet
