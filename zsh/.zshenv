@@ -15,6 +15,9 @@ export TEXMFHOME="$XDG_DATA_HOME/texmf"
 # Set w3m directory location
 export WWW_HOME="$XDG_CONFIG_HOME/w3m"
 
+# Set GOHOME
+export GOPATH="$HOME/go"
+
 # Set GnuPG directory location
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 

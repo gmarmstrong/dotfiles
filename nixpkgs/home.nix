@@ -101,7 +101,11 @@
     figlet
     firefox
     gnome3.gnome_keyring
+    gnumake
     gnupg
+    go
+    gx
+    gx-go
     hugo
     imagemagick
     jetbrains.idea-ultimate
