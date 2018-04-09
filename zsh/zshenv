@@ -15,13 +15,13 @@ export TEXMFHOME="$XDG_DATA_HOME/texmf"
 # Set w3m directory location
 export WWW_HOME="$XDG_CONFIG_HOME/w3m"
 
-# Set GOHOME
+# Set $GOPATH
 export GOPATH="$HOME/go"
 
 # Set GnuPG directory location
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
-# Set RubyGems location
+# Set Ruby Gems location
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 
