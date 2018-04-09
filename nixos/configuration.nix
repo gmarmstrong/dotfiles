@@ -44,7 +44,7 @@
     isNormalUser = true;
     home = "/home/guthrie";
     description = "Guthrie McAfee Armstrong";
-    extraGroups = [ "wheel" "networkmanager" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "docker" ];
     shell = pkgs.zsh;
   };
 
@@ -105,6 +105,8 @@
       windowManager.i3.enable = true;
     };
   };
+
+  virtualisation.docker.enable = true;
 
   system.stateVersion = "18.03"; # NixOS release version
 
