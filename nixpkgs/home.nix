@@ -162,7 +162,6 @@
       maven
       neovim
       nextcloud-client
-      openjdk
       openssh
       pandoc
       pass
