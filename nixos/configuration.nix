@@ -11,6 +11,8 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
+  swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
+
   boot = {
     initrd.luks.devices = [
       {
