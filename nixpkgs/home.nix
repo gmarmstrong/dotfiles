@@ -78,74 +78,107 @@
       "Xft.antialias" = 1;
       "Xft.rgba" = "rgb";
     };
-    extraConfig = builtins.readFile (
-      pkgs.fetchFromGitHub {
-        owner = "chriskempson";
-        repo = "base16-xresources";
-        rev = "79e6e1de591f7444793fd8ed38b67ce7fce25ab6";
-        sha256 = "1nnj5py5n0m8rkq3ic01wzyzkgl3g9a8q5dc5pcgj3qr47hhddbw";
-      } + "/xresources/base16-gruvbox-light-hard-256.Xresources"
-    );
+    extraConfig = builtins.readFile ( pkgs.fetchFromGitHub {
+      owner = "chriskempson";
+      repo = "base16-xresources";
+      rev = "79e6e1de591f7444793fd8ed38b67ce7fce25ab6";
+      sha256 = "1nnj5py5n0m8rkq3ic01wzyzkgl3g9a8q5dc5pcgj3qr47hhddbw";
+    } + "/xresources/base16-gruvbox-light-hard-256.Xresources");
   };
 
-  home.packages = with pkgs; [
-    androidsdk
-    ardour
-    audacity
-    byzanz
-    calc
-    calibre
-    dict
-    diction
-    feh
-    figlet
-    firefox
-    gnome3.gnome_keyring
-    gnumake
-    gnupg
-    go
-    gx
-    gx-go
-    hugo
-    imagemagick
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-professional
-    json_c
-    libreoffice
-    maven
-    neovim
-    nextcloud-client
-    openjdk
-    openssh
-    pandoc
-    pass
-    polybar
-    postgresql
-    python
-    python3
-    ranger
-    rofi
-    rofi-pass
-    rsync
-    rxvt_unicode_with-plugins
-    scrot
-    signal-desktop
-    slack
-    spotify
-    sshfs
-    sxiv
-    texlive.combined.scheme-full
-    transmission_gtk
-    trash-cli
-    tree
-    unclutter
-    vlc
-    w3m
-    xclip
-    youtube-dl
-    zathura
-    zotero
-    zsh
-  ];
+  home = {
+
+    file = {
+      nvim-ftplugin = {
+        recursive = true;
+        target = ".config/nvim/ftplugin/";
+        source = "/home/guthrie/dotfiles/nvim/ftplugin/";
+      };
+      nvim-gnupg = {
+        target = ".config/nvim/gnupg.vim";
+        source = "/home/guthrie/dotfiles/nvim/gnupg.vim";
+      };
+      nvim-init = {
+        target = ".config/nvim/init.vim";
+        source = "/home/guthrie/dotfiles/nvim/init.vim";
+      };
+      nvim-init-secure = {
+        target = ".config/nvim/vimrc_secure";
+        source = "/home/guthrie/dotfiles/nvim/vimrc_secure";
+      };
+      zshrc = {
+        target = ".config/zsh/.zshrc";
+        source = "/home/guthrie/dotfiles/zsh/zshrc";
+      };
+      zaliases = {
+        target = ".config/zsh/.zaliases";
+        source = "/home/guthrie/dotfiles/zsh/zaliases";
+      };
+      zshenv = {
+        target = ".zshenv";
+        source = "/home/guthrie/dotfiles/zsh/zshenv";
+      };
+    };
+
+    packages = with pkgs; [
+      androidsdk
+      ardour
+      audacity
+      byzanz
+      calc
+      calibre
+      dict
+      diction
+      feh
+      figlet
+      firefox
+      gnome3.gnome_keyring
+      gnumake
+      gnupg
+      go
+      gx
+      gx-go
+      hugo
+      imagemagick
+      jetbrains.idea-ultimate
+      jetbrains.pycharm-professional
+      json_c
+      libreoffice
+      maven
+      neovim
+      nextcloud-client
+      openjdk
+      openssh
+      pandoc
+      pass
+      polybar
+      postgresql
+      python
+      python3
+      ranger
+      rofi
+      rofi-pass
+      rsync
+      rxvt_unicode_with-plugins
+      scrot
+      signal-desktop
+      slack
+      spotify
+      sshfs
+      sxiv
+      texlive.combined.scheme-full
+      transmission_gtk
+      trash-cli
+      tree
+      unclutter
+      vlc
+      w3m
+      xclip
+      youtube-dl
+      zathura
+      zotero
+      zsh
+    ];
+  };
 
 }
