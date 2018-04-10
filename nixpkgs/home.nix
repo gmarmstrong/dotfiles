@@ -147,6 +147,10 @@
         target = ".config/ranger/scope.sh";
         source = "/home/guthrie/dotfiles/ranger/scope.sh";
       };
+      user-dirs = {
+        target = ".config/user-dirs.dirs";
+        source = "/home/guthrie/dotfiles/xdg/user-dirs.dirs";
+      };
       zshrc = {
         target = ".config/zsh/.zshrc";
         source = "/home/guthrie/dotfiles/zsh/zshrc";
