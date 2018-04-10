@@ -186,6 +186,7 @@
       tree
       unclutter
       vlc
+      virtualbox
       w3m
       xclip
       youtube-dl
