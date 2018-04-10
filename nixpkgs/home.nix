@@ -131,6 +131,22 @@
         target = ".config/nvim/vimrc_secure";
         source = "/home/guthrie/dotfiles/nvim/vimrc_secure";
       };
+      ranger-commands = {
+        target = ".config/ranger/commands.py";
+        source = "/home/guthrie/dotfiles/ranger/commands.py";
+      };
+      ranger-rc = {
+        target = ".config/ranger/rc.conf";
+        source = "/home/guthrie/dotfiles/ranger/rc.conf";
+      };
+      ranger-rifle = {
+        target = ".config/ranger/rifle.conf";
+        source = "/home/guthrie/dotfiles/ranger/rifle.conf";
+      };
+      ranger-scope = {
+        target = ".config/ranger/scope.sh";
+        source = "/home/guthrie/dotfiles/ranger/scope.sh";
+      };
       zshrc = {
         target = ".config/zsh/.zshrc";
         source = "/home/guthrie/dotfiles/zsh/zshrc";
