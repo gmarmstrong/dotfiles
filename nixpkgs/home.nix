@@ -26,8 +26,6 @@
       path = "$HOME/dotfiles/home-manager";
     };
 
-    command-not-found.enable = true;
-
     firefox = {
       enable = true;
       #enableAdobeFlash = true;
