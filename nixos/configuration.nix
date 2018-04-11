@@ -112,6 +112,7 @@
 
   environment = {
     variables.EDITOR = "nvim";
+    pathsToLink = [ "/share/zsh" ]; # zsh completion for system packages
     systemPackages = with pkgs; [
       acpi
       alsaLib
