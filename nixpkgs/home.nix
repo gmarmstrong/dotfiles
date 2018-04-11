@@ -47,8 +47,8 @@
       signing.key = "100B37EAF2164C8B";
       extraConfig = {
         core = {
-          excludesFile = "$HOME/dotfiles/git/ignore";
-          attributesFile = "$HOME/dotfiles/git/attributes";
+          excludesFile = "/home/guthrie/dotfiles/git/ignore";
+          attributesFile = "/home/guthrie/dotfiles/git/attributes";
           editor = "${pkgs.neovim}/bin/nvim";
         };
         # FIXME diff.gpg.textconv = "gpg --no-tty --decrypt --quiet";
