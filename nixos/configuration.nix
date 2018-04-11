@@ -128,6 +128,7 @@
       networkmanager.out
       networkmanager_openvpn
       networkmanagerapplet
+      nix-prefetch-scripts
       p7zip
       pasystray
       pavucontrol
