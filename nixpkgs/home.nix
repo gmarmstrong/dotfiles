@@ -56,7 +56,7 @@
           type = "internal/date";
           internal = 5;
           date = "%a %Y-%m-%d";
-          time = "%H:%M %p";
+          time = "%I:%M %p";
           label = "%date%  %time%";
         };
         "module/battery0" = {
