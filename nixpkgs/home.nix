@@ -3,7 +3,6 @@
 # TODO create skeleton directory tree
 # TODO clone password-store
 # TODO install clustergit (use nixpkgs)
-# TODO configure X11
 
 {
 
@@ -18,41 +17,63 @@
       threshold = 5;
     };
 
-    #polybar = {
-    #  enable = true;
-    #  package = pkgs.polybar.override {
-    #    i3Support = true;
-    #    i3 = pkgs.i3-gaps;
-    #  };
-    #  config = {
-    #    "bar/topbar" = {
-    #      width = "100%";
-    #      height = "3%";
-    #      radius = 0;
-    #      modules-left = "i3";
-    #      modules-center = "date";
-    #      modules-right = "tray";
-    #      tray-position = "right";
-    #    };
-    #    "module/i3" = {
-    #      type = "internal/i3";
-    #      strip-wsnumbers = true;
-    #      index-sort = true;
-    #      enable-click = true;
-    #      enable-scroll = false;
-    #      wrapping-scroll = false;
-    #    };
-    #    "module/date" = {
-    #      type = "internal/date";
-    #      internal = 5;
-    #      date = "%y-%m-%d";
-    #      time = "%H:%M";
-    #      label = "%date%  %time%";
-    #    };
-    #  };
-    #  script = "";
-    #  #script = "polybar topbar &";
-    #};
+    polybar = {
+      enable = true;
+      package = pkgs.polybar.override {
+        i3Support = true;
+        i3 = pkgs.i3-gaps;
+      };
+      config = {
+        "bar/topbar" = {
+          width = "100%";
+          height = "3%";
+          radius = 0;
+          modules-left = "i3";
+          modules-center = "datetime";
+          modules-right = "battery0 battery1";
+          tray-position = "right";
+          module-margin = 1;
+          padding = 1;
+          font-0 = "DejaVu Sans Mono:size=10";
+        };
+        "module/i3" = {
+          type = "internal/i3";
+          strip-wsnumbers = true;
+          index-sort = true;
+          enable-click = true;
+          enable-scroll = false;
+          wrapping-scroll = false;
+          format = "<label-state> <label-mode>";
+          label-focused = "%index%";
+          label-focused-foreground = "#ffffff";
+          label-focused-background = "#3f3f3f";
+          label-focused-underline = "#fba922";
+          label-focused-padding = 4;
+          label-unfocused = "%index%";
+          label-unfocused-padding = 4;
+        };
+        "module/datetime" = {
+          type = "internal/date";
+          internal = 5;
+          date = "%a %Y-%m-%d";
+          time = "%H:%M %p";
+          label = "%date%  %time%";
+        };
+        "module/battery0" = {
+          type = "internal/battery";
+          battery = "BAT0";
+          adapter = "AC";
+          poll-interval = 5;
+        };
+        "module/battery1" = {
+          type = "internal/battery";
+          battery = "BAT1";
+          adapter = "AC";
+          poll-interval = 5;
+        };
+      };
+      script = ""; # FIXME `polybar topbar &` omits i3 workspaces, maybe try ${pkgs.polybar}?
+    };
 
   };
 
@@ -150,12 +171,7 @@
       enable = true;
       config = {
 
-        bars = [
-          {
-            statusCommand = "${pkgs.i3status}/bin/i3status -c /home/guthrie/dotfiles/i3status/config";
-            position = "top";
-          }
-        ];
+        bars = [];
 
         startup = [
           {
