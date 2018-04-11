@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 # TODO create skeleton directory tree
 # TODO clone password-store
@@ -23,7 +23,7 @@
 
     home-manager = {
       enable = true;
-      path = "$HOME/dotfiles/home-manager";
+    path = "${config.home.homeDirectory}/dotfiles/home-manager";
     };
 
     firefox = {
@@ -47,8 +47,8 @@
       signing.key = "100B37EAF2164C8B";
       extraConfig = {
         core = {
-          excludesFile = "/home/guthrie/dotfiles/git/ignore";
-          attributesFile = "/home/guthrie/dotfiles/git/attributes";
+          excludesFile = "${config.home.homeDirectory}/dotfiles/git/ignore";
+          attributesFile = "${config.home.homeDirectory}/dotfiles/git/attributes";
           editor = "${pkgs.neovim}/bin/nvim";
         };
         # FIXME diff.gpg.textconv = "gpg --no-tty --decrypt --quiet";
@@ -105,61 +105,61 @@
       i3 = {
         recursive = true;
         target = ".config/i3/";
-        source = "/home/guthrie/dotfiles/i3/";
+        source = "${config.home.homeDirectory}/dotfiles/i3/";
       };
       i3status = {
         recursive = true;
         target = ".config/i3status/";
-        source = "/home/guthrie/dotfiles/i3status/";
+        source = "${config.home.homeDirectory}/dotfiles/i3status/";
       };
       nvim-ftplugin = {
         recursive = true;
         target = ".config/nvim/ftplugin/";
-        source = "/home/guthrie/dotfiles/nvim/ftplugin/";
+        source = "${config.home.homeDirectory}/dotfiles/nvim/ftplugin/";
       };
       nvim-gnupg = {
         target = ".config/nvim/gnupg.vim";
-        source = "/home/guthrie/dotfiles/nvim/gnupg.vim";
+        source = "${config.home.homeDirectory}/dotfiles/nvim/gnupg.vim";
       };
       nvim-init = {
         target = ".config/nvim/init.vim";
-        source = "/home/guthrie/dotfiles/nvim/init.vim";
+        source = "${config.home.homeDirectory}/dotfiles/nvim/init.vim";
       };
       nvim-init-secure = {
         target = ".config/nvim/vimrc_secure";
-        source = "/home/guthrie/dotfiles/nvim/vimrc_secure";
+        source = "${config.home.homeDirectory}/dotfiles/nvim/vimrc_secure";
       };
       ranger-commands = {
         target = ".config/ranger/commands.py";
-        source = "/home/guthrie/dotfiles/ranger/commands.py";
+        source = "${config.home.homeDirectory}/dotfiles/ranger/commands.py";
       };
       ranger-rc = {
         target = ".config/ranger/rc.conf";
-        source = "/home/guthrie/dotfiles/ranger/rc.conf";
+        source = "${config.home.homeDirectory}/dotfiles/ranger/rc.conf";
       };
       ranger-rifle = {
         target = ".config/ranger/rifle.conf";
-        source = "/home/guthrie/dotfiles/ranger/rifle.conf";
+        source = "${config.home.homeDirectory}/dotfiles/ranger/rifle.conf";
       };
       ranger-scope = {
         target = ".config/ranger/scope.sh";
-        source = "/home/guthrie/dotfiles/ranger/scope.sh";
+        source = "${config.home.homeDirectory}/dotfiles/ranger/scope.sh";
       };
       user-dirs = {
         target = ".config/user-dirs.dirs";
-        source = "/home/guthrie/dotfiles/xdg/user-dirs.dirs";
+        source = "${config.home.homeDirectory}/dotfiles/xdg/user-dirs.dirs";
       };
       zshrc = {
         target = ".config/zsh/.zshrc";
-        source = "/home/guthrie/dotfiles/zsh/zshrc";
+        source = "${config.home.homeDirectory}/dotfiles/zsh/zshrc";
       };
       zaliases = {
         target = ".config/zsh/.zaliases";
-        source = "/home/guthrie/dotfiles/zsh/zaliases";
+        source = "${config.home.homeDirectory}/dotfiles/zsh/zaliases";
       };
       zshenv = {
         target = ".zshenv";
-        source = "/home/guthrie/dotfiles/zsh/zshenv";
+        source = "${config.home.homeDirectory}/dotfiles/zsh/zshenv";
       };
     };
 

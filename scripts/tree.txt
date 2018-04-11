@@ -1,9 +1,6 @@
 $HOME/.cache
 $HOME/.cache/less
 $HOME/.cache/zsh
-$HOME/.config
-$HOME/.config/git
-$HOME/.config/nvim
 $HOME/.local
 $HOME/.local/share
 $HOME/.local/share/nvim
