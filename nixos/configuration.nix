@@ -80,29 +80,12 @@
     };
     xserver = {
       autorun = true;
-      serverFlagsSection = # Block tty access from lock screen
-      ''
-        Option "DontVTSwitch" "True"
-      '';
-      displayManager.sessionCommands =
-      ''
-        xrdb -load "$HOME/.config/X11/Xresources" &
-        nm-applet &
-        pasystray &
-        nextcloud &
-        . "$HOME/.fehbg" &
-      '';
       enable = true;
       exportConfiguration = true;
       libinput = {
+        scrollMethod = "twofinger";
         enable = true;
-        accelProfile = "flat";
-        tapping = false;
-        tappingDragLock = false;
-        scrollMethod = "edge";
       };
-      multitouch.enable = true;
-      windowManager.i3.enable = true;
     };
   };
 
