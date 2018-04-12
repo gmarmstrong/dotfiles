@@ -88,7 +88,7 @@
       base0F = ''${xrdb:color14:#000000}
     '';
 
-    script = ""; # FIXME `polybar topbar &` omits i3 workspaces, maybe try ${pkgs.polybar}?
+    script = "PATH=$PATH:${pkgs.i3-gaps}/bin polybar topbar &";
 
   };
 }

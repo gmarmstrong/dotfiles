@@ -6,15 +6,16 @@
     enable = true;
     config = {
 
-      bars = [];
-
       startup = [
         {
-          command = "polybar topbar";
+          command = "systemctl --user restart polybar";
           always = true;
           notification = false;
         }
       ];
+
+      bars = [];
+
       focus.followMouse = false;
       gaps = {
         inner = 10;
