@@ -38,6 +38,8 @@
           module-margin = 1;
           padding = 1;
           font-0 = "DejaVu Sans Mono:size=10";
+          background = "\${colors.base00}";
+          foreground = "\${colors.base05}";
         };
         "module/i3" = {
           type = "internal/i3";
@@ -48,9 +50,9 @@
           wrapping-scroll = false;
           format = "<label-state> <label-mode>";
           label-focused = "%index%";
-          label-focused-foreground = "#ffffff";
-          label-focused-background = "#3f3f3f";
-          label-focused-underline = "#fba922";
+          label-focused-foreground = "\${colors.base05}";
+          label-focused-background = "\${colors.base02}";
+          label-focused-underline = "\${colors.base09}";
           label-focused-padding = 4;
           label-unfocused = "%index%";
           label-unfocused-padding = 4;
@@ -75,6 +77,25 @@
           poll-interval = 5;
         };
       };
+      extraConfig = ''
+          [colors]
+          base00 = ''${xrdb:color0:#000000}
+          base01 = ''${xrdb:color10:#000000}
+          base02 = ''${xrdb:color11:#000000}
+          base03 = ''${xrdb:color8:#000000}
+          base04 = ''${xrdb:color12:#000000}
+          base05 = ''${xrdb:color7:#000000}
+          base06 = ''${xrdb:color13:#000000}
+          base07 = ''${xrdb:color15:#000000}
+          base08 = ''${xrdb:color1:#000000}
+          base09 = ''${xrdb:color9:#000000}
+          base0A = ''${xrdb:color3:#000000}
+          base0B = ''${xrdb:color2:#000000}
+          base0C = ''${xrdb:color6:#000000}
+          base0D = ''${xrdb:color4:#000000}
+          base0E = ''${xrdb:color5:#000000}
+          base0F = ''${xrdb:color14:#000000}
+      '';
       script = ""; # FIXME `polybar topbar &` omits i3 workspaces, maybe try ${pkgs.polybar}?
     };
 
@@ -157,7 +178,7 @@
       repo = "base16-xresources";
       rev = "79e6e1de591f7444793fd8ed38b67ce7fce25ab6";
       sha256 = "1nnj5py5n0m8rkq3ic01wzyzkgl3g9a8q5dc5pcgj3qr47hhddbw";
-    } + "/xresources/base16-gruvbox-light-hard-256.Xresources");
+    } + "/xresources/base16-gruvbox-light-soft.Xresources");
   };
 
   xsession = {
@@ -168,6 +189,7 @@
       pasystray &
       nextcloud &
       . "$HOME/.fehbg" &
+      xsetroot -cursor_name left_ptr &
     '';
 
     windowManager.i3 = {
@@ -186,14 +208,15 @@
         focus.followMouse = false;
         gaps = {
           inner = 10;
-          outer = 15;
+          outer = 10;
           smartBorders = "on";
+          smartGaps = true;
         };
 
         keybindings = {
           "Mod1+Ctrl+Shift+r" = "restart";
           "Mod1+Shift+r" = "reload";
-          "Mod1+a" = "parent"; # focus parent container
+          "Mod1+a" = "focus parent"; # focus parent container
           "Mod1+space" = "focus mode_toggle"; # toggle tiling/floating focus
           "Mod1+s" = "layout stacking"; # stacking layout
           "Mod1+w" = "layout tabbed"; # tabbed layout
@@ -251,14 +274,14 @@
           "Mod1+Shift+q" = "kill";
           "Mod1+Return" = "exec i3-sensible-terminal";
 
-          "XF86MonBrightnessUp" = "exec 'xbacklight -inc 10'";
-          "XF86MonBrightnessDown" = "exec 'xbacklight -dec 10'";
-          "XF86AudioMute" = "exec 'amixer sset Master toggle'";
-          "XF86AudioRaiseVolume" = "exec 'amixer sset Master unmute && amixer sset Master 5%+'";
-          "XF86AudioLowerVolume" = "exec 'amixer sset Master unmute && amixer sset Master 5%-'";
-          "Shift+XF86AudioRaiseVolume" = "exec 'amixer sset Master unmute && amixer sset Master 2%+'";
-          "Shift+XF86AudioLowerVolume" = "exec 'amixer sset Master unmute && amixer sset Master 2%-'";
-          "Mod4+l" = "exec 'physlock'";
+          "XF86MonBrightnessUp" = "exec \"xbacklight -inc 10\"";
+          "XF86MonBrightnessDown" = "exec \"xbacklight -dec 10\"";
+          "XF86AudioMute" = "exec \"amixer sset Master toggle\"";
+          "XF86AudioRaiseVolume" = "exec \"amixer sset Master unmute && amixer sset Master 5%+\"";
+          "XF86AudioLowerVolume" = "exec \"amixer sset Master unmute && amixer sset Master 5%-\"";
+          "Shift+XF86AudioRaiseVolume" = "exec \"amixer sset Master unmute && amixer sset Master 2%+\"";
+          "Shift+XF86AudioLowerVolume" = "exec \"amixer sset Master unmute && amixer sset Master 2%-\"";
+          "Mod4+l" = "exec \"physlock\"";
 
           # TODO bindsym Print exec "scrot --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ~/screenshots; mv $f ~/screenshots/'"
           # TODO bindsym Shift+Print exec "scrot --focuesd --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ~/screenshots; mv $f ~/resources/images/screenshots'"
@@ -270,9 +293,9 @@
           focused = {
             border = "#504945";
             background = "#076678";
-            text = "#f9f5d7";
-            indicator = "#504945";
-            childBorder = "#504945";
+            text = "#f2e5bc";
+            indicator = "#076678";
+            childBorder = "#076678";
           };
           focusedInactive = {
             border = "#ebdbb2";
@@ -283,7 +306,7 @@
           };
           unfocused = {
             border = "#ebdbb2";
-            background = "#f9f5d7";
+            background = "#f2e5bc";
             text = "#504945";
             indicator = "#ebdbb2";
             childBorder = "#ebdbb2";
@@ -291,16 +314,16 @@
           urgent = {
             border = "#9d0006";
             background = "#9d0006";
-            text = "#f9f5d7";
-            indicator = "";
+            text = "#f2e5bc";
+            indicator = "9d0006";
             childBorder = "#9d0006";
           };
           placeholder = {
-            border = "#f9f5d7";
-            background = "#f9f5d7";
+            border = "#f2e5bc";
+            background = "#f2e5bc";
             text = "#504945";
-            indicator = "#9d0006";
-            childBorder = "#9d0006";
+            indicator = "#f2e5bc";
+            childBorder = "#f2e5bc";
           };
           background = "#282828";
         };
