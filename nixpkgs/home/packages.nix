@@ -10,7 +10,6 @@
     calibre
     dict
     diction
-    feh
     figlet
     firefox
     gnome3.gnome_keyring

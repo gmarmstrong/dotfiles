@@ -57,11 +57,10 @@
     enable = true;
     profileExtra = ''
       xrdb -load "$HOME/.config/X11/Xresources" &
+      xsetroot -solid \#f2e5bc
       nm-applet &
       pasystray &
       nextcloud &
-      . "$HOME/.fehbg" &
-      xsetroot -cursor_name left_ptr &
     '';
   };
 
