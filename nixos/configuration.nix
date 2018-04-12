@@ -83,9 +83,12 @@
       enable = true;
       exportConfiguration = true;
       libinput = {
-        scrollMethod = "twofinger";
         enable = true;
+        scrollMethod = "twofinger";
+        tapping = false;
+        tappingDragLock = false;
       };
+      multitouch.enable = true;
     };
   };
 
