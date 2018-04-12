@@ -4,6 +4,8 @@
 # TODO clone password-store
 # TODO install clustergit (use nixpkgs)
 
+# FIXME show battery charging status
+
 {
 
   nixpkgs.config.allowUnfree = true;
@@ -16,6 +18,7 @@
       enable = true;
       threshold = 5;
     };
+    xscreensaver.enable = false;
 
     polybar = {
       enable = true;
