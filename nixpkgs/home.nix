@@ -334,16 +334,6 @@
   home = {
 
     file = {
-      #i3 = {
-      #  recursive = true;
-      #  target = ".config/i3/";
-      #  source = "${config.home.homeDirectory}/dotfiles/i3/";
-      #};
-      #i3status = {
-      #  recursive = true;
-      #  target = ".config/i3status/";
-      #  source = "${config.home.homeDirectory}/dotfiles/i3status/";
-      #};
       nvim-ftplugin = {
         recursive = true;
         target = ".config/nvim/ftplugin/";
