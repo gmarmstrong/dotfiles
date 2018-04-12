@@ -1,0 +1,62 @@
+{ pkgs, config, ... }:
+
+{
+  home.packages = with pkgs; [
+    androidsdk
+    ardour
+    audacity
+    byzanz
+    calc
+    calibre
+    dict
+    diction
+    feh
+    figlet
+    firefox
+    gnome3.gnome_keyring
+    gnumake
+    gnupg
+    go
+    gx
+    gx-go
+    hugo
+    imagemagick
+    jetbrains.idea-ultimate
+    jetbrains.pycharm-professional
+    json_c
+    libreoffice
+    maven
+    neovim
+    nextcloud-client
+    openssh
+    pandoc
+    pass
+    postgresql
+    python
+    python3
+    ranger
+    rofi
+    rofi-pass
+    rsync
+    rxvt_unicode_with-plugins
+    scrot
+    signal-desktop
+    slack
+    spotify
+    sshfs
+    sxiv
+    texlive.combined.scheme-full
+    transmission_gtk
+    trash-cli
+    tree
+    unclutter
+    vlc
+    virtualbox
+    w3m
+    xclip
+    youtube-dl
+    zathura
+    zotero
+    zsh
+  ];
+}
