@@ -9,6 +9,7 @@
   imports = [
     ./programs/git.nix
     ./programs/rofi.nix
+    ./programs/fzf.nix
     ./services/polybar.nix
     ./xresources.nix
     ./xsession/windowManager/i3.nix
