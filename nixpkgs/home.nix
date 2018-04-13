@@ -10,6 +10,7 @@
     ./programs/git.nix
     ./programs/rofi.nix
     ./programs/fzf.nix
+    ./programs/htop.nix
     ./services/polybar.nix
     ./xresources.nix
     ./xsession/windowManager/i3.nix
@@ -28,7 +29,6 @@
       threshold = 5;
     };
     xscreensaver.enable = false;
-
   };
 
   programs = {
@@ -43,13 +43,6 @@
       #enableAdobeFlash = true;
       #enableGoogleTalk = true;
       #enableIcedTea = true;
-    };
-
-    htop = {
-      enable = true;
-      fields = [ "PID" "USER" "PERCENT_CPU" "PERCENT_MEM" "TIME" "COMM" ];
-      hideThreads = true;
-      highlightBaseName = true;
     };
 
   };
