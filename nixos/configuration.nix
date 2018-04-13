@@ -55,17 +55,6 @@
 
   time.timeZone = "US/Eastern";
 
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    zsh = {
-      syntaxHighlighting.enable = true;
-      enableCompletion = true;
-    };
-  };
-
   security.sudo.enable = true;
 
   services = {

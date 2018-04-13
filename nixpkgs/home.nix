@@ -24,6 +24,10 @@
 
   services = {
     blueman-applet.enable = true;
+    gpg-agent = {
+      enable = true;
+      defaultCacheTtl = 3600;
+    };
     unclutter = {
       enable = true;
       threshold = 5;
