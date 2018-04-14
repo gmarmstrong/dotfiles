@@ -42,18 +42,5 @@
       target = ".config/user-dirs.dirs";
       source = "${config.home.homeDirectory}/dotfiles/xdg/user-dirs.dirs";
     };
-
-    zshrc = {
-      target = ".config/zsh/.zshrc";
-      source = "${config.home.homeDirectory}/dotfiles/zsh/zshrc";
-    };
-    zaliases = {
-      target = ".config/zsh/.zaliases";
-      source = "${config.home.homeDirectory}/dotfiles/zsh/zaliases";
-    };
-    zshenv = {
-      target = ".zshenv";
-      source = "${config.home.homeDirectory}/dotfiles/zsh/zshenv";
-    };
   };
 }

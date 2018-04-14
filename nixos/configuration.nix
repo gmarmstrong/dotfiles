@@ -57,6 +57,8 @@
 
   security.sudo.enable = true;
 
+  programs.gnupg.agent.enable = true;
+
   services = {
     locate.enable = true;
     printing = {

@@ -11,6 +11,7 @@
     ./programs/rofi.nix
     ./programs/fzf.nix
     ./programs/htop.nix
+    ./programs/zsh.nix
     ./services/polybar.nix
     ./xresources.nix
     ./xsession/windowManager/i3.nix
@@ -24,10 +25,6 @@
 
   services = {
     blueman-applet.enable = true;
-    gpg-agent = {
-      enable = true;
-      defaultCacheTtl = 3600;
-    };
     unclutter = {
       enable = true;
       threshold = 5;

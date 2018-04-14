@@ -5,7 +5,10 @@
     enable = true;
     userName = "gmarmstrong";
     userEmail = "guthrie.armstrong@gmail.com";
-    signing.key = "100B37EAF2164C8B";
+    signing = {
+      key = "100B37EAF2164C8B";
+      signByDefault = true;
+    };
     extraConfig = {
       core = {
         excludesFile = "${config.home.homeDirectory}/dotfiles/git/ignore";
