@@ -2,7 +2,7 @@
 
 {
   services.compton = {
-    enable = true;
+    enable = false;
     shadow = true;
     shadowExclude = [ "window_type *= 'menu'" ];
     fadeExclude = [ "window_type *= 'menu'" ];
