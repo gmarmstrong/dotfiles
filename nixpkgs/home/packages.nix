@@ -26,6 +26,7 @@
     json_c
     libreoffice
     maven
+    neofetch
     neovim
     nextcloud-client
     openssh
