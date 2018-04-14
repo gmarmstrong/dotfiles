@@ -31,6 +31,7 @@
     pandoc
     pass
     postgresql
+    pwgen
     python
     python3
     ranger
