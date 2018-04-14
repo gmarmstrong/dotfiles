@@ -12,6 +12,12 @@
           always = true;
           notification = false;
         }
+
+        {
+          command = "xrandr --output HDMI1 --auto --above eDP1";
+          always = true;
+          notification = false;
+        }
       ];
 
       bars = [];

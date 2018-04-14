@@ -1,7 +1,0 @@
-$HOME/.cache
-$HOME/.cache/less
-$HOME/.cache/zsh
-$HOME/.local
-$HOME/.local/share
-$HOME/.local/share/nvim
-$HOME/.local/share/nvim/site

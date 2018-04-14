@@ -29,6 +29,7 @@
 
       "module/i3" = {
         type = "internal/i3";
+        pin-workspaces = true;
         strip-wsnumbers = true;
         index-sort = true;
         enable-click = true;
