@@ -61,9 +61,9 @@
         format-charging = "<label-charging>";
         format-discharging = "<label-discharging>";
         format-full = "<label-full>";
-        label-charging = "Charging %percentage%%.";
-        label-discharging = "Discharging %percentage%%.";
-        label-full = "Fully charged.";
+        label-charging = "%percentage%% CHR";
+        label-discharging = "%percentage%% DIS";
+        label-full = "FULL";
       };
 
       "module/battery1" = {
@@ -75,9 +75,9 @@
         format-charging = "<label-charging>";
         format-discharging = "<label-discharging>";
         format-full = "<label-full>";
-        label-charging = "Charging %percentage%%.";
-        label-discharging = "Discharging %percentage%%.";
-        label-full = "Fully charged.";
+        label-charging = "%percentage%% CHR";
+        label-discharging = "%percentage%% DIS";
+        label-full = "FULL";
       };
 
     };
