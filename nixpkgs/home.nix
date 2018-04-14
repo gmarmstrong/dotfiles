@@ -12,6 +12,7 @@
     ./programs/fzf.nix
     ./programs/htop.nix
     ./programs/zsh.nix
+    ./services/compton.nix
     ./services/polybar.nix
     ./xresources.nix
     ./xsession/windowManager/i3.nix
@@ -52,7 +53,7 @@
     enable = true;
     profileExtra = ''
       xrdb -load "$HOME/.config/X11/Xresources" &
-      xsetroot -solid \#f2e5bc
+      hsetroot -solid \#f2e5bc
       nm-applet &
       pasystray &
       nextcloud &

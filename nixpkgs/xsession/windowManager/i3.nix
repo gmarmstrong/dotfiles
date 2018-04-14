@@ -18,10 +18,10 @@
 
       focus.followMouse = false;
       gaps = {
-        inner = 10;
-        outer = 10;
+        inner = 15;
+        outer = 50;
         smartBorders = "on";
-        smartGaps = true;
+        smartGaps = false;
       };
 
       keybindings = {

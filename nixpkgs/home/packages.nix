@@ -18,6 +18,7 @@
     go
     gx
     gx-go
+    hsetroot
     hugo
     imagemagick
     jetbrains.idea-ultimate
