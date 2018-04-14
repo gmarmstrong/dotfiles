@@ -8,7 +8,6 @@
     fadeExclude = [ "window_type *= 'menu'" ];
     extraOptions = ''
       no-dock-shadow = true;
-      inactive-dim = 0.1;
     '';
   };
 }
