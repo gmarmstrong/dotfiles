@@ -57,6 +57,13 @@
         battery = "BAT0";
         adapter = "AC";
         poll-interval = 5;
+        full-at = 98;
+        format-charging = "<label-charging>";
+        format-discharging = "<label-discharging>";
+        format-full = "<label-full>";
+        label-charging = "Charging %percentage%%.";
+        label-discharging = "Discharging %percentage%%.";
+        label-full = "Fully charged.";
       };
 
       "module/battery1" = {
@@ -64,6 +71,13 @@
         battery = "BAT1";
         adapter = "AC";
         poll-interval = 5;
+        full-at = 98;
+        format-charging = "<label-charging>";
+        format-discharging = "<label-discharging>";
+        format-full = "<label-full>";
+        label-charging = "Charging %percentage%%.";
+        label-discharging = "Discharging %percentage%%.";
+        label-full = "Fully charged.";
       };
 
     };
