@@ -80,6 +80,7 @@ nnoremap <silent> <Leader>d :echo system("dict " . expand('<cword>'))<CR>
 " Plugins (note the single quotes)
 call plug#begin()
 Plug 'junegunn/goyo.vim'                                " Full-screen editor
+Plug 'jamessan/vim-gnupg', {'commit': 'fa3a630'}        " Edit encrypted files
 Plug 'lervag/vimtex'                                    " LaTeX support
 Plug 'godlygeek/tabular'                                " Markdown dependency
 Plug 'gabrielelana/vim-markdown'                        " Markdown support
