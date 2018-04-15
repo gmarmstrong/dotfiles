@@ -22,8 +22,31 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "pass" ];
-      theme = "refined";
+      theme = "";
     };
+
+    plugins = [
+      {
+        name = "async";
+        file = "async.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "sindresorhus";
+          repo = "pure";
+          rev = "a3b22b2";
+          sha256 = "1gxsfbh0qavbxgr8grsra6m0xpc9wjnkkd6gwjam31n6j0vxyblw";
+        };
+      }
+      {
+        name = "pure";
+        file = "pure.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "sindresorhus";
+          repo = "pure";
+          rev = "a3b22b2";
+          sha256 = "1gxsfbh0qavbxgr8grsra6m0xpc9wjnkkd6gwjam31n6j0vxyblw";
+        };
+      }
+    ];
 
     sessionVariables = {
       XDG_CACHE_HOME = "$HOME/.cache";
