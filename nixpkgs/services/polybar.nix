@@ -13,6 +13,7 @@
     config = {
 
       "bar/topbar" = {
+        monitor = "\${env:MONITOR:eDP1}";
         width = "100%";
         height = "3%";
         radius = 0;
@@ -23,6 +24,21 @@
         module-margin = 1;
         padding = 1;
         font-0 = "DejaVu Sans Mono:size=10";
+        background = "\${colors.base00}";
+        foreground = "\${colors.base05}";
+      };
+
+      "bar/altbar" = {
+        monitor = "\${env:MONITOR:HDMI1}";
+        width = "100%";
+        height = "3%";
+        radius = 0;
+        modules-left = "i3";
+        modules-center = "datetime";
+        modules-right = "battery0 battery1";
+        module-margin = 1;
+        padding = 1;
+        font-0 = "DejaVu Sans Mono=size=10";
         background = "\${colors.base00}";
         foreground = "\${colors.base05}";
       };
@@ -103,7 +119,7 @@
       base0F = ''${xrdb:color14:#000000}
     '';
 
-    script = "PATH=$PATH:${pkgs.i3-gaps}/bin polybar topbar &";
+    script = "PATH=$PATH:${pkgs.i3-gaps}/bin polybar topbar & PATH=$PATH:${pkgs.i3-gaps}/bin polybar altbar &";
 
   };
 }
