@@ -19,7 +19,6 @@
       "URxvt.keysym.C-minus" = "font-size:decrease";
       "URxvt.keysym.C-equal" = "font-size:reset";
       "URxvt.keysym.C-slash" = "font-size:show";
-      "URxvt.keysym.C-l" = "tput reset\\n";
       "Xft.autohint" = 1;
       "Xft.lcdfilter" = "lcddefault";
       "Xft.hintstyle" = "hintfull";
