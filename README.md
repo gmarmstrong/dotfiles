@@ -93,7 +93,7 @@ dotfiles git/master
 * primary Home Manager configuration, should be symlinked to `~/.config/nixpkgs/home.nix`
 * imports other Home Manager configuration files
 
-#### Program configurations
+##### Program configurations
 
 ```
 │   ├── programs
@@ -106,7 +106,7 @@ dotfiles git/master
 
 * defines configuration for [`fzf`](https://github.com/junegunn/fzf), [`git-config`](https://git-scm.com/docs/git-config), [`htop`](https://github.com/hishamhm/htop), [`rofi`](https://github.com/DaveDavenport/rofi), and [`zsh`](https://www.zsh.org/)
 
-#### Service configurations
+##### Service configurations
 
 ```
 │   ├── services
@@ -136,7 +136,7 @@ dotfiles git/master
 * configures the [`i3-gaps`](https://github.com/Airblader/i3) window manager
 * defines keybindings, color scheme, and multi-monitor options
 
-#### Neovim
+### Neovim
 
 ```
 ├── nvim
@@ -157,7 +157,7 @@ dotfiles git/master
 
 * configures the [Neovim](https://neovim.io/) text editor
 
-#### ranger
+### ranger
 
 ```
 ├── ranger
@@ -169,13 +169,15 @@ dotfiles git/master
 
 * configures the [`ranger`](https://github.com/ranger/ranger) file manager
 
+### README
+
 ```
 ├── README.md
 ```
 
 * you're reading it
 
-#### XDG User Directories
+### XDG User Directories
 
 ```
 └── xdg
