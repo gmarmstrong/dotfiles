@@ -40,7 +40,16 @@
 
     user-dirs = {
       target = ".config/user-dirs.dirs";
-      source = "${config.home.homeDirectory}/dotfiles/xdg/user-dirs.dirs";
+      text = ''
+        XDG_DESKTOP_DIR="$HOME/"
+        XDG_DOCUMENTS_DIR="$HOME/"
+        XDG_DOWNLOAD_DIR="$HOME/"
+        XDG_MUSIC_DIR="$HOME/"
+        XDG_PICTURES_DIR="$HOME/"
+        XDG_PUBLICSHARE_DIR="$HOME/"
+        XDG_TEMPLATES_DIR="$HOME/"
+        XDG_VIDEOS_DIR="$HOME/"
+      '';
     };
   };
 }
