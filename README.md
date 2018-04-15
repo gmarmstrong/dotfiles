@@ -93,7 +93,7 @@ dotfiles git/master
 * primary Home Manager configuration, should be symlinked to `~/.config/nixpkgs/home.nix`
 * imports other Home Manager configuration files
 
-#### Program configurations
+##### Program configurations
 
 ```
 │   ├── programs
@@ -106,7 +106,7 @@ dotfiles git/master
 
 * defines configuration for [`fzf`](https://github.com/junegunn/fzf), [`git-config`](https://git-scm.com/docs/git-config), [`htop`](https://github.com/hishamhm/htop), [`rofi`](https://github.com/DaveDavenport/rofi), and [`zsh`](https://www.zsh.org/)
 
-#### Service configurations
+##### Service configurations
 
 ```
 │   ├── services
