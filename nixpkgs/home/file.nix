@@ -8,17 +8,9 @@
       target = ".config/nvim/ftplugin/";
       source = "${config.home.homeDirectory}/dotfiles/nvim/ftplugin/";
     };
-    nvim-gnupg = {
-      target = ".config/nvim/gnupg.vim";
-      source = "${config.home.homeDirectory}/dotfiles/nvim/gnupg.vim";
-    };
     nvim-init = {
       target = ".config/nvim/init.vim";
       source = "${config.home.homeDirectory}/dotfiles/nvim/init.vim";
-    };
-    nvim-init-secure = {
-      target = ".config/nvim/vimrc_secure";
-      source = "${config.home.homeDirectory}/dotfiles/nvim/vimrc_secure";
     };
 
     ranger-commands = {
