@@ -14,10 +14,10 @@
     ./programs/zsh.nix
     ./services/compton.nix
     ./services/polybar.nix
+    ./xdg.nix
     ./xresources.nix
     ./xsession/windowManager/i3.nix
     ./home/packages.nix
-    ./home/file.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -54,8 +54,8 @@
   xsession = {
     enable = true;
     profileExtra = ''
-      xrdb -load "$HOME/.config/X11/Xresources" &
-      hsetroot -solid \#d5c4a1
+      xrdb -load "${config.home.homeDirectory}/Xresources" &
+      hsetroot -solid \#d5c4a1 &
       nm-applet &
       pasystray &
       nextcloud &

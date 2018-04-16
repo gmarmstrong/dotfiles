@@ -49,11 +49,11 @@
     ];
 
     sessionVariables = {
-      XDG_CACHE_HOME = "$HOME/.cache";
-      XDG_CONFIG_HOME = "$HOME/.config";
-      XDG_DATA_HOME = "$HOME/.local/share";
-      GOPATH = "$HOME/go";
-      dotfiles = "$HOME/dotfiles";
+      XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
+      XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
+      XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
+      GOPATH = "${config.home.homeDirectory}/go";
+      dotfiles = "${config.home.homeDirectory}/dotfiles";
       EDITOR = "nvim";
       SUDO_EDITOR = "nvim";
     };
