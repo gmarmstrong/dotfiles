@@ -12,6 +12,7 @@
     ./programs/fzf.nix
     ./programs/htop.nix
     ./programs/zsh.nix
+    ./programs/neovim.nix
     ./services/compton.nix
     ./services/polybar.nix
     ./xresources.nix

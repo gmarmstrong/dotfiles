@@ -27,7 +27,6 @@
     libreoffice
     maven
     neofetch
-    neovim
     nextcloud-client
     openssh
     pandoc
