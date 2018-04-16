@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    androidsdk
     ardour
     audacity
     byzanz

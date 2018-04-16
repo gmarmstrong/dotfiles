@@ -57,7 +57,10 @@
 
   security.sudo.enable = true;
 
-  programs.gnupg.agent.enable = true;
+  programs = {
+    gnupg.agent.enable = true;
+    adb.enable = true;
+  };
 
   powerManagement = {
     enable = true;
