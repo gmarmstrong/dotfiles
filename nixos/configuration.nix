@@ -59,6 +59,11 @@
 
   programs.gnupg.agent.enable = true;
 
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+  };
+
   services = {
     locate.enable = true;
     printing = {
@@ -109,7 +114,6 @@
       pasystray
       pavucontrol
       powerstat
-      powertop
       psmisc
       unzip
       wget
