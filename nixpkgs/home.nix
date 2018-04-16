@@ -59,6 +59,7 @@
       nm-applet &
       pasystray &
       nextcloud &
+      xset s off &
     '';
   };
 
