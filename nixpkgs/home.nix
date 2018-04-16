@@ -12,7 +12,6 @@
     ./programs/fzf.nix
     ./programs/htop.nix
     ./programs/zsh.nix
-    ./programs/neovim.nix
     ./services/compton.nix
     ./services/polybar.nix
     ./xresources.nix
@@ -40,6 +39,8 @@
       enable = true;
       path = "${config.home.homeDirectory}/dotfiles/home-manager";
     };
+
+    neovim.enable = true;
 
     firefox = {
       enable = true;
