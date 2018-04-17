@@ -100,9 +100,9 @@
         "Shift+XF86AudioLowerVolume" = "exec \"amixer sset Master unmute && amixer sset Master 2%-\"";
         "Mod4+l" = "exec \"physlock\"";
 
-        # TODO bindsym Print exec "scrot --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ~/screenshots; mv $f ~/screenshots/'"
-        # TODO bindsym Shift+Print exec "scrot --focuesd --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ~/screenshots; mv $f ~/resources/images/screenshots'"
-        # TODO bindsym Ctrl+Print exec "sleep 0.2; scrot --select --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mv $f ~/resources/images/screenshots'"
+        "Print" = "exec \"scrot --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ~/screenshots; mv $f ~/screenshots/'\"";
+        "Shift+Print" = "exec \"scrot --focuesd --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ~/screenshots; mv $f ~/resources/images/screenshots'\"";
+        "Ctrl+Print" = "exec \"sleep 0.2; scrot --select --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mv $f ~/resources/images/screenshots'\"";
 
       };
 
