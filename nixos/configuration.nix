@@ -1,4 +1,4 @@
-{ config, pkgs, ...  }:
+{ pkgs, config, ...  }:
 
 {
 
@@ -97,33 +97,17 @@
     variables.EDITOR = "nvim";
     pathsToLink = [ "/share/zsh" ]; # zsh completion for system packages
     systemPackages = with pkgs; [
-      acpi
       alsaLib
       alsaTools
       alsaUtils
-      blueman
-      coreutils
-      curl
-      file
       firmwareLinuxNonfree
       git
-      gparted
       home-manager
       networkmanager.out
       networkmanager_openvpn
       networkmanagerapplet
       nix-prefetch-scripts
-      p7zip
-      pasystray
       pavucontrol
-      powerstat
-      psmisc
-      unzip
-      wget
-      xdg-user-dirs
-      xdg_utils
-      xorg.xbacklight
-      zip
     ];
   };
 

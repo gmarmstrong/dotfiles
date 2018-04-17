@@ -2,19 +2,24 @@
 
 {
   home.packages = with pkgs; [
+    acpi
     ardour
     audacity
     byzanz
     calc
     calibre
+    coreutils
+    curl
     dict
     diction
     figlet
+    file
     firefox
     gnome3.gnome_keyring
     gnumake
     gnupg
     go
+    gparted
     gx
     gx-go
     hsetroot
@@ -28,9 +33,13 @@
     neofetch
     nextcloud-client
     openssh
+    p7zip
     pandoc
     pass
+    pasystray
     postgresql
+    powerstat
+    psmisc
     pwgen
     python
     python3
@@ -50,12 +59,19 @@
     trash-cli
     tree
     unclutter
-    vlc
+    unzip
     virtualbox
+    vlc
     w3m
+    wget
     xclip
+    xdg-user-dirs
+    xdg_utils
+    xorg.xbacklight
     youtube-dl
     zathura
+    zip
+    zip
     zotero
     zsh
   ];
