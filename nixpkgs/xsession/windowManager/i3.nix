@@ -100,9 +100,9 @@
         "Shift+XF86AudioLowerVolume" = "exec \"amixer sset Master unmute && amixer sset Master 2%-\"";
         "Mod4+l" = "exec \"physlock\"";
 
-        "Print" = "exec \"scrot --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ~/screenshots; mv $f ~/screenshots/'\"";
-        "Shift+Print" = "exec \"scrot --focuesd --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ~/screenshots; mv $f ~/resources/images/screenshots'\"";
-        "Ctrl+Print" = "exec \"sleep 0.2; scrot --select --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mv $f ~/resources/images/screenshots'\"";
+        "Print" = "exec \"scrot --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots/'\"";
+        "Shift+Print" = "exec \"scrot --focused --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots'\"";
+        "Ctrl+Print" = "exec \"sleep 0.2; scrot --select --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots'\"";
 
       };
 
