@@ -22,4 +22,3 @@ intermediary steps that go unmentioned for the sake of brevity.
 8. Install [home-manager](https://github.com/rycee/home-manager) with
    `nix-shell $HOME/dotfiles/home-manager -A install`
 9. Apply the home configuration with `home-manager switch`
-10. Reload the X resources with `xrdb -load ~/.Xresources`
