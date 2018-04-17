@@ -87,7 +87,7 @@
         "Mod1+d" = "exec \"rofi -show run\"";
         "Mod1+c" = "exec \"rofi -show window\"";
         "Mod1+Shift+d" = "exec \"rofi -show ssh\"";
-        "Mod1+Shift+c" = "exec \"rofi-pass\"";
+        "Mod1+Shift+c" = "exec \"rofi-pass --root ${config.xdg.dataHome}/password-store\"";
         "Mod1+Shift+q" = "kill";
         "Mod1+Return" = "exec i3-sensible-terminal";
 
