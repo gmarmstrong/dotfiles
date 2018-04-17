@@ -11,6 +11,7 @@
       xrender-sync = true;
       xrender-sync-fence = true;
       unredir-if-possible = true;
+      paint-on-overlay = true;
     '';
   };
 }
