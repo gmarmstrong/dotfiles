@@ -25,6 +25,8 @@
       enable = true;
       version = 2;
       device = "/dev/disk/by-id/wwn-0x500a075114dcdeb7";
+      gfxmodeBios = "1920x1080";
+      gfxmodeEfi = "1920x1080";
     };
   };
 
