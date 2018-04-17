@@ -1,9 +1,5 @@
 { pkgs, config, ... }:
 
-# TODO create skeleton directory tree
-# TODO clone password-store
-# TODO install clustergit (use nixpkgs)
-
 {
 
   imports = [

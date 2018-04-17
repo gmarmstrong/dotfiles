@@ -70,7 +70,7 @@
       };
 
       "module/battery0" = {
-        type = "internal/battery"; # FIXME show charge status
+        type = "internal/battery";
         battery = "BAT0";
         adapter = "AC";
         poll-interval = 5;
@@ -84,7 +84,7 @@
       };
 
       "module/battery1" = {
-        type = "internal/battery"; # FIXME show charge status
+        type = "internal/battery";
         battery = "BAT1";
         adapter = "AC";
         poll-interval = 5;
