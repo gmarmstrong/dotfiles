@@ -122,7 +122,7 @@ let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_progname = 'nvr'
 
 " base16 settings
-colorscheme base16-gruvbox-light-soft       "Color scheme
+colorscheme base16-default-light       "Color scheme
 
 " ==============================================================================
 " DISPLAY

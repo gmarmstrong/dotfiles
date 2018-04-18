@@ -51,7 +51,7 @@
     enable = true;
     profileExtra = ''
       xrdb -load "${config.home.homeDirectory}/Xresources" &
-      hsetroot -solid \#d5c4a1 &
+      hsetroot -solid \#d8d8d8 &
       nm-applet &
       pasystray &
       nextcloud &

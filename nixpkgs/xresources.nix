@@ -31,7 +31,7 @@
       repo = "base16-xresources";
       rev = "79e6e1de591f7444793fd8ed38b67ce7fce25ab6";
       sha256 = "1nnj5py5n0m8rkq3ic01wzyzkgl3g9a8q5dc5pcgj3qr47hhddbw";
-    } + "/xresources/base16-gruvbox-light-soft.Xresources");
+    } + "/xresources/base16-default-light.Xresources");
   };
 }
 
