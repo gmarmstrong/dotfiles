@@ -30,21 +30,12 @@
   };
 
   programs = {
-
     home-manager = {
       enable = true;
       path = "${config.home.homeDirectory}/dotfiles/home-manager";
     };
-
     neovim.enable = true;
-
-    firefox = {
-      enable = true;
-      #enableAdobeFlash = true;
-      #enableGoogleTalk = true;
-      #enableIcedTea = true;
-    };
-
+    firefox.enable = true;
   };
 
   xsession = {
