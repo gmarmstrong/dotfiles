@@ -46,5 +46,14 @@
         '';
       };
     };
+
+    dataFile = {
+      rofiThemes = {
+        recursive = true;
+        source = "${config.home.homeDirectory}/dotfiles/resources/base16-rofi/themes";
+        target = "rofi/themes";
+      };
+    };
+
   };
 }
