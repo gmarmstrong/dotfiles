@@ -25,7 +25,7 @@
       focus.followMouse = false;
       gaps = {
         inner = 15;
-        outer = 50;
+        outer = 30;
         smartBorders = "on";
         smartGaps = false;
       };
