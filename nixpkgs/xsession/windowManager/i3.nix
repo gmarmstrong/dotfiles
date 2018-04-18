@@ -108,42 +108,62 @@
 
       colors = {
         focused = {
-          border = "#504945";
-          background = "#076678";
-          text = "#f2e5bc";
-          indicator = "#076678";
-          childBorder = "#076678";
+          border = "$base05";
+          background = "$base0D";
+          text = "$base00";
+          indicator = "$base0D";
+          childBorder = "$base0D";
         };
         focusedInactive = {
-          border = "#ebdbb2";
-          background = "#ebdbb2";
-          text = "#504945";
-          indicator = "#bdae93";
-          childBorder = "#ebdbb2";
+          border = "$base01";
+          background = "$base01";
+          text = "$base05";
+          indicator = "$base03";
+          childBorder = "$base01";
         };
         unfocused = {
-          border = "#ebdbb2";
-          background = "#f2e5bc";
-          text = "#504945";
-          indicator = "#ebdbb2";
-          childBorder = "#ebdbb2";
+          border = "$base01";
+          background = "$base00";
+          text = "$base05";
+          indicator = "$base01";
+          childBorder = "$base01";
         };
         urgent = {
-          border = "#9d0006";
-          background = "#9d0006";
-          text = "#f2e5bc";
-          indicator = "9d0006";
-          childBorder = "#9d0006";
+          border = "$base08";
+          background = "$base08";
+          text = "$base00";
+          indicator = "$base08";
+          childBorder = "$base08";
         };
         placeholder = {
-          border = "#f2e5bc";
-          background = "#f2e5bc";
-          text = "#504945";
-          indicator = "#f2e5bc";
-          childBorder = "#f2e5bc";
+          border = "$base00";
+          background = "$base00";
+          text = "$base05";
+          indicator = "$base00";
+          childBorder = "$base00";
         };
-        background = "#282828";
+        background = "$base07";
       };
     };
+
+    extraConfig = ''
+      # See https://i3wm.org/docs/userguide.html#xresources
+      set_from_resource $base00 i3wm.color0
+      set_from_resource $base01 i3wm.color10
+      set_from_resource $base02 i3wm.color11
+      set_from_resource $base03 i3wm.color8
+      set_from_resource $base04 i3wm.color12
+      set_from_resource $base05 i3wm.color7
+      set_from_resource $base06 i3wm.color13
+      set_from_resource $base07 i3wm.color15
+      set_from_resource $base08 i3wm.color1
+      set_from_resource $base09 i3wm.color09
+      set_from_resource $base0A i3wm.color3
+      set_from_resource $base0B i3wm.color2
+      set_from_resource $base0C i3wm.color6
+      set_from_resource $base0D i3wm.color4
+      set_from_resource $base0E i3wm.color5
+      set_from_resource $base0F i3wm.color14
+    '';
   };
 }
