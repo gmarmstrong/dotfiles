@@ -65,7 +65,7 @@
         type = "internal/date";
         internal = 5;
         date = "%a %Y-%m-%d";
-        time = "%I:%M %p";
+        time = "%l:%M %p";
         label = "%date%  %time%";
       };
 
