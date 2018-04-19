@@ -4,3 +4,6 @@
 [submodule "resources/base16-rofi"]
 	path = resources/base16-rofi
 	url = git@github.com:0xdec/base16-rofi
+[submodule "resources/acme-colors"]
+	path = resources/acme-colors
+	url = git@github.com:plan9-for-vimspace/acme-colors

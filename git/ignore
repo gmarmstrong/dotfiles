@@ -94,6 +94,7 @@ cabal.project.local
 *.rar
 hs_err_pid*
 target/
+.idea/
 
 # Jekyll
 .sass-cache
