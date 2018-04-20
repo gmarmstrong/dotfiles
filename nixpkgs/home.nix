@@ -26,6 +26,7 @@
       enable = true;
       threshold = 5;
     };
+    gpg-agent.enable = true;
     xscreensaver.enable = false;
   };
 
