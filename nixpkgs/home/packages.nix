@@ -19,6 +19,7 @@
     gnumake
     gnupg
     go
+    golly
     gparted
     gx
     gx-go
