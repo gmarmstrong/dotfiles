@@ -4,3 +4,6 @@
 [submodule "resources/base16-rofi"]
 	path = resources/base16-rofi
 	url = git@github.com:0xdec/base16-rofi
+[submodule "resources/base16-xresources"]
+	path = resources/base16-xresources
+	url = git@github.com:chriskempson/base16-xresources
