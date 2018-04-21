@@ -28,7 +28,6 @@
     imagemagick
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
-    json_c
     libreoffice
     maven
     neofetch
