@@ -6,6 +6,11 @@
     enable = true;
     config = {
 
+      window = {
+        hideEdgeBorders = "smart";
+        titlebar = false;
+      };
+
       startup = [
         {
           command = "systemctl --user restart polybar";
@@ -23,12 +28,6 @@
       bars = [];
 
       focus.followMouse = false;
-      gaps = {
-        inner = 15;
-        outer = 30;
-        smartBorders = "on";
-        smartGaps = false;
-      };
 
       keybindings = {
         "Mod1+Ctrl+Shift+r" = "restart";
