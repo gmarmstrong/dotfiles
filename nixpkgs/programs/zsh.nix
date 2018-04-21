@@ -65,8 +65,8 @@
       ls = "LC_COLLATE=C ls --color=auto -FH -w 80";
       nike = "ssh -x gma@nike.cs.uga.edu";
       nikex = "ssh -Y gma@nike.cs.uga.edu";
-      space = "find -maxdepth 1 -exec du -sh '{}' \; | sort -h";
-      suspace = "sudo find -maxdepth 1 -exec du -sh '{}' \; | sort -h";
+      space = "find -maxdepth 1 -exec du -sh '{}' \\; | sort -h";
+      suspace = "sudo find -maxdepth 1 -exec du -sh '{}' \\; | sort -h";
     };
   };
 }
