@@ -12,7 +12,6 @@
     curl
     dict
     diction
-    figlet
     file
     firefox
     gnome3.gnome_keyring
@@ -29,22 +28,17 @@
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
     libreoffice
-    maven
-    neofetch
     nextcloud-client
     openssh
     p7zip
     pandoc
     pass
     pasystray
-    postgresql
-    powerstat
     psmisc
     pwgen
     python
     python3
     ranger
-    rofi
     rofi-pass
     rsync
     rxvt_unicode_with-plugins
@@ -71,8 +65,6 @@
     youtube-dl
     zathura
     zip
-    zip
     zotero
-    zsh
   ];
 }
