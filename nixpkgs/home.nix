@@ -24,7 +24,7 @@
     blueman-applet.enable = true;
     unclutter = {
       enable = true;
-      threshold = 5;
+      timeout = 5;
     };
     gpg-agent.enable = true;
     xscreensaver.enable = false;
