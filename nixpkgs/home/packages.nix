@@ -14,7 +14,6 @@
     diction
     file
     firefox
-    gnome3.gnome_keyring
     gnumake
     gnupg
     go
