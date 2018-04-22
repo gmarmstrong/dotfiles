@@ -28,6 +28,7 @@
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
     libreoffice
+    musescore
     nextcloud-client
     p7zip
     pandoc
@@ -43,7 +44,6 @@
     rxvt_unicode_with-plugins
     scrot
     signal-desktop
-    slack
     spotify
     sshfs
     sxiv
