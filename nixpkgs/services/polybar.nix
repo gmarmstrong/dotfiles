@@ -12,15 +12,12 @@
 
     config = {
 
-      "bar/topbar" = {
-        monitor = "\${env:MONITOR:eDP1}";
+      "bar/basebar" = {
         width = "100%";
         height = "3%";
         radius = 0;
         modules-left = "i3";
         modules-center = "datetime";
-        modules-right = "battery0 battery1";
-        tray-position = "right";
         module-margin = 1;
         padding = 1;
         font-0 = "DejaVu Sans Mono:size=10";
@@ -28,19 +25,16 @@
         foreground = "\${colors.base05}";
       };
 
-      "bar/altbar" = {
-        monitor = "\${env:MONITOR:HDMI1}";
-        width = "100%";
-        height = "3%";
-        radius = 0;
-        modules-left = "i3";
-        modules-center = "datetime";
+      "bar/topbar" = {
+        "inherit" = "bar/basebar";
+        monitor = "\${env:MONITOR:eDP1}";
         modules-right = "battery0 battery1";
-        module-margin = 1;
-        padding = 1;
-        font-0 = "DejaVu Sans Mono=size=10";
-        background = "\${colors.base00}";
-        foreground = "\${colors.base05}";
+        tray-position = "right";
+      };
+
+      "bar/altbar" = {
+        "inherit" = "bar/basebar";
+        monitor = "\${env:MONITOR:HDMI1}";
       };
 
       "module/i3" = {
@@ -69,10 +63,8 @@
         label = "%date%  %time%";
       };
 
-      "module/battery0" = {
+      "module/batterybase" = {
         type = "internal/battery";
-        battery = "BAT0";
-        adapter = "AC";
         poll-interval = 5;
         full-at = 98;
         format-charging = "<label-charging>";
@@ -83,18 +75,16 @@
         label-full = "FULL";
       };
 
+      "module/battery0" = {
+        "inherit" = "module/batterybase";
+        battery = "BAT0";
+        adapter = "AC";
+      };
+
       "module/battery1" = {
-        type = "internal/battery";
+        "inherit" = "module/batterybase";
         battery = "BAT1";
         adapter = "AC";
-        poll-interval = 5;
-        full-at = 98;
-        format-charging = "<label-charging>";
-        format-discharging = "<label-discharging>";
-        format-full = "<label-full>";
-        label-charging = "%percentage%% CHR";
-        label-discharging = "%percentage%% DIS";
-        label-full = "FULL";
       };
 
     };
