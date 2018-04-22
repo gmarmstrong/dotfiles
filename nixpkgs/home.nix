@@ -10,6 +10,7 @@
     ./programs/zsh.nix
     ./services/compton.nix
     ./services/polybar.nix
+    ./services/redshift.nix
     ./xdg.nix
     ./xresources.nix
     ./xsession/windowManager/i3.nix
