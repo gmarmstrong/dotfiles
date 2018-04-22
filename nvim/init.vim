@@ -146,7 +146,6 @@ highlight clear GitGutterChangeDelete
 " INDENTATION
 
 set autoindent          "Open (o and O) lines with appropriate indentation
-set smartindent         "Indent by filetype
 set smarttab            "Use shiftwidth when inserting and deleting tabs
 set shiftwidth=4        "Set width of reindent operations (<< and >>)
 set tabstop=4           "Tab characters appear 4 spaces wide
