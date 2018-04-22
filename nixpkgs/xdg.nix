@@ -15,21 +15,18 @@
         target = "nvim/ftplugin";
       };
 
-      rangerCommands = {
-        source = "${config.home.homeDirectory}/dotfiles/ranger/commands.py";
-        target = "ranger/commands.py";
-      };
       rangerConfig = {
-        source = "${config.home.homeDirectory}/dotfiles/ranger/rc.conf";
         target = "ranger/rc.conf";
+        text = ''
+          map DD shell trash %s
+        '';
       };
       rangerRifle = {
-        source = "${config.home.homeDirectory}/dotfiles/ranger/rifle.conf";
         target = "ranger/rifle.conf";
-      };
-      rangerScope = {
-        source = "${config.home.homeDirectory}/dotfiles/ranger/scope.sh";
-        target = "ranger/scope.sh";
+        text = ''
+          ext pdf, has zathura,  X, flag f = zathura -- "$@"
+          ext djvu, has zathura,  X, flag f = zathura -- "$@"
+        '';
       };
 
       userDirs = {
