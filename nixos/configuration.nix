@@ -84,6 +84,16 @@
       autorun = true;
       enable = true;
       exportConfiguration = true;
+      displayManager.lightdm = {
+        enable = true;
+        background = "black";
+        greeter.enable = false;
+        autoLogin = {
+          enable = true;
+          user = "guthrie";
+          timeout = 0;
+        };
+      };
       libinput = {
         enable = true;
         scrollMethod = "twofinger";
