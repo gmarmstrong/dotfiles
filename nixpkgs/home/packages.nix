@@ -29,7 +29,6 @@
     jetbrains.pycharm-professional
     libreoffice
     nextcloud-client
-    openssh
     p7zip
     pandoc
     pass

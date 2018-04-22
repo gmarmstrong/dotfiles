@@ -37,6 +37,20 @@
     };
     neovim.enable = true;
     firefox.enable = true;
+    ssh = {
+      enable = true;
+      matchBlocks = {
+        "nike" = {
+          hostname = "nike.cs.uga.edu";
+          user = "gma";
+        };
+        "nikex" = {
+          hostname = "nike.cs.uga.edu";
+          user = "gma";
+          forwardX11 = true;
+        };
+      };
+    };
   };
 
   xsession = {
