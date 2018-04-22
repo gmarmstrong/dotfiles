@@ -14,6 +14,7 @@
   swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
 
   boot = {
+    earlyVconsoleSetup = true;
     initrd.luks.devices = [
       {
         name = "root";
