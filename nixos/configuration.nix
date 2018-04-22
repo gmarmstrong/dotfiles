@@ -70,6 +70,7 @@
   };
 
   services = {
+    dbus.packages = [ pkgs.blueman ];
     locate.enable = true;
     printing = {
       enable = true;
