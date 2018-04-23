@@ -11,7 +11,7 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
-  swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/13f26b63-cf59-49c8-bc44-44bd5fc4c9b2"; } ];
 
   boot = {
     earlyVconsoleSetup = true;
@@ -74,14 +74,17 @@
   services = {
     dbus.packages = [ pkgs.blueman ];
     locate.enable = true;
+
     printing = {
       enable = true;
       drivers = [ pkgs.hplip ];
     };
+
     physlock = {
       enable = true;
       allowAnyUser = true;
     };
+
     xserver = {
       autorun = true;
       enable = true;
