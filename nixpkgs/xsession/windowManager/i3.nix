@@ -9,6 +9,13 @@
       window = {
         hideEdgeBorders = "smart";
         titlebar = false;
+        border = 2;
+      };
+
+      floating = {
+        titlebar = false;
+        border = 2;
+        criteria = [ { title = "Network Connections"; } { class = "Pavucontrol"; } ];
       };
 
       startup = [
