@@ -1,23 +1,19 @@
 # dotfiles
 
-This is my dotfiles repository. [There are many like
-it](https://dotfiles.github.io/), but this one is mine. [**You won't want to
-clone this whole
+This is my dotfiles repository. It defines a [NixOS](https://nixos.org/)
+personal computer. [There are many like it](https://dotfiles.github.io/), but
+this one is mine. [**You won't want to clone this whole
 repository**](https://www.anishathalye.com/2014/08/03/managing-your-dotfiles/#dotfiles-are-not-meant-to-be-forked),
 but feel free to explore and borrow what you like!
 
-This project defines a [NixOS](https://nixos.org/) personal computer.
-
 ## Installation
 
-1. [Fork this repository](https://help.github.com/articles/fork-a-repo/)
 1. [Install NixOS](https://nixos.org/nixos/manual/index.html#ch-installation)
-3. Install Git with `nix-env -i git`
-4. Clone your fork with `git clone git@github.com:$(git config
-   user.name)/dotfiles`
-5. Symlink `nixos/configuration.nix` to `/etc/nixos/configuration.nix`
-6. Apply the system configuration with `sudo nixos-rebuild switch`
-7. Symlink `nixpkgs/home.nix` to `~/.config/nixpkgs/home.nix`
-8. Install [home-manager](https://github.com/rycee/home-manager) with
+2. Install Git with `nix-env -i git`
+3. Clone these dotfiles with `git clone git@github.com:gmarmstrong/dotfiles`
+4. Symlink `nixos/configuration.nix` to `/etc/nixos/configuration.nix`
+5. Apply the system configuration with `sudo nixos-rebuild switch`
+6. Symlink `nixpkgs/home.nix` to `~/.config/nixpkgs/home.nix`
+7. Install [home-manager](https://github.com/rycee/home-manager) with
    `nix-shell ~/dotfiles/home-manager -A install`
-9. Apply the home configuration with `home-manager switch`
+8. Apply the home configuration with `home-manager switch`
