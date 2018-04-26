@@ -42,6 +42,7 @@ Plug 'tpope/vim-fugitive'                                   " Git wrapper
 Plug 'airblade/vim-gitgutter'                               " Git diff
 Plug 'chriskempson/base16-vim'
 Plug 'LnL7/vim-nix'
+Plug 'fatih/vim-go'
 "Plug 'gmarmstrong/vim-muse', {'branch': 'master'}
 "Plug 'gmarmstrong/vim-muse', {'branch': 'devel'}
 "Plug 'junegunn/vader.vim'
