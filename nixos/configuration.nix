@@ -32,10 +32,7 @@
   };
 
   hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = false;
-    };
+    bluetooth.enable = true;
     cpu.intel.updateMicrocode = true;
     opengl.enable = true;
     pulseaudio = {
