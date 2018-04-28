@@ -57,12 +57,14 @@
   xsession = {
     enable = true;
     profileExtra = ''
-      xrdb -load "${config.home.homeDirectory}/Xresources" &
+      xrdb -load "${config.home.homeDirectory}/.Xresources" &
       hsetroot -solid \#f8f8f8 &
       nm-applet &
       pasystray &
       nextcloud &
-      xset s off &
+    '';
+    initExtra = ''
+      xset s off
     '';
   };
 
