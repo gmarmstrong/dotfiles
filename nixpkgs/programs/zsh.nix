@@ -53,7 +53,7 @@
       XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
       XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
       GOPATH = "${config.home.homeDirectory}/go";
-      PATH = "$GOPATH/bin:$PATH";
+      PATH = "$HOME/.local/bin/scripts:$GOPATH/bin:$PATH";
       dotfiles = "${config.home.homeDirectory}/dotfiles";
       EDITOR = "nvim";
       SUDO_EDITOR = "nvim";

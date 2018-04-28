@@ -15,6 +15,7 @@
     ./xresources.nix
     ./xsession/windowManager/i3.nix
     ./home/packages.nix
+    ./home/file.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
