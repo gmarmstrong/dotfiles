@@ -40,10 +40,10 @@ Plug 'godlygeek/tabular'                                    " Markdown dependenc
 Plug 'gabrielelana/vim-markdown'                            " Markdown support
 Plug 'tpope/vim-fugitive'                                   " Git wrapper
 Plug 'airblade/vim-gitgutter'                               " Git diff
-Plug 'chriskempson/base16-vim'
-Plug 'LnL7/vim-nix'
-Plug 'fatih/vim-go'
-Plug 'majutsushi/tagbar'
+Plug 'chriskempson/base16-vim'                              " Base16 colors
+Plug 'LnL7/vim-nix'                                         " Nix syntax
+Plug 'fatih/vim-go'                                         " Go syntax
+Plug 'majutsushi/tagbar'                                    " Ctags sidebar
 "Plug 'gmarmstrong/vim-muse', {'branch': 'master'}
 "Plug 'gmarmstrong/vim-muse', {'branch': 'devel'}
 "Plug 'junegunn/vader.vim'
