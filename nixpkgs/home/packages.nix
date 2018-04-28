@@ -9,6 +9,7 @@
     calc
     calibre
     coreutils
+    ctags
     curl
     dict
     diction
