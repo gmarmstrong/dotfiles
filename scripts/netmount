@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
 
 # Mounts a remote directory via SSH.
-# Depends on sshfs.
+# Requires sshfs.
 
 # Usage:
 #   - Mount foo to bar: `netmount mount alice@example.com:/path/to/foo bar`
 #   - Unmount from bar: `netmount unmount bar`
 
-command -v sshfs > /dev/null 2>&1 || exit                   # require sshfs
-alias sshfs="sshfs -o reconnect"                            # sshfs options
 if [ "$1" == "mount" ] && [ -n "$2" ] && [ -n "$3" ]; then  # mount case
     [ -d "$3" ] || mkdir -p "$3"                            # create mount point
-    sshfs "$2" "$3"                                         # mount remote
+    sshfs -o reconnect "$2" "$3"                            # mount remote
 elif [ "$1" == "unmount" ] && [ -d "$2" ]; then             # unmount case
     fusermount -u "$2" && rm -r "$2"                        # unmount remote
 else exit 1; fi                                             # error case
