@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Mounts a remote directory via SSH.
+# Requires sshfs.
+
+# Usage:
+#   - Mount foo to bar: `netfs mount alice@example.com:/path/to/foo bar`
+#   - Unmount from bar: `netfs unmount bar`
+
+# OS-specific unmount methods
+if [ $(uname -s) == 'Linux' ]; then
+    unmountcmd='fusermount3 -u'
+elif [ $(uname -s) == 'Darwin' ] || [ $(uname -s) == 'FreeBSD' ]; then
+    unmountcmd='umount'
+fi
+
+if [ "$1" == "mount" ] && [ -n "$2" ] && [ -n "$3" ]; then  # mount case
+    [ -d "$3" ] || mkdir -p "$3"                            # create target
+    sshfs -o reconnect "$2" "$3"                            # mount remote
+elif [ "$1" == "unmount" ] && [ -d "$2" ]; then             # unmount case
+    $unmountcmd "$2" && rm -r "$2"                          # unmount remote
+elif [ "$1" == "abort" ]; then                              # abort case
+    killall -9 sshfs                                        # kill sshfs
+else exit 1; fi                                             # error case
