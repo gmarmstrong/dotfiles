@@ -57,7 +57,7 @@
 
       "module/datetime" = {
         type = "internal/date";
-        internal = 5;
+        interval = 1;
         date = "%a %Y-%m-%d";
         time = "%l:%M %p";
         label = "%date%  %time%";
