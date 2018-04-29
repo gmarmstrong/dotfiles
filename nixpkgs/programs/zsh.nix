@@ -61,9 +61,9 @@
 
     shellAliases = {
       bup = "sudo rsync --verbose --delete-excluded -aAXv --exclude={\"/home/*/.cache/*\",\"/home/*/nextcloud\",\"/home/*/.local/share/Trash/*\"} /home /run/media/$USER/ca3036f2-022d-4b6e-bb03-ed762403fd3b";
-      l = "LC_COLLATE=C ls --color=auto -FHAlh -w 80";
-      ll = "LC_COLLATE=C ls --color=auto -FHA -w 80";
-      ls = "LC_COLLATE=C ls --color=auto -FH -w 80";
+      l = "LC_COLLATE=C ls --group-directories-first --color=auto -FHAlh -w 80";
+      ll = "LC_COLLATE=C ls --group-directories-first --color=auto -FHA -w 80";
+      ls = "LC_COLLATE=C ls --group-directories-first --color=auto -FH -w 80";
       space = "find -maxdepth 1 -exec du -sh '{}' \\; | sort -h";
       suspace = "sudo find -maxdepth 1 -exec du -sh '{}' \\; | sort -h";
     };
