@@ -170,6 +170,7 @@
       set_from_resource $base0D i3wm.color4
       set_from_resource $base0E i3wm.color5
       set_from_resource $base0F i3wm.color14
+      exec i3-msg workspace 1
     '';
   };
 }
