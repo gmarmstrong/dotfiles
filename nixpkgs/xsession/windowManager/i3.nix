@@ -50,16 +50,16 @@
         "Mod1+Shift+space" = "floating toggle"; # toggle tiling/floating
         "Mod1+Shift+Escape" = "exit"; # exit i3
 
-        "Mod1+1" = "workspace 1";
-        "Mod1+2" = "workspace 2";
-        "Mod1+3" = "workspace 3";
-        "Mod1+4" = "workspace 4";
-        "Mod1+5" = "workspace 5";
-        "Mod1+6" = "workspace 6";
-        "Mod1+7" = "workspace 7";
-        "Mod1+8" = "workspace 8";
-        "Mod1+9" = "workspace 9";
         "Mod1+0" = "workspace 10";
+        "Mod1+9" = "workspace 9";
+        "Mod1+8" = "workspace 8";
+        "Mod1+7" = "workspace 7";
+        "Mod1+6" = "workspace 6";
+        "Mod1+5" = "workspace 5";
+        "Mod1+4" = "workspace 4";
+        "Mod1+3" = "workspace 3";
+        "Mod1+2" = "workspace 2";
+        "Mod1+1" = "workspace 1";
 
         "Mod1+Shift+1" = "move container to workspace 1";
         "Mod1+Shift+2" = "move container to workspace 2";
