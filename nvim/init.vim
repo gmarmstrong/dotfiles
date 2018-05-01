@@ -34,19 +34,17 @@ set linebreak
 
 " Plugins (note the single quotes)
 call plug#begin()
-Plug 'jamessan/vim-gnupg', {'commit': 'fa3a630'}
-Plug 'lervag/vimtex'                                        " LaTeX support
-Plug 'godlygeek/tabular'                                    " Markdown dependency
-Plug 'gabrielelana/vim-markdown'                            " Markdown support
-Plug 'tpope/vim-fugitive'                                   " Git wrapper
-Plug 'airblade/vim-gitgutter'                               " Git diff
-Plug 'chriskempson/base16-vim'                              " Base16 colors
-Plug 'LnL7/vim-nix'                                         " Nix syntax
-Plug 'fatih/vim-go'                                         " Go syntax
-Plug 'majutsushi/tagbar'                                    " Ctags sidebar
+Plug 'jamessan/vim-gnupg', {'commit': 'fa3a630'}    " GnuPG encryption support
+Plug 'lervag/vimtex'                                " LaTeX support
+Plug 'tpope/vim-fugitive'                           " Git wrapper
+Plug 'airblade/vim-gitgutter'                       " Git diff
+Plug 'chriskempson/base16-vim'                      " Base16 colors
+Plug 'LnL7/vim-nix'                                 " Nix syntax
+Plug 'fatih/vim-go'                                 " Go syntax
+Plug 'majutsushi/tagbar'                            " Ctags sidebar
+"Plug 'junegunn/vader.vim'                          " Vimscript testing
 "Plug 'gmarmstrong/vim-muse', {'branch': 'master'}
 "Plug 'gmarmstrong/vim-muse', {'branch': 'devel'}
-"Plug 'junegunn/vader.vim'
 call plug#end()
 
 " vim-markdown settings
