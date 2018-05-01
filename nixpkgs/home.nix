@@ -29,7 +29,6 @@
       timeout = 5;
     };
     gpg-agent.enable = true;
-    xscreensaver.enable = false;
   };
 
   programs = {
