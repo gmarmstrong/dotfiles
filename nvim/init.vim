@@ -64,7 +64,7 @@ let g:vimtex_compiler_latexmk = {'callback' : 0}
 let g:vimtex_view_general_viewer = 'zathura'
 
 " base16 settings
-colorscheme base16-default-light       "Color scheme
+colorscheme base16-gruvbox-light-soft       "Color scheme
 
 " ==============================================================================
 " DISPLAY
