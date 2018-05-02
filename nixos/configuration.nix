@@ -123,6 +123,7 @@
       networkmanagerapplet
       nix-prefetch-scripts
       pavucontrol
+      vulnix
     ];
   };
 
