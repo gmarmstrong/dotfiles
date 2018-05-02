@@ -75,6 +75,7 @@
       "hs_err_pid*"
       "target/"
       ".idea/"
+      "*.iml"
     ];
   };
 }
