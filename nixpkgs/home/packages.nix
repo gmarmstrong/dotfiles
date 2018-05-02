@@ -48,6 +48,7 @@
     sshfs
     sxiv
     texlive.combined.scheme-full
+    thunderbird
     transmission_gtk
     trash-cli
     tree
