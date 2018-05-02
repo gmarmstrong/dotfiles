@@ -59,6 +59,7 @@
   security = {
     sudo.enable = true;
     polkit.extraConfig = ''
+      // Allow wheel users to mount filesystems
       polkit.addRule(function(action, subject) {
           if ((action.id == "org.freedesktop.udisks2.filesystem-mount-system" ||
             action.id == "org.freedesktop.udisks2.filesystem-mount") &&
