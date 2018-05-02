@@ -10,6 +10,15 @@
         hideEdgeBorders = "smart";
         titlebar = false;
         border = 2;
+        commands = [
+          {
+            command = "focus";
+            criteria = {
+              class = "^jetbrains-.+";
+              window_type = "dialog";
+            };
+          }
+        ];
       };
 
       floating = {
