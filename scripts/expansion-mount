@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+sudo -v
+pass drives/expansion | # get device password entry
+    head -n 1 | # get the password itself
+    sudo cryptsetup luksOpen /dev/sdb expansion # open device
+udisksctl mount -b /dev/mapper/expansion

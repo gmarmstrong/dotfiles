@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+sudo -v
+udisksctl unmount -b /dev/mapper/expansion # unmount device
+sudo cryptsetup close expansion # close device
