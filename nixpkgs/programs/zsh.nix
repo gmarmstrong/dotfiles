@@ -35,8 +35,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "sindresorhus";
           repo = "pure";
-          rev = "a3b22b2";
-          sha256 = "1gxsfbh0qavbxgr8grsra6m0xpc9wjnkkd6gwjam31n6j0vxyblw";
+          rev = "a90b1bc04a2aecdb421493207080b88a6a2a414c";
+          sha256 = "1agspki7p8v8ppw1102i9jnk5gawrj90va22m3wnpa1m2s6rqx01";
         };
       }
       {
@@ -45,8 +45,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "sindresorhus";
           repo = "pure";
-          rev = "a3b22b2";
-          sha256 = "1gxsfbh0qavbxgr8grsra6m0xpc9wjnkkd6gwjam31n6j0vxyblw";
+          rev = "a90b1bc04a2aecdb421493207080b88a6a2a414c";
+          sha256 = "1agspki7p8v8ppw1102i9jnk5gawrj90va22m3wnpa1m2s6rqx01";
         };
       }
     ];
