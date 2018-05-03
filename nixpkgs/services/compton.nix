@@ -4,6 +4,7 @@
   services.compton = {
     enable = false;
     shadow = true;
+    backend = "xrender";
     shadowExclude = [ "window_type *= 'menu'" "class_g = 'Firefox' && argb" ];
     fadeExclude = [ "window_type *= 'menu'" "class_g = 'Firefox' && argb" ];
     extraOptions = ''
