@@ -2,9 +2,9 @@
 
 {
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.packageOverrides = pkgs : rec {
-    i3Support = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs : rec { i3Support = true; };
   };
 
   imports = [
