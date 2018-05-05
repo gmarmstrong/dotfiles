@@ -22,6 +22,7 @@ but feel free to explore and borrow what you like!
 
 ## Routine maintenance
 
-1. Upgrade system with `sudo nixos-rebuild switch --upgrade`
-2. Upgrade user environment with `home-manager switch --upgrade`
-3. Upgrade Neovim plugins with `nvim +PlugUpgrade +PlugUpdate +qall`
+1. Update dotfiles and submodules with `cd "$HOME/dotfiles" && git pull`
+2. Upgrade system with `sudo nixos-rebuild switch --upgrade`
+3. Upgrade user environment with `home-manager switch --upgrade`
+4. Upgrade Neovim plugins with `nvim +PlugUpgrade +PlugUpdate +qall`
