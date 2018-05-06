@@ -29,6 +29,18 @@
 
       startup = [
         {
+          command = "xrdb -load \"${config.home.homeDirectory}/.Xresources\"";
+          always = true;
+          notification = false;
+        }
+
+        {
+          command = "hsetroot -solid \"$base00\"";
+          always = true;
+          notification = false;
+        }
+
+        {
           command = "systemctl --user restart polybar";
           always = true;
           notification = false;
