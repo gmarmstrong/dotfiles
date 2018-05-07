@@ -19,7 +19,6 @@
       {
         name = "root";
         device = "/dev/disk/by-uuid/5c42abea-a365-4e2c-b2bd-584ee69cca55";
-        preLVM = true;
       }
     ];
     loader.grub = {
@@ -29,6 +28,7 @@
       gfxmodeBios = "1920x1080";
       gfxmodeEfi = "1920x1080";
     };
+    plymouth.enable = true;
   };
 
   hardware = {
