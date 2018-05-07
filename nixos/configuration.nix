@@ -57,6 +57,7 @@
   time.timeZone = "US/Eastern";
 
   security = {
+    apparmor.enable = true;
     sudo.enable = true;
     polkit.extraConfig = ''
       // Allow wheel users to mount filesystems
