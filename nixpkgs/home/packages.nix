@@ -25,8 +25,6 @@
     hsetroot
     hugo
     imagemagick
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-professional
     libreoffice
     musescore
     nextcloud-client
