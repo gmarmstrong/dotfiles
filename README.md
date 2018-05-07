@@ -11,7 +11,7 @@ but feel free to explore and borrow what you like!
 1. Install Git with `nix-env -i git`
 2. Clone these dotfiles with `git clone "git@github.com:gmarmstrong/dotfiles"
    "$HOME/dotfiles"`
-3. Symlink the system configuration with `ln -s
+3. Symlink the system configuration with `sudo ln -s
    "$HOME/dotfiles/nixos/configuration.nix" "/etc/nixos/configuration.nix"`
 4. Apply the system configuration with `sudo nixos-rebuild switch`
 5. Symlink the user configuration with `ln -s "$HOME/dotfiles/nixpkgs/home.nix"
