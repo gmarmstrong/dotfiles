@@ -73,11 +73,6 @@
     adb.enable = true;
   };
 
-  powerManagement = {
-    enable = true;
-    powertop.enable = true;
-  };
-
   services = {
     dbus.packages = [ pkgs.blueman ];
     locate.enable = true;
