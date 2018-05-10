@@ -42,6 +42,8 @@ Plug 'chriskempson/base16-vim'                      " Base16 colors
 Plug 'LnL7/vim-nix'                                 " Nix syntax
 Plug 'fatih/vim-go'                                 " Go syntax
 Plug 'majutsushi/tagbar'                            " Ctags sidebar
+Plug 'junegunn/goyo.vim'                            " Distraction-free writing
+Plug 'plasticboy/vim-markdown'                      " Markdown support
 "Plug 'junegunn/vader.vim'                          " Vimscript testing
 "Plug 'gmarmstrong/vim-muse', {'branch': 'master'}
 "Plug 'gmarmstrong/vim-muse', {'branch': 'devel'}
