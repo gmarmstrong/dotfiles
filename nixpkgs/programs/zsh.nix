@@ -65,7 +65,7 @@
       ll = "LC_COLLATE=C ls --group-directories-first -FHA -w 80";
       ls = "LC_COLLATE=C ls --group-directories-first -FH -w 80";
       space = "find -maxdepth 1 -exec du -sh '{}' \\; | sort -h";
-      suspace = "sudo find -maxdepth 1 -exec du -sh '{}' \\; | sort -h";
+      suspace = "sudo find -maxdepth 1 -exec du -sh '{}' --exclude='proc' \\; | sort -h";
     };
   };
 }
