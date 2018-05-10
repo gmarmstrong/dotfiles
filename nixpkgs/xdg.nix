@@ -29,7 +29,7 @@
           ext epub, has ebook-viewer, X, flag f = ebook-viewer -- "$@"
           ext mobi, has ebook-viewer, X, flag f = ebook-viewer -- "$@"
           ext x?html?, has firefox, X, flag f = firefox -- "@"
-          mime ^image, has sxiv, X, flag f = sxiv -- "$@"
+          mime ^image, has sxiv, X, flag f = sxiv -a -- "$@"
           mime ^video|audio, has vlc, X, flag f = vlc -- "$@"
           mime ^text, label editor = "$EDITOR" -- "$@"
           mime ^text, label pager = "$PAGER" -- "$@"
