@@ -80,7 +80,7 @@
 
     printing = {
       enable = true;
-      drivers = [ pkgs.hplip ];
+      drivers = [ pkgs.hplip pkgs.foo2zjs ];
     };
 
     physlock = {
