@@ -81,6 +81,8 @@
     printing = {
       enable = true;
       drivers = [ pkgs.hplip pkgs.foo2zjs ];
+      browsing = true;
+      defaultShared = true;
     };
 
     physlock = {
