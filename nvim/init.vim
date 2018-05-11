@@ -43,6 +43,9 @@ Plug 'LnL7/vim-nix'                                 " Nix syntax
 Plug 'fatih/vim-go'                                 " Go syntax
 Plug 'majutsushi/tagbar'                            " Ctags sidebar
 Plug 'junegunn/goyo.vim'                            " Distraction-free writing
+Plug 'godlygeek/tabular'                            " Markdown dependency for tables
+Plug 'cespare/vim-toml'                             " Markdown dependency for TOML (Hugo)
+Plug 'elzr/vim-json'                                " Markdown dependency for JSON (Hugo)
 Plug 'plasticboy/vim-markdown'                      " Markdown support
 "Plug 'junegunn/vader.vim'                          " Vimscript testing
 "Plug 'gmarmstrong/vim-muse', {'branch': 'master'}
@@ -50,7 +53,12 @@ Plug 'plasticboy/vim-markdown'                      " Markdown support
 call plug#end()
 
 " vim-markdown settings
-let g:markdown_enable_conceal = 1
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_follow_anchor = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_json_frontmatter = 1
 
 " vim-gitgutter settings
 let g:gitgutter_override_sign_column_highlight = 1
