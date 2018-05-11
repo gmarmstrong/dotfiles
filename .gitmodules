@@ -7,3 +7,6 @@
 [submodule "resources/base16-xresources"]
 	path = resources/base16-xresources
 	url = git@github.com:chriskempson/base16-xresources
+[submodule "resources/base16-zathura"]
+	path = resources/base16-zathura
+	url = git@github.com:nicodebo/base16-zathura
