@@ -60,6 +60,7 @@
     xdg-user-dirs
     xdg_utils
     xorg.xbacklight
+    xorg.xev
     xorg.xwininfo
     youtube-dl
     zathura
