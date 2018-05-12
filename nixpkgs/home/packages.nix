@@ -13,6 +13,7 @@
     curl
     dict
     diction
+    exfat
     file
     firefox
     gnumake
