@@ -63,6 +63,7 @@
     xorg.xbacklight
     xorg.xev
     xorg.xwininfo
+    xsel
     youtube-dl
     zathura
     zip

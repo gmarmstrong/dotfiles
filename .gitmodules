@@ -10,3 +10,6 @@
 [submodule "resources/base16-zathura"]
 	path = resources/base16-zathura
 	url = git@github.com:nicodebo/base16-zathura
+[submodule "resources/rofiemoji"]
+	path = resources/rofiemoji
+	url = git@github.com:nkoehring/rofiemoji

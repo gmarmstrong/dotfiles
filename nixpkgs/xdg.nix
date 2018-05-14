@@ -44,6 +44,12 @@
         '';
       };
 
+      rofiEmoji = {
+        target = "rofi/rofiemoji.sh";
+        text = builtins.readFile ( "${config.home.homeDirectory}/dotfiles/resources/rofiemoji/rofiemoji.sh" ) ;
+        executable = true;
+      };
+
       userDirs = {
         target = "user-dirs.dirs";
         text = ''
