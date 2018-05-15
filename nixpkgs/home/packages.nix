@@ -8,6 +8,7 @@
     byzanz
     calc
     calibre
+    cargo
     coreutils
     ctags
     curl
@@ -40,6 +41,7 @@
     ranger
     rofi-pass
     rsync
+    rustc
     rxvt_unicode_with-plugins
     scrot
     signal-desktop
