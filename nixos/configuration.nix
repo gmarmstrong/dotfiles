@@ -116,6 +116,8 @@
 
   system.stateVersion = "18.03"; # NixOS release version
 
+  virtualisation.virtualbox.host.enable = true;
+
   environment = {
     variables.EDITOR = "nvim";
     pathsToLink = [ "/share/zsh" ]; # zsh completion for system packages

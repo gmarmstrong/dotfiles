@@ -55,7 +55,6 @@
     tree
     unclutter
     unzip
-    virtualbox
     vlc
     w3m
     wget
