@@ -1,30 +1,17 @@
 #!/usr/bin/env bash
 
-# Confirm Linux operating system
-if [[ ! "$OSTYPE" =~  linux* ]]; then
-    echo "Operating system not Linux. Aborting."
-    exit 1
-fi
-
-# Confirm Debian distribution
-if [[ ! -f "/etc/debian_version" ]]; then
-    echo "Distribution not Debian. Aborting."
-    exit 1
-fi
+# Confirm essential programs
+command -v git || echo "MISSING: git" || exit
+command -v gpg || echo "MISSING: gpg" || exit
+command -v vim || echo "MISSING: neovim" || exit
+command -v pass || echo "MISSING: pass" || exit
+command -v ssh || echo "MISSING: ssh" || exit
 
 # Confirm Internet connection
 if ! ping -c 1 google.com >& /dev/null; then
     echo "Internet connection failed. Aborting."
     exit 1
 fi
-
-sudo -v                 # Authenticate and update user's cached sudo credentials
-sudo apt-get clean      # Clear local repository of retrieved package files
-sudo apt-get autoremove # Remove unneeded automatically installed dependency packages
-sudo apt-get update     # Resynchronize package index files from their sources
-sudo apt-get upgrade    # Install newest versions of currently installed system packages
-sudo apt-get check      # Check for broken dependencies
-xargs sudo apt-get install < packages.txt	# Install packages from list
 
 # Generate SSH key pair
 if [[ ! -e "$HOME/.ssh/id_rsa" ]]; then
