@@ -17,7 +17,7 @@ fi
 if [[ ! -e "$HOME/.ssh/id_rsa" ]]; then
     mkdir -p "$HOME/.ssh"
     echo "Generating SSH key pair..."
-    read -pr "Enter your email address: " email
+    read -rp "Enter your email address: " email
     ssh-keygen -t rsa -b 4096 -C "$email"
     eval "$(ssh-agent -s)"
     ssh-add "$HOME/.ssh/id_rsa"
@@ -25,16 +25,16 @@ fi
 
 # Authenticate with GitHub
 if ! ssh -T git@github.com; then
-    read -pr "Enter your GitHub username: " github_username
+    read -rp "Enter your GitHub username: " github_username
     echo "Uploading public key to GitHub..."
-    read -pr "Enter a unique name for your key: " keyname
+    read -rp "Enter a unique name for your key: " keyname
     myjson='{"title":"'"$keyname"'","key":"'"$(cat "$HOME/.ssh/id_rsa.pub")"'"}'
     eval "curl -u github_username --data '$myjson' https://api.github.com/user/keys"
 fi
 
 # Clone passwords
 if [[ ! -d "$HOME/.password_store" ]]; then
-    read -pr "Enter your password-store GitHub repository name " pw_repo
+    read -rp "Enter your password-store GitHub repository name " pw_repo
     git clone git@github.com:"$github_username"/"$pw_repo" "$HOME/.password-store"
 fi
 
