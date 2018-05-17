@@ -35,13 +35,13 @@ fi
 
 # Clone passwords
 if [[ ! -d "$HOME/.password_store" ]]; then
-    read -rp "Enter your password-store GitHub repository name " pw_repo
+    read -rp "Enter your password-store GitHub repository name: " pw_repo
     git clone git@github.com:"${github_username}"/"${pw_repo}" "$HOME/.password-store"
 fi
 
 # Install Vim plugins
-if [[ ! -f "$HOME/.local/share/nvim/site/autoload/plug.vim" ]]; then
-    curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
+if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]; then
+    curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 vim +PlugUpgrade +PlugUpdate +qall
