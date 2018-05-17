@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Confirm essential programs
+command -v curl || echo "MISSING: curl" || exit
 command -v git || echo "MISSING: git" || exit
 command -v gpg || echo "MISSING: gpg" || exit
 command -v vim || echo "MISSING: neovim" || exit
@@ -29,13 +30,13 @@ if ! ssh -T git@github.com; then
     echo "Uploading public key to GitHub..."
     read -rp "Enter a unique name for your key: " keyname
     myjson='{"title":"'"$keyname"'","key":"'"$(cat "$HOME/.ssh/id_rsa.pub")"'"}'
-    eval "curl -u github_username --data '$myjson' https://api.github.com/user/keys"
+    eval "curl -u ${github_username} --data '$myjson' https://api.github.com/user/keys"
 fi
 
 # Clone passwords
 if [[ ! -d "$HOME/.password_store" ]]; then
     read -rp "Enter your password-store GitHub repository name " pw_repo
-    git clone git@github.com:"$github_username"/"$pw_repo" "$HOME/.password-store"
+    git clone git@github.com:"${github_username}"/"${pw_repo}" "$HOME/.password-store"
 fi
 
 # Install Vim plugins
