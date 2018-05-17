@@ -40,7 +40,6 @@ Plug 'tpope/vim-fugitive'                           " Git wrapper
 Plug 'airblade/vim-gitgutter'                       " Git diff
 Plug 'chriskempson/base16-vim'                      " Base16 colors
 Plug 'LnL7/vim-nix'                                 " Nix syntax
-Plug 'fatih/vim-go'                                 " Go syntax
 Plug 'majutsushi/tagbar'                            " Ctags sidebar
 Plug 'junegunn/goyo.vim'                            " Distraction-free writing
 Plug 'godlygeek/tabular'                            " Markdown dependency for tables

@@ -19,11 +19,8 @@
     firefox
     gnumake
     gnupg
-    go
     golly
     gparted
-    gx
-    gx-go
     hsetroot
     hugo
     imagemagick
