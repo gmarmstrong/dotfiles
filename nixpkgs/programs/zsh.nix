@@ -15,7 +15,6 @@
       bindkey -M viins 'jk' vi-cmd-mode
       bindkey -M vicmd 'k' history-beginning-search-backward
       bindkey -M vicmd 'j' history-beginning-search-forward
-      export GNUPGHOME="$XDG_DATA_HOME/gnupg"
       export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
     '';
 

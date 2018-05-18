@@ -78,6 +78,8 @@
     dbus.packages = [ pkgs.blueman ];
     locate.enable = true;
 
+    gnome3.gnome-keyring.enable = true;
+
     printing = {
       enable = true;
       drivers = [ pkgs.hplip pkgs.foo2zjs ];

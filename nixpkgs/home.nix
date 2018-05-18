@@ -28,6 +28,7 @@
       enable = true;
       timeout = 5;
     };
+    gnome-keyring.enable = true;
     gpg-agent.enable = true;
   };
 

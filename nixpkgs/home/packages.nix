@@ -17,6 +17,7 @@
     exfat
     file
     firefox
+    gnome3.seahorse
     gnumake
     gnupg
     golly
@@ -35,6 +36,7 @@
     pwgen
     python
     python3
+    python36Packages.keyring
     ranger
     rofi-pass
     rsync
