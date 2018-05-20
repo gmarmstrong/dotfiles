@@ -43,7 +43,6 @@
     rustc
     rxvt_unicode_with-plugins
     scrot
-    signal-desktop
     spotify
     sshfs
     sxiv
