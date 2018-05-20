@@ -29,7 +29,10 @@
       timeout = 5;
     };
     gnome-keyring.enable = true;
-    gpg-agent.enable = true;
+    gpg-agent = {
+      enable = true;
+      enableSshSupport = true;
+    };
   };
 
   programs = {
