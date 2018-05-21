@@ -53,8 +53,6 @@
       XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
       PATH = "$HOME/.local/bin/scripts:$PATH";
       dotfiles = "${config.home.homeDirectory}/dotfiles";
-      EDITOR = "nvim";
-      SUDO_EDITOR = "nvim";
     };
 
     shellAliases = {

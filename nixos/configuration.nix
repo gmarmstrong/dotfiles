@@ -1,4 +1,4 @@
-{ pkgs, config, ...  }:
+{ pkgs, config, ... }:
 
 {
 
@@ -121,7 +121,7 @@
   virtualisation.virtualbox.host.enable = true;
 
   environment = {
-    variables.EDITOR = "nvim";
+    variables.EDITOR = "nvim"; # FIXME Install nvim system-wide
     pathsToLink = [ "/share/zsh" ]; # zsh completion for system packages
     systemPackages = with pkgs; [
       alsaLib
