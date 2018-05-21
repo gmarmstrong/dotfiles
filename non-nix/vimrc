@@ -1,0 +1,2 @@
+" Bind jk to escape
+inoremap jk <esc>
