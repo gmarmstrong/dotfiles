@@ -3,10 +3,13 @@
 {
 
   imports = [
-    ./programs/git.nix
-    ./programs/rofi.nix
+    ./home/file.nix
+    ./home/packages.nix
     ./programs/fzf.nix
+    ./programs/git.nix
     ./programs/htop.nix
+    ./programs/rofi.nix
+    ./programs/ssh.nix
     ./programs/zsh.nix
     ./services/compton.nix
     ./services/polybar.nix
@@ -14,8 +17,6 @@
     ./xdg.nix
     ./xresources.nix
     ./xsession/windowManager/i3.nix
-    ./home/packages.nix
-    ./home/file.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -42,16 +43,6 @@
     };
     neovim.enable = true;
     firefox.enable = true;
-    ssh = {
-      enable = true;
-      matchBlocks = {
-        "nike" = {
-          hostname = "nike.cs.uga.edu";
-          user = "gma";
-          forwardX11 = true;
-        };
-      };
-    };
   };
 
   xsession = {
