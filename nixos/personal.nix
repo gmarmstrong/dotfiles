@@ -15,14 +15,11 @@
     packageOverrides = pkgs : rec { i3Support = true; };
   };
 
-  fonts = {
-    fonts = with pkgs; [
-      twemoji-color-font
-      noto-fonts-emoji
-      dejavu_fonts
-    ];
-    fontconfig.defaultFonts.monospace = [ "Twitter Color Emoji" "DejaVu Sans Mono" ];
-  };
+  # "List of primary font paths."
+  fonts.fonts = with pkgs; [
+    twemoji-color-font
+    dejavu_fonts
+  ];
 
   hardware = {
 
