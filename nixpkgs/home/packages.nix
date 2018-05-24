@@ -35,6 +35,7 @@
     pwgen
     python
     python3
+    qrencode
     ranger
     rofi-pass
     rsync
@@ -46,6 +47,7 @@
     sxiv
     texlive.combined.scheme-full
     thunderbird
+    tomb
     transmission_gtk
     trash-cli
     tree

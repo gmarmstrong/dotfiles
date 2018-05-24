@@ -39,6 +39,7 @@
       rangerRifle = {
         target = "ranger/rifle.conf";
         text = ''
+          ext gpg, label editor = "$EDITOR" -- "$@"
           ext pdf, has zathura, X, flag f = zathura -- "$@"
           ext djvu, has zathura, X, flag f = zathura -- "$@"
           ext epub, has ebook-viewer, X, flag f = ebook-viewer -- "$@"
