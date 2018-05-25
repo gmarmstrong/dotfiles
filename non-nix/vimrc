@@ -1,2 +1,7 @@
 " Bind jk to escape
 inoremap jk <esc>
+
+" Indentation
+set shiftwidth=4        "Set width of reindent operations (<< and >>)
+set tabstop=4           "Tab characters appear 4 spaces wide
+set expandtab           "Insert spaces instead of tabs
