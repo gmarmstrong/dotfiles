@@ -4,7 +4,7 @@
 command -v curl || echo "MISSING: curl" || exit
 command -v git || echo "MISSING: git" || exit
 command -v gpg || echo "MISSING: gpg" || exit
-command -v vim || echo "MISSING: neovim" || exit
+command -v vim || echo "MISSING: vim" || exit
 command -v pass || echo "MISSING: pass" || exit
 command -v ssh || echo "MISSING: ssh" || exit
 
