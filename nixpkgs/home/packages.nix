@@ -5,6 +5,7 @@
     acpi
     ardour
     audacity
+    blueman
     byzanz
     calc
     calibre
@@ -17,6 +18,7 @@
     exfat
     file
     firefox
+    gnome3.adwaita-icon-theme
     gnumake
     gnupg
     golly
