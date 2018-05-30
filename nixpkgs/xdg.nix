@@ -2,8 +2,11 @@
 
 {
   xdg = {
+
+    # "Whether to enable management of XDG base directories."
     enable = true;
 
+    # "Attribute set of files to link into the user's XDG configuration home."
     configFile = {
       neovimConfig = {
         source = "${config.home.homeDirectory}/dotfiles/nvim/init.vim";

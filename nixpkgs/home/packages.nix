@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 
 {
+  # "The set of packages to appear in the user environment."
   home.packages = with pkgs; [
     acpi
     ardour

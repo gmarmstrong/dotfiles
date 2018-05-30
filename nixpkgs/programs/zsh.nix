@@ -2,12 +2,17 @@
 
 {
   programs.zsh = {
+
+    # "Whether to enable Z shell."
     enable = true;
 
+    # "Enable zsh completion."
     enableCompletion = true;
 
+    # "Directory where the zsh configurations and more should be located."
     dotDir = ".config/zsh";
 
+    # "Extra commands that should be added to .zshrc."
     initExtra = ''
       command -v nvim >/dev/null 2>&1 && alias vim="nvim" && alias vi="nvim"
       bindkey -v
@@ -18,17 +23,18 @@
       export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
     '';
 
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" "pass" ];
-      theme = "";
+    oh-my-zsh = { # "Options to configure oh-my-zsh."
+      enable = true; # "Whether to enable oh-my-zsh."
+      plugins = [ "git" "pass" ]; # "List of oh-my-zsh plugins"
+      theme = ""; # "Name of the theme to be used by oh-my-zsh."
     };
 
+    # "Plugins to source in .zshrc."
     plugins = [
       {
-        name = "async";
-        file = "async.zsh";
-        src = pkgs.fetchFromGitHub {
+        name = "async"; # "The name of the plugin."
+        file = "async.zsh"; # "The plugin script to source."
+        src = pkgs.fetchFromGitHub { # "Path to the plugin folder."
           owner = "sindresorhus";
           repo = "pure";
           rev = "a90b1bc04a2aecdb421493207080b88a6a2a414c";
@@ -36,9 +42,9 @@
         };
       }
       {
-        name = "pure";
-        file = "pure.zsh";
-        src = pkgs.fetchFromGitHub {
+        name = "pure"; # "The name of the plugin."
+        file = "pure.zsh"; # "The plugin script to source."
+        src = pkgs.fetchFromGitHub { # "Path to the plugin folder."
           owner = "sindresorhus";
           repo = "pure";
           rev = "a90b1bc04a2aecdb421493207080b88a6a2a414c";
@@ -47,6 +53,7 @@
       }
     ];
 
+    # "Environment variables that will be set for zsh session."
     sessionVariables = {
       XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
       XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
@@ -55,6 +62,8 @@
       dotfiles = "${config.home.homeDirectory}/dotfiles";
     };
 
+    # "An attribute set that maps aliases to command strings or directly to
+    # build outputs."
     shellAliases = {
       bup = "sudo rsync --verbose --delete-excluded -aAXv --exclude={\"/home/*/.cache/*\",\"/home/*/nextcloud\",\"/home/*/virtualbox\",\"/home/*/.local/share/Trash/*\",\"/home/*/.cache/mozilla/*/OfflineCache\",\"/home/*/.cache/mozilla/*/cache2\"} /home /run/media/$USER/ca3036f2-022d-4b6e-bb03-ed762403fd3b";
       l = "LC_COLLATE=C ls --group-directories-first -FHAlh -w 80";

@@ -3,17 +3,19 @@
 {
 
   xsession.windowManager.i3 = {
-    enable = true;
-    config = {
 
-      window = {
-        hideEdgeBorders = "smart";
-        titlebar = false;
-        border = 2;
-        commands = [
+    enable = true; # "Whether to enable i3 window manager."
+
+    config = { # "i3 configuration options."
+      window = { # "Window titlebar and border settings."
+        hideEdgeBorders = "smart"; # "Hide window borders adjacent ot the screen edges."
+        titlebar = false; # "Whether to show window titlebars."
+        border = 2; # "Window border width."
+
+        commands = [ # "List of commands that should be executed on specific windows.
           {
-            command = "focus";
-            criteria = {
+            command = "focus"; # "i3wm command to execute."
+            criteria = { # "Criteria of the windows on which command should be executed."
               class = "^jetbrains-.+";
               window_type = "dialog";
             };
@@ -21,12 +23,16 @@
         ];
       };
 
-      floating = {
-        titlebar = false;
-        border = 2;
+      floating = { # "Floating window settings."
+        titlebar = false; # "Whether to show floating window titlebars."
+        border = 2; # "Floating windows border width."
+
+        # "List of criteria for windows that should be opened in a floating
+        # mode."
         criteria = [ { title = "Network Connections"; } { class = "Pavucontrol"; } ];
       };
 
+      # "Commands that should be executed at startup."
       startup = [
         {
           command = "xrdb -load \"${config.home.homeDirectory}/.Xresources\"";
@@ -53,10 +59,14 @@
         }
       ];
 
+      # "i3 bars settings blocks. Set to empty list to remove bars completely."
       bars = [];
 
+      # "Whether focus should follow the mouse."
       focus.followMouse = false;
 
+      # "An attribute set that assigns a key press to an action using a key
+      # symbol."
       keybindings = {
         "Mod1+Ctrl+Shift+r" = "restart";
         "Mod1+Shift+r" = "reload";
@@ -178,6 +188,7 @@
       };
     };
 
+    # "Extra configuration lines to add to ~/.config/i3/config."
     extraConfig = ''
       # See https://i3wm.org/docs/userguide.html#xresources
       set_from_resource $base00 i3wm.color0

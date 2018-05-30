@@ -3,13 +3,16 @@
 {
   services.polybar = {
 
+    # "Whether to enable Polybar status bar."
     enable = true;
 
+    # "Polybar package to install."
     package = pkgs.polybar.override {
       i3Support = true;
       i3 = pkgs.i3;
     };
 
+    # "Polybar configuration."
     config = {
 
       "bar/basebar" = {
@@ -89,6 +92,7 @@
 
     };
 
+    # "Additional configuration to add."
     extraConfig = ''
       [colors]
       base00 = ''${xrdb:color0:#000000}
@@ -109,7 +113,10 @@
       base0F = ''${xrdb:color14:#000000}
     '';
 
+    # "This script will be used to start the polybars. Set all necessary
+    # environment variables here and start all bars. It can be assumed that
+    # polybar executable is in the PATH. Note, this script must start all bars
+    # in the background and then terminate.
     script = "PATH=$PATH:${pkgs.i3}/bin polybar topbar & PATH=$PATH:${pkgs.i3}/bin polybar altbar &";
-
   };
 }

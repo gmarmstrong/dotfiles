@@ -2,14 +2,16 @@
 
 {
   programs.git = {
-    enable = true;
-    userName = "gmarmstrong";
-    userEmail = "guthrie.armstrong@gmail.com";
-    signing = {
-      key = "100B37EAF2164C8B";
-      signByDefault = true;
+    enable = true; # "Whether to enable Git."
+    userName = "gmarmstrong"; # "Default user name to use."
+    userEmail = "guthrie.armstrong@gmail.com"; # "Default user email to use."
+
+    signing = { # "Options related to signing commits using GnuPG."
+      key = "100B37EAF2164C8B"; # "The default GPG signing key fingerprint."
+      signByDefault = true; # "Whether commits should be signed by default."
     };
 
+    # "Additional configuration to add."
     extraConfig = {
       core.editor = "${pkgs.neovim}/bin/nvim";
       commit.gpgsign = true;
@@ -17,6 +19,7 @@
       credential.helper = "cache";
     };
 
+    # "List of paths that should be globally ignored."
     ignores = [
       "secring.*"
       ".ssh/id_rsa"

@@ -2,6 +2,10 @@
 
 {
   xresources = {
+
+    # "X server resources that should be set. If this and all other xresources
+    # options are null, then this feature is disabled and no ~/.Xresources link
+    # is produeced."
     properties = {
       "URxvt.termName" = "rxvt-unicode-256color";
       "URxvt.iso14755" = false;
@@ -26,6 +30,8 @@
       "Xft.antialias" = 1;
       "Xft.rgba" = "rgb";
     };
+
+    # "Additional X server resources contents."
     extraConfig = builtins.readFile ( "${config.home.homeDirectory}/dotfiles/resources/base16-xresources/xresources/base16-gruvbox-light-soft.Xresources" );
   };
 }
