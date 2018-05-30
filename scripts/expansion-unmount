@@ -2,4 +2,5 @@
 
 sudo -v
 udisksctl unmount -b /dev/mapper/expansion # unmount device
+# TODO Use udisksctl lock -b /dev/sdb
 sudo cryptsetup close expansion # close device
