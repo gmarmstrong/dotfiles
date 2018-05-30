@@ -56,7 +56,7 @@
     };
 
     shellAliases = {
-      bup = "sudo rsync --verbose --delete-excluded -aAXv --exclude={\"/home/*/.cache/*\",\"/home/*/nextcloud\",\"/home/*/.local/share/Trash/*\"} /home /run/media/$USER/ca3036f2-022d-4b6e-bb03-ed762403fd3b";
+      bup = "sudo rsync --verbose --delete-excluded -aAXv --exclude={\"/home/*/.cache/*\",\"/home/*/nextcloud\",\"/home/*/virtualbox\",\"/home/*/.local/share/Trash/*\",\"/home/*/.cache/mozilla/*/OfflineCache\",\"/home/*/.cache/mozilla/*/cache2\"} /home /run/media/$USER/ca3036f2-022d-4b6e-bb03-ed762403fd3b";
       l = "LC_COLLATE=C ls --group-directories-first -FHAlh -w 80";
       ll = "LC_COLLATE=C ls --group-directories-first -FHA -w 80";
       ls = "LC_COLLATE=C ls --group-directories-first -FH -w 80";
