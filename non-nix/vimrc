@@ -1,7 +1,25 @@
+" ==============================================================================
+" VIM
+
+set modeline
+
+" ==============================================================================
+" INPUT
+
 " Bind jk to escape
 inoremap jk <esc>
 
-" Indentation
+" Allow backspace in insert mode
+set backspace=indent,eol,start
+
+" ==============================================================================
+" INDENTATION
 set shiftwidth=4        "Set width of reindent operations (<< and >>)
 set tabstop=4           "Tab characters appear 4 spaces wide
 set expandtab           "Insert spaces instead of tabs
+
+" ==============================================================================
+" DISPLAY
+
+" Show whitespace
+set list listchars=tab:»·,trail:␣
