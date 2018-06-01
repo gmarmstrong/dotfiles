@@ -22,6 +22,8 @@
         modules-left = "i3";
         modules-center = "datetime";
         module-margin = 1;
+        modules-right = "battery0 battery1";
+        tray-position = "right";
         padding = 1;
         font-0 = "DejaVu Sans Mono:size=10";
         background = "\${colors.base00}";
@@ -31,8 +33,6 @@
       "bar/topbar" = {
         "inherit" = "bar/basebar";
         monitor = "\${env:MONITOR:eDP1}";
-        modules-right = "battery0 battery1";
-        tray-position = "right";
       };
 
       "bar/altbar" = {
