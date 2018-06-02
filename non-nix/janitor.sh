@@ -3,7 +3,7 @@
 # Confirm essential programs
 command -v curl || echo "MISSING: curl" || exit
 command -v git || echo "MISSING: git" || exit
-command -v gpg || echo "MISSING: gpg" || exit
+command -v gpg2 || echo "MISSING: gpg2" || exit
 command -v vim || echo "MISSING: vim" || exit
 command -v ssh || echo "MISSING: ssh" || exit
 
