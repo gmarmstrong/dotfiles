@@ -13,6 +13,11 @@ if ! ping -c 1 google.com >& /dev/null; then
     exit 1
 fi
 
+# Link dotfiles
+ln -s "$HOME/dotfiles/non-nix/bashrc" "$HOME/.bashrc"
+ln -s "$HOME/dotfiles/non-nix/inputrc" "$HOME/.inputrc"
+ln -s "$HOME/dotfiles/non-nix/vimrc" "$HOME/.vimrc"
+
 # Generate SSH key pair
 if [[ ! -e "$HOME/.ssh/id_rsa" ]]; then
     mkdir -p "$HOME/.ssh"
@@ -32,9 +37,12 @@ if ssh -T git@github.com; then
     eval "curl -u ${github_username} --data '$myjson' https://api.github.com/user/keys"
 fi
 
-# Install Vim plugins
+# Install vim-plug
 if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]; then
     curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+
+# Install Vim plugins
+vim +qall
 vim +PlugUpgrade +PlugUpdate +qall
