@@ -17,7 +17,7 @@ but feel free to explore and borrow what you like!
 5. Symlink the user configuration with `ln -s "$HOME/dotfiles/nixpkgs/home.nix"
    "$HOME/.config/nixpkgs/home.nix"`
 6. Install [home-manager](https://github.com/rycee/home-manager) with
-   `nix-shell "$HOME/dotfiles/home-manager" -A install`
+   `nix-shell "$HOME/dotfiles/resources/home-manager" -A install`
 7. Apply the home configuration with `home-manager switch`
 
 ## Routine maintenance
