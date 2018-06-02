@@ -45,4 +45,3 @@ if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 vim +PlugUpgrade +PlugUpdate +qall
-# TODO Import PGP subkey (from where?)

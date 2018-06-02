@@ -30,50 +30,51 @@
 
   services = {
 
-    # "Whether to enable Blueman applet."
+    # Tray applet for managing Bluetooth
     blueman-applet.enable = true;
 
-    # A tool to hide the mouse cursor when not used.
+    # Remove idle cursor image from screen
     unclutter = {
-      enable = true; # "Whether to enable unclutter."
-      timeout = 5; # "Number of seconds before the cursor is marked inactive."
+      enable = true;
+      timeout = 5;
     };
 
-    # "Whether to enable GNOME Keyring."
+    # GNOME Keyring, a daemon that stores secrets, passwords, keys, and certificates
     gnome-keyring.enable = true;
 
-    # A daemon to manage private keys independently from any protocol.
+    # GnuPG private key agent, a daemon for managing private keys.
     gpg-agent = {
-      enable = true; # "Whether to enable GnuPG private key agent."
+      enable = true;
       enableSshSupport = true; # "Whether to use the GnuPG key agent for SSH keys."
     };
   };
 
   programs = {
+
+    # Home Manager, a system to manage a user environment using Nix
     home-manager = {
-      enable = true; # "Whether to enable Home Manager."
-      path = "${config.home.homeDirectory}/dotfiles/home-manager"; # "The default path to use for Home Manager."
+      enable = true;
+      path = "${config.home.homeDirectory}/dotfiles/resources/home-manager";
     };
 
     neovim.enable = true; # "Whether to enable Neovim."
     firefox.enable = true; # "Whether to enable Firefox."
   };
 
+  # Xsession, a script run when an X Window System session is begun.
   xsession = {
-
-    # "Whether to enable X Session."
     enable = true;
 
     # "Extra shell commands to run before session start."
     profileExtra = ''
-      nm-applet &
-      pasystray &
-      nextcloud &
+      nm-applet & # Network monitor and control GUI applet
+      pasystray & # PulseAudio controller for the system tray
+      nextcloud & # File synchronization desktop utility
     '';
 
     # "Extra shell commands to run during initialization."
     initExtra = ''
-      xset s off
+      xset s off # disable screen saver
     '';
   };
 }

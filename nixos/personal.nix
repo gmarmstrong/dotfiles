@@ -157,7 +157,7 @@
         # "Configuration for automatic login."
         autoLogin = {
 
-          # "Automatically log in as th especified `autoLogin.user`."
+          # "Automatically log in as the specified `autoLogin.user`."
           enable = true;
 
           # "User to be used for the automatic login."
