@@ -1,6 +1,3 @@
-bindkey -v
-bindkey -M viins '^?' backward-delete-char
-bindkey -M viins 'jk' vi-cmd-mode
 l = "LC_COLLATE=C ls --group-directories-first -FHAlh -w 80";
 ll = "LC_COLLATE=C ls --group-directories-first -FHA -w 80";
 ls = "LC_COLLATE=C ls --group-directories-first -FH -w 80";
