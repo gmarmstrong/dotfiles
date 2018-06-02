@@ -4,6 +4,35 @@
 set modeline
 
 " ==============================================================================
+" PLUGINS
+
+" Plugins
+call plug#begin()
+Plug 'airblade/vim-gitgutter'       " Git diff
+Plug 'chriskempson/base16-vim'      " Base16 colors
+Plug 'majutsushi/tagbar'            " Ctags sidebar
+Plug 'godlygeek/tabular'            " Markdown dependency for tables
+Plug 'elzr/vim-json'                " Markdown dependency for JSON
+Plug 'plasticboy/vim-markdown'      " Markdown support
+call plug#end()
+
+" vim-markdown settings
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_follow_anchor = 1
+
+" vim-gitgutter settings
+let g:gitgutter_override_sign_column_highlight = 1
+if exists('&signcolumn')
+    set signcolumn=yes
+else
+    let g:gitgutter_sign_column_always = 1
+endif
+set updatetime=100
+
+" base16 settings
+colorscheme base16-gruvbox-light-soft
+
+" ==============================================================================
 " INPUT
 
 " Bind jk to escape
@@ -14,6 +43,7 @@ set backspace=indent,eol,start
 
 " ==============================================================================
 " INDENTATION
+
 set shiftwidth=4        "Set width of reindent operations (<< and >>)
 set tabstop=4           "Tab characters appear 4 spaces wide
 set expandtab           "Insert spaces instead of tabs
@@ -23,3 +53,11 @@ set expandtab           "Insert spaces instead of tabs
 
 " Show whitespace
 set list listchars=tab:»·,trail:␣
+
+" Color
+highlight clear SignColumn
+highlight clear LineNr
+highlight clear GitGutterAdd
+highlight clear GitGutterChange
+highlight clear GitGutterDelete
+highlight clear GitGutterChangeDelete
