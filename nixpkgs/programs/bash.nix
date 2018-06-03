@@ -15,7 +15,7 @@
       function git_slug {
           if $(test -d .git); then
               if $([ -z "$(git status --porcelain)" ]); then
-                  echo "$(git rev-parse --abbrev-ref HEAD)"
+                  echo "$(git rev-parse --abbrev-ref HEAD) "
               else
                   echo "$(git rev-parse --abbrev-ref HEAD)*"
               fi
