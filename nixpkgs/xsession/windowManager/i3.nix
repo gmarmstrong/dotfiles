@@ -125,7 +125,7 @@
         "Mod1+c" = "exec \"rofi -show window\"";
         "Mod1+e" = "exec \"rofi -modi 'emoji:${config.xdg.configHome}/rofi/rofiemoji.sh' -show emoji\"";
         "Mod1+Shift+d" = "exec \"rofi -show ssh\"";
-        "Mod1+Shift+c" = "exec \"env GNUPGHOME=${config.home.homeDirectory}/.gnupg rofi-pass --root ${config.xdg.dataHome}/password-store\"";
+        "Mod1+Shift+c" = "exec \"rofi-pass\"";
         "Mod1+Shift+q" = "kill";
         "Mod1+Return" = "exec i3-sensible-terminal";
 

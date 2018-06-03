@@ -21,14 +21,11 @@
               fi
           fi
       }
-      export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\] $(git_slug)$ '
+      export PS1='\[\033[1;33m\]\w\[\033[0m\] $(git_slug)$ '
     '';
 
     # "Environment variables that will be set for the Bash session."
-    sessionVariables = {
-      PASSWORD_STORE_DIR="${config.xdg.dataHome}/password-store";
-      PATH = "$HOME/.local/bin/scripts:$PATH";
-    };
+    sessionVariables = { PATH = "$HOME/.local/bin/scripts:$PATH"; };
 
     # "An attribute set that maps aliases (the top level attribute names in
     # this option) to command strings or directly to build outputs. The aliases
