@@ -43,6 +43,7 @@
 
     # "Shell options to set."
     shellOptions = [
+      "cmdhist"
       "histappend"
       "checkwinsize"
       "extglob"
