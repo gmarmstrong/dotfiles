@@ -51,7 +51,7 @@
     home = "/home/guthrie";
     description = "Guthrie McAfee Armstrong";
     extraGroups = [ "wheel" "networkmanager" "audio" ];
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
   };
 
   networking = {
@@ -77,6 +77,7 @@
   programs = {
     gnupg.agent.enable = true;
     adb.enable = true;
+    bash.enableCompletion = true;
   };
 
   services = {
@@ -127,7 +128,6 @@
 
   environment = {
     variables.EDITOR = "nvim"; # FIXME Install nvim system-wide
-    pathsToLink = [ "/share/zsh" ]; # zsh completion for system packages
     systemPackages = with pkgs; [
       alsaLib
       alsaTools

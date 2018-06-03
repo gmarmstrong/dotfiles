@@ -44,7 +44,7 @@
     # can be either a full system path or a shell package. This must not be a
     # store path, since the path is used outside the store (in particular in
     # `/etc/passwd`)."
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.bash;
 
     # "Additional user accounts ot be created automatically by the system. This
     # can also be used to set options for root."

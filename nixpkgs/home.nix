@@ -5,12 +5,12 @@
   imports = [
     ./home/file.nix
     ./home/packages.nix
+    ./programs/bash.nix
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/htop.nix
     ./programs/rofi.nix
     ./programs/ssh.nix
-    ./programs/zsh.nix
     ./services/compton.nix
     ./services/polybar.nix
     ./services/redshift.nix
