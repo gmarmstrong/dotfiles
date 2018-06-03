@@ -15,13 +15,13 @@
       function git_slug {
           if $(test -d .git); then
               if $([ -z "$(git status --porcelain)" ]); then
-                  echo "$(git rev-parse --abbrev-ref HEAD) "
+                  echo "$(git rev-parse --abbrev-ref HEAD)  "
               else
-                  echo "$(git rev-parse --abbrev-ref HEAD)*"
+                  echo "$(git rev-parse --abbrev-ref HEAD)* "
               fi
           fi
       }
-      export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\] $(git_slug) $ '
+      export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\] $(git_slug)$ '
     '';
 
     # "Environment variables that will be set for the Bash session."
