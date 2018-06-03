@@ -4,9 +4,6 @@
 
   environment = {
 
-    # "List of directories to be symlinked in `/run/current-system/sw`."
-    pathsToLink = [ "/share/zsh" ]; # Zsh completion for system packages
-
     # "The set of packages that appear in `/run/current-syste/sw`. These
     # packages are automatically available to all users, and are automatically
     # updated every time you rebuild the system configuration. (The latter is
@@ -39,8 +36,14 @@
   # should have permission to change network settings to this group."
   networking.networkmanager.enable = true;
 
-  # "Enables GnuPG agent with socket-activation for every user session."
-  programs.gnupg.agent.enable = true;
+  programs = {
+
+    # "Enables GnuPG agent with socket-activation for every user session."
+    gnupg.agent.enable = true;
+
+    # "Enable Bash completion for all interactive bash shells."
+    bash.enableCompletion = true;
+  }
 
   security = {
 
