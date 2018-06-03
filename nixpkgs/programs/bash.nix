@@ -21,7 +21,7 @@
               fi
           fi
       }
-      export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\] $(git_slug)$ '
+      export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\] $(git_slug) $ '
     '';
 
     # "Environment variables that will be set for the Bash session."
