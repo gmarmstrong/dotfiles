@@ -67,7 +67,7 @@
 
     # "Extra shell commands to run before session start."
     profileExtra = ''
-      nm-applet & # Network monitor and control GUI applet
+      # nm-applet & # Network monitor and control GUI applet
       pasystray & # PulseAudio controller for the system tray
       nextcloud & # File synchronization desktop utility
     '';

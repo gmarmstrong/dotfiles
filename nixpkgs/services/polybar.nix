@@ -22,10 +22,11 @@
         modules-left = "i3";
         modules-center = "datetime";
         module-margin = 1;
-        modules-right = "battery0 battery1";
+        modules-right = "wireless-network wired-network battery0 battery1";
         tray-position = "right";
         padding = 1;
-        font-0 = "DejaVu Sans Mono:size=10";
+        font-0 = "Twitter Color Emoji:style=Regular:size=10";
+        font-1 = "DejaVu Sans Mono:style=Regular:size=10";
         background = "\${colors.base00}";
         foreground = "\${colors.base05}";
       };
@@ -70,12 +71,16 @@
         type = "internal/battery";
         poll-interval = 5;
         full-at = 98;
-        format-charging = "<label-charging>";
-        format-discharging = "<label-discharging>";
-        format-full = "<label-full>";
-        label-charging = "%percentage%% CHR";
-        label-discharging = "%percentage%% DIS";
-        label-full = "FULL";
+        format-charging = "<label-charging> <ramp-capacity>";
+        format-discharging = "<ramp-capacity>";
+        format-full = "<ramp-capacity>";
+        label-charging = "⚡";
+        ramp-capacity-0 = "▰▱▱▱▱▱";
+        ramp-capacity-1 = "▰▰▱▱▱▱";
+        ramp-capacity-2 = "▰▰▰▱▱▱";
+        ramp-capacity-3 = "▰▰▰▰▱▱";
+        ramp-capacity-4 = "▰▰▰▰▰▱";
+        ramp-capacity-5 = "▰▰▰▰▰▰";
       };
 
       "module/battery0" = {
@@ -88,6 +93,22 @@
         "inherit" = "module/batterybase";
         battery = "BAT1";
         adapter = "AC";
+      };
+
+      "module/networkbase" = {
+        type = "internal/network";
+      };
+
+      "module/wired-network" = {
+        "inherit" = "module/networkbase";
+        interface = "enp0s25";
+        label-connected = "Ethernet";
+      };
+
+      "module/wireless-network" = {
+        "inherit" = "module/networkbase";
+        interface = "wlp3s0";
+        label-connected = "%essid%";
       };
 
     };
