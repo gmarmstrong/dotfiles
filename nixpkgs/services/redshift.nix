@@ -5,7 +5,7 @@
 
     # "Enable Redshift to change you screen's colour temperature depending on
     # the time of day."
-    enable = true;
+    enable = false;
 
     # "Your current latitude, between -90.0 and 90.0."
     latitude = "33.9519";
