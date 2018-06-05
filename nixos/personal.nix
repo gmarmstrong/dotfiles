@@ -24,15 +24,22 @@
   hardware = {
 
     pulseaudio = {
-
       # "Whether to enable the PulseAudio sound server."
       enable = true;
 
       # "The PulseAudio derivation to use. This can be used to enable features
       # (such as JACK support, Bluetooth) via the pulseaudioFull package."
       package = pkgs.pulseaudioFull;
-
     };
+
+    # "Whether to enable OpenGL drivers. This is needed to enable OpenGL
+    # support in X11 systems, as well as for Wayland compositors like sway,
+    # way-cooler and Weston. It is enabled by default by the corresponding
+    # modules, so you do not usually have to set it yourself, only if there is
+    # no module for your wayland compositor of choice. See
+    # services.xserver.enable, programs.sway.enable, and
+    # programs.way-cooler.enable."
+    opengl.enable = true;
 
     # "Whether to enable support for Bluetooth."
     blueototh.enable = true;
@@ -187,5 +194,4 @@
       pavucontrol
     ];
   };
-
 }

@@ -35,20 +35,8 @@
     };
   };
 
-  hardware = {
-
-    # "Update the CPU microcode for Intel processors."
-    cpu.intel.updateMicrocode = true;
-
-    # "Whether to enable OpenGL drivers. This is needed to enable OpenGL
-    # support in X11 systems, as well as for Wayland compositors like sway,
-    # way-cooler and Weston. It is enabled by default by the corresponding
-    # modules, so you do not usually have to set it yourself, only if there is
-    # no module for your wayland compositor of choice. See
-    # services.xserver.enable, programs.sway.enable, and
-    # programs.way-cooler.enable."
-    opengl.enable = true;
-  };
+  # "Update the CPU microcode for Intel processors."
+  hardware.cpu.intel.updateMicrocode = true;
 
   # "The name of the machine. Leave it empty if you want to obtain it from a
   # DHCP server (if using DHCP)."
