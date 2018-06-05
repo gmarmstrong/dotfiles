@@ -27,7 +27,7 @@
     hsetroot
     hugo
     imagemagick
-    libreoffice
+    libreoffice.libreoffice
     musescore
     nextcloud-client
     p7zip
