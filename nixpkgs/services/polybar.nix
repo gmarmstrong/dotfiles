@@ -22,7 +22,7 @@
         modules-left = "i3";
         modules-center = "datetime";
         module-margin = 1;
-        modules-right = "wireless-network wired-network battery0 battery1";
+        modules-right = "vpn wireless-network wired-network battery0 battery1";
         padding = 4;
         font-0 = "Twitter Color Emoji:style=Regular:size=12";
         font-1 = "DejaVu Sans Mono:style=Regular:size=12";
@@ -112,7 +112,14 @@
       "module/wireless-network" = {
         "inherit" = "module/networkbase";
         interface = "wlp3s0";
-        label-connected = "%essid%";
+        label-connected = "Wi-Fi";
+      };
+
+      "module/vpn" = {
+        type = "custom/script";
+        interval = 2;
+        label = "%output%";
+        exec = "/run/current-system/sw/bin/pgrep openvpn >/dev/null && printf '🔒' || printf '🔓'";
       };
 
     };
