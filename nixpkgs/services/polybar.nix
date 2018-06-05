@@ -17,22 +17,22 @@
 
       "bar/basebar" = {
         width = "100%";
-        height = "3%";
+        height = "5%";
         radius = 0;
         modules-left = "i3";
         modules-center = "datetime";
         module-margin = 1;
         modules-right = "wireless-network wired-network battery0 battery1";
-        tray-position = "right";
-        padding = 1;
-        font-0 = "Twitter Color Emoji:style=Regular:size=10";
-        font-1 = "DejaVu Sans Mono:style=Regular:size=10";
+        padding = 4;
+        font-0 = "Twitter Color Emoji:style=Regular:size=12";
+        font-1 = "DejaVu Sans Mono:style=Regular:size=12";
         background = "\${colors.base00}";
         foreground = "\${colors.base05}";
       };
 
       "bar/topbar" = {
         "inherit" = "bar/basebar";
+        tray-position = "right";
         monitor = "\${env:MONITOR:eDP1}";
       };
 
@@ -54,9 +54,9 @@
         label-focused-foreground = "\${colors.base05}";
         label-focused-background = "\${colors.base02}";
         label-focused-underline = "\${colors.base09}";
-        label-focused-padding = 4;
+        label-focused-padding = 6;
         label-unfocused = "%index%";
-        label-unfocused-padding = 4;
+        label-unfocused-padding = 6;
       };
 
       "module/datetime" = {
@@ -97,6 +97,10 @@
 
       "module/networkbase" = {
         type = "internal/network";
+        format-connected = "<label-connected>";
+        format-connected-margin = 2;
+        format-disconnected = "<label-disconnected>";
+        format-disconnected-margin = 2;
       };
 
       "module/wired-network" = {
