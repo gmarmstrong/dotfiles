@@ -54,6 +54,10 @@
       # "Whether to enable libinput."
       enable = true;
 
+      # Enables middle button emulation. When enabled, pressing the left and
+      # right buttons simultaneously produces a middle mouse button click.
+      middleEmulation = false;
+
       # "Specify the scrolling method: twofinger, edge, or none"
       scrollMethod = "twofinger";
 
