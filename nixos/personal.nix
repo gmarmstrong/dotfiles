@@ -86,8 +86,16 @@
   # timedatectl."
   time.timeZone = "US/Eastern";
 
-  # "Install and setup the Java development kit."
-  programs.java.enable = true;
+  programs = {
+
+    # "Install and setup the Java development kit."
+    java.enable = true;
+
+    # Whether to configure system to use Android Debug Bridge (adb). To grant
+    # access to a user, it must be part of adbusers group:
+    # users.extraUsers.alice.extraGroups = ["adbusers"];
+    adb.enable = true;
+  };
 
   # "Whether to enable VirtualBox."
   virtualisation.virtualbox.host.enable = true;

@@ -42,11 +42,6 @@
   # DHCP server (if using DHCP)."
   networking.hostName = "nixos-thinkpad";
 
-  # Whether to configure system to use Android Debug Bridge (adb). To grant
-  # access to a user, it must be part of adbusers group:
-  # users.extraUsers.alice.extraGroups = ["adbusers"];
-  programs.adb.enable = true;
-
   xserver = {
 
     libinput = {
