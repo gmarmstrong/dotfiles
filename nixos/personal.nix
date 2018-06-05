@@ -89,6 +89,9 @@
   # "Install and setup the Java development kit."
   programs.java.enable = true;
 
+  # "Whether to enable VirtualBox."
+  virtualisation.virtualbox.host.enable = true;
+
   services = {
 
     # "Packages whose D-Bus configuration files should be included in the

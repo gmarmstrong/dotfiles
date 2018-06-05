@@ -74,8 +74,4 @@
     # "Whether to enable multitouch touchpad support."
     multitouch.enable = true;
   };
-
-  # "Whether to enable VirtualBox."
-  virtualisation.virtualbox.host.enable = true;
-
 }
