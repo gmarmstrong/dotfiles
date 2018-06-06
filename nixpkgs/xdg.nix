@@ -45,7 +45,7 @@
           ext gpg, label editor = "$EDITOR" -- "$@"
           ext pdf, has zathura, X, flag f = zathura -- "$@"
           ext djvu, has zathura, X, flag f = zathura -- "$@"
-          ext epub, has ebook-viewer, X, flag f = ebook-viewer -- "$@"
+          ext epub, has zathura, X, flag f = zathura -- "$@"
           ext mobi, has ebook-viewer, X, flag f = ebook-viewer -- "$@"
           ext x?html?, has firefox, X, flag f = firefox -- "@"
           mime ^image, has sxiv, X, flag f = sxiv -a -- "$@"
