@@ -121,30 +121,30 @@
         "Mod1+Shift+k" = "move up 20";
         "Mod1+Shift+l" = "move right 20";
 
-        "Mod1+d" = "exec \"rofi -show run\"";
-        "Mod1+c" = "exec \"rofi -show window\"";
-        "Mod1+e" = "exec \"rofi -modi 'emoji:${config.xdg.configHome}/rofi/rofiemoji.sh' -show emoji\"";
-        "Mod1+Shift+d" = "exec \"rofi -show ssh\"";
-        "Mod1+Shift+c" = "exec \"rofi-pass\"";
+        "Mod1+d" = "exec --no-startup-id \"rofi -show run\"";
+        "Mod1+c" = "exec --no-startup-id \"rofi -show window\"";
+        "Mod1+e" = "exec --no-startup-id \"rofi -modi 'emoji:${config.xdg.configHome}/rofi/rofiemoji.sh' -show emoji\"";
+        "Mod1+Shift+d" = "exec --no-startup-id \"rofi -show ssh\"";
+        "Mod1+Shift+c" = "exec --no-startup-id \"rofi-pass\"";
         "Mod1+Shift+q" = "kill";
-        "Mod1+Return" = "exec i3-sensible-terminal";
+        "Mod1+Return" = "exec --no-startup-id i3-sensible-terminal";
 
-        "XF86MonBrightnessUp" = "exec \"xbacklight -inc 10\"";
-        "XF86MonBrightnessDown" = "exec \"xbacklight -dec 10\"";
-        "XF86AudioMute" = "exec \"amixer sset Master toggle\"";
-        "XF86AudioRaiseVolume" = "exec \"amixer sset Master unmute && amixer sset Master 5%+\"";
-        "XF86AudioLowerVolume" = "exec \"amixer sset Master unmute && amixer sset Master 5%-\"";
-        "Shift+XF86AudioRaiseVolume" = "exec \"amixer sset Master unmute && amixer sset Master 2%+\"";
-        "Shift+XF86AudioLowerVolume" = "exec \"amixer sset Master unmute && amixer sset Master 2%-\"";
-        "XF86Calculator" = "exec \"urxvt -e calc\"";
-        "Mod4+l" = "exec \"physlock -m\"";
-        "XF86HomePage" = "exec \"firefox\"";
-        "Mod1+XF86HomePage" = "exec \"firefox -P other\"";
-        "Mod4+e" = "exec \"urxvt -e ranger\"";
+        "XF86MonBrightnessUp" = "exec --no-startup-id \"xbacklight -inc 10\"";
+        "XF86MonBrightnessDown" = "exec --no-startup-id \"xbacklight -dec 10\"";
+        "XF86AudioMute" = "exec --no-startup-id \"amixer sset Master toggle\"";
+        "XF86AudioRaiseVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 5%+\"";
+        "XF86AudioLowerVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 5%-\"";
+        "Shift+XF86AudioRaiseVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 2%+\"";
+        "Shift+XF86AudioLowerVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 2%-\"";
+        "XF86Calculator" = "exec --no-startup-id \"urxvt -e calc\"";
+        "Mod4+l" = "exec --no-startup-id \"physlock -m\"";
+        "XF86HomePage" = "exec --no-startup-id \"firefox\"";
+        "Mod1+XF86HomePage" = "exec --no-startup-id \"firefox -P other\"";
+        "Mod4+e" = "exec --no-startup-id \"urxvt -e ranger\"";
 
-        "Print" = "exec \"scrot --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots/'\"";
-        "Shift+Print" = "exec \"scrot --focused --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots'\"";
-        "Ctrl+Print" = "exec \"sleep 0.2; scrot --select --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots'\"";
+        "Print" = "exec --no-startup-id \"scrot --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots/'\"";
+        "Shift+Print" = "exec --no-startup-id \"scrot --focused --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots'\"";
+        "Ctrl+Print" = "exec --no-startup-id \"sleep 0.2; scrot --select --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots'\"";
 
       };
 
@@ -207,7 +207,7 @@
       set_from_resource $base0D i3wm.color4
       set_from_resource $base0E i3wm.color5
       set_from_resource $base0F i3wm.color14
-      exec i3-msg workspace 1
+      exec --no-startup-id i3-msg workspace 1
     '';
   };
 }
