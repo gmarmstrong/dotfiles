@@ -40,7 +40,7 @@
 
     bluetooth = {
       enable = true;
-      powerOnBoot = false;
+      powerOnBoot = true;
     };
 
     cpu.intel.updateMicrocode = true;
