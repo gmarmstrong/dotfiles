@@ -10,6 +10,7 @@
     # the main difference with installing them in the default profile,
     # `/nix/var/nix/profiles/default`."
     systemPackages = with pkgs; [
+      exfat
       firmwareLinuxNonfree
       git
       neovim

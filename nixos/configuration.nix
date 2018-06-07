@@ -137,6 +137,7 @@
       alsaLib
       alsaTools
       alsaUtils
+      exfat
       firmwareLinuxNonfree
       git
       home-manager

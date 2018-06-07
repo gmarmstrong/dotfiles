@@ -16,7 +16,6 @@
     curl
     dict
     diction
-    exfat
     file
     firefox
     gnome3.adwaita-icon-theme
