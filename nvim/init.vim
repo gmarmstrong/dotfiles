@@ -43,21 +43,23 @@ Plug 'LnL7/vim-nix'                                 " Nix syntax
 Plug 'majutsushi/tagbar'                            " Ctags sidebar
 Plug 'junegunn/goyo.vim'                            " Distraction-free writing
 Plug 'godlygeek/tabular'                            " Markdown dependency for tables
-Plug 'cespare/vim-toml'                             " Markdown dependency for TOML (Hugo)
-Plug 'elzr/vim-json'                                " Markdown dependency for JSON (Hugo)
-Plug 'plasticboy/vim-markdown'                      " Markdown support
+Plug 'vim-pandoc/vim-pandoc'                        " Pandoc support
+Plug 'vim-pandoc/vim-pandoc-syntax'                 " Pandoc syntax highlighting
 "Plug 'junegunn/vader.vim'                          " Vimscript testing
 "Plug 'gmarmstrong/vim-muse', {'branch': 'master'}
 "Plug 'gmarmstrong/vim-muse', {'branch': 'devel'}
 call plug#end()
 
-" vim-markdown settings
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_follow_anchor = 1
-let g:vim_markdown_math = 1
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_json_frontmatter = 1
+" vim-pandoc settings
+let g:pandoc#modules#disabled = ["folding"]
+let g:pandoc#command#custom_open = "PandocXDGOpen"
+function! PandocXDGOpen(file)
+    return 'xdg-open ' . shellescape(expand(a:file,':p'))
+endfunction
+augroup pandoc
+    autocmd! FileType pandoc noremap <F5> <esc>:Pandoc latex -o output.pdf<CR>
+    autocmd FileType pandoc noremap <F6> <esc>:Pandoc! latex -o output.pdf<CR>
+augroup end
 
 " vim-gitgutter settings
 let g:gitgutter_override_sign_column_highlight = 1
