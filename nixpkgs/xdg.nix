@@ -30,6 +30,7 @@
         text = builtins.readFile ( "${config.home.homeDirectory}/dotfiles/resources/base16-zathura/build_schemes/base16-gruvbox-light-soft.config" ) + ''
           set first-page-column 1:1
           set smooth-scroll "true"
+          set recolor "true"
         '';
       };
 
