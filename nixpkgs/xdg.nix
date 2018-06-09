@@ -38,6 +38,7 @@
         target = "ranger/rc.conf";
         text = ''
           map DD shell trash %s
+          set draw_borders true
         '';
       };
       rangerRifle = {
