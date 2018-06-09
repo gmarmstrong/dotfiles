@@ -5,7 +5,7 @@
 
     # "X server resources that should be set. If this and all other xresources
     # options are null, then this feature is disabled and no ~/.Xresources link
-    # is produeced."
+    # is produced."
     properties = {
       "URxvt.termName" = "rxvt-unicode-256color";
       "URxvt.iso14755" = false;
