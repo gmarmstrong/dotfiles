@@ -49,5 +49,7 @@ vim +qall
 vim +PlugUpgrade +PlugUpdate +qall
 
 # Install trash-cli
-mkdir -p "$HOME/.local/lib/python2.6/site-packages"
-easy_install --prefix="$HOME/.local" trash-cli
+if [[ ! -x "$HOME/.local/bin/trash" ]]; then
+    mkdir -p "$HOME/.local/lib/python2.6/site-packages"
+    easy_install --prefix="$HOME/.local" trash-cli
+fi
