@@ -6,6 +6,7 @@ command -v git || echo "MISSING: git" || exit
 command -v gpg2 || echo "MISSING: gpg2" || exit
 command -v vim || echo "MISSING: vim" || exit
 command -v ssh || echo "MISSING: ssh" || exit
+command -v easy_install || echo "MISSING: easy_install" || exit
 
 # Confirm Internet connection
 if ! ping -c 1 google.com >& /dev/null; then
@@ -46,3 +47,6 @@ fi
 # Install Vim plugins
 vim +qall
 vim +PlugUpgrade +PlugUpdate +qall
+
+# Install trash-cli
+easy_install --prefix="$HOME/.local" trash-cli
