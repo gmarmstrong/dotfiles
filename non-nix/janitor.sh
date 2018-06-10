@@ -30,7 +30,7 @@ if [[ ! -e "$HOME/.ssh/id_rsa" ]]; then
 fi
 
 # Authenticate with GitHub
-if ssh -T git@github.com; then
+if ! ssh -T git@github.com; then
     read -rp "Enter your GitHub username: " github_username
     echo "Uploading public key to GitHub..."
     read -rp "Enter a unique name for your key: " keyname
