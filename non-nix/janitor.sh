@@ -53,3 +53,12 @@ if [[ ! -x "$HOME/.local/bin/trash" ]]; then
     mkdir -p "$HOME/.local/lib/python2.6/site-packages"
     easy_install --prefix="$HOME/.local" trash-cli
 fi
+
+# Install tree
+if [[ ! -x "$HOME/.local/bin/tree" ]]; then
+    mkdir -p "$HOME/.local/bin"
+    curl -fLo "$HOME/.local/src" --create-dirs \
+        "http://mama.indstate.edu/users/ice/tree/src/tree-1.7.0.tgz"
+    tar -xzC "$HOME/.local/bin" \
+        -f "$HOME/.local/src/tree-1.7.0.tgz"
+fi
