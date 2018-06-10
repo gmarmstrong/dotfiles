@@ -14,7 +14,7 @@
       target = "${config.home.homeDirectory}/.local/bin/bak";
       text = ''
         #!/usr/bin/env bash
-        sudo rsync -PAXaq --delete-excluded \
+        sudo rsync -PAXa --delete-excluded \
             --exclude="${config.xdg.cacheHome}/*" \
             --exclude="${config.xdg.dataHome}/Trash/*" \
             "/home" "/run/media/${config.home.username}/ca3036f2-022d-4b6e-bb03-ed762403fd3b"
