@@ -24,8 +24,10 @@
       export PS1='\[\033[1;33m\]\w\[\033[0m\] $(git_slug)$ '
     '';
 
-    # "Environment variables that will be set for the Bash session."
-    sessionVariables = { PATH = "$HOME/.local/bin/scripts:$PATH"; };
+    # Environment variables that will be set for the Bash session.
+    sessionVariables = {
+      PATH = "${config.home.homeDirectory}/.local/bin:${config.home.homeDirectory}/.local/bin/scripts:$PATH";
+    };
 
     # "An attribute set that maps aliases (the top level attribute names in
     # this option) to command strings or directly to build outputs. The aliases

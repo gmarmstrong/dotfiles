@@ -9,14 +9,15 @@
       target = "${config.home.homeDirectory}/.local/bin/scripts";
     };
 
-    bup = {
-      target = "${config.home.homeDirectory}/.local/bin/bup";
+    bak = {
+      executable = true;
+      target = "${config.home.homeDirectory}/.local/bin/bak";
       text = ''
         #!/usr/bin/env bash
         sudo rsync -PAXaq --delete-excluded \
             --exclude="${config.xdg.cacheHome}/*" \
             --exclude="${config.xdg.dataHome}/Trash/*" \
-            "/home" "/run/media/$USER/ca3036f2-022d-4b6e-bb03-ed762403fd3b"
+            "/home" "/run/media/${config.home.username}/ca3036f2-022d-4b6e-bb03-ed762403fd3b"
       '';
     };
 
