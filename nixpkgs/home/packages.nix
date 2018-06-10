@@ -39,6 +39,7 @@
     python
     python3
     qrencode
+    qutebrowser
     ranger
     rofi-pass
     rsync

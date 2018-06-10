@@ -25,6 +25,12 @@
         '';
       };
 
+      qutebrowserConfig = {
+        recursive = true;
+        source = "${config.home.homeDirectory}/dotfiles/qutebrowser";
+        target = "qutebrowser";
+      };
+
       zathuraConfig = {
         target = "zathura/zathurarc";
         text = builtins.readFile ( "${config.home.homeDirectory}/dotfiles/resources/base16-zathura/build_schemes/base16-gruvbox-light-soft.config" ) + ''
