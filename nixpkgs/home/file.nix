@@ -9,6 +9,17 @@
       target = "${config.home.homeDirectory}/.local/bin/scripts";
     };
 
+    bup = {
+      target = "${config.home.homeDirectory}/.local/bin/bup";
+      text = ''
+        #!/usr/bin/env bash
+        sudo rsync -PAXaq --delete-excluded \
+            --exclude="${config.xdg.cacheHome}/*" \
+            --exclude="${config.xdg.dataHome}/Trash/*" \
+            "/home" "/run/media/$USER/ca3036f2-022d-4b6e-bb03-ed762403fd3b"
+      '';
+    };
+
     inputrc = {
       target = "${config.home.homeDirectory}/.inputrc";
       text = ''
