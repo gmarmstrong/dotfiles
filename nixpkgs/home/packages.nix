@@ -29,6 +29,7 @@
     libreoffice.libreoffice
     musescore
     nextcloud-client
+    openjdk8
     p7zip
     pandoc
     pass
