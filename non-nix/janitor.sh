@@ -59,5 +59,7 @@ if [[ ! -x "$HOME/.local/bin/tree" ]]; then
     mkdir -p "$HOME/.local/bin"
     curl -fLo "$HOME/.local/src/tree-1.7.0.tgz" --create-dirs \
         "http://mama.indstate.edu/users/ice/tree/src/tree-1.7.0.tgz"
-    tar -xzf "$HOME/.local/src/tree-1.7.0.tgz" -C "$HOME/.local/bin"
+    tar -xzf "$HOME/.local/src/tree-1.7.0.tgz" -C "$HOME/.local/src"
+    make -C "$HOME/.local/src/tree-1.7.0"
+    mv "$HOME/.local/src/tree-1.7.0/tree" "$HOME/.local/bin/tree"
 fi
