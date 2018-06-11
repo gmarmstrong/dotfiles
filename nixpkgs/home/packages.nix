@@ -28,22 +28,19 @@
     imagemagick
     libreoffice.libreoffice
     musescore
-    nextcloud-client
+    nix-repl
     openjdk8
     p7zip
     pandoc
     pass
-    pasystray
     psmisc
     pwgen
     python
     python3
     qrencode
     ranger
-    rofi-pass
     rsync
     rustc
-    rxvt_unicode_with-plugins
     scrot
     spotify
     sshfs

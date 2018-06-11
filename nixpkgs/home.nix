@@ -54,8 +54,8 @@
   xsession = {
     enable = true;
     profileExtra = ''
-      pasystray & # PulseAudio controller for the system tray
-      nextcloud & # File synchronization desktop utility
+      ${pkgs.pasystray}/bin/pasystray &
+      ${pkgs.nextcloud-client}/bin/nextcloud &
     '';
     initExtra = ''
       xset s off # disable screen saver

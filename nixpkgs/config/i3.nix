@@ -114,9 +114,9 @@
         "Mod1+c" = "exec --no-startup-id \"rofi -show window\"";
         "Mod1+e" = "exec --no-startup-id \"rofi -modi 'emoji:${config.xdg.configHome}/rofi/rofiemoji.sh' -show emoji\"";
         "Mod1+Shift+d" = "exec --no-startup-id \"rofi -show ssh\"";
-        "Mod1+Shift+c" = "exec --no-startup-id \"rofi-pass\"";
+        "Mod1+Shift+c" = "exec --no-startup-id \"${pkgs.rofi-pass}/bin/rofi-pass\"";
         "Mod1+Shift+q" = "kill";
-        "Mod1+Return" = "exec --no-startup-id i3-sensible-terminal";
+        "Mod1+Return" = "exec --no-startup-id ${pkgs.rxvt_unicode_with-plugins}/bin/urxvt";
 
         "XF86MonBrightnessUp" = "exec --no-startup-id \"xbacklight -inc 10\"";
         "XF86MonBrightnessDown" = "exec --no-startup-id \"xbacklight -dec 10\"";
@@ -125,11 +125,11 @@
         "XF86AudioLowerVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 5%-\"";
         "Shift+XF86AudioRaiseVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 2%+\"";
         "Shift+XF86AudioLowerVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 2%-\"";
-        "XF86Calculator" = "exec --no-startup-id \"urxvt -e calc\"";
+        "XF86Calculator" = "exec --no-startup-id \"${pkgs.rxvt_unicode_with-plugins}/bin/urxvt -e calc\"";
         "Mod4+l" = "exec --no-startup-id \"physlock -m\"";
         "XF86HomePage" = "exec --no-startup-id \"firefox\"";
         "Mod1+XF86HomePage" = "exec --no-startup-id \"firefox -P other\"";
-        "Mod4+e" = "exec --no-startup-id \"urxvt -e ranger\"";
+        "Mod4+e" = "exec --no-startup-id \"${pkgs.rxvt_unicode_with-plugins}/bin/urxvt -e ranger\"";
 
         "Print" = "exec --no-startup-id \"scrot --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots/'\"";
         "Shift+Print" = "exec --no-startup-id \"scrot --focused --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots'\"";
