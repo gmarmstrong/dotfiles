@@ -31,7 +31,7 @@
     isNormalUser = true;
     home = "/home/guthrie";
     description = "Guthrie McAfee Armstrong";
-    extraGroups = [ "wheel" "networkmanager" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "vboxusers" ];
     shell = pkgs.bash;
   };
 
