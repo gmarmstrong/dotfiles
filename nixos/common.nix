@@ -101,6 +101,7 @@
     alsaLib
     alsaTools
     alsaUtils
+    gnome3.dconf # seahorse dependency
     exfat
     git
     home-manager
