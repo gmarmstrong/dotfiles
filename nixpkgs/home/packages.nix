@@ -29,6 +29,7 @@
     libreoffice.libreoffice
     musescore
     nix-repl
+    nixops
     openjdk8
     p7zip
     pandoc
