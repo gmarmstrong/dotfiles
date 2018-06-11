@@ -2,61 +2,46 @@
 
 {
 
-  environment = {
+  system.stateVersion = "18.03"; # NixOS release version
 
-    # "The set of packages that appear in `/run/current-syste/sw`. These
-    # packages are automatically available to all users, and are automatically
-    # updated every time you rebuild the system configuration. (The latter is
-    # the main difference with installing them in the default profile,
-    # `/nix/var/nix/profiles/default`."
-    systemPackages = with pkgs; [
-      exfat
-      firmwareLinuxNonfree
-      git
-      neovim
-      networkmanager.out
-      nix-prefetch-scripts
-      vulnix
-    ];
-
-    # "A set of environment variables used in the global environment. These
-    # variables will be set on shell initialisation (e.g., in `/etc/profile`).
-    # The value of each variable can be either a string or a list of strings.
-    # The latter is concatenated, interspersed with colon characters."
-    variables = {
-      EDITOR = "nvim";
-      SUDO_EDITOR = "nvim";
-    };
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs : rec { i3Support = true; };
   };
 
-  imports = [ /etc/nixos/hardware-configuration.nix ];
+  fonts.fonts = with pkgs; [
+    twemoji-color-font
+    dejavu_fonts
+  ];
 
-  # "Whether to use NetworkManager to obtain an IP address and other
-  # configuration for all network interfaces that are not manually configured.
-  # If enabled, a group `networkmanager` will be created. Add all users that
-  # should have permission to change network settings to this group."
+  boot.earlyVconsoleSetup = true;
+  boot.plymouth.enable = true;
+
+  hardware.opengl.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+  };
+
+  users.extraUsers.guthrie = {
+    isNormalUser = true;
+    home = "/home/guthrie";
+    description = "Guthrie McAfee Armstrong";
+    extraGroups = [ "wheel" "networkmanager" "audio" ];
+    shell = pkgs.bash;
+  };
+
   networking.networkmanager.enable = true;
 
-  programs = {
-
-    # "Enables GnuPG agent with socket-activation for every user session."
-    gnupg.agent.enable = true;
-
-    # "Enable Bash completion for all interactive bash shells."
-    bash.enableCompletion = true;
-  }
+  time.timeZone = "US/Eastern";
 
   security = {
-
-    # "Enable the AppArmor Mandatory Access Control system."
     apparmor.enable = true;
-
-    # "Whether to enable the sudo command, which allows non-root users to
-    # execute commands as root."
     sudo.enable = true;
-
-    # "Any polkit rules to be added to config (in JavaScript ;-). See:
-    # http://www.freedesktop.org/software/polkit/docs/latest/polkit.8.html#polkit-rules"
     polkit.extraConfig = ''
       // Allow wheel users to mount filesystems
       polkit.addRule(function(action, subject) {
@@ -67,12 +52,56 @@
     '';
   };
 
-  # "If enabled, NixOS will periodically update the database of files used by
-  # the locate command."
-  services.locate.enable = true;
+  programs = {
+    gnupg.agent.enable = true;
+    adb.enable = true;
+    bash.enableCompletion = true;
+  };
 
-  # NixOS release version with which to be compatible. NixOS will option
-  # defaults corresponding to the specified release.
-  system.stateVersion = "18.03";
+  services = {
+    dbus.packages = [ pkgs.blueman ];
+    locate.enable = true;
+    gnome3.gnome-keyring.enable = true;
+
+    printing = {
+      enable = true;
+      drivers = [ pkgs.hplip pkgs.foo2zjs ];
+      browsing = true;
+      defaultShared = true;
+    };
+
+    physlock = {
+      enable = true;
+      allowAnyUser = true;
+    };
+
+    xserver.enable = true;
+
+    xserver.exportConfiguration = true;
+
+    xserver.displayManager.lightdm = {
+      enable = true;
+      background = "black";
+      greeter.enable = false;
+      autoLogin = {
+        enable = true;
+        user = "guthrie";
+      };
+    };
+  };
+
+  environment.systemPackages = with pkgs; [
+    alsaLib
+    alsaTools
+    alsaUtils
+    exfat
+    git
+    home-manager
+    neovim
+    networkmanager.out
+    networkmanager_openvpn
+    nix-prefetch-scripts
+    pavucontrol
+  ];
 
 }
