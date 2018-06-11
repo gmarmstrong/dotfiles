@@ -2,14 +2,9 @@
 
 {
   programs.bash = {
-
-    # Whether to the Bash shell.
     enable = true;
-
-    # How the history list is saved.
     historyControl = [ "ignorespace" ];
 
-    # "Extra commands that should be run when initializing an interactive shell."
     initExtra = ''
       # Shell prompt
       function git_slug {
@@ -24,14 +19,6 @@
       export PS1='\[\033[1;33m\]\w\[\033[0m\] $(git_slug)$ '
     '';
 
-    # Environment variables that will be set for the Bash session.
-    sessionVariables = {
-      PATH = "${config.home.homeDirectory}/.local/bin:${config.home.homeDirectory}/.local/bin/scripts:$PATH";
-    };
-
-    # "An attribute set that maps aliases (the top level attribute names in
-    # this option) to command strings or directly to build outputs. The aliases
-    # are added to all users' shells."
     shellAliases = {
       l = "LC_COLLATE=C ls --group-directories-first -FHAlh -w 80";
       ll = "LC_COLLATE=C ls --group-directories-first -FHA -w 80";
@@ -42,7 +29,6 @@
       suspace = "sudo find -maxdepth 1 -exec du -sh '{}' --exclude='proc' \\; | sort -h";
     };
 
-    # "Shell options to set."
     shellOptions = [
       "cmdhist"
       "histappend"

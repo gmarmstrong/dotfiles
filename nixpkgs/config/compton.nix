@@ -2,17 +2,9 @@
 
 {
   services.compton = {
-
-    # "Whether to enable Compton X11 compositor."
     enable = true;
-
-    # "Draw window shadows."
     shadow = false;
-
-    # "Backend to use: glx or xrender."
     backend = "xrender";
-
-    # "List of conditions of windows that should have no shadow."
     shadowExclude = [
       "window_type *= 'menu'"
       "name = 'polybar-topbar_eDP1'"
@@ -20,11 +12,10 @@
       "class_g = 'Firefox' && argb"
       "focused = 0"
     ];
-
-    # "List of conditions of windows that should not be faded."
-    fadeExclude = [ "window_type *= 'menu'" "class_g = 'Firefox' && argb" ];
-
-    # "Additional Compton configuration."
+    fadeExclude = [
+      "window_type *= 'menu'"
+      "class_g = 'Firefox' && argb"
+    ];
     extraOptions = ''
       no-dock-shadow = true;
       xrender-sync = true;

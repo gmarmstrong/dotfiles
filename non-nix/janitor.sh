@@ -49,13 +49,13 @@ vim +qall
 vim +PlugUpgrade +PlugUpdate +qall
 
 # Install trash-cli
-if [[ ! -x "$HOME/.local/bin/trash" ]]; then
+if ! command -v trash; then
     mkdir -p "$HOME/.local/lib/python2.6/site-packages"
     easy_install --prefix="$HOME/.local" trash-cli
 fi
 
 # Install tree
-if [[ ! -x "$HOME/.local/bin/tree" ]]; then
+if ! command -v tree; then
     mkdir -p "$HOME/.local/bin"
     curl -fLo "$HOME/.local/src/tree-1.7.0.tgz" --create-dirs \
         "http://mama.indstate.edu/users/ice/tree/src/tree-1.7.0.tgz"

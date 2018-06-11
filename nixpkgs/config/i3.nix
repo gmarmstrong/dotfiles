@@ -1,21 +1,18 @@
 { pkgs, config, ... }:
 
 {
-
   xsession.windowManager.i3 = {
+    enable = true;
+    config = {
+      window = {
+        hideEdgeBorders = "smart";
+        titlebar = false;
+        border = 2;
 
-    enable = true; # "Whether to enable i3 window manager."
-
-    config = { # "i3 configuration options."
-      window = { # "Window titlebar and border settings."
-        hideEdgeBorders = "smart"; # "Hide window borders adjacent ot the screen edges."
-        titlebar = false; # "Whether to show window titlebars."
-        border = 2; # "Window border width."
-
-        commands = [ # "List of commands that should be executed on specific windows.
+        commands = [
           {
-            command = "focus"; # "i3wm command to execute."
-            criteria = { # "Criteria of the windows on which command should be executed."
+            command = "focus";
+            criteria = {
               class = "^jetbrains-.+";
               window_type = "dialog";
             };
@@ -23,16 +20,12 @@
         ];
       };
 
-      floating = { # "Floating window settings."
-        titlebar = false; # "Whether to show floating window titlebars."
-        border = 2; # "Floating windows border width."
-
-        # "List of criteria for windows that should be opened in a floating
-        # mode."
+      floating = {
+        titlebar = false;
+        border = 2;
         criteria = [ { title = "Network Connections"; } { class = "Pavucontrol"; } ];
       };
 
-      # "Commands that should be executed at startup."
       startup = [
         {
           command = "xrdb -load \"${config.home.homeDirectory}/.Xresources\"";
@@ -59,27 +52,23 @@
         }
       ];
 
-      # "i3 bars settings blocks. Set to empty list to remove bars completely."
       bars = [];
 
-      # "Whether focus should follow the mouse."
       focus.followMouse = false;
 
-      # "An attribute set that assigns a key press to an action using a key
-      # symbol."
       keybindings = {
         "Mod1+Ctrl+Shift+r" = "restart";
         "Mod1+Shift+r" = "reload";
-        "Mod1+a" = "focus parent"; # focus parent container
-        "Mod1+space" = "focus mode_toggle"; # toggle tiling/floating focus
-        "Mod1+s" = "layout stacking"; # stacking layout
-        "Mod1+w" = "layout tabbed"; # tabbed layout
-        "Mod1+t" = "layout toggle split"; # toggle split layout or direction
-        "Mod1+x" = "splitv"; # "vertical" split (above/below)
-        "Mod1+z" = "splith"; # "horizontal" split (left/right)
+        "Mod1+a" = "focus parent";
+        "Mod1+space" = "focus mode_toggle";
+        "Mod1+s" = "layout stacking";
+        "Mod1+w" = "layout tabbed";
+        "Mod1+t" = "layout toggle split";
+        "Mod1+x" = "splitv";
+        "Mod1+z" = "splith";
         "Mod1+f" = "fullscreen";
-        "Mod1+Shift+space" = "floating toggle"; # toggle tiling/floating
-        "Mod1+Shift+Escape" = "exit"; # exit i3
+        "Mod1+Shift+space" = "floating toggle";
+        "Mod1+Shift+Escape" = "exit";
 
         "Mod1+1" = "workspace 1";
         "Mod1+2" = "workspace 2";
@@ -188,7 +177,6 @@
       };
     };
 
-    # "Extra configuration lines to add to ~/.config/i3/config."
     extraConfig = ''
       # See https://i3wm.org/docs/userguide.html#xresources
       set_from_resource $base00 i3wm.color0

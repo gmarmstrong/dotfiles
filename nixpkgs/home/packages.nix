@@ -1,10 +1,10 @@
 { pkgs, config, ... }:
 
 {
-  # "The set of packages to appear in the user environment."
   home.packages = with pkgs; [
     acpi
     ardour
+    atool
     audacity
     blueman
     byzanz
@@ -51,6 +51,7 @@
     texlive.combined.scheme-full
     thunderbird
     tomb
+    tome4
     transmission_gtk
     trash-cli
     tree

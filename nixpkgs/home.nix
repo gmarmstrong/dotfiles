@@ -3,75 +3,60 @@
 {
 
   imports = [
+    ./config/bash.nix
+    ./config/compton.nix
+    ./config/fzf.nix
+    ./config/git.nix
+    ./config/htop.nix
+    ./config/i3.nix
+    ./config/neovim.nix
+    ./config/nixpkgs.nix
+    ./config/polybar.nix
+    ./config/ranger.nix
+    ./config/readline.nix
+    ./config/rofi.nix
+    ./config/ssh.nix
+    ./config/user-dirs.nix
+    ./config/xresources.nix
+    ./config/zathura.nix
     ./home/file.nix
     ./home/packages.nix
-    ./programs/bash.nix
-    ./programs/fzf.nix
-    ./programs/git.nix
-    ./programs/htop.nix
-    ./programs/rofi.nix
-    ./programs/ssh.nix
-    ./services/compton.nix
-    ./services/polybar.nix
-    ./services/redshift.nix
-    ./xdg.nix
-    ./xresources.nix
-    ./xsession/windowManager/i3.nix
   ];
 
-  # "The configuration of the Nix Packages collection. [...] Note, this option
-  # will not apply outside your Home Manager configuration like when installing
-  # manually through nix-env."
   nixpkgs.config.allowUnfree = true;
-
-  # "Start all services that are wanted by active targets. Additionally, stop
-  # obsolete services from the previous generation."
   systemd.user.startServices = true;
+  xdg.enable = true;
+
+  home.sessionVariables.PATH = "${config.home.homeDirectory}/.local/bin:${config.home.homeDirectory}/.local/bin/scripts:$PATH";
 
   services = {
-
-    # Tray applet for managing Bluetooth
     blueman-applet.enable = true;
-
-    # Remove idle cursor image from screen
     unclutter = {
       enable = true;
       timeout = 5;
     };
-
-    # GNOME Keyring, a daemon that stores secrets, passwords, keys, and certificates
     gnome-keyring.enable = true;
-
-    # GnuPG private key agent, a daemon for managing private keys.
     gpg-agent = {
       enable = true;
-      enableSshSupport = true; # "Whether to use the GnuPG key agent for SSH keys."
+      enableSshSupport = true;
     };
   };
 
   programs = {
-
-    # Home Manager, a system to manage a user environment using Nix
     home-manager = {
       enable = true;
       path = "${config.home.homeDirectory}/dotfiles/resources/home-manager";
     };
-
-    neovim.enable = true; # "Whether to enable Neovim."
-    firefox.enable = true; # "Whether to enable Firefox."
+    neovim.enable = true;
+    firefox.enable = true;
   };
 
-  # Xsession, a script run when an X Window System session is begun.
   xsession = {
     enable = true;
-
-    # "Extra shell commands to run before session start."
     profileExtra = ''
       pasystray & # PulseAudio controller for the system tray
       nextcloud & # File synchronization desktop utility
     '';
-
-    # "Extra shell commands to run during initialization."
     initExtra = ''
       xset s off # disable screen saver
     '';
