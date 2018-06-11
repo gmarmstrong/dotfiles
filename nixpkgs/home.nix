@@ -27,7 +27,11 @@
   systemd.user.startServices = true;
   xdg.enable = true;
 
-  home.sessionVariables.PATH = "${config.home.homeDirectory}/.local/bin:${config.home.homeDirectory}/.local/bin/scripts:$PATH";
+  home.sessionVariables = {
+    PATH = "${config.home.homeDirectory}/.local/bin:${config.home.homeDirectory}/.local/bin/scripts:$PATH";
+    EDITOR = "${pkgs.neovim}/bin/nvim";
+    MANPAGER = "${pkgs.neovim}/bin/nvim -c 'set ft=man' -";
+  };
 
   services = {
     blueman-applet.enable = true;
