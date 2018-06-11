@@ -42,6 +42,7 @@
   security = {
     apparmor.enable = true;
     sudo.enable = true;
+    pam.services.lightdm.enableGnomeKeyring = true;
     polkit.extraConfig = ''
       // Allow wheel users to mount filesystems
       polkit.addRule(function(action, subject) {
@@ -61,7 +62,11 @@
   services = {
     dbus.packages = [ pkgs.blueman ];
     locate.enable = true;
-    gnome3.gnome-keyring.enable = true;
+    gnome3 = {
+      at-spi2-core.enable = true; # https://github.com/NixOS/nixpkgs/pull/15365#issuecomment-218451375
+      gnome-keyring.enable = true;
+      seahorse.enable = true;
+    };
 
     printing = {
       enable = true;
@@ -89,6 +94,8 @@
       };
     };
   };
+
+  virtualisation.virtualbox.host.enable = true;
 
   environment.systemPackages = with pkgs; [
     alsaLib
