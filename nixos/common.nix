@@ -62,6 +62,7 @@
   };
 
   services = {
+    colord.enable = true;
     dbus.packages = [ pkgs.blueman ];
     locate.enable = true;
     gnome3 = {
