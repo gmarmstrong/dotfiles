@@ -30,6 +30,7 @@
     musescore
     nix-repl
     nixops
+    nox
     openjdk8
     p7zip
     pandoc
