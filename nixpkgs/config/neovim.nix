@@ -1,9 +1,9 @@
 { pkgs, config, ... }:
 
 {
-  xdg.configFile.neovimConfig = {
-    target = "nvim/init.vim";
-    text = ''
+  programs.neovim.enable = true;
+  programs.neovim.configure = {
+    customRC = ''
       set modeline
       set shortmess=IWa
       set cmdheight=2

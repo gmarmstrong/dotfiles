@@ -51,7 +51,6 @@
       enable = true;
       path = "${config.home.homeDirectory}/dotfiles/resources/home-manager";
     };
-    neovim.enable = true;
     firefox.enable = true;
   };
 
