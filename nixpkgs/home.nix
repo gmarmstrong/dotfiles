@@ -29,8 +29,8 @@
 
   home.sessionVariables = {
     PATH = "${config.home.homeDirectory}/.local/bin:${config.home.homeDirectory}/.local/bin/scripts:$PATH";
-    EDITOR = "${pkgs.neovim}/bin/nvim";
-    MANPAGER = "${pkgs.neovim}/bin/nvim -c 'set ft=man' -";
+    MANPAGER = "nvim -c 'set ft=man' -";
+    EDITOR = "nvim";
   };
 
   services = {

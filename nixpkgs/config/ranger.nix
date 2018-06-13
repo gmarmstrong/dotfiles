@@ -13,7 +13,7 @@
   xdg.configFile.rangerRifle = {
     target = "ranger/rifle.conf";
     text = ''
-      ext gpg, label editor = "${pkgs.neovim}/bin/nvim" -- "$@"
+      ext gpg, label editor = "nvim" -- "$@"
       ext pdf, has zathura, X, flag f = zathura -- "$@"
       ext djvu, has zathura, X, flag f = zathura -- "$@"
       ext epub, has zathura, X, flag f = zathura -- "$@"
@@ -21,7 +21,7 @@
       ext x?html?, has firefox, X, flag f = firefox -- "$@"
       mime ^image, has sxiv, X, flag f = sxiv -a -- "$@"
       mime ^video|audio, has vlc, X, flag f = "${pkgs.vlc}/bin/vlc" -- "$@"
-      mime ^text, label editor = "${pkgs.neovim}/bin/nvim" -- "$@"
+      mime ^text, label editor = "nvim" -- "$@"
       mime ^text, label pager = "$PAGER" -- "$@"
     '';
   };
