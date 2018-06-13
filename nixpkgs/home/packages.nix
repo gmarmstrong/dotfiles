@@ -66,6 +66,7 @@
     xorg.xev
     xorg.xwininfo
     xsel
+    xxd
     youtube-dl
     zathura
     zip
