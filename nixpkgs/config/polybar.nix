@@ -18,7 +18,6 @@
         modules-center = "datetime";
         module-margin = 1;
         modules-right = "vpn wireless-network wired-network battery0 battery1";
-        tray-position = "right";
         padding = 4;
         font-0 = "Twitter Color Emoji:style=Regular:size=12";
         font-1 = "DejaVu Sans Mono:style=Regular:size=12";
@@ -28,12 +27,12 @@
 
       "bar/topbar" = {
         "inherit" = "bar/basebar";
+        tray-position = "right";
         monitor = "\${env:MONITOR:eDP1}";
       };
 
       "bar/altbar" = {
         "inherit" = "bar/basebar";
-        tray-position = "right";
         monitor = "\${env:MONITOR:HDMI1}";
       };
 
