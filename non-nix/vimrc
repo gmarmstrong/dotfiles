@@ -9,7 +9,6 @@ set modeline
 " Plugins
 call plug#begin()
 Plug 'airblade/vim-gitgutter'       " Git diff
-Plug 'chriskempson/base16-vim'      " Base16 colors
 Plug 'majutsushi/tagbar'            " Ctags sidebar
 Plug 'godlygeek/tabular'            " Markdown dependency for tables
 Plug 'elzr/vim-json'                " Markdown dependency for JSON
@@ -28,9 +27,6 @@ else
     let g:gitgutter_sign_column_always = 1
 endif
 set updatetime=100
-
-" base16 settings
-colorscheme base16-gruvbox-light-soft
 
 " ==============================================================================
 " INPUT
