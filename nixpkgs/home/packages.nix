@@ -56,6 +56,7 @@
     trash-cli
     tree
     unclutter
+    rxvt_unicode-with-plugins
     unzip
     vlc
     w3m
