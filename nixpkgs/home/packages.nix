@@ -26,6 +26,7 @@
     hsetroot
     hugo
     imagemagick
+    inetutils
     libreoffice.libreoffice
     musescore
     nix-repl
