@@ -18,10 +18,14 @@
       ext djvu, has zathura, X, flag f = zathura -- "$@"
       ext epub, has zathura, X, flag f = zathura -- "$@"
       ext mobi, has ebook-viewer, X, flag f = ebook-viewer -- "$@"
+      ext txt, label editor = nvim -- "$@"
+      ext md, label editor = nvim -- "$@"
+      ext markdown, label editor = nvim -- "$@"
+      ext rst, label editor = nvim -- "$@"
       ext x?html?, has firefox, X, flag f = firefox -- "$@"
       mime ^image, has sxiv, X, flag f = sxiv -a -- "$@"
       mime ^video|audio, has vlc, X, flag f = "${pkgs.vlc}/bin/vlc" -- "$@"
-      mime ^text, label editor = "nvim" -- "$@"
+      mime ^text, label editor = nvim -- "$@"
       mime ^text, label pager = "$PAGER" -- "$@"
     '';
   };
