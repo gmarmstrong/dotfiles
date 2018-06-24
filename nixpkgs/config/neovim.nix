@@ -47,6 +47,8 @@
       augroup pandoc
           autocmd! FileType pandoc noremap <F5> :Pandoc latex -o output.pdf<CR>
           autocmd FileType pandoc noremap <F6> :Pandoc! latex -o output.pdf<CR>
+          autocmd FileType pandoc noremap <F7> :Pandoc html -s -o output.html<CR>
+          autocmd FileType pandoc noremap <F8> :Pandoc! html -s -o output.html<CR>
       augroup end
 
       colorscheme base16-gruvbox-light-soft
