@@ -29,6 +29,7 @@
     inetutils
     libreoffice.libreoffice
     musescore
+    nextcloud-client
     nix-repl
     nixops
     nox
