@@ -58,6 +58,7 @@
     trash-cli
     tree
     unclutter
+    unrar
     rxvt_unicode-with-plugins
     unzip
     vlc
