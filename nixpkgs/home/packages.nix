@@ -30,6 +30,7 @@
     libreoffice.libreoffice
     musescore
     nextcloud-client
+    networkmanagerapplet
     nix-repl
     nixops
     nox
