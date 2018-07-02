@@ -32,6 +32,7 @@
       Plug 'junegunn/goyo.vim'
       Plug 'vim-pandoc/vim-pandoc'
       Plug 'vim-pandoc/vim-pandoc-syntax'
+      Plug 'tpope/vim-fugitive'
       call plug#end()
 
       let g:gitgutter_override_sign_column_highlight = 1
@@ -49,6 +50,12 @@
           autocmd FileType pandoc noremap <F6> :Pandoc! latex -o output.pdf<CR>
           autocmd FileType pandoc noremap <F7> :Pandoc html -s -o output.html<CR>
           autocmd FileType pandoc noremap <F8> :Pandoc! html -s -o output.html<CR>
+      augroup end
+
+      augroup nvim_term
+          autocmd!
+          autocmd TermOpen * startinsert
+          autocmd TermClose * stopinsert
       augroup end
 
       colorscheme base16-gruvbox-light-soft
