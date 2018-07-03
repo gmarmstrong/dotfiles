@@ -90,6 +90,12 @@
         adapter = "AC";
       };
 
+      #"module/bluetooth" = {
+      #  type = "custom/script";
+      #  exec = "/run/current-system/sw/bin/systemctl is-active bluetooth.service >/dev/null && printf 'Bluetooth' || printf 'bt off'";
+      #  interval = "3";
+      #};
+
       "module/networkbase" = {
         type = "internal/network";
         format-connected = "<label-connected>";
