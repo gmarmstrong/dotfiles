@@ -19,6 +19,8 @@
       ext epub, has zathura, X, flag f = zathura -- "$@"
       ext mobi, has ebook-viewer, X, flag f = ebook-viewer -- "$@"
       ext txt, label editor = nvim -- "$@"
+      ext tex, label editor = nvim -- "$@"
+      ext asc, label editor = nvim -- "$@"
       ext md, label editor = nvim -- "$@"
       ext markdown, label editor = nvim -- "$@"
       ext rst, label editor = nvim -- "$@"
