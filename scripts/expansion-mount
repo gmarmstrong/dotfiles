@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo -v
-# TODO Learn to pipe `pass` output to `udisksctl unlock -b /dev/sdb`
+# TODO use `udisksctl unlock`: https://unix.stackexchange.com/a/449589/191530
 pass drives/expansion | # get device password entry
     head -n 1 | # get the password itself
     sudo cryptsetup luksOpen /dev/sdb expansion # open device
