@@ -114,6 +114,7 @@
     networkmanager.out
     networkmanager_openvpn
     nix-prefetch-scripts
+    ntfs3g
     pavucontrol
   ];
 
