@@ -65,6 +65,8 @@
     colord.enable = true;
     dbus.packages = [ pkgs.blueman ];
     locate.enable = true;
+    udisks.enable = true;
+
     gnome3 = {
       at-spi2-core.enable = true; # https://github.com/NixOS/nixpkgs/pull/15365#issuecomment-218451375
       gnome-keyring.enable = true;
