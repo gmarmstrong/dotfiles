@@ -1,7 +1,7 @@
 # dotfiles
 
-This is my dotfiles repository. It describes a [NixOS](https://nixos.org/)
-personal computer. [There are many like it](https://dotfiles.github.io/), but
+This is my dotfiles repository. It describes my [NixOS](https://nixos.org/)
+personal computers. [There are many like it](https://dotfiles.github.io/), but
 this one is mine. [**You won't want to clone this whole
 repository**](https://www.anishathalye.com/2014/08/03/managing-your-dotfiles/#dotfiles-are-not-meant-to-be-forked),
 but feel free to explore and borrow what you like!
