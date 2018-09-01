@@ -36,6 +36,7 @@
 
   services = {
     blueman-applet.enable = true;
+    pasystray.enable = true;
     unclutter = {
       enable = true;
       timeout = 5;
@@ -58,7 +59,6 @@
   xsession = {
     enable = true;
     profileExtra = ''
-      ${pkgs.pasystray}/bin/pasystray &
       ${pkgs.nextcloud-client}/bin/nextcloud &
     '';
     initExtra = ''
