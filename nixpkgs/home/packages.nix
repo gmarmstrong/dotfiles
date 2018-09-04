@@ -28,6 +28,7 @@
     imagemagick
     inetutils
     libreoffice.libreoffice
+    mediainfo
     musescore
     nextcloud-client
     networkmanagerapplet
