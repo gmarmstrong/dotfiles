@@ -41,7 +41,10 @@
       enable = true;
       timeout = 5;
     };
-    gnome-keyring.enable = true;
+    gnome-keyring = {
+      enable = true;
+      components = [ "pkcs11" "secrets" "ssh" ];
+    };
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
