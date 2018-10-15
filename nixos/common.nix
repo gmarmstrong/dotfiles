@@ -4,8 +4,6 @@
 
   system.stateVersion = "18.03"; # NixOS release version
 
-  nix.useSandbox = true;
-
   nixpkgs.config = {
     allowUnfree = true;
     packageOverrides = pkgs : rec { i3Support = true; };
