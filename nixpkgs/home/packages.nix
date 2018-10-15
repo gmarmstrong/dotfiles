@@ -31,9 +31,8 @@
     libreoffice.libreoffice
     mediainfo
     musescore
-    nextcloud-client
     networkmanagerapplet
-    nix-repl
+    nextcloud-client
     nixops
     nox
     openjdk8
@@ -48,6 +47,7 @@
     ranger
     rsync
     rustc
+    rxvt_unicode-with-plugins
     scrot
     spotify
     sshfs
@@ -61,7 +61,6 @@
     tree
     unclutter
     unrar
-    rxvt_unicode-with-plugins
     unzip
     vlc
     w3m
