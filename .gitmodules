@@ -14,6 +14,3 @@
 [submodule "resources/rofiemoji"]
 	path = resources/rofiemoji
 	url = git@github.com:nkoehring/rofiemoji
-[submodule "resources/base16-qutebrowser"]
-	path = resources/base16-qutebrowser
-	url = git@github.com:theova/base16-qutebrowser
