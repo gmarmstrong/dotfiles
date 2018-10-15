@@ -7,6 +7,9 @@
       set first-page-column 1:1
       set smooth-scroll "true"
       set recolor "true"
+      set statusbar-home-tilde "true"
+      set window-title-home-tilde "true"
+      set selection-clipboard clipboard
     '';
   };
 }
