@@ -23,6 +23,7 @@
     gnupg
     golly
     gparted
+    hicolor-icon-theme
     hsetroot
     hugo
     imagemagick
