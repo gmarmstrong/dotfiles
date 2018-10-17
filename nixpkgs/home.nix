@@ -56,7 +56,12 @@
       enable = true;
       path = "${config.home.homeDirectory}/dotfiles/resources/home-manager";
     };
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      enableAdobeFlash = true;
+      enableGoogleTalk = true;
+      enableIcedTea = true;
+    };
   };
 
   xsession = {

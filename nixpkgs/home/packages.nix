@@ -17,7 +17,6 @@
     dict
     diction
     file
-    firefox
     gnome3.adwaita-icon-theme
     gnumake
     gnupg
