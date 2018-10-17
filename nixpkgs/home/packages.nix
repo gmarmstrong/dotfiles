@@ -22,6 +22,7 @@
     gnupg
     golly
     gparted
+    hexchat
     hicolor-icon-theme
     hsetroot
     hugo
