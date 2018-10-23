@@ -47,6 +47,7 @@
     qalculate-gtk
     qrencode
     ranger
+    rofi-pass
     rsync
     rustc
     rxvt_unicode-with-plugins
