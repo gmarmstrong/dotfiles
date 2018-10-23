@@ -125,7 +125,7 @@
         "XF86AudioLowerVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 5%-\"";
         "Shift+XF86AudioRaiseVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 2%+\"";
         "Shift+XF86AudioLowerVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 2%-\"";
-        "XF86Calculator" = "exec --no-startup-id \"${pkgs.rxvt_unicode_with-plugins}/bin/urxvt -e calc\"";
+        "XF86Calculator" = "exec --no-startup-id \"${pkgs.qalculate-gtk}/bin/qalculate-gtk\"";
         "Mod4+l" = "exec --no-startup-id \"physlock -m\"";
         "XF86HomePage" = "exec --no-startup-id \"firefox\"";
         "Mod1+XF86HomePage" = "exec --no-startup-id \"firefox -P other\"";
