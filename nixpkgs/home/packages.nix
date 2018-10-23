@@ -46,6 +46,7 @@
     python3
     qalculate-gtk
     qrencode
+    qutebrowser
     ranger
     rofi-pass
     rsync
