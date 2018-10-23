@@ -35,7 +35,12 @@
     shell = pkgs.bash;
   };
 
-  networking.networkmanager.enable = true;
+  networking = {
+    hosts = {
+      "172.31.98.1" = [ "aruba.odyssys.net" ];
+    };
+    networkmanager.enable = true;
+  };
 
   time.timeZone = "US/Eastern";
 
