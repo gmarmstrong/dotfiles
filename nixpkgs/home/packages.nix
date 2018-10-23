@@ -28,6 +28,7 @@
     hugo
     imagemagick
     inetutils
+    libqalculate
     libreoffice.libreoffice
     mediainfo
     musescore
@@ -43,6 +44,7 @@
     pwgen
     python
     python3
+    qalculate-gtk
     qrencode
     ranger
     rsync
