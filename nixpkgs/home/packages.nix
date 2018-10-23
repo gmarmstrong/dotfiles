@@ -57,7 +57,6 @@
     texlive.combined.scheme-full
     thunderbird
     tomb
-    tome4
     transmission_gtk
     trash-cli
     tree
