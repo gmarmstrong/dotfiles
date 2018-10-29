@@ -46,7 +46,7 @@
         }
 
         {
-          command = "xrandr --output HDMI1 --auto --above eDP1";
+          command = "xrandr --output DP2 --auto --same-as eDP1";
           always = true;
           notification = false;
         }

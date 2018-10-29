@@ -7,7 +7,7 @@
       i3Support = true;
       i3 = pkgs.i3;
     };
-    script = "PATH=$PATH:${pkgs.i3}/bin polybar topbar & PATH=$PATH:${pkgs.i3}/bin polybar altbar &";
+    script = "PATH=$PATH:${pkgs.i3}/bin polybar basebar &";
 
     config = {
       "bar/basebar" = {
@@ -23,22 +23,14 @@
         font-1 = "DejaVu Sans Mono:style=Regular:size=12";
         background = "\${colors.base00}";
         foreground = "\${colors.base05}";
-      };
-
-      "bar/topbar" = {
-        "inherit" = "bar/basebar";
+        screenchange-reload = "true";
         tray-position = "right";
         monitor = "\${env:MONITOR:eDP1}";
-      };
-
-      "bar/altbar" = {
-        "inherit" = "bar/basebar";
-        monitor = "\${env:MONITOR:HDMI1}";
+        monitor-fallback = "\${env:MONITOR:DP2}";
       };
 
       "module/i3" = {
         type = "internal/i3";
-        pin-workspaces = true;
         strip-wsnumbers = true;
         index-sort = true;
         enable-click = true;

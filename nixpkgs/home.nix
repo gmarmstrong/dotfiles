@@ -34,6 +34,23 @@
     _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on";
   };
 
+  gtk = {
+    enable = true;
+    font = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Sans 9";
+    };
+    gtk2.extraConfig = ''
+      [Filechooser Settings]
+      StartupMode=cwd
+    '';
+    gtk3.extraConfig = {
+      gtk-recent-files-enabled = false;
+      gtk-recent-files-max-age = 0;
+      gtk-recent-files-limit = 0;
+    };
+  };
+
   services = {
     blueman-applet.enable = true;
     pasystray.enable = true;
