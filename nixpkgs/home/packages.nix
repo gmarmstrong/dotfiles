@@ -24,7 +24,6 @@
     gparted
     hexchat
     hicolor-icon-theme
-    hsetroot
     hugo
     imagemagick
     inetutils

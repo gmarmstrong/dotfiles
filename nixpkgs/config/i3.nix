@@ -34,7 +34,7 @@
         }
 
         {
-          command = "hsetroot -solid \"$base00\"";
+          command = "${pkgs.hsetroot}/bin/hsetroot -solid \"$base00\"";
           always = true;
           notification = false;
         }
