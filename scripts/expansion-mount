@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-sudo -v
-# TODO use `udisksctl unlock`: https://unix.stackexchange.com/a/449589/191530
-pass drives/expansion | # get device password entry
-    head -n 1 | # get the password itself
-    sudo cryptsetup luksOpen /dev/sdb expansion # open device
-udisksctl mount -b /dev/mapper/expansion
+udisksctl unlock \
+    --block-device /dev/sdb \
+    --key-file <(pass drives/expansion | head -n 1 | tr -d '\n')
+udisksctl mount --block-device /dev/sdb
+echo "TODO: update block device to be more specific"
