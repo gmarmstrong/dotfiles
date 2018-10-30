@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    # cargo gnumake rustc
     acpi
     ardour
     atool
@@ -10,7 +11,6 @@
     byzanz
     calc
     calibre
-    cargo
     coreutils
     ctags
     curl
@@ -18,7 +18,6 @@
     diction
     file
     gnome3.adwaita-icon-theme
-    gnumake
     gnupg
     golly
     gparted
@@ -34,7 +33,6 @@
     networkmanagerapplet
     nextcloud-client
     nixops
-    nox
     openjdk8
     p7zip
     pandoc
@@ -49,14 +47,12 @@
     ranger
     rofi-pass
     rsync
-    rustc
     rxvt_unicode-with-plugins
     scrot
     spotify
     sshfs
     sxiv
     texlive.combined.scheme-full
-    thunderbird
     tomb
     transmission_gtk
     trash-cli
