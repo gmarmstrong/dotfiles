@@ -68,6 +68,7 @@
     xclip
     xdg-user-dirs
     xdg_utils
+    xiphos
     xorg.xbacklight
     xorg.xev
     xorg.xwininfo
