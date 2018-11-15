@@ -4,7 +4,6 @@
 
   imports = [
     ./config/bash.nix
-    ./config/compton.nix
     ./config/fzf.nix
     ./config/git.nix
     ./config/htop.nix
