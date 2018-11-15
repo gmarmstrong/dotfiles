@@ -33,6 +33,7 @@
     EDITOR = "nvim";
     _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on";
     COLORTHEME = "base16-gruvbox-light-hard";
+    LESSHISTFILE="/dev/null";
   };
 
   gtk = {
