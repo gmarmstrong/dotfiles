@@ -20,9 +20,9 @@
     '';
 
     shellAliases = {
-      l = "LC_COLLATE=C ls --group-directories-first -FHAlh -w 80";
-      ll = "LC_COLLATE=C ls --group-directories-first -FHA -w 80";
-      ls = "LC_COLLATE=C ls --group-directories-first -FH -w 80";
+      l = "LC_COLLATE=C ls --group-directories-first --color -FHAlh -w 80";
+      ll = "LC_COLLATE=C ls --group-directories-first --color -FHA -w 80";
+      ls = "LC_COLLATE=C ls --group-directories-first --color -FH -w 80";
       vi = "${config.home.sessionVariables.EDITOR}";
       vim = "${config.home.sessionVariables.EDITOR}";
       space = "find -maxdepth 1 -exec du -sh '{}' \\; | sort -h";
