@@ -7,7 +7,7 @@
       window = {
         hideEdgeBorders = "smart";
         titlebar = false;
-        border = 2;
+        border = 1;
 
         commands = [
           {
