@@ -55,7 +55,6 @@
     sshfs
     sxiv
     texlive.combined.scheme-full
-    tomb
     transmission_gtk
     trash-cli
     tree
