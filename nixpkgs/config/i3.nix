@@ -115,6 +115,7 @@
         "Mod1+e" = "exec --no-startup-id \"rofi -modi 'emoji:${config.xdg.configHome}/rofi/rofiemoji.sh' -show emoji\"";
         "Mod1+Shift+d" = "exec --no-startup-id \"rofi -show ssh\"";
         "Mod1+Shift+c" = "exec --no-startup-id \"${pkgs.rofi-pass}/bin/rofi-pass\"";
+        "Mod1+Shift+e" = "exec --no-startup-id \"rofi -show drun\"";
         "Mod1+Shift+q" = "kill";
         "Mod1+Return" = "exec --no-startup-id ${pkgs.rxvt_unicode_with-plugins}/bin/urxvt";
 
