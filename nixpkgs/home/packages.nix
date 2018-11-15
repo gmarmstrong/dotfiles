@@ -9,7 +9,6 @@
     audacity
     blueman
     byzanz
-    calc
     calibre
     coreutils
     ctags
