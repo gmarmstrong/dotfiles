@@ -100,6 +100,7 @@
 
     xserver.exportConfiguration = true;
 
+    xserver.desktopManager.kodi.enable = true;
     xserver.displayManager.lightdm = {
       enable = true;
       background = "black";
