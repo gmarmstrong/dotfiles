@@ -47,8 +47,7 @@
     qrencode
     qutebrowser
     ranger
-    rofi-pass
-    rsync
+    rsync # TODO delete after requiring in gmarmstrong-styx and bak
     rxvt_unicode-with-plugins
     scrot
     spotify
