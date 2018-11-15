@@ -41,8 +41,7 @@
     pass
     psmisc
     pwgen
-    python
-    python3
+    python3 # TODO delete after resolving clustergit, vim-muse, and python-datamuse dependencies
     qalculate-gtk
     qrencode
     qutebrowser
