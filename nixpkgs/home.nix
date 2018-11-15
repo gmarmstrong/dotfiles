@@ -11,6 +11,7 @@
     ./config/neovim.nix
     ./config/nixpkgs.nix
     ./config/polybar.nix
+    ./config/qutebrowser.nix
     ./config/ranger.nix
     ./config/readline.nix
     ./config/rofi.nix
