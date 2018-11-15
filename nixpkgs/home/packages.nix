@@ -26,6 +26,7 @@
     hugo
     imagemagick
     inetutils
+    jetbrains.idea-ultimate
     libqalculate
     libreoffice.libreoffice
     mediainfo
