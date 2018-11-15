@@ -15,4 +15,17 @@
     target = "rofi/rofiemoji.sh";
     text = builtins.readFile ( "${config.home.homeDirectory}/dotfiles/resources/rofiemoji/rofiemoji.sh" );
   };
+
+  xdg.configFile.rofiPass = {
+    target = "rofi-pass/config";
+    text = ''
+      EDITOR='urxvt -e nvim --'
+      default_autotype='pass'
+      clip=clipboard
+      password_length=16
+      _image_viewer () {
+          cat > /tmp/sxiv && sxiv /tmp/sxiv && rm /tmp/sxiv
+      }
+    '';
+  };
 }
