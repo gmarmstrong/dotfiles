@@ -30,6 +30,7 @@
     libqalculate
     libreoffice.libreoffice
     mediainfo
+    mkvtoolnix
     musescore
     networkmanagerapplet
     nextcloud-client
