@@ -64,6 +64,7 @@
     vlc
     w3m
     wget
+    wireshark
     xclip
     xdg-user-dirs
     xdg_utils
