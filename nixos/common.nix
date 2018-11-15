@@ -67,6 +67,7 @@
   services = {
     colord.enable = true;
     dbus.packages = [ pkgs.blueman ];
+    dictd.enable = true;
     locate.enable = true;
     udisks2.enable = true;
 
