@@ -26,7 +26,7 @@
         screenchange-reload = "true";
         tray-position = "right";
         monitor = "\${env:MONITOR:eDP1}";
-        monitor-fallback = "\${env:MONITOR:DP2}";
+        monitor-fallback = "\${env:MONITOR:HDMI1}";
       };
 
       "module/i3" = {
