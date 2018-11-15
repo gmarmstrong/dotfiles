@@ -59,7 +59,7 @@
           autocmd TermClose * stopinsert
       augroup end
 
-      colorscheme base16-gruvbox-light-soft
+      colorscheme ${config.home.sessionVariables.COLORTHEME}
       highlight clear SignColumn
       highlight clear LineNr
       highlight clear GitGutterAdd

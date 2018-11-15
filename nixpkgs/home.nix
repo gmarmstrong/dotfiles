@@ -31,7 +31,8 @@
     PATH = "${config.home.homeDirectory}/.local/bin:${config.home.homeDirectory}/.local/bin/scripts:$PATH";
     MANPAGER = "nvim -c 'set ft=man' -";
     EDITOR = "nvim";
-    _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on";
+    _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on";
+    COLORTHEME = "base16-gruvbox-light-hard";
   };
 
   gtk = {

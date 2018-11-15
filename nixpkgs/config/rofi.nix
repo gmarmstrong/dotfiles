@@ -3,10 +3,11 @@
 {
   programs.rofi = {
     enable = true;
-    scrollbar = false;
-    separator = "solid";
+    extraConfig = ''
+      modi: "window,run,ssh,drun";*/
+    '';
+    theme = "${config.home.homeDirectory}/dotfiles/resources/base16-rofi/themes/${config.home.sessionVariables.COLORTHEME}.rasi";
     terminal = "${pkgs.rxvt_unicode_with-plugins}/bin/urxvt";
-    theme = "${config.home.homeDirectory}/dotfiles/resources/base16-rofi/themes/base16-gruvbox-light-soft.rasi";
   };
 
   xdg.configFile.rofiEmoji = {

@@ -26,7 +26,7 @@
       "Xft.antialias" = 1;
       "Xft.rgba" = "rgb";
     };
-    extraConfig = builtins.readFile ( "${config.home.homeDirectory}/dotfiles/resources/base16-xresources/xresources/base16-gruvbox-light-soft.Xresources" );
+    extraConfig = builtins.readFile ( "${config.home.homeDirectory}/dotfiles/resources/base16-xresources/xresources/${config.home.sessionVariables.COLORTHEME}.Xresources" );
   };
 }
 

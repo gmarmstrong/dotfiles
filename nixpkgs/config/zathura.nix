@@ -3,7 +3,7 @@
 {
   xdg.configFile.zathura = {
     target = "zathura/zathurarc";
-    text = builtins.readFile ( "${config.home.homeDirectory}/dotfiles/resources/base16-zathura/build_schemes/base16-gruvbox-light-soft.config" ) + ''
+    text = builtins.readFile ( "${config.home.homeDirectory}/dotfiles/resources/base16-zathura/build_schemes/${config.home.sessionVariables.COLORTHEME}.config" ) + ''
       set first-page-column 1:1
       set smooth-scroll "true"
       set recolor "true"
