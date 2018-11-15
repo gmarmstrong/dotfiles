@@ -51,7 +51,6 @@
     scrot
     spotify
     sshfs
-    steam
     sxiv
     texlive.combined.scheme-full
     tomb

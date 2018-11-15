@@ -18,15 +18,13 @@
   boot.plymouth.enable = true;
 
   hardware.opengl.enable = true;
-  hardware.opengl.driSupport32Bit = true;
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = true;
+    powerOnBoot = false;
   };
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
-    support32Bit = true;
   };
 
   users.extraUsers.guthrie = {
