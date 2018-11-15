@@ -17,6 +17,10 @@
 
   swapDevices = [ { device = "/dev/disk/by-uuid/13f26b63-cf59-49c8-bc44-44bd5fc4c9b2"; } ];
 
+  boot.kernelModules = [ "acpi_call" ];
+
+  boot.extraModulePackages = [ pkgs.linuxPackages.acpi_call ];
+
   boot.loader.grub.device = "/dev/disk/by-id/wwn-0x500a075114dcdeb7";
 
   boot.initrd.luks.devices = [

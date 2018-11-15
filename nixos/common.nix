@@ -70,6 +70,14 @@
     locate.enable = true;
     udisks2.enable = true;
 
+    tlp = {
+      enable = true;
+      extraConfig = ''
+        CPU_SCALING_GOVERNOR_ON_BAT=powersave
+        ENERGY_PERF_POLICY_ON_BAT=powersave
+      '';
+    };
+
     gnome3 = {
       at-spi2-core.enable = true; # https://github.com/NixOS/nixpkgs/pull/15365#issuecomment-218451375
       gnome-keyring.enable = true;
