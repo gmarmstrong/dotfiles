@@ -8,8 +8,8 @@
     initExtra = ''
       # Shell prompt
       function git_slug {
-          if $(test -d .git); then
-              if $([ -z "$(git status --porcelain)" ]); then
+          if git status --porcelain &>/dev/null; then
+              if [ -z "$(git status --porcelain)" ]; then
                   echo "$(git rev-parse --abbrev-ref HEAD)  "
               else
                   echo "$(git rev-parse --abbrev-ref HEAD)* "
