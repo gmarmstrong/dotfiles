@@ -10,7 +10,6 @@
     byzanz
     calibre
     coreutils
-    ctags
     curl
     dict
     diction
@@ -22,7 +21,6 @@
     gparted
     hexchat
     hicolor-icon-theme
-    hugo
     imagemagick
     inetutils
     jetbrains.idea-ultimate
@@ -34,12 +32,10 @@
     networkmanagerapplet
     nextcloud-client
     nixops
-    openjdk8
     p7zip
     pandoc
     pass
     psmisc
-    pwgen
     python3 # TODO delete after resolving clustergit, vim-muse, and python-datamuse dependencies
     qalculate-gtk
     qrencode
@@ -48,7 +44,6 @@
     rxvt_unicode-with-plugins
     scrot
     spotify
-    sshfs
     sxiv
     texlive.combined.scheme-full
     transmission_gtk
@@ -59,7 +54,6 @@
     unzip
     usbutils
     vlc
-    w3m
     wget
     wireshark
     xclip
