@@ -87,7 +87,7 @@
   xsession = {
     enable = true;
     profileExtra = ''
-      ${pkgs.nextcloud-client}/bin/nextcloud &
+      nextcloud &
     '';
     initExtra = ''
       xset s off # disable screen saver

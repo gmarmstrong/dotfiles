@@ -1,5 +1,13 @@
 { pkgs, config, ... }:
 
+let
+  nextcloud-client = pkgs.nextcloud-client.override {
+    withGnomeKeyring = true;
+    libgnome-keyring = pkgs.gnome3.libgnome-keyring;
+  };
+
+in
+
 {
   home.packages = with pkgs; [
     # cargo gnumake rustc
