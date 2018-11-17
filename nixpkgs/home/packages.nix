@@ -5,7 +5,6 @@
     # cargo gnumake rustc
     acpi
     ardour
-    atool
     audacity
     blueman
     byzanz
