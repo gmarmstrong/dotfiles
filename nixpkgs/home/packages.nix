@@ -25,6 +25,7 @@
     jetbrains.idea-ultimate
     libqalculate
     libreoffice.libreoffice
+    lsof
     mediainfo
     mkvtoolnix
     musescore
