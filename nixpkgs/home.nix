@@ -6,10 +6,13 @@
     config.allowUnfree = true;
     overlays = [
       (self: super: {
-        nextcloud-client = super.nextcloud-client.override {
+        nextcloud-client = super.nextcloud-client.override { # TODO Fix upstream
           withGnomeKeyring = true;
           libgnome-keyring = self.gnome3.libgnome-keyring;
         };
+        blueman = super.blueman.overrideAttrs (oldAttrs: { # TODO Fix upstream
+          buildInputs = oldAttrs.buildInputs ++ [ self.gnome3.adwaita-icon-theme ];
+        });
       } )
     ];
   };

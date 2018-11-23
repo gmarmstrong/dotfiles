@@ -15,7 +15,6 @@
     diction
     dos2unix
     file
-    gnome3.adwaita-icon-theme
     gnupg
     golly
     gparted
