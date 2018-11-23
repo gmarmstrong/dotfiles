@@ -2,6 +2,18 @@
 
 {
 
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (self: super: {
+        nextcloud-client = super.nextcloud-client.override {
+          withGnomeKeyring = true;
+          libgnome-keyring = self.gnome3.libgnome-keyring;
+        };
+      } )
+    ];
+  };
+
   imports = [
     ./config/bash.nix
     ./config/fzf.nix
@@ -9,7 +21,6 @@
     ./config/htop.nix
     ./config/i3.nix
     ./config/neovim.nix
-    ./config/nixpkgs.nix
     ./config/polybar.nix
     ./config/qutebrowser.nix
     ./config/ranger.nix
