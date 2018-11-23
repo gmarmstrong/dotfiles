@@ -37,6 +37,7 @@
     psmisc
     python3 # TODO delete after resolving clustergit, vim-muse, and python-datamuse dependencies
     qalculate-gtk
+    qbittorrent
     qrencode
     qutebrowser
     ranger
@@ -45,7 +46,6 @@
     spotify
     sxiv
     texlive.combined.scheme-full
-    transmission_gtk
     trash-cli
     tree
     unclutter
