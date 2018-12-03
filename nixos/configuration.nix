@@ -4,7 +4,7 @@
 
   imports = [
     ./common.nix
-    ./hardware-thinkpad.nix
+    ./hardware-configuration.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -18,6 +18,11 @@
   swapDevices = [ { device = "/dev/disk/by-uuid/13f26b63-cf59-49c8-bc44-44bd5fc4c9b2"; } ];
 
   boot.loader.grub.device = "/dev/disk/by-id/wwn-0x500a075114dcdeb7";
+
+  boot.loader.grub.extraConfig = ''
+    GRUB_GFXMODE=1920x1080
+    GRUB_GFXPAYLOAD="keep"
+  '';
 
   boot.initrd.luks.devices = [
     {
