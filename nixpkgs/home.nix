@@ -92,9 +92,7 @@
     };
     firefox = {
       enable = true;
-      enableAdobeFlash = true;
       enableGoogleTalk = true;
-      enableIcedTea = true;
     };
   };
 
