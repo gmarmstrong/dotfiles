@@ -37,7 +37,6 @@
     ./home/packages.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
   systemd.user.startServices = true;
   xdg.enable = true;
 
