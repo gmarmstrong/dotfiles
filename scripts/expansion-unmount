@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
-udisksctl unmount --block-device /dev/mapper/luks-3db1e357-a428-4d51-bd79-b2a8272e6bdd
-udisksctl lock --block-device /dev/disk/by-uuid/3db1e357-a428-4d51-bd79-b2a8272e6bdd
-udisksctl power-off --block-device /dev/disk/by-uuid/3db1e357-a428-4d51-bd79-b2a8272e6bdd
+echo "Unmounting..."
+udisksctl unmount \
+    --block-device /dev/mapper/luks-3db1e357-a428-4d51-bd79-b2a8272e6bdd \
+    || exit 1
+echo "Locking..."
+udisksctl lock \
+    --block-device /dev/disk/by-uuid/3db1e357-a428-4d51-bd79-b2a8272e6bdd \
+    || exit 1
+echo "Powering off..."
+udisksctl power-off \
+    --block-device /dev/disk/by-uuid/3db1e357-a428-4d51-bd79-b2a8272e6bdd \
+    || exit 1

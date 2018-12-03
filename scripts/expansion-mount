@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
+echo "Unlocking..."
 udisksctl unlock \
     --block-device /dev/disk/by-uuid/3db1e357-a428-4d51-bd79-b2a8272e6bdd \
-    --key-file <(pass drives/expansion | head -n 1 | tr -d '\n')
-udisksctl mount --block-device /dev/mapper/luks-3db1e357-a428-4d51-bd79-b2a8272e6bdd
+    --key-file <(pass drives/expansion | head -n 1 | tr -d '\n') \
+    || exit 1
+echo "Mounting..."
+udisksctl mount --block-device /dev/mapper/luks-3db1e357-a428-4d51-bd79-b2a8272e6bdd \
+    || exit 1
