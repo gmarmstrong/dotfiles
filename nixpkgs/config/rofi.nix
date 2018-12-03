@@ -4,7 +4,7 @@
   programs.rofi = {
     enable = true;
     extraConfig = ''
-      modi: "window,run,ssh,drun";*/
+      modi: "window,run,ssh,drun"
     '';
     theme = "${config.home.homeDirectory}/dotfiles/resources/base16-rofi/themes/${config.home.sessionVariables.COLORTHEME}.rasi";
     terminal = "${pkgs.rxvt_unicode_with-plugins}/bin/urxvt";
