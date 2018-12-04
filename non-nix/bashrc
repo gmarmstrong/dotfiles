@@ -19,4 +19,11 @@ alias l="LC_COLLATE=C ls --group-directories-first -FHAlh -w 80"
 alias ll="LC_COLLATE=C ls --group-directories-first -FHA -w 80"
 alias ls="LC_COLLATE=C ls --group-directories-first -FH -w 80"
 
+shopt -s cmdhist
+shopt -s histappend
+shopt -s checkwinsize
+shopt -s extglob
+shopt -s globstar
+shopt -s checkjobs
+
 export PATH=$HOME/.local/bin:$PATH
