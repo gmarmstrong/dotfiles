@@ -101,7 +101,7 @@
       nextcloud &
     '';
     initExtra = ''
-      xset s off # disable screen saver
+      xset s off -dpms # disable screen saver
     '';
   };
 }
