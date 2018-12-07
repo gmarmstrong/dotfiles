@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    # cargo gnumake rustc
+    # cargo gnumake nixops rustc
     acpi
     ardour
     audacity
@@ -31,7 +31,6 @@
     musescore
     networkmanagerapplet
     nextcloud-client
-    nixops
     p7zip
     pandoc
     pass
