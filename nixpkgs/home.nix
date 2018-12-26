@@ -57,6 +57,10 @@
       package = pkgs.dejavu_fonts;
       name = "DejaVu Sans 9";
     };
+    iconTheme = {
+      package = pkgs.gnome3.adwaita-icon-theme;
+      name = "Adwaita";
+    };
     gtk2.extraConfig = ''
       [Filechooser Settings]
       StartupMode=cwd
