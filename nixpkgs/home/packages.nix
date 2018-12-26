@@ -43,6 +43,7 @@
     ranger
     rxvt_unicode-with-plugins
     scrot
+    slack
     spotify
     sxiv
     texlive.combined.scheme-full
