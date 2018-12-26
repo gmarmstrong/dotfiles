@@ -45,9 +45,7 @@
   time.timeZone = "US/Eastern";
 
   security = {
-    apparmor.enable = true;
     sudo.enable = true;
-    pam.services.lightdm.enableGnomeKeyring = true;
     polkit.extraConfig = ''
       // Allow wheel users to mount filesystems
       polkit.addRule(function(action, subject) {
