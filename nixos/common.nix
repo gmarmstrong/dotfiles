@@ -31,7 +31,7 @@
     isNormalUser = true;
     home = "/home/guthrie";
     description = "Guthrie McAfee Armstrong";
-    extraGroups = [ "wheel" "networkmanager" "audio" "vboxusers" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" ];
     shell = pkgs.bash;
   };
 
@@ -104,8 +104,6 @@
       };
     };
   };
-
-  virtualisation.virtualbox.host.enable = true;
 
   environment.systemPackages = with pkgs; [
     alsaLib
