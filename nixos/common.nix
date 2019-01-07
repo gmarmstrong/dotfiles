@@ -42,7 +42,7 @@
     networkmanager.enable = true;
   };
 
-  time.timeZone = "US/Eastern";
+  time.timeZone = "America/New_York";
 
   security = {
     sudo.enable = true;
