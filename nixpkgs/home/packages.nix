@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     # cargo gnumake nixops rustc
     acpi
+    anki
     ardour
     audacity
     blueman
