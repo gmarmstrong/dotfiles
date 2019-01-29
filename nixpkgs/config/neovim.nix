@@ -33,6 +33,7 @@
       Plug 'vim-pandoc/vim-pandoc'
       Plug 'vim-pandoc/vim-pandoc-syntax'
       Plug 'tpope/vim-fugitive'
+      Plug 'tpope/vim-characterize'
       call plug#end()
 
       let g:gitgutter_override_sign_column_highlight = 1
