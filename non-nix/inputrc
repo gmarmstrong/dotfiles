@@ -1,6 +1,7 @@
 set editing-mode vi
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
+set completion-ignore-case on
 set menu-complete-display-prefix on
 $if mode=vi
     set keymap vi-command
