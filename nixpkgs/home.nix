@@ -100,6 +100,14 @@
       enable = true;
       enableGoogleTalk = true;
     };
+    tmux = {
+      enable = true;
+      extraConfig = ''
+        set-window-option -g mode-keys vi
+        bind-key -T copy-mode-vi 'v' send -X begin-selection
+        bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
+      '';
+    };
   };
 
   xsession = {
