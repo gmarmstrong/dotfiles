@@ -62,12 +62,15 @@
     bash.enableCompletion = true;
   };
 
+  powerManagement.enable = true;
+
   services = {
     colord.enable = true;
     dbus.packages = [ pkgs.blueman ];
     dictd.enable = true;
     locate.enable = true;
     udisks2.enable = true;
+    upower.enable = true; # hibernate on critical battery
 
     gnome3 = {
       at-spi2-core.enable = true; # https://github.com/NixOS/nixpkgs/pull/15365#issuecomment-218451375
