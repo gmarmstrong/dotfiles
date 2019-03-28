@@ -15,7 +15,6 @@
   ];
 
   boot.earlyVconsoleSetup = true;
-  boot.plymouth.enable = true;
 
   hardware.opengl.enable = true;
   hardware.bluetooth = {
