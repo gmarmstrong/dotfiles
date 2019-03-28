@@ -96,10 +96,6 @@
       enable = true;
       path = "${config.home.homeDirectory}/dotfiles/resources/home-manager";
     };
-    firefox = {
-      enable = true;
-      enableGoogleTalk = true;
-    };
     tmux = {
       enable = true;
       extraConfig = ''
