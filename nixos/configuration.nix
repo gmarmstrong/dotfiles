@@ -32,6 +32,8 @@
     }
   ];
 
+  services.logind.lidSwitch = "hybrid-sleep";
+
   services.xserver.multitouch.enable = true;
 
   services.xserver.libinput = {
