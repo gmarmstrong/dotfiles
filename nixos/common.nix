@@ -71,7 +71,6 @@
   services = {
     colord.enable = true;
     dbus.packages = [ pkgs.blueman ];
-    dictd.enable = true;
     geoclue2.enable = true;
     locate.enable = true;
     udisks2.enable = true;
