@@ -9,10 +9,14 @@
     packageOverrides = pkgs : rec { i3Support = true; };
   };
 
-  fonts.fonts = with pkgs; [
-    twemoji-color-font
-    dejavu_fonts
-  ];
+  fonts = {
+    enableFontDir = true;
+    fonts = with pkgs; [
+      nerdfonts
+      twemoji-color-font
+      dejavu_fonts
+    ];
+  };
 
   boot.earlyVconsoleSetup = true;
 
