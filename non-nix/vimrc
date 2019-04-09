@@ -60,3 +60,15 @@ highlight clear GitGutterAdd
 highlight clear GitGutterChange
 highlight clear GitGutterDelete
 highlight clear GitGutterChangeDelete
+
+" ==============================================================================
+" FILETYPE
+
+" Markdown filename extensions
+au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.mdwn,*.md  set ft=markdown
+
+" Highlight lines exceeding 100 columns in Java files
+augroup warnings
+    autocmd FileType java highlight OverLength ctermbg=red ctermfg=white
+    autocmd FileType java match OverLength /\%>100v.\+/
+augroup END
