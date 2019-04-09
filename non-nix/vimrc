@@ -9,11 +9,10 @@ set nocompatible
 
 " Plugins
 call plug#begin()
-Plug 'airblade/vim-gitgutter'       " Git diff
-Plug 'majutsushi/tagbar'            " Ctags sidebar
-Plug 'godlygeek/tabular'            " Markdown dependency for tables
-Plug 'elzr/vim-json'                " Markdown dependency for JSON
-Plug 'plasticboy/vim-markdown'      " Markdown support
+Plug 'airblade/vim-gitgutter'       " Git diff in sign column
+Plug 'chriskempson/base16-vim'      " Color theme
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 " vim-markdown settings
