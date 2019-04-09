@@ -13,7 +13,6 @@
 
     extraConfig = {
       core.editor = "nvim";
-      gpg.program = "${pkgs.gnupg}/bin/gpg";
       credential.helper = "cache";
     };
 

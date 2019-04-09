@@ -96,9 +96,13 @@
       enable = true;
       path = "${config.home.homeDirectory}/dotfiles/resources/home-manager";
     };
-    firefox = {
+    tmux = {
       enable = true;
-      enableGoogleTalk = true;
+      extraConfig = ''
+        set-window-option -g mode-keys vi
+        bind-key -T copy-mode-vi 'v' send -X begin-selection
+        bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
+      '';
     };
   };
 

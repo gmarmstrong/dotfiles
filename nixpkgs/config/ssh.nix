@@ -7,7 +7,9 @@
       "nike" = {
         hostname = "nike.cs.uga.edu";
         user = "gma";
-        forwardX11 = true; };
+        forwardX11 = true;
+        forwardX11Trusted = true;
+      };
     };
   };
 }

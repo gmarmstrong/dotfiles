@@ -9,6 +9,8 @@
       set recolor "true"
       set statusbar-home-tilde "true"
       set window-title-home-tilde "true"
+      set statusbar-basename "true"
+      set window-title-basename "true"
       set selection-clipboard clipboard
     '';
   };

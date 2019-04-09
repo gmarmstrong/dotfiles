@@ -39,7 +39,7 @@
       let g:gitgutter_override_sign_column_highlight = 1
       let g:pandoc#syntax#conceal#urls = 1
       let g:pandoc#command#custom_open = "PandocXDGOpen"
-      let g:vimtex_compiler_latexmk = {'callback' : 0}
+      "let g:vimtex_compiler_latexmk = {'callback' : 0}
       let g:vimtex_view_general_viewer = 'zathura'
 
       function! PandocXDGOpen(file)
