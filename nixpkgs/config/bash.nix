@@ -8,11 +8,15 @@
     initExtra = ''
       # Shell prompt
       function git_slug {
+          # test git repo
           if git status --porcelain &>/dev/null; then
+              # abbreviated branch or tag name
+              echo -n "$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+              # asterisk if repo dirty
               if [ -z "$(git status --porcelain)" ]; then
-                  echo "$(git rev-parse --abbrev-ref HEAD)  "
+                  echo "  "
               else
-                  echo "$(git rev-parse --abbrev-ref HEAD)* "
+                  echo "* "
               fi
           fi
       }
