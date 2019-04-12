@@ -6,24 +6,38 @@
     package = pkgs.polybar.override {
       i3Support = true;
       i3 = pkgs.i3;
+      pulseSupport = true;
     };
-    script = "PATH=$PATH:${pkgs.i3}/bin polybar basebar &";
+    script = ''
+      PATH=$PATH:${pkgs.i3}/bin
+      polybar primary &
+      polybar primarybottom &
+      polybar secondary &
+    '';
 
     config = {
-      "bar/basebar" = {
+      "settings" = {
+        screenchange-reload = true;
+      };
+
+      "bar/base" = {
         width = "100%";
         height = "5%";
         radius = 0;
-        modules-left = "i3";
-        modules-center = "datetime";
         module-margin = 1;
-        modules-right = "vpn wireless-network wired-network battery0 battery1";
         padding = 4;
-        font-0 = "Twitter Color Emoji:style=Regular:size=12";
-        font-1 = "DejaVu Sans Mono:style=Regular:size=12";
+        font-0 = "Twitter Color Emoji:size=12";
+        font-1 = "DejaVuSansMono Nerd Font:size=12";
         background = "\${colors.base00}";
         foreground = "\${colors.base05}";
         screenchange-reload = "true";
+      };
+
+      "bar/primary" = {
+        "inherit" = "bar/base";
+        modules-left = "i3";
+        modules-center = "datetime";
+        modules-right = "xbacklight battery0 battery1";
         tray-position = "right";
         monitor = "\${env:MONITOR:eDP-1}";
       };
@@ -53,7 +67,15 @@
         label-focused-padding = 6;
 
         label-unfocused = "%index%";
-        label-unfocused-padding = 6;
+        label-unfocused-padding = 4;
+
+        label-visible = "(%index%)";
+        label-visible-padding = 4;
+
+        label-urgent = "%index%";
+        label-urgent-padding = 4;
+        label-urgent-foreground = "\${colors.base00}";
+        label-urgent-background = "\${colors.base08}";
       };
 
       "module/datetime" = {
@@ -64,20 +86,31 @@
         label = "%date%  %time%";
       };
 
+      "module/xbacklight" = {
+        type = "internal/xbacklight";
+        enable-scroll = false;
+        format = "<ramp> ";
+        ramp-0 = "🌚"; # Unicode NEW MOON WITH FACE
+        ramp-1 = "🌜"; # Unicode LAST QUARTER MOON WITH FACE
+        ramp-2 = "🌥️"; # Unicode WHITE SUN NBEHIND CLOUD
+        ramp-3 = "🌤️"; # Unicode WHITE SUN WITH SMALL CLOD
+        ramp-4 = "🌞"; # Unicode SUN WITH FACE
+      };
+
       "module/batterybase" = {
         type = "internal/battery";
         poll-interval = 5;
-        full-at = 98;
-        format-charging = "<label-charging> <ramp-capacity>";
+        full-at = 95;
+        format-charging = "<ramp-capacity><label-charging>";
         format-discharging = "<ramp-capacity>";
         format-full = "<ramp-capacity>";
-        label-charging = "⚡";
-        ramp-capacity-0 = "▰▱▱▱▱▱";
-        ramp-capacity-1 = "▰▰▱▱▱▱";
-        ramp-capacity-2 = "▰▰▰▱▱▱";
-        ramp-capacity-3 = "▰▰▰▰▱▱";
-        ramp-capacity-4 = "▰▰▰▰▰▱";
-        ramp-capacity-5 = "▰▰▰▰▰▰";
+        label-charging = "";
+        ramp-capacity-0 = "";
+        ramp-capacity-1 = "";
+        ramp-capacity-2 = "";
+        ramp-capacity-3 = "";
+        ramp-capacity-4 = "";
+        ramp-capacity-5 = "";
       };
 
       "module/battery0" = {
@@ -92,58 +125,64 @@
         adapter = "AC";
       };
 
-      #"module/bluetooth" = {
-      #  type = "custom/script";
-      #  exec = "/run/current-system/sw/bin/systemctl is-active bluetooth.service >/dev/null && printf 'Bluetooth' || printf 'bt off'";
-      #  interval = "3";
-      #};
+      "module/bluetooth" = {
+        type = "custom/script";
+        exec = "/run/current-system/sw/bin/systemctl is-active bluetooth.target >/dev/null && echo '' || printf ''";
+        interval = "2";
+      };
 
       "module/networkbase" = {
         type = "internal/network";
         format-connected = "<label-connected>";
-        format-connected-margin = 2;
-        format-disconnected = "<label-disconnected>";
-        format-disconnected-margin = 2;
       };
 
-      "module/wired-network" = {
+      "module/ethernet" = {
         "inherit" = "module/networkbase";
         interface = "enp0s25";
-        label-connected = "Ethernet";
+        label-connected = "";
       };
 
-      "module/wireless-network" = {
+      "module/wifi" = {
         "inherit" = "module/networkbase";
         interface = "wlp3s0";
-        label-connected = "Wi-Fi";
+        label-connected = "直";
       };
 
       "module/vpn" = {
         type = "custom/script";
         interval = 2;
         label = "%output%";
-        exec = "/run/current-system/sw/bin/pgrep openvpn >/dev/null && printf '🔒' || printf '🔓'";
+        exec = "/run/current-system/sw/bin/pgrep openvpn >/dev/null && echo '' || echo ''";
+      };
+
+      "module/audio" = {
+        type = "internal/pulseaudio";
+        format-volume = "<ramp-volume> <label-volume>";
+        label-muted = "ﱝ";
+        ramp-volume-0 = "奄";
+        ramp-volume-1 = "奔";
+        ramp-volume-2 = "墳";
       };
     };
 
     extraConfig = ''
       [colors]
-      base00 = ''${xrdb:color0:#000000}
-      base01 = ''${xrdb:color10:#000000}
-      base02 = ''${xrdb:color11:#000000}
-      base03 = ''${xrdb:color8:#000000}
-      base04 = ''${xrdb:color12:#000000}
-      base05 = ''${xrdb:color7:#000000}
-      base06 = ''${xrdb:color13:#000000}
-      base07 = ''${xrdb:color15:#000000}
-      base08 = ''${xrdb:color1:#000000}
-      base09 = ''${xrdb:color9:#000000}
-      base0A = ''${xrdb:color3:#000000}
-      base0B = ''${xrdb:color2:#000000}
-      base0C = ''${xrdb:color6:#000000}
-      base0D = ''${xrdb:color4:#000000}
-      base0E = ''${xrdb:color5:#000000}
-      base0F = ''${xrdb:color14:#000000}
+      base00 = ''${xrdb:color0}
+      base01 = ''${xrdb:color10}
+      base02 = ''${xrdb:color11}
+      base03 = ''${xrdb:color8}
+      base04 = ''${xrdb:color12}
+      base05 = ''${xrdb:color7}
+      base06 = ''${xrdb:color13}
+      base07 = ''${xrdb:color15}
+      base08 = ''${xrdb:color1}
+      base09 = ''${xrdb:color9}
+      base0A = ''${xrdb:color3}
+      base0B = ''${xrdb:color2}
+      base0C = ''${xrdb:color6}
+      base0D = ''${xrdb:color4}
+      base0E = ''${xrdb:color5}
+      base0F = ''${xrdb:color14}
     '';
   };
 }
