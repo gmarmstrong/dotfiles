@@ -62,15 +62,27 @@
       package = pkgs.gnome3.adwaita-icon-theme;
       name = "Adwaita";
     };
-    gtk2.extraConfig = ''
-      [Filechooser Settings]
-      StartupMode=cwd
-    '';
     gtk3.extraConfig = {
       gtk-recent-files-enabled = false;
       gtk-recent-files-max-age = 0;
       gtk-recent-files-limit = 0;
     };
+  };
+  xdg.configFile.gtkFileChooser = {
+    target = "gtk-2.0/gtkfilechooser.ini";
+    text = ''
+      [Filechooser Settings]
+      LocationMode=path-bar
+      ShowHidden=false
+      ShowSizeColumn=true
+      GeometryX=570
+      GeometryY=247
+      GeometryWidth=780
+      GeometryHeight=585
+      SortColumn=name
+      SortOrder=ascending
+      StartupMode=cwd
+    '';
   };
 
   services = {
