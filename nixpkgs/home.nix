@@ -86,6 +86,7 @@
   services = {
     blueman-applet.enable = true;
     network-manager-applet.enable = true;
+    nextcloud-client.enable = true;
     pasystray.enable = true;
     unclutter = {
       enable = true;
@@ -118,9 +119,6 @@
 
   xsession = {
     enable = true;
-    profileExtra = ''
-      nextcloud &
-    '';
     initExtra = ''
       xset s off -dpms # disable screen saver
     '';
