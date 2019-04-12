@@ -25,23 +25,33 @@
         foreground = "\${colors.base05}";
         screenchange-reload = "true";
         tray-position = "right";
-        monitor = "\${env:MONITOR:eDP1}";
-        monitor-fallback = "\${env:MONITOR:HDMI1}";
+        monitor = "\${env:MONITOR:eDP-1}";
+      };
+
+      "bar/secondary" = {
+        "inherit" = "bar/base";
+        modules-left = "i3";
+        modules-center = "datetime";
+        monitor = "\${env:MONITOR:HDMI-1}";
+        monitor-fallback = "\${env:MONITOR:DP-1}";
       };
 
       "module/i3" = {
         type = "internal/i3";
         strip-wsnumbers = true;
-        index-sort = true;
+        pin-workspaces = true;
+        index-sort = false;
         enable-click = true;
         enable-scroll = false;
         wrapping-scroll = false;
         format = "<label-state> <label-mode>";
+
         label-focused = "%index%";
         label-focused-foreground = "\${colors.base05}";
         label-focused-background = "\${colors.base02}";
         label-focused-underline = "\${colors.base09}";
         label-focused-padding = 6;
+
         label-unfocused = "%index%";
         label-unfocused-padding = 6;
       };
