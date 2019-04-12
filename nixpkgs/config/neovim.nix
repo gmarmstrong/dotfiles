@@ -26,6 +26,7 @@
       call plug#begin()
       Plug 'jamessan/vim-gnupg'
       Plug 'lervag/vimtex'
+      Plug 'majutsushi/tagbar'
       Plug 'airblade/vim-gitgutter'
       Plug 'chriskempson/base16-vim'
       Plug 'LnL7/vim-nix'
@@ -34,6 +35,10 @@
       Plug 'vim-pandoc/vim-pandoc-syntax'
       Plug 'tpope/vim-fugitive'
       Plug 'tpope/vim-characterize'
+      Plug 'tpope/vim-surround'
+      Plug 'tpope/vim-repeat'
+      Plug 'tpope/vim-speeddating' " org-mode dependency
+      Plug 'jceb/vim-orgmode'
       call plug#end()
 
       let g:gitgutter_override_sign_column_highlight = 1
@@ -41,6 +46,7 @@
       let g:pandoc#command#custom_open = "PandocXDGOpen"
       "let g:vimtex_compiler_latexmk = {'callback' : 0}
       let g:vimtex_view_general_viewer = 'zathura'
+      let g:vimtex_indent_on_ampersands = 0
 
       function! PandocXDGOpen(file)
           return 'xdg-open ' . shellescape(expand(a:file,':p'))
