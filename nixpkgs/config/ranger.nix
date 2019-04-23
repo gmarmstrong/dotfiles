@@ -16,7 +16,7 @@
       ext txt|tex|asc|gpg|sh|md|markdown|rst, label editor = nvim -- "$@"
       ext pdf|djvu|epub, has zathura, X, flag f = zathura -- "$@"
       ext mobi, has ebook-viewer, X, flag f = ebook-viewer -- "$@"
-      ext x?html?, has firefox, X, flag f = firefox -- "$@"
+      ext x?html?json?, has firefox, X, flag f = firefox -- "$@"
       ext 7z|ace|ar|arc|bz2?|cab|cpio|cpt|deb|dgc|dmg|gz, flag f = atool --extract --each -- "$@"
       ext iso|jar|msi|pkg|rar|shar|tar|tgz|xar|xpi|xz|zip, flag f = atool --extract --each -- "$@"
       mime ^image, has sxiv, X, flag f = sxiv -a -- "$@"
