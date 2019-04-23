@@ -105,7 +105,7 @@
         format-discharging = "<ramp-capacity>";
         format-full = "<ramp-capacity>";
         label-charging = "";
-        ramp-capacity-0 = "";
+        ramp-capacity-0 = "";
         ramp-capacity-1 = "";
         ramp-capacity-2 = "";
         ramp-capacity-3 = "";
