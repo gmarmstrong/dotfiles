@@ -73,6 +73,7 @@
     firefox
     hexchat # IRC client (GUI)
     insomnia # REST API client (GUI)
+    nextcloud-client
     qalculate-gtk # calculator (GUI)
     qbittorrent # bittorrent client (GUI)
     qutebrowser # vi-like web browser (GUI)
