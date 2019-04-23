@@ -3,7 +3,11 @@
 {
 
   nixpkgs = {
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      android_sdk.accept_license = true;
+      oraclejdk.accept_license = true;
+    };
     overlays = [
       (self: super: {
         blueman = super.blueman.overrideAttrs (oldAttrs: {
@@ -24,7 +28,6 @@
     ./config/htop.nix
     ./config/i3.nix
     ./config/neovim.nix
-    ./config/nixpkgs.nix
     ./config/polybar.nix
     ./config/qutebrowser.nix
     ./config/ranger.nix
