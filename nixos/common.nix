@@ -35,7 +35,7 @@
     isNormalUser = true;
     home = "/home/guthrie";
     description = "Guthrie McAfee Armstrong";
-    extraGroups = [ "wheel" "networkmanager" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     shell = pkgs.bash;
   };
 
@@ -64,6 +64,7 @@
     gnupg.agent.enable = true;
     adb.enable = true;
     bash.enableCompletion = true;
+    light.enable = true;
   };
 
   powerManagement.enable = true;
