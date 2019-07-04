@@ -121,17 +121,14 @@
         "Mod1+Shift+q" = "kill";
         "Mod1+Return" = "exec --no-startup-id ${pkgs.rxvt_unicode_with-plugins}/bin/urxvt";
 
-        "XF86MonBrightnessUp" = "exec --no-startup-id \"xbacklight -inc 10\"";
-        "XF86MonBrightnessDown" = "exec --no-startup-id \"xbacklight -dec 10\"";
-        "XF86AudioMute" = "exec --no-startup-id \"amixer sset Master toggle\"";
-        "XF86AudioRaiseVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 5%+\"";
-        "XF86AudioLowerVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 5%-\"";
-        "Shift+XF86AudioRaiseVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 2%+\"";
-        "Shift+XF86AudioLowerVolume" = "exec --no-startup-id \"amixer sset Master unmute && amixer sset Master 2%-\"";
+        "XF86MonBrightnessUp" = "exec --no-startup-id \"light -A 10\"";
+        "XF86MonBrightnessDown" = "exec --no-startup-id \"light -N 5 && light -U 10\"";
+        "XF86AudioMute" = "exec --no-startup-id \"pactl set-sink-mute 0 toggle";
+        "XF86AudioRaiseVolume" = "exec --no-startup-id \"pactl set-sink-volume 0 +5%";
+        "XF86AudioLowerVolume" = "exec --no-startup-id \"pactl set-sink-volume 0 -5%";
         "XF86Calculator" = "exec --no-startup-id \"${pkgs.qalculate-gtk}/bin/qalculate-gtk\"";
         "Mod4+l" = "exec --no-startup-id \"physlock -m\"";
         "XF86HomePage" = "exec --no-startup-id \"firefox\"";
-        "Mod1+XF86HomePage" = "exec --no-startup-id \"firefox -P other\"";
         "Mod4+e" = "exec --no-startup-id \"${pkgs.rxvt_unicode_with-plugins}/bin/urxvt -e ranger\"";
 
         "Print" = "exec --no-startup-id \"scrot --quality 100 %Y-%m-%d_%H-%M-%S.png -e 'mkdir ${config.home.homeDirectory}/screenshots; mv $f ${config.home.homeDirectory}/screenshots/'\"";
