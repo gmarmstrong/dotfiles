@@ -11,7 +11,6 @@
     script = ''
       PATH=$PATH:${pkgs.i3}/bin
       polybar primary &
-      polybar primarybottom &
       polybar secondary &
     '';
 
@@ -37,7 +36,7 @@
         "inherit" = "bar/base";
         modules-left = "i3";
         modules-center = "datetime";
-        modules-right = "xbacklight battery0 battery1";
+        modules-right = "backlight battery0 battery1";
         tray-position = "right";
         monitor = "\${env:MONITOR:eDP-1}";
       };
@@ -86,8 +85,9 @@
         label = "%date%  %time%";
       };
 
-      "module/xbacklight" = {
-        type = "internal/xbacklight";
+      "module/backlight" = {
+        type = "internal/backlight";
+        card = "intel_backlight";
         enable-scroll = false;
         format = "<ramp> ";
         ramp-0 = "🌚"; # Unicode NEW MOON WITH FACE
@@ -102,9 +102,10 @@
         poll-interval = 5;
         full-at = 95;
         format-charging = "<ramp-capacity><label-charging>";
-        format-discharging = "<ramp-capacity>";
+        format-discharging = "<ramp-capacity><label-discharging>";
         format-full = "<ramp-capacity>";
-        label-charging = "";
+        label-discharging = " %percentage%%";
+        label-charging = " %percentage%%";
         ramp-capacity-0 = "";
         ramp-capacity-1 = "";
         ramp-capacity-2 = "";
