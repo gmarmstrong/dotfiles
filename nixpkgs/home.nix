@@ -55,7 +55,7 @@
     MANPAGER = "nvim -c 'set ft=man' -";
     EDITOR = "nvim";
     _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on";
-    COLORTHEME = "base16-gruvbox-light-soft";
+    COLORTHEME = "base16-gruvbox-light-hard";
     LESSHISTFILE="/dev/null";
   };
 
