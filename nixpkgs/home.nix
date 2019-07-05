@@ -1,7 +1,13 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 {
 
+  xdg.configFile.nixpkgs = {
+    target = "nixpkgs/config.nix";
+    text = ''
+      { allowUnfree = true; }
+    '';
+  };
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -91,6 +97,10 @@
     network-manager-applet.enable = true;
     nextcloud-client.enable = true;
     pasystray.enable = true;
+    redshift = {
+      enable = true;
+      provider = "geoclue2";
+    };
     unclutter = {
       enable = true;
       timeout = 5;
@@ -109,6 +119,10 @@
     home-manager = {
       enable = true;
       path = "${config.home.homeDirectory}/dotfiles/resources/home-manager";
+    };
+    firefox = {
+      enable = true;
+      enableAdobeFlash = true;
     };
     tmux = {
       enable = true;
