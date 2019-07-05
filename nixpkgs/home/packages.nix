@@ -3,13 +3,23 @@
 {
   home.packages = with pkgs; [
 
+    tlaplusToolbox
+    scid-vs-pc
+    stockfish
+    emacs
+    emacs-all-the-icons-fonts
+    digikam
+    android-studio
+    zim
+    lyx
+    runelite
+
     # Considering:
     # passExtensions.pass-audit   # pass: auditing command
     # passExtensions.pass-update  # pass: updating command
     # weechat # IRC client (TODO replace hexchat)
     # sway    # window manager for Wayland, compatible with i3
     # xmonad  # tiling window manager for X, configured in Haskell
-    # zim     # (GUI) desktop wiki
     # buku    # bookmark manager
 
     # Waiting for:
@@ -17,6 +27,7 @@
     # bitwarden     # (GUI) # NixOS/nixpkgs: #51212
     # jabref        # (GUI) NixOS/nixpkgs: #47113
     # passExtensions.pass-tomb # zeapo/Android-Password-Store: #329
+    # postman       # (GUI) 404 Error
 
     # System requirements (TODO nixify)
     blueman # bluetooth manager (GUI)
@@ -26,8 +37,13 @@
     xorg.xbacklight
     atool # (TODO ranger dependency)
 
-    # Userspace utilities
+    # system info
     acpi      # battery status
+    pciutils
+    glxinfo
+    lshw
+
+    # Userspace utilities
     coreutils # basic utilities
     dos2unix  # line break converter
     file      # file info
@@ -43,17 +59,16 @@
     zip unzip p7zip unrar # archive tools
 
     # Development
-    adoptopenjdk-hotspot-bin-11 # prebuilt openjdk binary
     jetbrains.idea-ultimate # IDE (GUI) (UNFREE)
-    maven3 # java build tool
-    python3 # TODO development dependency
+    jetbrains.pycharm-professional # IDE (GUI) (UNFREE)
+    # adoptopenjdk-hotspot-bin-11 maven3 # TODO nixify Java projects
+    python3 # TODO nixify Python projects
+    # coq # proof assistant (GUI) # TODO nixify Coq projects
     universal-ctags # source code indexer (TODO Vim tagbar dependency)
-    coq # proof assistant (GUI) # TODO nixify projects
-    # gnumake
+    # gnumake # TODO nixify projects
     # rustc cargo # TODO nixify Rust projects
     # gnumake # TODO nixify projects
     # nixops # TODO nixify NixOps projects
-    # jdk8 # TODO nixify Java projects
 
     # Security
     gnupg # openpgp
@@ -62,18 +77,17 @@
     gksu # su frontend (GUI)
 
     # Textual applications
-    diction # english linter
+    diction # English linter
     libqalculate # calculator
     ranger # file manager
-    hledger
+    hledger # accounting tool
 
     # Graphical applications
     anki  # flashcards (GUI)
-    calibre # e-book manager (GUI)
-    firefox
+    calibre # ebook manager (GUI)
     hexchat # IRC client (GUI)
     insomnia # REST API client (GUI)
-    nextcloud-client
+    nextcloud-client # cloud storage client (GUI)
     qalculate-gtk # calculator (GUI)
     qbittorrent # bittorrent client (GUI)
     qutebrowser # vi-like web browser (GUI)
