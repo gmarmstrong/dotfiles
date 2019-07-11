@@ -35,6 +35,7 @@
         Plug 'chriskempson/base16-vim'
         Plug 'LnL7/vim-nix'
         Plug 'junegunn/goyo.vim'
+        Plug 'junegunn/vim-plug'
         Plug 'vim-pandoc/vim-pandoc'
         Plug 'vim-pandoc/vim-pandoc-syntax'
         Plug 'tpope/vim-fugitive'
