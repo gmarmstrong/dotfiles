@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+git -C "$HOME/dotfiles" pull
+git -C "$HOME/dotfiles" submodule foreach git pull
+sudo nixos-rebuild switch --upgrade
+home-manager switch --upgrade
+nvim +PlugUpgrade +PlugUpdate +PlugClean +qall
