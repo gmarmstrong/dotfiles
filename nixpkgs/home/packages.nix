@@ -12,7 +12,7 @@
     android-studio
     zim
     lyx
-    runelite
+    scrcpy
 
     # Considering:
     # passExtensions.pass-audit   # pass: auditing command
@@ -61,6 +61,7 @@
     # Development
     jetbrains.idea-ultimate # IDE (GUI) (UNFREE)
     jetbrains.pycharm-professional # IDE (GUI) (UNFREE)
+    jetbrains.webstorm # IDE (GUI) (UNFREE)
     # adoptopenjdk-hotspot-bin-11 maven3 # TODO nixify Java projects
     python3 # TODO nixify Python projects
     # coq # proof assistant (GUI) # TODO nixify Coq projects
