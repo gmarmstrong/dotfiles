@@ -124,7 +124,7 @@
   };
 
   services = {
-    dbus.packages = [ pkgs.blueman ];
+    dbus.packages = with pkgs; [ blueman gnome3.gnome-keyring gnome3.gcr ];
     geoclue2.enable = true;
     locate.enable = true;
     upower.enable = true; # hibernate on critical battery
@@ -137,7 +137,7 @@
 
     printing = {
       enable = true;
-      drivers = [ pkgs.hplip pkgs.foo2zjs ];
+      drivers = with pkgs; [ hplip foo2zjs ];
       browsing = true;
       defaultShared = true;
     };
