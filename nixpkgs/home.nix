@@ -121,10 +121,7 @@
       enable = true;
       path = "${config.home.homeDirectory}/dotfiles/resources/home-manager";
     };
-    firefox = {
-      enable = true;
-      enableAdobeFlash = true;
-    };
+    firefox.enable = true;
     tmux = {
       enable = true;
       extraConfig = ''
