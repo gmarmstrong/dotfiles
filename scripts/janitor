@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 
+# Update dotfiles
 git -C "$HOME/dotfiles" pull
+
+# Update submodules
 git -C "$HOME/dotfiles" submodule foreach git pull
+
+# Upgrade system
 sudo nixos-rebuild switch --upgrade
+
+# Upgrade home
 home-manager switch --upgrade
+
+# Upgrade Neovim plugins
 nvim +PlugUpgrade +PlugUpdate +PlugClean +qall

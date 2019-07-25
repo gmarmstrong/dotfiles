@@ -20,11 +20,3 @@ but feel free to explore and borrow what you like!
 6. Install [home-manager](https://github.com/rycee/home-manager) with
    `nix-shell "$HOME/dotfiles/resources/home-manager" -A install`
 7. Apply the home configuration with `home-manager switch`
-
-## Routine maintenance
-
-1. Update dotfiles with `cd "$HOME/dotfiles" && git pull`
-2. Update submodules with `git submodule foreach git pull`
-3. Upgrade system with `sudo nixos-rebuild switch --upgrade`
-4. Upgrade user environment with `home-manager switch --upgrade`
-5. Upgrade Neovim plugins with `nvim +PlugUpgrade +PlugUpdate +qall`
