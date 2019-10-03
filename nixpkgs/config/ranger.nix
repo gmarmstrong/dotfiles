@@ -7,6 +7,7 @@
       map DD shell trash %s
       set vcs_aware true
       set draw_borders true
+      set preview_images false
     '';
   };
 
@@ -14,11 +15,13 @@
     target = "ranger/rifle.conf";
     text = ''
       ext txt|tex|asc|gpg|sh|md|markdown|rst, label editor = nvim -- "$@"
+      ext lyx, has lyx, X, flag f = lyx "$@"
       ext pdf|djvu|epub, has zathura, X, flag f = zathura -- "$@"
       ext mobi, has ebook-viewer, X, flag f = ebook-viewer -- "$@"
       ext html|json, has firefox, X, flag f = firefox -- "$@"
       ext 7z|ace|ar|arc|bz2?|cab|cpio|cpt|deb|dgc|dmg|gz, flag f = atool --extract --each -- "$@"
       ext iso|jar|msi|pkg|rar|shar|tar|tgz|xar|xpi|xz|zip, flag f = atool --extract --each -- "$@"
+      ext svg, has inkview, X, flag f = inkview -- "$@"
       mime ^image, has sxiv, X, flag f = sxiv -a -- "$@"
       mime ^video|audio, has vlc, X, flag f = vlc -- "$@"
       mime ^text, label editor = nvim -- "$@"
@@ -93,6 +96,9 @@
               # BitTorrent
               torrent)
                   transmission-show -- "''${FILE_PATH}" && exit 5
+                  exit 1;;
+
+              svg)
                   exit 1;;
 
               # Document
