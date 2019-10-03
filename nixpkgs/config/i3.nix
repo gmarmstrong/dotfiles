@@ -111,12 +111,12 @@
         "Mod1+Shift+k" = "move up 20";
         "Mod1+Shift+l" = "move right 20";
 
-        "Mod1+d" = "exec --no-startup-id \"rofi -show run\"";
         "Mod1+c" = "exec --no-startup-id \"rofi -show window\"";
-        "Mod1+e" = "exec --no-startup-id \"rofi -modi 'emoji:${config.xdg.configHome}/rofi/rofiemoji.sh' -show emoji\"";
-        "Mod1+Shift+d" = "exec --no-startup-id \"rofi -show ssh\"";
+        "Mod1+d" = "exec --no-startup-id \"rofi -show run\"";
+        "Mod1+e" = "exec --no-startup-id \"rofi -modi drun -show drun\"";
         "Mod1+Shift+c" = "exec --no-startup-id \"${pkgs.rofi-pass}/bin/rofi-pass\"";
-        "Mod1+Shift+e" = "exec --no-startup-id \"rofi -modi drun -show drun\"";
+        "Mod1+Shift+d" = "exec --no-startup-id \"rofi -show ssh\"";
+        "Mod1+Shift+e" = "exec --no-startup-id \"rofi -modi 'emoji:${config.xdg.configHome}/rofi/rofiemoji.sh' -show emoji\"";
         "Mod1+Shift+s" = "exec --no-startup-id \"rofi -modi drun -show drun -run-command '${pkgs.gksu}/bin/gksudo {cmd}' -display-drun 'sudo'\"";
         "Mod1+Shift+q" = "kill";
         "Mod1+Return" = "exec --no-startup-id ${pkgs.rxvt_unicode_with-plugins}/bin/urxvt";
