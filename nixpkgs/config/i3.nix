@@ -46,8 +46,8 @@
         }
 
         {
-          command = "xrandr --output HDMI-1 --auto --left-of eDP-1";
-          #command = "xrandr --output HDMI-1 --auto --same-as eDP-1";
+          command = "xrandr --output HDMI1 --auto --right-of eDP1";
+          #command = "xrandr --output HDMI1 --auto --same-as eDP1";
           always = true;
           notification = false;
         }

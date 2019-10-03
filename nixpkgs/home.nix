@@ -1,6 +1,8 @@
 { pkgs, config, lib, ... }:
 
-{
+let
+  inherit (import <nixpkgs> {}) fetchFromGitHub;
+in {
 
   xdg.configFile.nixpkgs = {
     target = "nixpkgs/config.nix";
@@ -16,6 +18,23 @@
     };
     overlays = [
       (self: super: {
+        multimc = super.multimc.overrideAttrs (oldAttrs: {
+          src = fetchFromGitHub {
+            owner = "MultiMC";
+            repo = "MultiMC5";
+            rev = "0.6.7";
+            sha256 = "1i160rmsdvrcnvlr6m2qjwkfx0lqnzrcifjkaklw96ina6z6cg2n";
+            fetchSubmodules = true;
+          };
+        });
+        flashplayer = super.flashplayer.overrideAttrs (oldAttrs: {
+          name = "flashplayer-32.0.0.238";
+          version = "32.0.0.238";
+          src = builtins.fetchurl {
+            url = "https://fpdownload.adobe.com/get/flashplayer/pdc/32.0.0.238/flash_player_npapi_linux.x86_64.tar.gz";
+            sha256 = "05gvssjdz43pvgivdngrf8qr5b30p45hr2sr97cyl6b87581qw9s";
+          };
+        });
         blueman = super.blueman.overrideAttrs (oldAttrs: {
           # TODO: See https://github.com/NixOS/nixpkgs/issues/44548
           buildInputs = oldAttrs.buildInputs ++ [ self.gnome3.adwaita-icon-theme ];
@@ -110,10 +129,6 @@
       enable = true;
       components = [ "pkcs11" "secrets" "ssh" ];
     };
-    gpg-agent = {
-      enable = true;
-      enableSshSupport = true;
-    };
   };
 
   programs = {
@@ -121,7 +136,10 @@
       enable = true;
       path = "${config.home.homeDirectory}/dotfiles/resources/home-manager";
     };
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      enableAdobeFlash = true;
+    };
     tmux = {
       enable = true;
       extraConfig = ''
@@ -135,6 +153,9 @@
   xsession = {
     enable = true;
     initExtra = ''
+      dbus-update-activation-environment --systemd DISPLAY
+      eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+      export SSH_AUTH_SOCK
       xset s off -dpms # disable screen saver
     '';
   };

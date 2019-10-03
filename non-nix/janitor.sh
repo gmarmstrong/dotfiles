@@ -63,3 +63,5 @@ if ! command -v tree; then
     make -C "$HOME/.local/src/tree-1.7.0"
     mv "$HOME/.local/src/tree-1.7.0/tree" "$HOME/.local/bin/tree"
 fi
+
+# Check for optional programs

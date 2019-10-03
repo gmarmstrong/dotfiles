@@ -38,15 +38,15 @@
         modules-center = "datetime";
         modules-right = "backlight battery0 battery1";
         tray-position = "right";
-        monitor = "\${env:MONITOR:eDP-1}";
+        monitor = "\${env:MONITOR:eDP1}";
       };
 
       "bar/secondary" = {
         "inherit" = "bar/base";
         modules-left = "i3";
         modules-center = "datetime";
-        monitor = "\${env:MONITOR:HDMI-1}";
-        monitor-fallback = "\${env:MONITOR:DP-1}";
+        monitor = "\${env:MONITOR:HDMI1}";
+        monitor-fallback = "\${env:MONITOR:DP1}";
       };
 
       "module/i3" = {

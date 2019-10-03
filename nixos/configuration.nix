@@ -8,10 +8,15 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    packageOverrides = pkgs : rec { i3Support = true; };
+    packageOverrides = pkgs: {
+      i3Support = true;
+      nextcloud-client = pkgs.nextcloud-client.override {
+        # https://discourse.nixos.org/t/nextcloud-and-keyrings/1339/3
+        withGnomeKeyring = true;
+        libgnome-keyring = pkgs.gnome3.libgnome-keyring;
+      };
+    };
   };
-
-  boot.earlyVconsoleSetup = true; # set font in initrd
 
   hardware = {
     enableAllFirmware = true;
@@ -39,7 +44,7 @@
   };
 
   security = {
-    pam.services.passwd.enableGnomeKeyring = true;
+    pam.services = [ { name = "gnomekeyring"; enableGnomeKeyring = true; } ];
     sudo.wheelNeedsPassword = false;
     polkit.extraConfig = ''
       // Allow wheel users to mount filesystems
@@ -52,12 +57,11 @@
   };
 
   users = {
-    # groups.vboxusers.members = [ "guthrie" ];
     users.guthrie = {
       isNormalUser = true;
       home = "/home/guthrie";
       description = "Guthrie McAfee Armstrong";
-      extraGroups = [ "wheel" "networkmanager" "audio" "video" ]; # "vboxusers"
+      extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
       shell = pkgs.bash;
     };
   };
@@ -87,7 +91,9 @@
     exfat
     firmwareLinuxNonfree
     git
-    gnome3.dconf # seahorse dependency
+    gnome3.dconf
+    gnome3.gnome-keyring
+    gnome3.seahorse
     home-manager
     mesa
     neovim
@@ -102,13 +108,16 @@
 
   swapDevices = [ { device = "/dev/disk/by-uuid/13f26b63-cf59-49c8-bc44-44bd5fc4c9b2"; } ];
 
-  boot.loader.grub.device = "/dev/disk/by-id/wwn-0x500a075114dcdeb7";
-  boot.loader.grub.configurationLimit = 50; # prevent overfilling /boot (NixOS/nixpkgs/issues/23926)
+  boot.earlyVconsoleSetup = true; # set font in initrd
 
-  boot.loader.grub.extraConfig = ''
-    GRUB_GFXMODE=1920x1080
-    GRUB_GFXPAYLOAD="keep"
-  '';
+  boot.loader.grub = {
+    device = "/dev/disk/by-id/wwn-0x500a075114dcdeb7";
+    configurationLimit = 50; # prevent overfilling /boot (NixOS/nixpkgs/issues/23926)
+    extraConfig = ''
+      GRUB_GFXMODE=1920x1080
+      GRUB_GFXPAYLOAD="keep"
+    '';
+  };
 
   boot.initrd.luks.devices = [
     {
@@ -118,13 +127,20 @@
   ];
 
   programs = {
-    gnupg.agent.enable = true;
+    dconf.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
     adb.enable = true;
     light.enable = true;
   };
 
   services = {
-    dbus.packages = with pkgs; [ blueman gnome3.gnome-keyring gnome3.gcr ];
+    dbus = {
+      packages = with pkgs; [ blueman gnome3.gnome-keyring gnome3.gcr ];
+      socketActivated = true;
+    };
     geoclue2.enable = true;
     locate.enable = true;
     upower.enable = true; # hibernate on critical battery
@@ -167,7 +183,7 @@
           user = "guthrie";
         };
       };
-      # videoDrivers = [ "i915" "mesa" "intel" "modesetting" ]; # "vboxvideo"
+      videoDrivers = [ "i915" "mesa" "intel" "modesetting" ];
     };
 
   };
