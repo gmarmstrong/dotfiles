@@ -3,16 +3,9 @@
 {
   home.packages = with pkgs; [
 
-    tlaplusToolbox
-    scid-vs-pc
-    stockfish
-    emacs
-    emacs-all-the-icons-fonts
-    digikam
-    android-studio
-    zim
-    lyx
-    scrcpy
+    qgis
+    libnotify
+    logisim
 
     # Considering:
     # passExtensions.pass-audit   # pass: auditing command
@@ -24,30 +17,28 @@
 
     # Waiting for:
     # bitwarden-cli # NixOS/nixpkgs: #51212 #53876
-    # bitwarden     # (GUI) # NixOS/nixpkgs: #51212
-    # jabref        # (GUI) NixOS/nixpkgs: #47113
+    # bitwarden     # NixOS/nixpkgs: #51212
+    # jabref        # NixOS/nixpkgs: #47113
     # passExtensions.pass-tomb # zeapo/Android-Password-Store: #329
-    # postman       # (GUI) 404 Error
+    # postman       # NixOS/nixpkgs: #48466
 
     # System requirements (TODO nixify)
-    blueman # bluetooth manager (GUI)
+    blueman # bluetooth manager
     hicolor-icon-theme # icon theme
     librsvg # SVG renderer
-    networkmanagerapplet  # network manager (GUI)
-    xorg.xbacklight
-    atool # (TODO ranger dependency)
+    networkmanagerapplet  # network manager
 
     # system info
-    acpi      # battery status
-    pciutils
-    glxinfo
-    lshw
+    acpi # power management and info
+    pciutils # PCI bus utilities
+    lshw # hardware config info
 
     # Userspace utilities
     coreutils # basic utilities
     dos2unix  # line break converter
-    file      # file info
+    file # file info
     inetutils # network utilities
+    nox # nix tools
     psmisc lsof # process utilities
     qrencode # QR code encoder
     trash-cli # trash can
@@ -59,57 +50,68 @@
     zip unzip p7zip unrar # archive tools
 
     # Development
-    jetbrains.idea-ultimate # IDE (GUI) (UNFREE)
-    jetbrains.pycharm-professional # IDE (GUI) (UNFREE)
-    jetbrains.webstorm # IDE (GUI) (UNFREE)
-    # adoptopenjdk-hotspot-bin-11 maven3 # TODO nixify Java projects
+    jetbrains.idea-ultimate # Java IDE (UNFREE)
+    # adoptopenjdk-hotspot-bin-11 maven3 # TODO nixify local Java projects
+    jetbrains.pycharm-professional # Python IDE (UNFREE)
     python3 # TODO nixify Python projects
-    # coq # proof assistant (GUI) # TODO nixify Coq projects
     universal-ctags # source code indexer (TODO Vim tagbar dependency)
-    # gnumake # TODO nixify projects
-    # rustc cargo # TODO nixify Rust projects
-    # gnumake # TODO nixify projects
-    # nixops # TODO nixify NixOps projects
+    coq # proof assistant
+    tlaplusToolbox tlaps # TLA+ tools
+    rstudio # R tools
+    exercism # programming practice
+    # rustc cargo
+    # nixops
 
     # Security
     gnupg # openpgp
     pass # password manager
     tomb # storage file encryption
-    gksu # su frontend (GUI)
+    gksu # su frontend
 
     # Textual applications
     diction # English linter
     libqalculate # calculator
-    ranger # file manager
+    ranger atool # file manager
     hledger # accounting tool
 
+    # Games
+    multimc minecraft jre8
+    scid-vs-pc stockfish
+
     # Graphical applications
-    anki  # flashcards (GUI)
-    calibre # ebook manager (GUI)
-    hexchat # IRC client (GUI)
-    insomnia # REST API client (GUI)
-    nextcloud-client # cloud storage client (GUI)
-    qalculate-gtk # calculator (GUI)
-    qbittorrent # bittorrent client (GUI)
-    qutebrowser # vi-like web browser (GUI)
-    signal-desktop # messaging client (GUI)
-    skype # VoIP client (UNFREE) (GUI)
-    slack # chat client (GUI) (UNFREE)
-    spotify # music client (GUI) (UNFREE)
-    vlc # media player (GUI)
-    zathura # document viewer (GUI)
-    zotero # reference management (GUI)
+    calibre # ebook manager
+    digikam # photo manager
+    emacs emacs-all-the-icons-fonts # text editor
+    goldendict # dictionary client
+    hexchat # IRC client
+    inkscape # vector graphics editor
+    insomnia # REST API client
+    libreoffice # office suite
+    lyx # LaTeX editor
+    #nextcloud-client # cloud storage client
+    qalculate-gtk # calculator
+    qbittorrent # bittorrent client
+    qutebrowser # vi-like web browser
+    signal-desktop # messaging client
+    skype # video chat client (UNFREE)
+    spotify # music client (UNFREE)
+    vlc # media player
+    zathura # document viewer
+    zim # desktop wiki
+    zotero # reference management
 
     # General:
-    audacity
-    byzanz scrot # screen capture
-    gparted # disk partitioner (GUI)
+    audacity # sound editor
+    byzanz scrot vokoscreen # screen capture
+    gparted # disk partitioner
     imagemagick # bitmap image editor
     man-pages # linux man-pages
     mediainfo # multimedia info
-    mkvtoolnix # matroska tools (GUI)
+    mkvtoolnix # matroska tools
     pandoc # markup converter
+    redshift # screen color temperature manager
     rxvt_unicode-with-plugins # terminal emulator
+    scrcpy # Android remote control and display
     sshfs # remote filesystem mounter
     sxiv # image viewer
     texlive.combined.scheme-full # TeX Live
