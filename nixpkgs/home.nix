@@ -117,6 +117,14 @@ in {
     network-manager-applet.enable = true;
     nextcloud-client.enable = true;
     pasystray.enable = true;
+    dunst = {
+      enable = true;
+      settings = {
+        global = {
+          allow_markup = "yes";
+        };
+      };
+    };
     redshift = {
       enable = true;
       provider = "geoclue2";
