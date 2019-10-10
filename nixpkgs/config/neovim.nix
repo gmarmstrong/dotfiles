@@ -31,6 +31,7 @@
         Plug 'jamessan/vim-gnupg'
         Plug 'lervag/vimtex'
         Plug 'majutsushi/tagbar'
+        Plug 'scrooloose/nerdtree'
         Plug 'airblade/vim-gitgutter'
         Plug 'chriskempson/base16-vim'
         Plug 'LnL7/vim-nix'
