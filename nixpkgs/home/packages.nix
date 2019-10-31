@@ -3,10 +3,6 @@
 {
   home.packages = with pkgs; [
 
-    qgis
-    libnotify
-    logisim
-
     # Considering:
     # passExtensions.pass-audit   # pass: auditing command
     # passExtensions.pass-update  # pass: updating command
@@ -20,12 +16,12 @@
     # bitwarden     # NixOS/nixpkgs: #51212
     # jabref        # NixOS/nixpkgs: #47113
     # passExtensions.pass-tomb # zeapo/Android-Password-Store: #329
-    # postman       # NixOS/nixpkgs: #48466
 
     # System requirements (TODO nixify)
     blueman # bluetooth manager
     hicolor-icon-theme # icon theme
     librsvg # SVG renderer
+    libnotify # dunst dependency
     networkmanagerapplet  # network manager
 
     # system info
@@ -52,13 +48,16 @@
     # Development
     jetbrains.idea-ultimate # Java IDE (UNFREE)
     # adoptopenjdk-hotspot-bin-11 maven3 # TODO nixify local Java projects
-    jetbrains.pycharm-professional # Python IDE (UNFREE)
+    jetbrains.pycharm-professional geckodriver # Python IDE (UNFREE)
+    jetbrains.clion # C++ IDE (UNFREE)
+    gcc gdb gnumake valgrind # C++ utilities
     python3 # TODO nixify Python projects
     universal-ctags # source code indexer (TODO Vim tagbar dependency)
     coq # proof assistant
     tlaplusToolbox tlaps # TLA+ tools
-    rstudio # R tools
-    exercism # programming practice
+    rstudio R # R tools
+    postman # API development
+    # exercism # programming practice
     # rustc cargo
     # nixops
 
@@ -77,6 +76,7 @@
     # Games
     multimc minecraft jre8
     scid-vs-pc stockfish
+    runelite
 
     # Graphical applications
     calibre # ebook manager
@@ -95,6 +95,8 @@
     signal-desktop # messaging client
     skype # video chat client (UNFREE)
     spotify # music client (UNFREE)
+    thunderbird # mail client
+    torbrowser # onion browser
     vlc # media player
     zathura # document viewer
     zim # desktop wiki
@@ -103,6 +105,7 @@
     # General:
     audacity # sound editor
     byzanz scrot vokoscreen # screen capture
+    font-manager
     gparted # disk partitioner
     imagemagick # bitmap image editor
     man-pages # linux man-pages
