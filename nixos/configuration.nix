@@ -169,6 +169,12 @@
 
     xserver = {
       enable = true;
+      extraConfig = ''
+        Section "InputClass"
+            Identifier "Logitech USB Receiver Mouse"
+            Option "ButtonMapping" "1 2 3 4 5 0 0 8 9 10 11 12 13 14 15 16 17 18 19 20"
+        EndSection
+        '';
       exportConfiguration = true;
       multitouch.enable = true;
       libinput = {
