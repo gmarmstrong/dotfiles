@@ -191,6 +191,7 @@
           user = "guthrie";
         };
       };
+      xkbOptions = "caps:none";
       videoDrivers = [ "i915" "mesa" "intel" "modesetting" ];
     };
 
