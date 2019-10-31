@@ -19,7 +19,8 @@
   };
 
   hardware = {
-    enableAllFirmware = true;
+    #enableAllFirmware = true;
+    enableRedistributableFirmware = true;
     cpu.intel.updateMicrocode = true;
 
     opengl = {
@@ -134,11 +135,13 @@
     };
     adb.enable = true;
     light.enable = true;
+    seahorse.enable = true;
   };
 
   services = {
+    blueman.enable = true;
     dbus = {
-      packages = with pkgs; [ blueman gnome3.gnome-keyring gnome3.gcr ];
+      packages = with pkgs; [ gnome3.gnome-keyring gnome3.gcr ];
       socketActivated = true;
     };
     geoclue2.enable = true;
@@ -148,7 +151,6 @@
     gnome3 = {
       at-spi2-core.enable = true; # https://github.com/NixOS/nixpkgs/pull/15365#issuecomment-218451375
       gnome-keyring.enable = true;
-      seahorse.enable = true;
     };
 
     printing = {

@@ -46,6 +46,8 @@ in {
     ];
   };
 
+  fonts.fontconfig.enable = true;
+
   imports = [
     ./config/bash.nix
     ./config/fzf.nix

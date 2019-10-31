@@ -1,7 +1,7 @@
 [submodule "home-manager"]
 	path = resources/home-manager
 	url = https://github.com/rycee/home-manager
-	branch = release-19.03
+	branch = release-19.09
 [submodule "resources/base16-rofi"]
 	path = resources/base16-rofi
 	url = git@github.com:0xdec/base16-rofi

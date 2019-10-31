@@ -25,8 +25,8 @@
         radius = 0;
         module-margin = 1;
         padding = 4;
-        font-0 = "Twitter Color Emoji:size=12";
-        font-1 = "DejaVuSansMono Nerd Font:size=12";
+        font-0 = "DejaVuSansMono Nerd Font Complete Mono:size=12";
+        font-1 = "NotoEmoji Nerd Font Mono:size=12";
         background = "\${colors.base00}";
         foreground = "\${colors.base05}";
         screenchange-reload = "true";
@@ -90,11 +90,11 @@
         card = "intel_backlight";
         enable-scroll = false;
         format = "<ramp> ";
-        ramp-0 = "🌚"; # Unicode NEW MOON WITH FACE
-        ramp-1 = "🌜"; # Unicode LAST QUARTER MOON WITH FACE
-        ramp-2 = "🌥️"; # Unicode WHITE SUN NBEHIND CLOUD
-        ramp-3 = "🌤️"; # Unicode WHITE SUN WITH SMALL CLOD
-        ramp-4 = "🌞"; # Unicode SUN WITH FACE
+        ramp-0 = "";
+        ramp-1 = "";
+        ramp-2 = "";
+        ramp-3 = "";
+        ramp-4 = "";
       };
 
       "module/batterybase" = {

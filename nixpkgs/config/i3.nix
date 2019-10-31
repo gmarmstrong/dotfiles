@@ -123,6 +123,8 @@
 
         "XF86MonBrightnessUp" = "exec --no-startup-id \"light -A 10\"";
         "XF86MonBrightnessDown" = "exec --no-startup-id \"light -N 5 && light -U 10\"";
+        "Mod1+XF86MonBrightnessUp" = "exec --no-startup-id \"light -A 100\"";
+        "Mod1+XF86MonBrightnessDown" = "exec --no-startup-id \"light -N 5 && light -U 95\"";
         "XF86AudioMute" = "exec --no-startup-id \"pactl set-sink-mute 0 toggle";
         "XF86AudioRaiseVolume" = "exec --no-startup-id \"pactl set-sink-volume 0 +5%";
         "XF86AudioLowerVolume" = "exec --no-startup-id \"pactl set-sink-volume 0 -5%";
