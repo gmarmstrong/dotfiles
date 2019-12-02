@@ -36,7 +36,7 @@
         "inherit" = "bar/base";
         modules-left = "i3";
         modules-center = "datetime";
-        modules-right = "backlight battery0 battery1";
+        modules-right = "backlight battery0 battery1"; # audio
         tray-position = "right";
         monitor = "\${env:MONITOR:eDP1}";
       };
@@ -159,10 +159,10 @@
       "module/audio" = {
         type = "internal/pulseaudio";
         format-volume = "<ramp-volume> <label-volume>";
-        label-muted = "ﱝ";
-        ramp-volume-0 = "奄";
-        ramp-volume-1 = "奔";
-        ramp-volume-2 = "墳";
+        label-muted = "%{T1}ﱝ%{T-}";
+        ramp-volume-0 = "%{T1}奄%{T-}";
+        ramp-volume-1 = "%{T1}奔%{T-}";
+        ramp-volume-2 = "%{T1}墳%{T-}";
       };
     };
 
