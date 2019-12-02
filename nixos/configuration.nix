@@ -138,7 +138,7 @@
   services = {
     blueman.enable = true;
     dbus = {
-      packages = with pkgs; [ gnome3.gnome-keyring gnome3.gcr ];
+      packages = with pkgs; [ gnome3.gnome-keyring gnome3.gcr blueman ];
       socketActivated = true;
     };
     geoclue2.enable = true;

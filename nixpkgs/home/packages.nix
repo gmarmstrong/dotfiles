@@ -23,6 +23,7 @@
     librsvg # SVG renderer
     libnotify # dunst dependency
     networkmanagerapplet  # network manager
+    logisim
 
     # system info
     acpi # power management and info
@@ -47,8 +48,7 @@
 
     # Development
     jetbrains.idea-ultimate # Java IDE (UNFREE)
-    # adoptopenjdk-hotspot-bin-11 maven3 # TODO nixify local Java projects
-    jetbrains.pycharm-professional geckodriver # Python IDE (UNFREE)
+    geckodriver # Selenium driver
     jetbrains.clion # C++ IDE (UNFREE)
     gcc gdb gnumake valgrind # C++ utilities
     python3 # TODO nixify Python projects
