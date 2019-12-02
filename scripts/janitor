@@ -10,7 +10,7 @@ git -C "$HOME/dotfiles" submodule foreach git pull
 sudo nixos-rebuild switch --upgrade
 
 # Upgrade home
-home-manager switch --upgrade
+home-manager switch
 
 # Upgrade Neovim plugins
 nvim +PlugUpgrade +PlugUpdate +PlugClean +qall

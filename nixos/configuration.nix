@@ -32,10 +32,7 @@
       ];
     };
 
-    bluetooth = {
-      enable = true;
-      powerOnBoot = false;
-    };
+    bluetooth.enable = true;
 
     pulseaudio = {
       enable = true;

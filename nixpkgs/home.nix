@@ -123,7 +123,25 @@ in {
       enable = true;
       settings = {
         global = {
-          allow_markup = "yes";
+          frame_color = "#504945";
+          separator_color = "#504945";
+          geometry = "300x5-30+50";
+          font = "DejaVuSansMono Nerd Font Complete Mono:size=12";
+        };
+        base16_low = {
+          msg_urgency = "low";
+          background = "#ebdbb2";
+          foreground = "#bdae93";
+        };
+        base16_normal = {
+          msg_urgency = "normal";
+          background = "#d5c4a1";
+          foreground = "#504945";
+        };
+        base16_critical = {
+          msg_urgency = "critical";
+          background = "#9d0006";
+          foreground = "#504945";
         };
       };
     };

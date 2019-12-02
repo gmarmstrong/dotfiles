@@ -14,3 +14,6 @@
 [submodule "resources/rofiemoji"]
 	path = resources/rofiemoji
 	url = git@github.com:nkoehring/rofiemoji
+[submodule "resources/base16-dunst"]
+	path = resources/base16-dunst
+	url = git@github.com:khamer/base16-dunst.git
