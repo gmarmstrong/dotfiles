@@ -19,8 +19,7 @@
   };
 
   hardware = {
-    #enableAllFirmware = true;
-    enableRedistributableFirmware = true;
+    enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
 
     opengl = {
