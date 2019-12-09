@@ -18,15 +18,6 @@ in {
     };
     overlays = [
       (self: super: {
-        multimc = super.multimc.overrideAttrs (oldAttrs: {
-          src = fetchFromGitHub {
-            owner = "MultiMC";
-            repo = "MultiMC5";
-            rev = "0.6.7";
-            sha256 = "1i160rmsdvrcnvlr6m2qjwkfx0lqnzrcifjkaklw96ina6z6cg2n";
-            fetchSubmodules = true;
-          };
-        });
         flashplayer = super.flashplayer.overrideAttrs (oldAttrs: {
           name = "flashplayer-32.0.0.238";
           version = "32.0.0.238";
