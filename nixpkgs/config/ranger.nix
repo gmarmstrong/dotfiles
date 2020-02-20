@@ -22,6 +22,7 @@
       ext 7z|ace|ar|arc|bz2?|cab|cpio|cpt|deb|dgc|dmg|gz, flag f = atool --extract --each -- "$@"
       ext iso|jar|msi|pkg|rar|shar|tar|tgz|xar|xpi|xz|zip, flag f = atool --extract --each -- "$@"
       ext svg, has inkview, X, flag f = inkview -- "$@"
+      ext pptx?|od[dfgpst]|docx?|sxc|xlsx?|xlt|xlw|gnm|gnumeric, has libreoffice, X, flag f = libreoffice "$@"
       mime ^image, has sxiv, X, flag f = sxiv -a -- "$@"
       mime ^video|audio, has vlc, X, flag f = vlc -- "$@"
       mime ^text, label editor = nvim -- "$@"

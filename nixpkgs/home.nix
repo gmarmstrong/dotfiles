@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 
 let
-  inherit (import <nixpkgs> {}) fetchFromGitHub;
+  inherit (import <nixpkgs> {}) fetchFromGitHub zlib xkeyboard_config;
 in {
 
   xdg.configFile.nixpkgs = {
@@ -32,6 +32,27 @@ in {
         });
         ranger = super.ranger.overrideAttrs (oldAttrs: {
           paths = with pkgs; [ poppler_utils ];
+        });
+        mathematica = super.mathematica.overrideAttrs (oldAttrs: {
+          installPhase = ''
+            cd Installer
+            # don't restrict PATH, that has already been done
+            sed -i -e 's/^PATH=/# PATH=/' MathInstaller
+            sed -i -e 's/\/bin\/bash/\/bin\/sh/' MathInstaller
+            echo "=== Running MathInstaller ==="
+            ./MathInstaller -auto -createdir=y -execdir=$out/bin -targetdir=$out/libexec/Mathematica -silent
+            # Fix library paths
+            cd $out/libexec/Mathematica/Executables
+            for path in mathematica MathKernel Mathematica WolframKernel wolfram math; do
+              sed -i -e "2iexport LD_LIBRARY_PATH=${zlib}/lib:\''${LD_LIBRARY_PATH}\n" $path
+            done
+            # Fix xkeyboard config path for Qt
+            for path in mathematica Mathematica; do
+              sed -i -e "2iexport QT_XKB_CONFIG_ROOT=\"${xkeyboard_config}/share/X11/xkb\"\n" $path
+            done
+            # Remove some broken libraries
+            rm $out/libexec/Mathematica/SystemFiles/Libraries/Linux-x86-64/libz.so*
+          '';
         });
       } )
     ];

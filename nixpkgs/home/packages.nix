@@ -17,13 +17,16 @@
     # jabref        # NixOS/nixpkgs: #47113
     # passExtensions.pass-tomb # zeapo/Android-Password-Store: #329
 
+    iftop
+    mathematica
+    umlet
+
     # System requirements (TODO nixify)
     blueman # bluetooth manager
     hicolor-icon-theme # icon theme
     librsvg # SVG renderer
     libnotify # dunst dependency
     networkmanagerapplet  # network manager
-    logisim
 
     # system info
     acpi # power management and info
@@ -42,6 +45,7 @@
     tree # depth-indented directory listing
     usbutils # USB device tools
     curl wget youtube-dl # downloaders
+    xdotool
     xorg.xev # X event monitor
     xorg.xwininfo # X window info
     zip unzip p7zip unrar # archive tools
@@ -55,8 +59,11 @@
     universal-ctags # source code indexer (TODO Vim tagbar dependency)
     coq # proof assistant
     tlaplusToolbox tlaps # TLA+ tools
-    rstudio R # R tools
+    rstudioWrapper R # R tools
     postman # API development
+    postgresql_jdbc
+    jq # JSON processor
+    # sqlite sqlite-jdbc
     # exercism # programming practice
     # rustc cargo
     # nixops
@@ -80,6 +87,7 @@
 
     # Graphical applications
     calibre # ebook manager
+    dia # structured diagram editor
     digikam # photo manager
     emacs emacs-all-the-icons-fonts # text editor
     goldendict # dictionary client
@@ -87,10 +95,13 @@
     inkscape # vector graphics editor
     insomnia # REST API client
     libreoffice # office suite
+    logisim
     lyx # LaTeX editor
     #nextcloud-client # cloud storage client
     qalculate-gtk # calculator
     qbittorrent # bittorrent client
+    qgis
+    qtikz # TikZ diagram editor
     qutebrowser # vi-like web browser
     signal-desktop # messaging client
     skype # video chat client (UNFREE)

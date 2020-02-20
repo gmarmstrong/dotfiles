@@ -6,6 +6,11 @@
 
   time.timeZone = "America/New_York";
 
+  virtualisation.kvmgt.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "guthrie" ];
+
   nixpkgs.config = {
     allowUnfree = true;
     packageOverrides = pkgs: {
@@ -31,7 +36,10 @@
       ];
     };
 
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
 
     pulseaudio = {
       enable = true;
@@ -61,6 +69,12 @@
       extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
       shell = pkgs.bash;
     };
+    users.testing = {
+      isNormalUser = true;
+      home = "/home/testing";
+      extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+      shell = pkgs.bash;
+    };
   };
 
   fonts = {
@@ -82,6 +96,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    openjdk11
     alsaLib
     alsaTools
     alsaUtils
@@ -144,6 +159,8 @@
     locate.enable = true;
     upower.enable = true; # hibernate on critical battery
 
+    postgresql.enable = true;
+
     gnome3 = {
       at-spi2-core.enable = true; # https://github.com/NixOS/nixpkgs/pull/15365#issuecomment-218451375
       gnome-keyring.enable = true;
@@ -177,12 +194,13 @@
         tapping = false;
         tappingDragLock = false;
       };
+      desktopManager.plasma5.enable = true;
       displayManager.lightdm = {
         enable = true;
         background = "black";
-        greeter.enable = false;
+        greeter.enable = true;
         autoLogin = {
-          enable = true;
+          enable = false;
           user = "guthrie";
         };
       };
