@@ -1,12 +1,14 @@
 { pkgs, config, ... }:
 
 {
+  # TODO Disable modeline.
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
     withNodeJs = true;
     extraConfig = ''
+      set background=light
       set modeline
       set shortmess=IWa
       set cmdheight=2
@@ -36,8 +38,9 @@
       Plug 'LnL7/vim-nix'
       Plug 'junegunn/goyo.vim'
       Plug 'junegunn/vim-plug'
-      Plug 'vim-pandoc/vim-pandoc'
-      Plug 'vim-pandoc/vim-pandoc-syntax'
+      "Plug 'vim-pandoc/vim-pandoc'
+      "Plug 'vim-pandoc/vim-pandoc-syntax'
+      Plug 'plasticboy/vim-markdown'
       Plug 'tpope/vim-fugitive'
       Plug 'tpope/vim-characterize'
       Plug 'tpope/vim-surround'
@@ -49,8 +52,16 @@
       let g:pandoc#syntax#conceal#urls = 1
       let g:pandoc#command#custom_open = "PandocXDGOpen"
       let g:pandoc#folding#fdc = 0
+      let g:vimtex_compiler_latexmk = {
+        \ 'executable' : 'latexmk',
+        \ 'options' : [
+        \   '-xelatex',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \ ],
+        \ }
       "let g:vimtex_compiler_latexmk = {'callback' : 0}
-      let g:vimtex_view_general_viewer = 'zathura'
       let g:vimtex_indent_on_ampersands = 0
 
       nm <leader><leader>i :call ToggleIPA()<CR>
@@ -73,7 +84,6 @@
         autocmd TermClose * stopinsert
       augroup end
 
-      colorscheme ${config.home.sessionVariables.COLORTHEME}
       highlight clear SignColumn
       highlight clear LineNr
       highlight clear GitGutterAdd

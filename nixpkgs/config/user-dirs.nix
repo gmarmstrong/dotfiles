@@ -5,7 +5,7 @@
     userDirs = {
       target = "user-dirs.dirs";
       text = ''
-        XDG_DESKTOP_DIR="${config.home.homeDirectory}/"
+        XDG_DESKTOP_DIR="${config.home.homeDirectory}/Desktop/"
         XDG_DOCUMENTS_DIR="${config.home.homeDirectory}/"
         XDG_DOWNLOAD_DIR="${config.home.homeDirectory}/"
         XDG_MUSIC_DIR="${config.home.homeDirectory}/"

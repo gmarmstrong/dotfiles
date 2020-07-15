@@ -6,6 +6,7 @@
     historyControl = [ "ignorespace" ];
 
     initExtra = ''
+      source ~/.profile
       # Shell prompt
       function git_slug {
           # test git repo

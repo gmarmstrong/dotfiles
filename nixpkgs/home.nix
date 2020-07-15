@@ -4,18 +4,46 @@ let
   inherit (import <nixpkgs> {}) fetchFromGitHub zlib xkeyboard_config;
 in {
 
-  xdg.configFile.nixpkgs = {
-    target = "nixpkgs/config.nix";
-    text = ''
-      { allowUnfree = true; }
-    '';
+  xdg = {
+    enable = true;
+    configFile.nixpkgs = {
+      target = "nixpkgs/config.nix";
+      text = ''
+        { allowUnfree = true; }
+      '';
+    };
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = [ "org.kde.okular.desktop" ];
+        "application/epub+zip" = [ "org.kde.okular.desktop" ];
+        "application/x-extension-htm" = [ "firefox.desktop" ];
+        "application/x-extension-html" = [ "firefox.desktop" ];
+        "application/x-extension-shtml" = [ "firefox.desktop" ];
+        "application/x-extension-xht" = [ "firefox.desktop" ];
+        "application/x-extension-xhtml" = [ "firefox.desktop" ];
+        "application/x-extension-xhtml+xml" = [ "firefox.desktop" ];
+        "text/html" = [ "firefox.desktop" ];
+        "text/markdown" = [ "nvim.desktop" ];
+        "text/plain" = [ "nvim.desktop" ];
+        "image/jpeg" = [ "org.kde.shofoto.desktop" ];
+        "video/*" = [ "vlc.desktop" ];
+        "audio/*" = [ "vlc.desktop" ];
+        "x-scheme-handler/chrome" = [ "firefox.desktop" ];
+        "x-scheme-handler/ftp" = [ "firefox.desktop" ];
+        "x-scheme-handler/http" = [ "firefox.desktop" ];
+        "x-scheme-handler/https" = [ "firefox.desktop" ];
+      };
+    };
   };
+
   nixpkgs = {
     config = {
       allowUnfree = true;
       android_sdk.accept_license = true;
       oraclejdk.accept_license = true;
     };
+
     overlays = [
       (self: super: {
         flashplayer = super.flashplayer.overrideAttrs (oldAttrs: {
@@ -26,62 +54,27 @@ in {
             sha256 = "05gvssjdz43pvgivdngrf8qr5b30p45hr2sr97cyl6b87581qw9s";
           };
         });
-        blueman = super.blueman.overrideAttrs (oldAttrs: {
-          # TODO: See https://github.com/NixOS/nixpkgs/issues/44548
-          buildInputs = oldAttrs.buildInputs ++ [ self.gnome3.adwaita-icon-theme ];
-        });
+
         ranger = super.ranger.overrideAttrs (oldAttrs: {
           paths = with pkgs; [ poppler_utils ];
-        });
-        mathematica = super.mathematica.overrideAttrs (oldAttrs: {
-          installPhase = ''
-            cd Installer
-            # don't restrict PATH, that has already been done
-            sed -i -e 's/^PATH=/# PATH=/' MathInstaller
-            sed -i -e 's/\/bin\/bash/\/bin\/sh/' MathInstaller
-            echo "=== Running MathInstaller ==="
-            ./MathInstaller -auto -createdir=y -execdir=$out/bin -targetdir=$out/libexec/Mathematica -silent
-            # Fix library paths
-            cd $out/libexec/Mathematica/Executables
-            for path in mathematica MathKernel Mathematica WolframKernel wolfram math; do
-              sed -i -e "2iexport LD_LIBRARY_PATH=${zlib}/lib:\''${LD_LIBRARY_PATH}\n" $path
-            done
-            # Fix xkeyboard config path for Qt
-            for path in mathematica Mathematica; do
-              sed -i -e "2iexport QT_XKB_CONFIG_ROOT=\"${xkeyboard_config}/share/X11/xkb\"\n" $path
-            done
-            # Remove some broken libraries
-            rm $out/libexec/Mathematica/SystemFiles/Libraries/Linux-x86-64/libz.so*
-          '';
         });
       } )
     ];
   };
 
-  fonts.fontconfig.enable = true;
-
   imports = [
     ./config/bash.nix
-    ./config/fzf.nix
     ./config/git.nix
-    ./config/htop.nix
-    ./config/i3.nix
     ./config/neovim.nix
-    ./config/polybar.nix
-    ./config/qutebrowser.nix
     ./config/ranger.nix
     ./config/readline.nix
-    ./config/rofi.nix
     ./config/ssh.nix
     ./config/user-dirs.nix
-    ./config/xresources.nix
-    ./config/zathura.nix
     ./home/file.nix
     ./home/packages.nix
   ];
 
   systemd.user.startServices = true;
-  xdg.enable = true;
 
   home.sessionVariables = {
     PATH = "${config.home.homeDirectory}/.local/bin:${config.home.homeDirectory}/.local/bin/scripts:$PATH";
@@ -92,75 +85,8 @@ in {
     LESSHISTFILE="/dev/null";
   };
 
-  gtk = {
-    enable = true;
-    font = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans 9";
-    };
-    iconTheme = {
-      package = pkgs.gnome3.adwaita-icon-theme;
-      name = "Adwaita";
-    };
-    gtk3.extraConfig = {
-      gtk-recent-files-enabled = false;
-      gtk-recent-files-max-age = 0;
-      gtk-recent-files-limit = 0;
-    };
-  };
-  # FIXME Overwritten
-  # xdg.configFile.gtkFileChooser = {
-  #   target = "gtk-2.0/gtkfilechooser.ini";
-  #   text = ''
-  #     [Filechooser Settings]
-  #     LocationMode=path-bar
-  #     ShowHidden=false
-  #     ShowSizeColumn=true
-  #     GeometryX=570
-  #     GeometryY=247
-  #     GeometryWidth=780
-  #     GeometryHeight=585
-  #     SortColumn=name
-  #     SortOrder=ascending
-  #     StartupMode=cwd
-  #   '';
-  # };
-
   services = {
-    blueman-applet.enable = true;
-    network-manager-applet.enable = true;
     nextcloud-client.enable = true;
-    pasystray.enable = true;
-    dunst = {
-      enable = true;
-      settings = {
-        global = {
-          frame_color = "#504945";
-          separator_color = "#504945";
-          geometry = "300x5-30+50";
-          font = "DejaVuSansMono Nerd Font Complete Mono:size=12";
-        };
-        base16_low = {
-          msg_urgency = "low";
-          background = "#ebdbb2";
-          foreground = "#bdae93";
-        };
-        base16_normal = {
-          msg_urgency = "normal";
-          background = "#d5c4a1";
-          foreground = "#504945";
-        };
-        base16_critical = {
-          msg_urgency = "critical";
-          background = "#9d0006";
-          foreground = "#504945";
-        };
-      };
-    };
-    redshift = {
-      enable = true;
-      provider = "geoclue2";
-    };
     unclutter = {
       enable = true;
       timeout = 5;
@@ -176,10 +102,8 @@ in {
       enable = true;
       path = "${config.home.homeDirectory}/dotfiles/resources/home-manager";
     };
-    firefox = {
-      enable = true;
-      enableAdobeFlash = true;
-    };
+    fzf.enable = true;
+    firefox.enable = true;
     tmux = {
       enable = true;
       extraConfig = ''
@@ -188,15 +112,5 @@ in {
         bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
       '';
     };
-  };
-
-  xsession = {
-    enable = true;
-    initExtra = ''
-      dbus-update-activation-environment --systemd DISPLAY
-      eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-      export SSH_AUTH_SOCK
-      xset s off -dpms # disable screen saver
-    '';
   };
 }

@@ -2,71 +2,55 @@
 
 {
   home.packages = with pkgs; [
+    docker docker-machine
 
     # Considering:
-    # passExtensions.pass-audit   # pass: auditing command
-    # passExtensions.pass-update  # pass: updating command
-    # weechat # IRC client (TODO replace hexchat)
-    # sway    # window manager for Wayland, compatible with i3
-    # xmonad  # tiling window manager for X, configured in Haskell
+    # passExtensions.pass-audit   # pass: auditing
+    # passExtensions.pass-update  # pass: updating
+    # passExtensions.pass-otp     # pass: otp token managing
     # buku    # bookmark manager
 
-    # Waiting for:
+    # Blocked:
     # bitwarden-cli # NixOS/nixpkgs: #51212 #53876
     # bitwarden     # NixOS/nixpkgs: #51212
     # jabref        # NixOS/nixpkgs: #47113
-    # passExtensions.pass-tomb # zeapo/Android-Password-Store: #329
-
-    iftop
-    mathematica
-    umlet
+    # passExtensions.pass-tomb # mssun/passforios: #114
 
     # System requirements (TODO nixify)
-    blueman # bluetooth manager
     hicolor-icon-theme # icon theme
-    librsvg # SVG renderer
-    libnotify # dunst dependency
-    networkmanagerapplet  # network manager
-
-    # system info
-    acpi # power management and info
-    pciutils # PCI bus utilities
-    lshw # hardware config info
+    librsvg # SVG renderer (TODO why?)
 
     # Userspace utilities
+    acpi # power management
     coreutils # basic utilities
+    curl wget youtube-dl # downloaders
     dos2unix  # line break converter
     file # file info
-    inetutils # network utilities
+    inetutils iftop # network utilities
+    lshw # hardware config info
     nox # nix tools
-    psmisc lsof # process utilities
+    pciutils # PCI bus utilities
+    psmisc lsof htop # process utilities
     qrencode # QR code encoder
     trash-cli # trash can
     tree # depth-indented directory listing
     usbutils # USB device tools
-    curl wget youtube-dl # downloaders
-    xdotool
-    xorg.xev # X event monitor
-    xorg.xwininfo # X window info
+    xdotool # input automation
+    xxd # hexdumps
     zip unzip p7zip unrar # archive tools
 
-    # Development
-    jetbrains.idea-ultimate # Java IDE (UNFREE)
+    # Development (TODO nixify)
+    #postman insomnia # API development
+    gcc # C/C++ compiler
     geckodriver # Selenium driver
-    jetbrains.clion # C++ IDE (UNFREE)
-    gcc gdb gnumake valgrind # C++ utilities
-    python3 # TODO nixify Python projects
-    universal-ctags # source code indexer (TODO Vim tagbar dependency)
-    coq # proof assistant
-    tlaplusToolbox tlaps # TLA+ tools
-    rstudioWrapper R # R tools
-    postman # API development
-    postgresql_jdbc
+    google-cloud-sdk # Google Cloud Platform CLI
+    jetbrains.idea-ultimate # Java IDE (UNFREE)
     jq # JSON processor
-    # sqlite sqlite-jdbc
-    # exercism # programming practice
-    # rustc cargo
-    # nixops
+    nodePackages.node2nix
+    postgresql_jdbc # Java driver for PostgreSQL
+    python3 # python
+    rstudioWrapper R # R tools
+    universal-ctags # source code indexer (TODO Vim tagbar dependency)
 
     # Security
     gnupg # openpgp
@@ -74,55 +58,57 @@
     tomb # storage file encryption
     gksu # su frontend
 
-    # Textual applications
-    diction # English linter
-    libqalculate # calculator
-    ranger atool # file manager
-    hledger # accounting tool
-
-    # Games
-    multimc minecraft jre8
-    scid-vs-pc stockfish
-    runelite
-
     # Graphical applications
     calibre # ebook manager
-    dia # structured diagram editor
+    #logisim
+    dia umlet # diagram editors
+    #mathematica # wolfram mathematica
+    #qgis # geographic information system
+    #slack
+    chromium # web browser
     digikam # photo manager
     emacs emacs-all-the-icons-fonts # text editor
     goldendict # dictionary client
+    guvcview # video capturing
     hexchat # IRC client
-    inkscape # vector graphics editor
-    insomnia # REST API client
     libreoffice # office suite
-    logisim
     lyx # LaTeX editor
-    #nextcloud-client # cloud storage client
+    mendeley # reference manager
     qalculate-gtk # calculator
     qbittorrent # bittorrent client
-    qgis
     qtikz # TikZ diagram editor
     qutebrowser # vi-like web browser
-    signal-desktop # messaging client
     skype # video chat client (UNFREE)
     spotify # music client (UNFREE)
     thunderbird # mail client
-    torbrowser # onion browser
     vlc # media player
-    zathura # document viewer
     zim # desktop wiki
     zotero # reference management
 
+    # KDE applications
+    kdeApplications.ark # file compresion and archival
+    kdeApplications.kcharselect # character selection
+    kdeApplications.okular # pdf viewer
+
+    # freedesktop.org
+    xdg-user-dirs xdg_utils # xdg tools
+    desktop-file-utils # desktop entry utilities
+    xorg.xev # X event monitor
+    xorg.xwininfo # X window info
+
     # General:
+    #diction # English linter
     audacity # sound editor
-    byzanz scrot vokoscreen # screen capture
+    byzanz vokoscreen spectacle # screen capture
     font-manager
     gparted # disk partitioner
     imagemagick # bitmap image editor
+    libqalculate # Qalculate! CLI
     man-pages # linux man-pages
     mediainfo # multimedia info
     mkvtoolnix # matroska tools
     pandoc # markup converter
+    ranger atool # file manager
     redshift # screen color temperature manager
     rxvt_unicode-with-plugins # terminal emulator
     scrcpy # Android remote control and display
@@ -130,8 +116,5 @@
     sxiv # image viewer
     texlive.combined.scheme-full # TeX Live
     xclip xsel # X clipboard console support
-    xdg-user-dirs
-    xdg_utils
-    xxd # create or reverse hexdumps
   ];
 }

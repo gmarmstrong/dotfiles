@@ -16,7 +16,7 @@
     text = ''
       ext txt|tex|asc|gpg|sh|md|markdown|rst, label editor = nvim -- "$@"
       ext lyx, has lyx, X, flag f = lyx "$@"
-      ext pdf|djvu|epub, has zathura, X, flag f = zathura -- "$@"
+      ext pdf|djvu|epub, has okular, X, flag f = okular -- "$@"
       ext mobi, has ebook-viewer, X, flag f = ebook-viewer -- "$@"
       ext html|json, has firefox, X, flag f = firefox -- "$@"
       ext 7z|ace|ar|arc|bz2?|cab|cpio|cpt|deb|dgc|dmg|gz, flag f = atool --extract --each -- "$@"

@@ -1,5 +1,5 @@
 [submodule "home-manager"]
-	path = resources/home-manager
+	path = resources/home-manager.old
 	url = https://github.com/rycee/home-manager
 	branch = release-19.09
 [submodule "resources/base16-rofi"]
@@ -17,3 +17,6 @@
 [submodule "resources/base16-dunst"]
 	path = resources/base16-dunst
 	url = git@github.com:khamer/base16-dunst.git
+[submodule "resources/home-manager"]
+	path = resources/home-manager
+	url = git@github.com:rycee/home-manager
