@@ -23,6 +23,7 @@
             || exit 1
         ${pkgs.udisks}/bin/udisksctl mount --block-device /dev/mapper/luks-"$device_uuid" \
             || exit 1
+        # TODO exclude files with dot prefixes
         ${pkgs.rsync}/bin/rsync -AXa --delete-excluded --no-inc-recursive --info=progress2 \
             --exclude="${config.xdg.cacheHome}/*" \
             --exclude="${config.xdg.dataHome}/Trash/*" \
@@ -30,6 +31,7 @@
             --exclude="${config.home.homeDirectory}/.android/*" \
             --exclude="${config.home.homeDirectory}/virtualbox/*" \
             --exclude="${config.home.homeDirectory}/media/*" \
+            --exclude="${config.home.homeDirectory}/testing" \
             "/home" "/run/media/${config.home.username}/$volume_label" \
             || exit 1
         ${pkgs.udisks}/bin/udisksctl unmount --block-device /dev/mapper/luks-"$device_uuid" || exit 1
