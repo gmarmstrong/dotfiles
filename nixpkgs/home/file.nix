@@ -8,6 +8,14 @@
       target = "${config.home.homeDirectory}/.local/bin/scripts";
     };
 
+    xbindkeysrc = {
+      target = "${config.home.homeDirectory}/.xbindkeysrc";
+      text = ''
+        "echo -n | xsel -n -i; pkill xbindkeys; xdotool click 2; xbindkeys"
+        b:2 + Release
+      '';
+    };
+
     bak = {
       executable = true;
       target = "${config.home.homeDirectory}/.local/bin/bak";
