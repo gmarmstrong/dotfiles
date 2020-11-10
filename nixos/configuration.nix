@@ -93,7 +93,10 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    openjdk11
+    adoptopenjdk-hotspot-bin-8
+    adoptopenjdk-jre-hotspot-bin-8
+    adoptopenjdk-hotspot-bin-11
+    adoptopenjdk-jre-hotspot-bin-11
     alsaLib
     alsaTools
     alsaUtils
@@ -110,6 +113,11 @@
     ntfs3g
     pavucontrol
   ];
+
+  environment.etc = with pkgs; {
+    "adoptopenjdk-hotspot-bin-8".source = adoptopenjdk-hotspot-bin-8;
+    "adoptopenjdk-hotspot-bin-11".source = adoptopenjdk-hotspot-bin-11;
+  };
 
   swapDevices = [ { device = "/dev/disk/by-uuid/13f26b63-cf59-49c8-bc44-44bd5fc4c9b2"; } ];
 
