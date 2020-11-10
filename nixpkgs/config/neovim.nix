@@ -52,6 +52,7 @@
       let g:pandoc#syntax#conceal#urls = 1
       let g:pandoc#command#custom_open = "PandocXDGOpen"
       let g:pandoc#folding#fdc = 0
+      let g:tex_flavor = 'latex'
       let g:vimtex_compiler_latexmk = {
         \ 'executable' : 'latexmk',
         \ 'options' : [
