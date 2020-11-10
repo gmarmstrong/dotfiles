@@ -149,11 +149,6 @@
     geoclue2.enable = true;
     locate.enable = true;
     upower.enable = true; # hibernate on critical battery
-
-    # gnome3 = {
-    #   at-spi2-core.enable = true; # https://github.com/NixOS/nixpkgs/pull/15365#issuecomment-218451375
-    #   gnome-keyring.enable = true;
-    # };
     postgresql = {
       enable = true;
       ensureUsers = [ { name = "guthrie"; } ];
