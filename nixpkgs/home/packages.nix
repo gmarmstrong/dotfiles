@@ -3,6 +3,14 @@
 {
   home.packages = with pkgs; [
     docker docker-machine
+    zoom-us
+    syncplay
+    uvcdynctrl
+    dbeaver
+    flatpak
+    scid-vs-pc stockfish
+    poetry
+    jrnl
 
     # Considering:
     # passExtensions.pass-audit   # pass: auditing
@@ -95,6 +103,8 @@
     desktop-file-utils # desktop entry utilities
     xorg.xev # X event monitor
     xorg.xwininfo # X window info
+    xbindkeys
+    xsel
 
     # General:
     #diction # English linter
