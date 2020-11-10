@@ -26,8 +26,10 @@ in {
         "text/html" = [ "firefox.desktop" ];
         "text/markdown" = [ "nvim.desktop" ];
         "text/plain" = [ "nvim.desktop" ];
-        "image/jpeg" = [ "org.kde.shofoto.desktop" ];
+        "image/*" = [ "org.kde.showfoto.desktop" ];
         "video/*" = [ "vlc.desktop" ];
+        "video/mp4" = [ "vlc.desktop" ];
+        "video/x-matroska" = [ "vlc.desktop" ];
         "audio/*" = [ "vlc.desktop" ];
         "x-scheme-handler/chrome" = [ "firefox.desktop" ];
         "x-scheme-handler/ftp" = [ "firefox.desktop" ];
