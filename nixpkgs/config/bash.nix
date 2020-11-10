@@ -24,6 +24,12 @@
       export PS1='\[\033[1;33m\]\w\[\033[0m\] $(git_slug)$ '
     '';
 
+    profileExtra = ''
+      # this should really go with xinit commands, but in the
+      # mean time, this disables middle-mouse paste
+      xbindkeys
+    '';
+
     shellAliases = {
       l = "LC_COLLATE=C ls --group-directories-first --color -FHAlh -w 80";
       ll = "LC_COLLATE=C ls --group-directories-first --color -FHA -w 80";
