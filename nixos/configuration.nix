@@ -145,10 +145,7 @@
   };
 
   services = {
-    dbus = {
-      # packages = with pkgs; [ gnome3.gnome-keyring gnome3.gcr ]; ##blueman
-      socketActivated = true;
-    };
+    dbus.socketActivated = true;
     geoclue2.enable = true;
     locate.enable = true;
     upower.enable = true; # hibernate on critical battery
