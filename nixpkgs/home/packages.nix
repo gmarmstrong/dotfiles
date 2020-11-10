@@ -84,7 +84,7 @@
     mendeley # reference manager
     qalculate-gtk # calculator
     qbittorrent # bittorrent client
-    qtikz # TikZ diagram editor
+    # qtikz # TikZ diagram editor
     qutebrowser # vi-like web browser
     skype # video chat client (UNFREE)
     spotify # music client (UNFREE)
