@@ -14,6 +14,7 @@
     extraConfig = {
       core.editor = "nvim";
       credential.helper = "cache";
+      pull.rebase = true;
     };
 
     ignores = [
