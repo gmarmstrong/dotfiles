@@ -1,41 +1,31 @@
 { pkgs, config, ... }:
 
+let
+  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec -a "$0" "$@"
+  '';
+in
 {
 
-  system.stateVersion = "18.03"; # compatible NixOS release
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   time.timeZone = "America/New_York";
-
-  virtualisation.kvmgt.enable = true;
-
-  nixpkgs.config = {
-    allowUnfree = true;
-    packageOverrides = pkgs: {
-      i3Support = true;
-      nextcloud-client = pkgs.nextcloud-client.override {
-        # https://discourse.nixos.org/t/nextcloud-and-keyrings/1339/3
-        withGnomeKeyring = true;
-        libgnome-keyring = pkgs.gnome3.libgnome-keyring;
-      };
-    };
-  };
-
-  powerManagement.cpuFreqGovernor = "performance";
+  nixpkgs.config.allowUnfree = true;
+  nix.gc.automatic = true; # Automatic Nix garbage collection
 
   hardware = {
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
-
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      extraPackages32 = with pkgs.pkgsi686Linux; [
-        vaapiIntel libvdpau-va-gl vaapiVdpau libglvnd
-      ];
-      extraPackages = with pkgs; [
-        vaapiIntel libvdpau-va-gl vaapiVdpau
-      ];
+    nvidia.prime = { # https://nixos.wiki/wiki/Nvidia#offload_mode
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
     };
 
     bluetooth = {
@@ -46,12 +36,10 @@
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
-      support32Bit = true;
     };
   };
 
   security = {
-    # pam.services.gnomekeyring.enableGnomeKeyring = true;
     sudo.wheelNeedsPassword = false;
     polkit.extraConfig = ''
       // Allow wheel users to mount filesystems
@@ -82,17 +70,14 @@
 
   networking = {
     # hosts = { "172.31.98.1" = [ "aruba.odyssys.net" ]; }; # Starbucks Wi-Fi
-    hostName = "nixos";
+    # hostName = "nixos";
     networkmanager.enable = true;
-    useDHCP = false;
-    interfaces.wlp3s0.useDHCP = true;
+    interfaces.enp40s0.useDHCP = true;
+    interfaces.wlp0s20f3.useDHCP = true;
   };
 
-  imports = [
-    ./hardware-configuration.nix
-  ];
-
   environment.systemPackages = with pkgs; [
+    nvidia-offload # shell script for using Nvidia Optimus in offload mode
     adoptopenjdk-hotspot-bin-8
     adoptopenjdk-jre-hotspot-bin-8
     adoptopenjdk-hotspot-bin-11
@@ -119,20 +104,9 @@
     "adoptopenjdk-hotspot-bin-11".source = adoptopenjdk-hotspot-bin-11;
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/13f26b63-cf59-49c8-bc44-44bd5fc4c9b2"; } ];
-
-  boot.loader.grub = {
-    device = "/dev/disk/by-id/wwn-0x500a075114dcdeb7";
-    configurationLimit = 50; # prevent overfilling /boot (NixOS/nixpkgs/issues/23926)
-    extraConfig = ''
-      GRUB_GFXMODE=1920x1080
-      GRUB_GFXPAYLOAD="keep"
-    '';
-  };
-
-  boot.initrd.luks.devices.root.device = "/dev/disk/by-uuid/5c42abea-a365-4e2c-b2bd-584ee69cca55";
-
-  console.earlySetup = true; # set font in initrd
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 20;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   programs = {
     dconf.enable = true;
@@ -140,8 +114,6 @@
       enable = true;
       enableSSHSupport = true;
     };
-    adb.enable = true;
-    light.enable = true;
   };
 
   services = {
@@ -149,10 +121,10 @@
     geoclue2.enable = true;
     locate.enable = true;
     upower.enable = true; # hibernate on critical battery
-    postgresql = {
-      enable = true;
-      ensureUsers = [ { name = "guthrie"; } ];
-    };
+    # postgresql = {
+    #   enable = true;
+    #   ensureUsers = [ { name = "guthrie"; } ];
+    # };
 
     printing = {
       enable = true;
@@ -165,6 +137,13 @@
 
     xserver = {
       enable = true;
+      desktopManager.plasma5.enable = true;
+      displayManager = {
+        autoLogin.enable = true;
+        autoLogin.user = "guthrie";
+        lightdm.enable = true;
+	lightdm.greeter.enable = true;
+      };
       extraConfig = ''
         Section "InputClass"
             Identifier "Logitech USB Receiver Mouse"
@@ -177,19 +156,11 @@
         tapping = false;
         tappingDragLock = false;
       };
-      desktopManager.plasma5.enable = true;
-      displayManager.lightdm = {
-        enable = true;
-        #background = "black";
-        greeter.enable = true;
-        autoLogin = {
-          enable = true;
-          user = "guthrie";
-        };
-      };
       xkbOptions = "caps:none";
-      videoDrivers = [ "i915" "mesa" "intel" "modesetting" ];
+      videoDrivers = [ "nvidia" ];
     };
 
   };
+
+  system.stateVersion = "20.09"; # not to be changed
 }

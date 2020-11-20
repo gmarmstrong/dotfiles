@@ -54,7 +54,7 @@
     google-cloud-sdk # Google Cloud Platform CLI
     jetbrains.idea-ultimate # Java IDE (UNFREE)
     jq # JSON processor
-    nodePackages.node2nix
+    # nodePackages.node2nix
     postgresql_jdbc # Java driver for PostgreSQL
     python3 # python
     rstudioWrapper R # R tools

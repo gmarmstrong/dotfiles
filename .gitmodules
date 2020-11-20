@@ -1,19 +1,4 @@
-[submodule "resources/base16-rofi"]
-	path = resources/base16-rofi
-	url = git@github.com:0xdec/base16-rofi
-[submodule "resources/base16-xresources"]
-	path = resources/base16-xresources
-	url = git@github.com:chriskempson/base16-xresources
-[submodule "resources/base16-zathura"]
-	path = resources/base16-zathura
-	url = git@github.com:nicodebo/base16-zathura
-[submodule "resources/rofiemoji"]
-	path = resources/rofiemoji
-	url = git@github.com:nkoehring/rofiemoji
-[submodule "resources/base16-dunst"]
-	path = resources/base16-dunst
-	url = git@github.com:khamer/base16-dunst.git
 [submodule "resources/home-manager"]
 	path = resources/home-manager
 	url = git@github.com:nix-community/home-manager
-	branch = release-20.03
+	branch = release-20.09
