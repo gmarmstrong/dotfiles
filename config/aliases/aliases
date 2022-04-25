@@ -1,0 +1,8 @@
+set LOCAL_BIN "$HOME/.local/bin"
+
+# NeoVim by default
+alias neovim="$LOCAL_BIN/nvim.appimaeg"
+alias nvim="$LOCAL_BIN/nvim.appimaeg"
+alias vim="$LOCAL_BIN/nvim.appimage"
+alias vi="$LOCAL_BIN/nvim.appimage"
+alias v="$LOCAL_BIN/nvim.appimage"

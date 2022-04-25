@@ -1,0 +1,7 @@
+[user]
+    email = "git@gmarmstrong.dev"
+    name = "Guthrie McAfee Armstrong"
+[pull]
+    rebase = true
+[init]
+    defaultBranch = main
