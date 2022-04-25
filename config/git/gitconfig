@@ -3,5 +3,9 @@
     name = "Guthrie McAfee Armstrong"
 [pull]
     rebase = true
+[fetch]
+    prune = true
+[diff]
+    colorMoved = zebra
 [init]
     defaultBranch = main
