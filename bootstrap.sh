@@ -4,6 +4,18 @@ set -eu
 
 export DEBIAN_FRONTEND=noninteractive
 
+export gcloud_account="722958580111-compute@developer.gserviceaccount.com"
+
+setup_auths() {
+  echo " ==> Authenticating with services"
+  echo -e "\tAuthenticating gcloud"
+  gcloud config set account "$gcloud_account"
+  echo -e "\tAuthenticating gh-cli"
+  gcloud secrets versions access latest --secret=github-api-token | gh auth login --with-token
+  echo -e "\tAuthenticating git with gh-cli"
+  gh auth setup-git
+}
+
 add_deb_repo() {
   # e.g., add_deb_repo foobar foobar.gpg https://foobar.tld/ubuntu main contrib non-free
   repository="/etc/apt/sources.list.d/${1}.list"
@@ -89,6 +101,7 @@ vim_plugins_installs() {
 }
 
 do_it() {
+    setup_auths             # service authentications
     apt_sources             # add apt repository sources
     apt_upgrade             # update apt package index and upgrade packages
     apt_installs            # install apt packages
