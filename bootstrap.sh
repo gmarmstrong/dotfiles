@@ -43,19 +43,24 @@ apt_installs() {
     echo " ==> Installing base packages"
     sudo apt-get update
     sudo apt-get install -y \
+      acl \
+      docker-ce docker-ce-cli containerd.io docker-compose-plugin \
       gh \
       git \
       mosh \
       neovim \
-      packer \
-      python3 \
-      python3-pip \
-      terraform \
+      python3 python3-pip \
+      terraform packer \
       trash-cli \
       universal-ctags \
       unzip \
       xdg-utils
     sudo apt-get auto-remove -y
+}
+
+setup_groups() {
+  sudo usermod -aG docker $(whoami)
+  sudo setfacl -m user:$(whoami):rw /var/run/docker.sock
 }
 
 setup_auths() {
@@ -104,6 +109,7 @@ do_it() {
     apt_sources             # add apt repository sources
     apt_upgrade             # update apt package index and upgrade packages
     apt_installs            # install apt packages
+    setup_groups            # add user to groups
     setup_auths             # service authentications
     additional_installs     # miscellaneous installations
     copy_dotfiles           # copy dotfiles to their respective locations
