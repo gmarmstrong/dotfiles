@@ -42,6 +42,7 @@ in {
   nixpkgs = {
     config = {
       allowUnfree = true;
+      allowBroken = true;
       android_sdk.accept_license = true;
       oraclejdk.accept_license = true;
     };
@@ -82,21 +83,32 @@ in {
     PATH = "${config.home.homeDirectory}/.local/bin:${config.home.homeDirectory}/.local/bin/scripts:$PATH";
     MANPAGER = "nvim -c 'set ft=man' -";
     EDITOR = "nvim";
-    _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
-    COLORTHEME = "base16-gruvbox-light-hard";
+    _JAVA_OPTIONS = ''
+      -Dawt.useSystemAAFontSettings=lcd
+      -Djavafx.cachedir="${config.xdg.cacheHome}"
+    '';
     LESSHISTFILE="/dev/null";
+    XDG_DATA_DIRS="${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/share:$XDG_DATA_DIRS";
+
   };
 
   services = {
-    nextcloud-client.enable = true;
+    #nextcloud-client.enable = true;
     unclutter = {
       enable = true;
       timeout = 5;
     };
-    gnome-keyring = {
+    gpg-agent = {
       enable = true;
-      components = [ "pkcs11" "secrets" "ssh" ];
+      enableSshSupport = true;
+      sshKeys = [
+        "00BCDF1D66A2E53946D2B6A9EE8E924B633AB33A"
+      ];
     };
+    #gnome-keyring = {
+    #  enable = true;
+    #  components = [ "pkcs11" "secrets" "ssh" ];
+    #};
   };
 
   programs = {

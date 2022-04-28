@@ -3,14 +3,25 @@
 {
   home.packages = with pkgs; [
     docker docker-machine
-    zoom-us
-    syncplay
+    # zoom-us
+    # syncplay
     uvcdynctrl
     dbeaver
     flatpak
     scid-vs-pc stockfish
     poetry
     jrnl
+    glxinfo
+    #steam
+    #mathematica
+    adoptopenjdk-hotspot-bin-11
+    # geogebra
+    nodejs nodePackages.prettier
+    # sageWithDoc
+    # jabref
+    borgbackup vorta
+    poppler_utils
+    openconnect
 
     # Considering:
     # passExtensions.pass-audit   # pass: auditing
@@ -21,12 +32,12 @@
     # Blocked:
     # bitwarden-cli # NixOS/nixpkgs: #51212 #53876
     # bitwarden     # NixOS/nixpkgs: #51212
-    # jabref        # NixOS/nixpkgs: #47113
     # passExtensions.pass-tomb # mssun/passforios: #114
 
     # System requirements (TODO nixify)
     hicolor-icon-theme # icon theme
     librsvg # SVG renderer (TODO why?)
+    plasma-integration # Firefox integration
 
     # Userspace utilities
     acpi # power management
@@ -84,7 +95,7 @@
     mendeley # reference manager
     qalculate-gtk # calculator
     qbittorrent # bittorrent client
-    # qtikz # TikZ diagram editor
+    qtikz # TikZ diagram editor
     qutebrowser # vi-like web browser
     skype # video chat client (UNFREE)
     spotify # music client (UNFREE)

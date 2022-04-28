@@ -1,14 +1,5 @@
 { pkgs, config, ... }:
 
-let
-  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
-    export __NV_PRIME_RENDER_OFFLOAD=1
-    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-    export __VK_LAYER_NV_optimus=NVIDIA_only
-    exec -a "$0" "$@"
-  '';
-in
 {
 
   imports = [
@@ -16,17 +7,25 @@ in
   ];
 
   time.timeZone = "America/New_York";
+  #time.timeZone = "Europe/Greece";
   nixpkgs.config.allowUnfree = true;
   nix.gc.automatic = true; # Automatic Nix garbage collection
 
   hardware = {
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
-    nvidia.prime = { # https://nixos.wiki/wiki/Nvidia#offload_mode
-      offload.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
+    system76.enableAll = true;
+    nvidia = {
+      modesetting.enable = true;
+      prime = {
+        sync.enable = true;
+        nvidiaBusId = "PCI:1:0:0";
+        intelBusId = "PCI:0:2:0";
+      };
     };
+    opengl.driSupport32Bit = true;
+    opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+    pulseaudio.support32Bit = true;
 
     bluetooth = {
       enable = true;
@@ -64,20 +63,20 @@ in
     fonts = with pkgs; [
       nerdfonts
       twemoji-color-font
+      noto-fonts-emoji
       dejavu_fonts
     ];
   };
 
   networking = {
     # hosts = { "172.31.98.1" = [ "aruba.odyssys.net" ]; }; # Starbucks Wi-Fi
-    # hostName = "nixos";
+    hostName = "oryx";
     networkmanager.enable = true;
     interfaces.enp40s0.useDHCP = true;
     interfaces.wlp0s20f3.useDHCP = true;
   };
 
   environment.systemPackages = with pkgs; [
-    nvidia-offload # shell script for using Nvidia Optimus in offload mode
     adoptopenjdk-hotspot-bin-8
     adoptopenjdk-jre-hotspot-bin-8
     adoptopenjdk-hotspot-bin-11
@@ -91,12 +90,13 @@ in
     gnome3.dconf
     home-manager
     mesa
-    neovim
     networkmanager.out
     networkmanager_openvpn
     nix-prefetch-scripts
     ntfs3g
     pavucontrol
+    hunspell
+    hunspellDicts.en-us-large
   ];
 
   environment.etc = with pkgs; {
@@ -121,10 +121,7 @@ in
     geoclue2.enable = true;
     locate.enable = true;
     upower.enable = true; # hibernate on critical battery
-    # postgresql = {
-    #   enable = true;
-    #   ensureUsers = [ { name = "guthrie"; } ];
-    # };
+    flatpak.enable = true;
 
     printing = {
       enable = true;
@@ -142,7 +139,7 @@ in
         autoLogin.enable = true;
         autoLogin.user = "guthrie";
         lightdm.enable = true;
-	lightdm.greeter.enable = true;
+        lightdm.greeter.enable = true;
       };
       extraConfig = ''
         Section "InputClass"

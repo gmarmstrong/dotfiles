@@ -11,5 +11,6 @@
         forwardX11Trusted = true;
       };
     };
+    extraConfig = "AddKeysToAgent yes";
   };
 }
