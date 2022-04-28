@@ -59,7 +59,7 @@
   };
 
   fonts = {
-    enableFontDir = true;
+    fontDir.enable = true;
     fonts = with pkgs; [
       nerdfonts
       twemoji-color-font
@@ -117,7 +117,6 @@
   };
 
   services = {
-    dbus.socketActivated = true;
     geoclue2.enable = true;
     locate.enable = true;
     upower.enable = true; # hibernate on critical battery
@@ -150,8 +149,8 @@
       exportConfiguration = true;
       libinput = {
         enable = true;
-        tapping = false;
-        tappingDragLock = false;
+        touchpad.tapping = false;
+        touchpad.tappingDragLock = false;
       };
       xkbOptions = "caps:none";
       videoDrivers = [ "nvidia" ];
