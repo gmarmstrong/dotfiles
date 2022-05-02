@@ -6,7 +6,6 @@ command -v git || echo "MISSING: git" || exit
 command -v gpg2 || echo "MISSING: gpg2" || exit
 command -v vim || echo "MISSING: vim" || exit
 command -v ssh || echo "MISSING: ssh" || exit
-command -v easy_install || echo "MISSING: easy_install" || exit
 
 # Confirm Internet connection
 if ! ping -c 1 google.com >& /dev/null; then
@@ -48,12 +47,6 @@ fi
 vim +qall
 vim +PlugUpgrade +PlugUpdate +qall
 
-# Install trash-cli
-if ! command -v trash; then
-    mkdir -p "$HOME/.local/lib/python2.6/site-packages"
-    easy_install --prefix="$HOME/.local" trash-cli
-fi
-
 # Install tree
 if ! command -v tree; then
     mkdir -p "$HOME/.local/bin"
@@ -63,5 +56,3 @@ if ! command -v tree; then
     make -C "$HOME/.local/src/tree-1.7.0"
     mv "$HOME/.local/src/tree-1.7.0/tree" "$HOME/.local/bin/tree"
 fi
-
-# Check for optional programs

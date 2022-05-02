@@ -7,12 +7,19 @@ set nocompatible
 " ==============================================================================
 " PLUGINS
 
+" Install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/0.11.0/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source source ~/.vimrc " todo replace ~/.vimrc with an environment variable
+endif
+
 " Plugins
 call plug#begin()
 Plug 'airblade/vim-gitgutter'       " Git diff in sign column
-Plug 'chriskempson/base16-vim'      " Color theme
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+"Plug 'chriskempson/base16-vim'      " Color theme
+"Plug 'godlygeek/tabular'
+"Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 " vim-markdown settings
@@ -51,7 +58,7 @@ set expandtab           "Insert spaces instead of tabs
 set list listchars=tab:»·,trail:␣
 
 " Color
-colorscheme base16-gruvbox-light-soft " TODO Provide $COLORTHEME via SSH
+"colorscheme base16-gruvbox-light-soft " TODO Provide $COLORTHEME via SSH
 highlight clear StatusLine
 highlight clear StatusLineNC
 highlight clear SignColumn
