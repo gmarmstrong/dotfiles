@@ -19,6 +19,7 @@ add_deb_repo() {
 apt_sources() {
   echo " ==> Adding additional APT sources"
   echo -e "\tInstalling APT-related packages"
+  sleep 10 # hacky solution to cloud-init not configuring apt fast enough, causes race condition (only happens sometimes)
   sudo apt-get update
   sudo apt-get install -y ca-certificates curl gnupg lsb-release software-properties-common
 
