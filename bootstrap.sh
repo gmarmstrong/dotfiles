@@ -59,6 +59,10 @@ apt_installs() {
     sudo apt-get auto-remove -y
 }
 
+python_installs() {
+  pip install numpy # https://cloud.google.com/iap/docs/using-tcp-forwarding
+}
+
 setup_groups() {
   sudo usermod -aG docker $(whoami)
   sudo setfacl -m user:$(whoami):rw /var/run/docker.sock
@@ -115,6 +119,7 @@ do_it() {
     additional_installs     # miscellaneous installations
     copy_dotfiles           # copy dotfiles to their respective locations
     vim_plugins_installs    # install vim plugin manager and plugins
+    python_installs         # install python packages
 }
 
 do_it
