@@ -1,5 +1,7 @@
 # dotfiles
 
+**NOTE: The `master` branch is deprecated. The default branch is now `main`.**
+
 This is my dotfiles repository. It describes my [NixOS](https://nixos.org/)
 personal computers. [There are many like it](https://dotfiles.github.io/), but
 this one is mine. [**You won't want to clone this whole
