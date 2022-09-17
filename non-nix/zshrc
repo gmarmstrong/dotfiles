@@ -1,9 +1,6 @@
 # tab-completion
 autoload -Uz compinit && compinit
 
-# iTerm shell integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # promt with name of git branch
 # https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh
 autoload -Uz vcs_info
@@ -34,3 +31,15 @@ if [[ -e "$HOME/.zsh-history-substring-search.zsh" ]]; then
     bindkey -M vicmd 'k' history-substring-search-up    # up with k in normal mode
     bindkey -M vicmd 'j' history-substring-search-down  # down with j in normal mode
 fi
+
+if [[ $(uname) == "Darwin" ]]; then # macOS-specific settings
+    # iTerm shell integration
+    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+    # case-insensitive tab completion
+    zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+    # pman to view pretty man pages in Preview.app
+    pman() { man -t "$@" | open -f -a Preview; }
+fi
+
+PATH="/Users/guthrie/Library/Python/3.10/bin:$PATH"
+export GPG_TTY=$(tty)
