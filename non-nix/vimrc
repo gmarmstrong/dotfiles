@@ -80,3 +80,7 @@ augroup warnings
     autocmd FileType java highlight OverLength ctermbg=red ctermfg=white
     autocmd FileType java match OverLength /\%>100v.\+/
 augroup END
+
+" ==============
+" 'vimwiki'-lite
+noremap <leader>gf :e <cfile><cr>
