@@ -20,6 +20,7 @@ Plug 'airblade/vim-gitgutter'       " Git diff in sign column
 "Plug 'chriskempson/base16-vim'      " Color theme
 "Plug 'godlygeek/tabular'
 "Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-characterize'
 call plug#end()
 
 " vim-markdown settings
