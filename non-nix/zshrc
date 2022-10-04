@@ -33,6 +33,7 @@ if [[ -e "$HOME/.zsh-history-substring-search.zsh" ]]; then
 fi
 
 if [[ $(uname) == "Darwin" ]]; then # macOS-specific settings
+    PATH="${HOME}/Library/Python/3.10/bin:$PATH"
     # iTerm shell integration
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
     # case-insensitive tab completion
@@ -41,5 +42,4 @@ if [[ $(uname) == "Darwin" ]]; then # macOS-specific settings
     pman() { man -t "$@" | open -f -a Preview; }
 fi
 
-PATH="/Users/guthrie/Library/Python/3.10/bin:$PATH"
 export GPG_TTY=$(tty)
