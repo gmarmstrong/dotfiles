@@ -20,3 +20,14 @@ but feel free to explore and borrow what you like!
 6. Install [home-manager](https://github.com/rycee/home-manager) with
    `nix-shell "$HOME/dotfiles/resources/home-manager" -A install`
 7. Apply the home configuration with `home-manager switch`
+
+## Installation on macOS
+
+(these instructions are a WIP)
+
+1. Install Determinate Nix
+2. Clone these dotfiles
+3. Symlink the `config/nix` directory to `~/.config/nix`
+4. Install nix-darwin: `sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild -- switch`
+5. Apply the config `sudo darwin-rebuild switch --flake ~/.config/nix#mbp`
+
