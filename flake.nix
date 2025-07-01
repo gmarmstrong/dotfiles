@@ -55,9 +55,9 @@
         finder.ShowStatusBar = true;
         finder._FXShowPosixPathInTitle = true;
         finder._FXSortFoldersFirst = true;
-        # These don't seem to work unless done manually:
-        # trackpad.ActuationStrength = 0; # 0 for silent clicking
-        # trackpad.Clicking = true; # tap trackpad to click
+        # These ones require a restart (or maybe a re-login):
+        trackpad.ActuationStrength = 0; # 0 for silent clicking
+        trackpad.Clicking = true; # tap trackpad to click
       };
     };
 
