@@ -69,7 +69,6 @@
         awscli2
         gh
         git
-        neovim
         ollama
         tree
         wget
@@ -88,13 +87,28 @@
         userEmail = "guthrie.armstrong@coalitioninc.com";
       };
 
+      programs.neovim = {
+        enable = true;
+        defaultEditor = true;
+        extraConfig = ''
+        set expandtab
+        set tabstop=4
+        set shiftwidth=4
+        set softtabstop=4
+        inoremap jk <Esc>
+        '';
+        viAlias = true;
+        vimAlias = true;
+        vimdiffAlias = true;
+      };
+
+      # disable MotD
+      home.file.".hushlogin".text = "";
+
       # zsh config and plugins
       home.shell.enableZshIntegration = true;
       programs.zsh = {
         enable = true;
-        shellAliases = {
-          vim = "nvim";
-        };
         defaultKeymap = "viins";
         historySubstringSearch = {
           enable = true;
