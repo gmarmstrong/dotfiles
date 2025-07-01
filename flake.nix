@@ -89,17 +89,24 @@
       };
 
       # zsh config and plugins
+      home.shell.enableZshIntegration = true;
       programs.zsh = {
         enable = true;
         shellAliases = {
           vim = "nvim";
         };
-        plugins = [
-          {
-            name = "zsh-history-substring-search";
-            src = pkgs.zsh-history-substring-search;
-          }
-        ];
+        defaultKeymap = "viins";
+        historySubstringSearch = {
+          enable = true;
+        };
+        localVariables = {
+          HISTORY_SUBSTRING_SEARCH_PREFIXED = true;
+        };
+        initContent = ''
+        bindkey jk vi-cmd-mode
+        bindkey -M vicmd 'k' history-substring-search-up
+        bindkey -M vicmd 'j' history-substring-search-down
+        '';
       };
 
       # ollama service
