@@ -85,6 +85,21 @@
         enable = true;
         userName = "Guthrie McAfee Armstrong";
         userEmail = "guthrie.armstrong@coalitioninc.com";
+        signing = {
+          format = "ssh";
+          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFExjJSzkWHd1Qi92WE/AENwHKVRwPFfYo/K83LsIkQ7";
+          signByDefault = true;
+          signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+        };
+      };
+
+      programs.ssh = {
+        enable = true;
+        matchBlocks = {
+          "*" = {
+            identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
+          };
+        };
       };
 
       programs.neovim = {
@@ -134,8 +149,7 @@
 
   in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#simple
+    # MacBook Pro for work
     darwinConfigurations."mbp" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
