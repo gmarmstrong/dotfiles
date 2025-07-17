@@ -67,6 +67,8 @@
         # Dev tools
         aws-vault
         awscli2
+        colima
+        docker # required by colima
         gh
         git
         ollama
