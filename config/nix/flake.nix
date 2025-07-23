@@ -71,6 +71,7 @@
         docker # required by colima
         gh
         git
+        go
         ollama
         tree
         wget
