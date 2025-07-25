@@ -20,6 +20,7 @@
       # Minimal system-level packages
       environment.systemPackages = [
         pkgs.smartmontools
+        pkgs.ncdu
       ];
 
       # Allow non-FOSS packages
