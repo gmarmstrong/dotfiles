@@ -68,15 +68,18 @@
         # Dev tools
         aws-vault
         awscli2
+        ssm-session-manager-plugin
         colima
         docker # required by colima
         gh
         git
         go
+        golangci-lint
         ollama
         tree
         wget
         zsh
+        unixtools.watch
 
         # Terraform
         tenv
