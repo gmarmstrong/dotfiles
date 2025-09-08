@@ -40,7 +40,7 @@
       system.stateVersion = 6;
     };
 
-    # macOS-specific settings
+    # macOS preferences
     macOSConfig = { ... }: {
       system.defaults = {
         controlcenter.BatteryShowPercentage = true;
@@ -157,7 +157,7 @@
   in
   {
     # MacBook Pro for work
-    darwinConfigurations."mbp" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."101206-F724N5WGX2" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
         # Import the modularized configs
