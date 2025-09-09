@@ -14,5 +14,5 @@ nix flake update --flake "$HOME/.config/nix"
 
 # Rebuild and apply config flake
 printf "\n\033[1m>> Rebuilding and applying config flake...\033[0m\n\n"
-sudo darwin-rebuild switch --flake "$HOME/.config/nix#mbp"
+sudo darwin-rebuild switch --flake "$HOME/.config/nix#101206-F724N5WGX2"
 
