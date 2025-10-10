@@ -9,15 +9,15 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixpkgs-master, ... }:
   let
     username = "guthrie";
     homeDirectory = "/Users/${username}";
 
     systemConfig = { pkgs, ... }: {
-      # Minimal system-level packages
       environment.systemPackages = [
         pkgs.smartmontools
         pkgs.ncdu
@@ -35,12 +35,19 @@
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
-      # Used for backwards compatibility; read the changelog before changing.
-      # $ darwin-rebuild changelog
       system.stateVersion = 6;
+
+      nixpkgs.overlays = [
+        (final: prev:
+          let
+            master = nixpkgs-master.legacyPackages.${final.system};
+          in {
+            codex = master.codex;
+          }
+        )
+      ];
     };
 
-    # macOS preferences
     macOSConfig = { ... }: {
       system.defaults = {
         controlcenter.BatteryShowPercentage = true;
@@ -56,38 +63,35 @@
         finder.ShowStatusBar = true;
         finder._FXShowPosixPathInTitle = true;
         finder._FXSortFoldersFirst = true;
-        # These ones require a restart (or maybe a re-login):
-        trackpad.ActuationStrength = 0; # 0 for silent clicking
-        trackpad.Clicking = true; # tap trackpad to click
+        trackpad.ActuationStrength = 0;
+        trackpad.Clicking = true;
       };
     };
 
-    # home-manager config
     homeManagerConfig = { pkgs, ... }: {
       home.packages = with pkgs; [
-        # Dev tools
         aws-vault
         awscli2
         ssm-session-manager-plugin
+        codex
         colima
-        docker # required by colima
+        docker
         gh
         git
         go
         golangci-lint
         ollama
+        shellcheck
         tree
         wget
         zsh
         unixtools.watch
-
-        # Terraform
         tenv
         terraform-docs
         tflint
       ];
 
-      # User-specific Git settings
+
       programs.git = {
         enable = true;
         userName = "Guthrie McAfee Armstrong";
@@ -124,11 +128,13 @@
         vimdiffAlias = true;
       };
 
-      # disable MotD
       home.file.".hushlogin".text = "";
-
-      # zsh config and plugins
       home.shell.enableZshIntegration = true;
+      
+      home.sessionVariables = {
+        TF_PLUGIN_CACHE_DIR = "$HOME/.terraform.d/plugin-cache";
+      };
+      
       programs.zsh = {
         enable = true;
         defaultKeymap = "viins";
@@ -144,40 +150,26 @@
         bindkey -M vicmd 'j' history-substring-search-down
         '';
       };
-
-      # ollama service
       services.ollama = {
         enable = true;
       };
-
-      # State version for home-manager
       home.stateVersion = "25.05";
     };
 
   in
   {
-    # MacBook Pro for work
     darwinConfigurations."101206-F724N5WGX2" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
-        # Import the modularized configs
         systemConfig
         macOSConfig
-
-        # Import the main home-manager module
         home-manager.darwinModules.home-manager
         {
-          # Configure home-manager settings
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.${username} = homeManagerConfig;
-
-          # Define the primary user for the system
           users.users.${username}.home = homeDirectory;
           system.primaryUser = username;
-
-          # Set this to false if you're not using the Nix installer managed by nix-darwin
-          # (e.g., if you opted for Determinate Nix instead of vanilla Nix)
           nix.enable = false;
         }
       ];
