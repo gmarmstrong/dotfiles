@@ -9,10 +9,9 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixpkgs-master, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
   let
     username = "guthrie";
     homeDirectory = "/Users/${username}";
@@ -36,16 +35,6 @@
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
       system.stateVersion = 6;
-
-      nixpkgs.overlays = [
-        (final: prev:
-          let
-            master = nixpkgs-master.legacyPackages.${final.system};
-          in {
-            codex = master.codex;
-          }
-        )
-      ];
     };
 
     macOSConfig = { ... }: {
