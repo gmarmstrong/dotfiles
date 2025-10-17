@@ -12,9 +12,22 @@ git -C "$HOME/dotfiles" pull
 printf "\n\033[1m>> Updating config flake inputs...\033[0m\n\n"
 nix flake update --flake "$HOME/.config/nix"
 
+# Detect hostname and verify it exists in flake
+printf "\n\033[1m>> Detecting system configuration...\033[0m\n\n"
+HOSTNAME=$(scutil --get LocalHostName)
+printf "Hostname: %s\n" "$HOSTNAME"
+
+# Verify the configuration exists in the flake
+if ! nix eval "$HOME/.config/nix#darwinConfigurations.$HOSTNAME.config.system.stateVersion" &>/dev/null; then
+    printf "\n\033[1;31m✗ Error: Configuration for hostname '%s' not found in flake\033[0m\n" "$HOSTNAME"
+    printf "Available configurations:\n"
+    nix eval --json "$HOME/.config/nix#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | grep -o '"[^"]*"' | tr -d '"'
+    exit 1
+fi
+
 # Rebuild and apply config flake
 printf "\n\033[1m>> Rebuilding and applying config flake...\033[0m\n\n"
-sudo darwin-rebuild switch --flake "$HOME/.config/nix#101206-F724N5WGX2"
+sudo darwin-rebuild switch --flake "$HOME/.config/nix#$HOSTNAME"
 
 # Nix garbage collection and store optimization
 printf "\n\033[1m>> Running nix garbage collection...\033[0m\n\n"
