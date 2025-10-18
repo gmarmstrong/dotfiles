@@ -133,7 +133,9 @@ detect_and_verify_config() {
     if ! nix eval "$flake_path#darwinConfigurations.$hostname.config.system.stateVersion" &>/dev/null; then
         print_error "Configuration for hostname '$hostname' not found in flake"
         printf "Available configurations:\n"
-        nix eval --json "$flake_path#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | grep -o '"[^"]*"' | tr -d '"'
+        nix eval --json "$flake_path#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | \
+            jq -r '.[]' | sed 's/^/  - /' || \
+            printf "  (Unable to list configurations)\n"
         exit 1
     fi
 }
