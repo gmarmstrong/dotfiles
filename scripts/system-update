@@ -4,12 +4,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Configuration
 dotfiles_path="$HOME/dotfiles"
 flake_path="$HOME/.config/nix"
 hostname=$(hostname -s)
 
-# Print functions
 print_header() {
     printf "\n\033[1m>> %s\033[0m\n\n" "$1"
 }
@@ -22,15 +20,8 @@ print_warning() {
     printf "\n\033[1;33m⚠ Warning: %s\033[0m\n" "$1"
 }
 
-# Verify we're running on macOS
-verify_macos() {
-    if [[ "$(uname)" != "Darwin" ]]; then
-        print_error "This script only works on macOS (Darwin)"
-        exit 1
-    fi
-}
+### Pre-run checks ###
 
-# Parse command line flags
 parse_flags() {
     cleanup=false
     while [[ $# -gt 0 ]]; do
@@ -48,7 +39,13 @@ parse_flags() {
     done
 }
 
-# Validate sudo access early
+verify_macos() {
+    if [[ "$(uname)" != "Darwin" ]]; then
+        print_error "This script only works on macOS (Darwin)"
+        exit 1
+    fi
+}
+
 validate_sudo() {
     print_header "Getting sudo access..."
     
@@ -60,7 +57,6 @@ validate_sudo() {
     printf "Sudo credentials cached ✓\n"
 }
 
-# Network check
 check_network() {
     print_header "Checking network connectivity..."
 
@@ -78,7 +74,8 @@ check_network() {
     exit 1
 }
 
-# Main functions
+### Main functions ###
+
 update_dotfiles() {
     print_header "Updating dotfiles..."
     
@@ -123,6 +120,8 @@ run_cleanup() {
         print_header "Skipping cleanup (use --cleanup flag to enable)"
     fi
 }
+
+### Main execution ###
 
 verify_macos
 parse_flags "$@"
