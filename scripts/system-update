@@ -4,10 +4,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-dotfiles_path="$HOME/dotfiles"
-flake_path="$HOME/.config/nix"
+dotfiles_path="${HOME}/dotfiles"
+flake_path="${HOME}/.config/nix"
 hostname=$(hostname -s)
-log_dir="$HOME/Library/Logs/system-update/$(date +%Y%m%d-%H%M%S)"
+log_dir="${HOME}/Library/Logs/system-update/$(date +%Y%m%d-%H%M%S)"
 
 
 print_header() {
@@ -27,16 +27,16 @@ run_logged() {
     local success_msg="$2"
     shift 2
 
-    mkdir -p "$log_dir"
+    mkdir -p "${log_dir}"
     local log_file
-    log_file="$log_dir/${operation_name}.log"
+    log_file="${log_dir}/${operation_name}.log"
 
-    if "$@" > "$log_file" 2>&1; then
-        printf "%s ✓\n" "$success_msg"
+    if "$@" > "${log_file}" 2>&1; then
+        printf "%s ✓\n" "${success_msg}"
     else
-        printf "\n%s failed:\n\n" "$operation_name"
-        tail -n 30 "$log_file"
-        printf "\nFull log: %s\n" "$log_file"
+        printf "\n%s failed:\n\n" "${operation_name}"
+        tail -n 30 "${log_file}"
+        printf "\nFull log: %s\n" "${log_file}"
         exit 1
     fi
 }
@@ -44,7 +44,7 @@ run_logged() {
 ### Pre-run checks ###
 
 verify_not_root() {
-    if [[ "$EUID" -eq 0 ]]; then
+    if [[ "${EUID}" -eq 0 ]]; then
         print_error "Do not run this script as root"
         printf "The script will request sudo when needed\n"
         exit 1
@@ -56,8 +56,8 @@ verify_required_tools() {
     local tool
     
     for tool in git nix darwin-rebuild jq; do
-        if ! command -v "$tool" &>/dev/null; then
-            missing_tools+=("$tool")
+        if ! command -v "${tool}" &>/dev/null; then
+            missing_tools+=("${tool}")
         fi
     done
     
@@ -97,7 +97,7 @@ check_network() {
     local hosts=("8.8.8.8" "1.1.1.1" "cache.nixos.org")
     local host
     for host in "${hosts[@]}"; do
-        if ping -c 1 -W 2 "$host" &>/dev/null; then
+        if ping -c 1 -W 2 "${host}" &>/dev/null; then
             printf "Network connectivity verified ✓\n"
             return 0
         fi
@@ -114,26 +114,26 @@ update_dotfiles() {
     print_header "Updating dotfiles..."
 
     # Check for uncommitted changes
-    if ! git -C "$dotfiles_path" diff-index --quiet HEAD --; then
+    if ! git -C "${dotfiles_path}" diff-index --quiet HEAD --; then
         print_warning "Dotfiles have uncommitted changes. Skipping pull step."
     else
         run_logged "dotfiles" "Dotfiles updated" \
-            git -C "$dotfiles_path" pull
+            git -C "${dotfiles_path}" pull
     fi
 }
 
 update_flake_inputs() {
     print_header "Updating config flake inputs..."
     run_logged "flake" "Flake inputs updated" \
-        nix flake update --flake "$flake_path"
+        nix flake update --flake "${flake_path}"
 }
 
 detect_and_verify_config() {
     # Verify the configuration exists in the flake
-    if ! nix eval "$flake_path#darwinConfigurations.$hostname.config.system.stateVersion" &>/dev/null; then
-        print_error "Configuration for hostname '$hostname' not found in flake"
+    if ! nix eval "${flake_path}#darwinConfigurations.${hostname}.config.system.stateVersion" &>/dev/null; then
+        print_error "Configuration for hostname '${hostname}' not found in flake"
         printf "Available configurations:\n"
-        nix eval --json "$flake_path#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | \
+        nix eval --json "${flake_path}#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | \
             jq -r '.[]' | sed 's/^/  - /' || \
             printf "  (Unable to list configurations)\n"
         exit 1
@@ -146,19 +146,19 @@ rebuild_system() {
     # Get current generation
     local current_gen
     current_gen=$(readlink /nix/var/nix/profiles/system 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
-    printf "Current generation: %s\n" "$current_gen"
+    printf "Current generation: %s\n" "${current_gen}"
     
     run_logged "rebuild" "System rebuilt successfully" \
-        sudo darwin-rebuild switch --flake "$flake_path#$hostname"
+        sudo darwin-rebuild switch --flake "${flake_path}#${hostname}"
     
     # Show new generation
     local new_gen
     new_gen=$(readlink /nix/var/nix/profiles/system 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
-    printf "New generation: %s\n" "$new_gen"
+    printf "New generation: %s\n" "${new_gen}"
 }
 
 run_cleanup() {
-    if [ "$cleanup" = true ]; then
+    if [ "${cleanup}" = true ]; then
         print_header "Running nix garbage collection..."
         run_logged "gc" "Garbage collection completed" \
             nix-collect-garbage -d
@@ -184,6 +184,6 @@ detect_and_verify_config
 rebuild_system
 run_cleanup
 
-if [ -d "$log_dir" ] && [ -n "$(ls -A "$log_dir" 2>/dev/null)" ]; then
-    printf "\nLogs saved to: %s\n" "$log_dir"
+if [ -d "${log_dir}" ] && [ -n "$(ls -A "${log_dir}" 2>/dev/null)" ]; then
+    printf "\nLogs saved to: %s\n" "${log_dir}"
 fi
