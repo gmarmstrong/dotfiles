@@ -68,6 +68,7 @@
         git
         go
         golangci-lint
+        jq
         ollama
         shellcheck
         tree
