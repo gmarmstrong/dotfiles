@@ -85,7 +85,9 @@ parse_flags() {
 }
 
 verify_macos() {
-    if [[ "$(uname)" != "Darwin" ]]; then
+    local os_name
+    os_name=$(uname)
+    if [[ "${os_name}" != "Darwin" ]]; then
         print_error "This script only works on macOS (Darwin)"
         exit 1
     fi
@@ -184,6 +186,6 @@ detect_and_verify_config
 rebuild_system
 run_cleanup
 
-if [[ -d "${log_dir}" ]] && [[ -n "$(ls -A "${log_dir}" 2>/dev/null)" ]]; then
+if [[ -d "${log_dir}" ]] && [[ -n "$(ls -A "${log_dir}" 2>/dev/null || true)" ]]; then
     printf "\nLogs saved to: %s\n" "${log_dir}"
 fi
