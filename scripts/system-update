@@ -158,7 +158,7 @@ rebuild_system() {
 }
 
 run_cleanup() {
-    if [ "${cleanup}" = true ]; then
+    if [[ "${cleanup}" = true ]]; then
         print_header "Running nix garbage collection..."
         run_logged "gc" "Garbage collection completed" \
             nix-collect-garbage -d
@@ -184,6 +184,6 @@ detect_and_verify_config
 rebuild_system
 run_cleanup
 
-if [ -d "${log_dir}" ] && [ -n "$(ls -A "${log_dir}" 2>/dev/null)" ]; then
+if [[ -d "${log_dir}" ]] && [[ -n "$(ls -A "${log_dir}" 2>/dev/null)" ]]; then
     printf "\nLogs saved to: %s\n" "${log_dir}"
 fi
