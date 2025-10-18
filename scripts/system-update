@@ -7,6 +7,7 @@ set -o pipefail
 # Configuration
 dotfiles_path="$HOME/dotfiles"
 flake_path="$HOME/.config/nix"
+hostname=$(hostname -s)
 
 # Print functions
 print_header() {
@@ -66,7 +67,6 @@ update_flake_inputs() {
 
 detect_and_verify_config() {
     print_header "Detecting system configuration..."
-    hostname=$(scutil --get LocalHostName)
     printf "Hostname: %s\n" "$hostname"
     
     # Verify the configuration exists in the flake
