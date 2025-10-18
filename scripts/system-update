@@ -4,6 +4,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# Configuration
+dotfiles_path="$HOME/dotfiles"
+flake_path="$HOME/.config/nix"
+
 # Print functions
 print_header() {
     printf "\n\033[1m>> %s\033[0m\n\n" "$1"
@@ -37,11 +41,11 @@ done
 
 # Update dotfiles
 print_header "Updating dotfiles..."
-git -C "$HOME/dotfiles" pull
+git -C "$dotfiles_path" pull
 
 # Update flake inputs
 print_header "Updating config flake inputs..."
-nix flake update --flake "$HOME/.config/nix"
+nix flake update --flake "$flake_path"
 
 # Detect hostname and verify it exists in flake
 print_header "Detecting system configuration..."
@@ -49,16 +53,16 @@ hostname=$(scutil --get LocalHostName)
 printf "Hostname: %s\n" "$hostname"
 
 # Verify the configuration exists in the flake
-if ! nix eval "$HOME/.config/nix#darwinConfigurations.$hostname.config.system.stateVersion" &>/dev/null; then
+if ! nix eval "$flake_path#darwinConfigurations.$hostname.config.system.stateVersion" &>/dev/null; then
     print_error "Configuration for hostname '$hostname' not found in flake"
     printf "Available configurations:\n"
-    nix eval --json "$HOME/.config/nix#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | grep -o '"[^"]*"' | tr -d '"'
+    nix eval --json "$flake_path#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | grep -o '"[^"]*"' | tr -d '"'
     exit 1
 fi
 
 # Rebuild and apply config flake
 print_header "Rebuilding and applying config flake..."
-sudo darwin-rebuild switch --flake "$HOME/.config/nix#$hostname"
+sudo darwin-rebuild switch --flake "$flake_path#$hostname"
 
 # Nix garbage collection and store optimization (optional)
 if [ "$cleanup" = true ]; then
