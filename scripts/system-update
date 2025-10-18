@@ -7,6 +7,8 @@ set -o pipefail
 dotfiles_path="$HOME/dotfiles"
 flake_path="$HOME/.config/nix"
 hostname=$(hostname -s)
+log_dir="$HOME/Library/Logs/system-update/$(date +%Y%m%d-%H%M%S)"
+
 
 print_header() {
     printf "\n\033[1m>> %s\033[0m\n\n" "$1"
@@ -18,6 +20,25 @@ print_error() {
 
 print_warning() {
     printf "\n\033[1;33m⚠ Warning: %s\033[0m\n" "$1"
+}
+
+run_logged() {
+    local operation_name="$1"
+    local success_msg="$2"
+    shift 2
+    
+    mkdir -p "$log_dir"
+    local log_file
+    log_file="$log_dir/${operation_name}.log"
+    
+    if "$@" > "$log_file" 2>&1; then
+        printf "%s ✓\n" "$success_msg"
+    else
+        printf "\n%s failed:\n\n" "$operation_name"
+        tail -n 30 "$log_file"
+        printf "\nFull log: %s\n" "$log_file"
+        exit 1
+    fi
 }
 
 ### Pre-run checks ###
@@ -83,19 +104,18 @@ update_dotfiles() {
     if ! git -C "$dotfiles_path" diff-index --quiet HEAD --; then
         print_warning "Dotfiles have uncommitted changes. Skipping pull step."
     else
-        git -C "$dotfiles_path" pull
+        run_logged "dotfiles" "Dotfiles updated" \
+            git -C "$dotfiles_path" pull
     fi
 }
 
 update_flake_inputs() {
     print_header "Updating config flake inputs..."
-    nix flake update --flake "$flake_path"
+    run_logged "flake" "Flake inputs updated" \
+        nix flake update --flake "$flake_path"
 }
 
 detect_and_verify_config() {
-    print_header "Detecting system configuration..."
-    printf "Hostname: %s\n" "$hostname"
-    
     # Verify the configuration exists in the flake
     if ! nix eval "$flake_path#darwinConfigurations.$hostname.config.system.stateVersion" &>/dev/null; then
         print_error "Configuration for hostname '$hostname' not found in flake"
@@ -107,17 +127,21 @@ detect_and_verify_config() {
 
 rebuild_system() {
     print_header "Rebuilding and applying config flake..."
-    sudo darwin-rebuild switch --flake "$flake_path#$hostname"
+    run_logged "rebuild" "System rebuilt successfully" \
+        sudo darwin-rebuild switch --flake "$flake_path#$hostname"
 }
 
 run_cleanup() {
     if [ "$cleanup" = true ]; then
         print_header "Running nix garbage collection..."
-        nix-collect-garbage -d
+        run_logged "gc" "Garbage collection completed" \
+            nix-collect-garbage -d
+        
         print_header "Optimizing nix store..."
-        nix store optimise
+        run_logged "optimize" "Store optimization completed" \
+            nix store optimise
     else
-        print_header "Skipping cleanup (use --cleanup flag to enable)"
+        printf "\nSkipping cleanup (use --cleanup to enable)\n"
     fi
 }
 
@@ -132,3 +156,7 @@ update_flake_inputs
 detect_and_verify_config
 rebuild_system
 run_cleanup
+
+if [ -d "$log_dir" ] && [ -n "$(ls -A "$log_dir" 2>/dev/null)" ]; then
+    printf "\nLogs saved to: %s\n" "$log_dir"
+fi
