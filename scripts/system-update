@@ -4,6 +4,12 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# Verify we're running on macOS
+if [[ "$(uname)" != "Darwin" ]]; then
+    printf "\033[1;31m✗ Error: This script only works on macOS (Darwin)\033[0m\n"
+    exit 1
+fi
+
 # Parse flags
 CLEANUP=false
 while [[ $# -gt 0 ]]; do
