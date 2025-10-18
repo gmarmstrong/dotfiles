@@ -4,9 +4,18 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# Print functions
+print_header() {
+    printf "\n\033[1m>> %s\033[0m\n\n" "$1"
+}
+
+print_error() {
+    printf "\n\033[1;31m✗ Error: %s\033[0m\n" "$1" >&2
+}
+
 # Verify we're running on macOS
 if [[ "$(uname)" != "Darwin" ]]; then
-    printf "\033[1;31m✗ Error: This script only works on macOS (Darwin)\033[0m\n"
+    print_error "This script only works on macOS (Darwin)"
     exit 1
 fi
 
@@ -27,36 +36,36 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Update dotfiles
-printf "\n\033[1m>> Updating dotfiles...\033[0m\n\n"
+print_header "Updating dotfiles..."
 git -C "$HOME/dotfiles" pull
 
 # Update flake inputs
-printf "\n\033[1m>> Updating config flake inputs...\033[0m\n\n"
+print_header "Updating config flake inputs..."
 nix flake update --flake "$HOME/.config/nix"
 
 # Detect hostname and verify it exists in flake
-printf "\n\033[1m>> Detecting system configuration...\033[0m\n\n"
+print_header "Detecting system configuration..."
 hostname=$(scutil --get LocalHostName)
 printf "Hostname: %s\n" "$hostname"
 
 # Verify the configuration exists in the flake
 if ! nix eval "$HOME/.config/nix#darwinConfigurations.$hostname.config.system.stateVersion" &>/dev/null; then
-    printf "\n\033[1;31m✗ Error: Configuration for hostname '%s' not found in flake\033[0m\n" "$hostname"
+    print_error "Configuration for hostname '$hostname' not found in flake"
     printf "Available configurations:\n"
     nix eval --json "$HOME/.config/nix#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | grep -o '"[^"]*"' | tr -d '"'
     exit 1
 fi
 
 # Rebuild and apply config flake
-printf "\n\033[1m>> Rebuilding and applying config flake...\033[0m\n\n"
+print_header "Rebuilding and applying config flake..."
 sudo darwin-rebuild switch --flake "$HOME/.config/nix#$hostname"
 
 # Nix garbage collection and store optimization (optional)
 if [ "$cleanup" = true ]; then
-    printf "\n\033[1m>> Running nix garbage collection...\033[0m\n\n"
+    print_header "Running nix garbage collection..."
     nix-collect-garbage -d
-    printf "\n\033[1m>> Optimizing nix store...\033[0m\n\n"
+    print_header "Optimizing nix store..."
     nix store optimise
 else
-    printf "\n\033[1m>> Skipping cleanup (use --cleanup flag to enable)\033[0m\n\n"
+    print_header "Skipping cleanup (use --cleanup flag to enable)"
 fi
