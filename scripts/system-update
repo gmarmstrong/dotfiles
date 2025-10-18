@@ -53,8 +53,7 @@ update_dotfiles() {
     
     # Check for uncommitted changes
     if ! git -C "$dotfiles_path" diff-index --quiet HEAD --; then
-        print_warning "Dotfiles have uncommitted changes. Skipping pull."
-        printf "Please commit or stash changes manually, then run the script again.\n"
+        print_warning "Dotfiles have uncommitted changes. Skipping pull step."
     else
         git -C "$dotfiles_path" pull
     fi
