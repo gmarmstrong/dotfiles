@@ -45,7 +45,14 @@ done
 
 # Update dotfiles
 print_header "Updating dotfiles..."
-git -C "$dotfiles_path" pull
+
+# Check for uncommitted changes
+if ! git -C "$dotfiles_path" diff-index --quiet HEAD --; then
+    print_warning "Dotfiles have uncommitted changes. Skipping pull."
+    printf "Please commit or stash changes manually, then run the script again.\n"
+else
+    git -C "$dotfiles_path" pull
+fi
 
 # Update flake inputs
 print_header "Updating config flake inputs..."
