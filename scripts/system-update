@@ -26,11 +26,11 @@ run_logged() {
     local operation_name="$1"
     local success_msg="$2"
     shift 2
-    
+
     mkdir -p "$log_dir"
     local log_file
     log_file="$log_dir/${operation_name}.log"
-    
+
     if "$@" > "$log_file" 2>&1; then
         printf "%s ✓\n" "$success_msg"
     else
@@ -69,12 +69,12 @@ verify_macos() {
 
 validate_sudo() {
     print_header "Getting sudo access..."
-    
+
     if ! sudo -v; then
         print_error "Failed to validate sudo credentials"
         exit 1
     fi
-    
+
     printf "Sudo credentials cached ✓\n"
 }
 
@@ -89,7 +89,7 @@ check_network() {
             return 0
         fi
     done
-    
+
     print_error "No network connectivity detected. Cannot proceed with updates."
     printf "Tried hosts: %s\n" "${hosts[*]}"
     exit 1
@@ -99,7 +99,7 @@ check_network() {
 
 update_dotfiles() {
     print_header "Updating dotfiles..."
-    
+
     # Check for uncommitted changes
     if ! git -C "$dotfiles_path" diff-index --quiet HEAD --; then
         print_warning "Dotfiles have uncommitted changes. Skipping pull step."
@@ -136,7 +136,7 @@ run_cleanup() {
         print_header "Running nix garbage collection..."
         run_logged "gc" "Garbage collection completed" \
             nix-collect-garbage -d
-        
+
         print_header "Optimizing nix store..."
         run_logged "optimize" "Store optimization completed" \
             nix store optimise
