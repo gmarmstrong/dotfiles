@@ -43,6 +43,14 @@ run_logged() {
 
 ### Pre-run checks ###
 
+verify_not_root() {
+    if [[ "$EUID" -eq 0 ]]; then
+        print_error "Do not run this script as root"
+        printf "The script will request sudo when needed\n"
+        exit 1
+    fi
+}
+
 parse_flags() {
     cleanup=false
     while [[ $# -gt 0 ]]; do
@@ -147,6 +155,7 @@ run_cleanup() {
 
 ### Main execution ###
 
+verify_not_root
 verify_macos
 parse_flags "$@"
 check_network
