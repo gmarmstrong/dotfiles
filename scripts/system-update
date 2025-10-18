@@ -51,6 +51,22 @@ verify_not_root() {
     fi
 }
 
+verify_required_tools() {
+    local missing_tools=()
+    local tool
+    
+    for tool in git nix darwin-rebuild jq; do
+        if ! command -v "$tool" &>/dev/null; then
+            missing_tools+=("$tool")
+        fi
+    done
+    
+    if [[ ${#missing_tools[@]} -gt 0 ]]; then
+        print_error "Required tools are missing: ${missing_tools[*]}"
+        exit 1
+    fi
+}
+
 parse_flags() {
     cleanup=false
     while [[ $# -gt 0 ]]; do
@@ -157,6 +173,7 @@ run_cleanup() {
 
 verify_not_root
 verify_macos
+verify_required_tools
 parse_flags "$@"
 check_network
 update_dotfiles
