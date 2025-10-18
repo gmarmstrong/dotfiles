@@ -58,26 +58,26 @@
     };
 
     homeManagerConfig = { pkgs, ... }: {
-      home.packages = with pkgs; [
-        aws-vault
-        awscli2
-        ssm-session-manager-plugin
-        colima
-        docker
-        gh
-        git
-        go
-        golangci-lint
-        jq
-        ollama
-        shellcheck
-        tree
-        wget
-        zsh
-        unixtools.watch
-        tenv
-        terraform-docs
-        tflint
+      home.packages = [
+        pkgs.aws-vault
+        pkgs.awscli2
+        pkgs.ssm-session-manager-plugin
+        pkgs.colima
+        pkgs.docker
+        pkgs.gh
+        pkgs.git
+        pkgs.go
+        pkgs.golangci-lint
+        pkgs.jq
+        pkgs.ollama
+        pkgs.shellcheck
+        pkgs.tree
+        pkgs.wget
+        pkgs.zsh
+        pkgs.unixtools.watch
+        pkgs.tenv
+        pkgs.terraform-docs
+        pkgs.tflint
       ];
 
 
@@ -164,6 +164,9 @@
           home-manager.users.${username} = homeManagerConfig;
           users.users.${username}.home = homeDirectory;
           system.primaryUser = username;
+
+          # Determinate Nix manages the Nix installation itself, so disable nix-darwin’s own Nix management.
+          # https://github.com/nix-darwin/nix-darwin?tab=readme-ov-file#prerequisites
           nix.enable = false;
         }
       ];
