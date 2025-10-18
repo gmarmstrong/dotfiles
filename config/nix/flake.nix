@@ -120,6 +120,10 @@
       home.file.".hushlogin".text = "";
       home.shell.enableZshIntegration = true;
       
+      home.sessionPath = [
+        "$HOME/dotfiles/scripts"
+      ];
+
       home.sessionVariables = {
         TF_PLUGIN_CACHE_DIR = "$HOME/.terraform.d/plugin-cache";
       };
@@ -147,6 +151,7 @@
 
   in
   {
+    # Work computer
     darwinConfigurations."101206-F724N5WGX2" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
