@@ -22,65 +22,83 @@ print_warning() {
 }
 
 # Verify we're running on macOS
-if [[ "$(uname)" != "Darwin" ]]; then
-    print_error "This script only works on macOS (Darwin)"
-    exit 1
-fi
+verify_macos() {
+    if [[ "$(uname)" != "Darwin" ]]; then
+        print_error "This script only works on macOS (Darwin)"
+        exit 1
+    fi
+}
 
-# Parse flags
-cleanup=false
-while [[ $# -gt 0 ]]; do
-    case $1 in
-        --cleanup)
-            cleanup=true
-            shift
-            ;;
-        *)
-            printf "Unknown option: %s\n" "$1"
-            printf "Usage: %s [--cleanup]\n" "$0"
-            exit 1
-            ;;
-    esac
-done
+# Parse command line flags
+parse_flags() {
+    cleanup=false
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --cleanup)
+                cleanup=true
+                shift
+                ;;
+            *)
+                printf "Unknown option: %s\n" "$1"
+                printf "Usage: %s [--cleanup]\n" "$0"
+                exit 1
+                ;;
+        esac
+    done
+}
 
-# Update dotfiles
-print_header "Updating dotfiles..."
+# Main functions
+update_dotfiles() {
+    print_header "Updating dotfiles..."
+    
+    # Check for uncommitted changes
+    if ! git -C "$dotfiles_path" diff-index --quiet HEAD --; then
+        print_warning "Dotfiles have uncommitted changes. Skipping pull."
+        printf "Please commit or stash changes manually, then run the script again.\n"
+    else
+        git -C "$dotfiles_path" pull
+    fi
+}
 
-# Check for uncommitted changes
-if ! git -C "$dotfiles_path" diff-index --quiet HEAD --; then
-    print_warning "Dotfiles have uncommitted changes. Skipping pull."
-    printf "Please commit or stash changes manually, then run the script again.\n"
-else
-    git -C "$dotfiles_path" pull
-fi
+update_flake_inputs() {
+    print_header "Updating config flake inputs..."
+    nix flake update --flake "$flake_path"
+}
 
-# Update flake inputs
-print_header "Updating config flake inputs..."
-nix flake update --flake "$flake_path"
+detect_and_verify_config() {
+    print_header "Detecting system configuration..."
+    hostname=$(scutil --get LocalHostName)
+    printf "Hostname: %s\n" "$hostname"
+    
+    # Verify the configuration exists in the flake
+    if ! nix eval "$flake_path#darwinConfigurations.$hostname.config.system.stateVersion" &>/dev/null; then
+        print_error "Configuration for hostname '$hostname' not found in flake"
+        printf "Available configurations:\n"
+        nix eval --json "$flake_path#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | grep -o '"[^"]*"' | tr -d '"'
+        exit 1
+    fi
+}
 
-# Detect hostname and verify it exists in flake
-print_header "Detecting system configuration..."
-hostname=$(scutil --get LocalHostName)
-printf "Hostname: %s\n" "$hostname"
+rebuild_system() {
+    print_header "Rebuilding and applying config flake..."
+    sudo darwin-rebuild switch --flake "$flake_path#$hostname"
+}
 
-# Verify the configuration exists in the flake
-if ! nix eval "$flake_path#darwinConfigurations.$hostname.config.system.stateVersion" &>/dev/null; then
-    print_error "Configuration for hostname '$hostname' not found in flake"
-    printf "Available configurations:\n"
-    nix eval --json "$flake_path#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | grep -o '"[^"]*"' | tr -d '"'
-    exit 1
-fi
+run_cleanup() {
+    if [ "$cleanup" = true ]; then
+        print_header "Running nix garbage collection..."
+        nix-collect-garbage -d
+        print_header "Optimizing nix store..."
+        nix store optimise
+    else
+        print_header "Skipping cleanup (use --cleanup flag to enable)"
+    fi
+}
 
-# Rebuild and apply config flake
-print_header "Rebuilding and applying config flake..."
-sudo darwin-rebuild switch --flake "$flake_path#$hostname"
-
-# Nix garbage collection and store optimization (optional)
-if [ "$cleanup" = true ]; then
-    print_header "Running nix garbage collection..."
-    nix-collect-garbage -d
-    print_header "Optimizing nix store..."
-    nix store optimise
-else
-    print_header "Skipping cleanup (use --cleanup flag to enable)"
-fi
+verify_macos
+parse_flags "$@"
+update_dotfiles
+update_flake_inputs
+detect_and_verify_config
+rebuild_system
+run_cleanup
