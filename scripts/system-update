@@ -4,6 +4,22 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# Parse flags
+CLEANUP=false
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --cleanup)
+            CLEANUP=true
+            shift
+            ;;
+        *)
+            printf "Unknown option: %s\n" "$1"
+            printf "Usage: %s [--cleanup]\n" "$0"
+            exit 1
+            ;;
+    esac
+done
+
 # Update dotfiles
 printf "\n\033[1m>> Updating dotfiles...\033[0m\n\n"
 git -C "$HOME/dotfiles" pull
@@ -29,8 +45,12 @@ fi
 printf "\n\033[1m>> Rebuilding and applying config flake...\033[0m\n\n"
 sudo darwin-rebuild switch --flake "$HOME/.config/nix#$HOSTNAME"
 
-# Nix garbage collection and store optimization
-printf "\n\033[1m>> Running nix garbage collection...\033[0m\n\n"
-nix-collect-garbage --delete-generations +5
-printf "\n\033[1m>> Optimizing nix store...\033[0m\n\n"
-nix store optimise
+# Nix garbage collection and store optimization (optional)
+if [ "$CLEANUP" = true ]; then
+    printf "\n\033[1m>> Running nix garbage collection...\033[0m\n\n"
+    nix-collect-garbage -d
+    printf "\n\033[1m>> Optimizing nix store...\033[0m\n\n"
+    nix store optimise
+else
+    printf "\n\033[1m>> Skipping cleanup (use --cleanup flag to enable)\033[0m\n\n"
+fi
