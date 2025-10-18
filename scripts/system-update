@@ -11,11 +11,11 @@ if [[ "$(uname)" != "Darwin" ]]; then
 fi
 
 # Parse flags
-CLEANUP=false
+cleanup=false
 while [[ $# -gt 0 ]]; do
     case $1 in
         --cleanup)
-            CLEANUP=true
+            cleanup=true
             shift
             ;;
         *)
@@ -36,12 +36,12 @@ nix flake update --flake "$HOME/.config/nix"
 
 # Detect hostname and verify it exists in flake
 printf "\n\033[1m>> Detecting system configuration...\033[0m\n\n"
-HOSTNAME=$(scutil --get LocalHostName)
-printf "Hostname: %s\n" "$HOSTNAME"
+hostname=$(scutil --get LocalHostName)
+printf "Hostname: %s\n" "$hostname"
 
 # Verify the configuration exists in the flake
-if ! nix eval "$HOME/.config/nix#darwinConfigurations.$HOSTNAME.config.system.stateVersion" &>/dev/null; then
-    printf "\n\033[1;31m✗ Error: Configuration for hostname '%s' not found in flake\033[0m\n" "$HOSTNAME"
+if ! nix eval "$HOME/.config/nix#darwinConfigurations.$hostname.config.system.stateVersion" &>/dev/null; then
+    printf "\n\033[1;31m✗ Error: Configuration for hostname '%s' not found in flake\033[0m\n" "$hostname"
     printf "Available configurations:\n"
     nix eval --json "$HOME/.config/nix#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | grep -o '"[^"]*"' | tr -d '"'
     exit 1
@@ -49,10 +49,10 @@ fi
 
 # Rebuild and apply config flake
 printf "\n\033[1m>> Rebuilding and applying config flake...\033[0m\n\n"
-sudo darwin-rebuild switch --flake "$HOME/.config/nix#$HOSTNAME"
+sudo darwin-rebuild switch --flake "$HOME/.config/nix#$hostname"
 
 # Nix garbage collection and store optimization (optional)
-if [ "$CLEANUP" = true ]; then
+if [ "$cleanup" = true ]; then
     printf "\n\033[1m>> Running nix garbage collection...\033[0m\n\n"
     nix-collect-garbage -d
     printf "\n\033[1m>> Optimizing nix store...\033[0m\n\n"
