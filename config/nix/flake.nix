@@ -62,7 +62,6 @@
         aws-vault
         awscli2
         ssm-session-manager-plugin
-        codex
         colima
         docker
         gh
