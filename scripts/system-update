@@ -116,8 +116,19 @@ detect_and_verify_config() {
 
 rebuild_system() {
     print_header "Rebuilding and applying config flake..."
+    
+    # Get current generation
+    local current_gen
+    current_gen=$(readlink /nix/var/nix/profiles/system 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
+    printf "Current generation: %s\n" "$current_gen"
+    
     run_logged "rebuild" "System rebuilt successfully" \
         sudo darwin-rebuild switch --flake "$flake_path#$hostname"
+    
+    # Show new generation
+    local new_gen
+    new_gen=$(readlink /nix/var/nix/profiles/system 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
+    printf "New generation: %s\n" "$new_gen"
 }
 
 run_cleanup() {
