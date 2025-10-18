@@ -65,6 +65,7 @@ check_network() {
     print_header "Checking network connectivity..."
 
     local hosts=("8.8.8.8" "1.1.1.1" "cache.nixos.org")
+    local host
     for host in "${hosts[@]}"; do
         if ping -c 1 -W 2 "$host" &>/dev/null; then
             printf "Network connectivity verified ✓\n"
