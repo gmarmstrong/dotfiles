@@ -67,17 +67,6 @@ verify_macos() {
     fi
 }
 
-validate_sudo() {
-    print_header "Getting sudo access..."
-
-    if ! sudo -v; then
-        print_error "Failed to validate sudo credentials"
-        exit 1
-    fi
-
-    printf "Sudo credentials cached ✓\n"
-}
-
 check_network() {
     print_header "Checking network connectivity..."
 
@@ -149,7 +138,6 @@ run_cleanup() {
 
 verify_macos
 parse_flags "$@"
-validate_sudo
 check_network
 update_dotfiles
 update_flake_inputs
