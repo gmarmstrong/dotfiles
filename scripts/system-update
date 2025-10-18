@@ -17,6 +17,10 @@ print_error() {
     printf "\n\033[1;31m✗ Error: %s\033[0m\n" "$1" >&2
 }
 
+print_warning() {
+    printf "\n\033[1;33m⚠ Warning: %s\033[0m\n" "$1"
+}
+
 # Verify we're running on macOS
 if [[ "$(uname)" != "Darwin" ]]; then
     print_error "This script only works on macOS (Darwin)"
