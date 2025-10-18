@@ -11,7 +11,7 @@ log_dir="${HOME}/Library/Logs/system-update/$(date +%Y%m%d-%H%M%S)"
 
 
 print_header() {
-    printf "\n\033[1m>> %s\033[0m\n\n" "$1"
+    printf "\n\033[1m>> %s\033[0m\n" "$1"
 }
 
 print_error() {
@@ -34,7 +34,7 @@ run_logged() {
     if "$@" > "${log_file}" 2>&1; then
         printf "%s ✓\n" "${success_msg}"
     else
-        printf "\n%s failed:\n\n" "${operation_name}"
+        print_error "${operation_name} failed"
         tail -n 30 "${log_file}"
         printf "\nFull log: %s\n" "${log_file}"
         exit 1
@@ -46,7 +46,6 @@ run_logged() {
 verify_not_root() {
     if [[ "${EUID}" -eq 0 ]]; then
         print_error "Do not run this script as root"
-        printf "The script will request sudo when needed\n"
         exit 1
     fi
 }
