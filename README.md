@@ -23,11 +23,9 @@ but feel free to explore and borrow what you like!
 
 ## Installation on macOS
 
-(these instructions are a WIP)
+1. Install [Determinate Nix](https://determinate.systems/nix-installer/)
+2. Clone these dotfiles to `~/dotfiles`
+3. Symlink the config: `ln -s ~/dotfiles/config/nix ~/.config/nix`
+4. Run initial installation: `nix run nix-darwin -- switch --flake ~/.config/nix#`
 
-1. Install Determinate Nix
-2. Clone these dotfiles
-3. Symlink the `config/nix` directory to `~/.config/nix`
-4. Install nix-darwin: `sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild -- switch`
-5. Apply the config `sudo darwin-rebuild switch --flake ~/.config/nix#mbp`
-
+Subsequent updates: use `scripts/system-update`
