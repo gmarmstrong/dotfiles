@@ -48,6 +48,23 @@ parse_flags() {
     done
 }
 
+# Network check
+check_network() {
+    print_header "Checking network connectivity..."
+
+    local hosts=("8.8.8.8" "1.1.1.1" "cache.nixos.org")
+    for host in "${hosts[@]}"; do
+        if ping -c 1 -W 2 "$host" &>/dev/null; then
+            printf "Network connectivity verified ✓\n"
+            return 0
+        fi
+    done
+
+    print_error "No network connectivity detected. Cannot proceed with updates."
+    printf "Tried hosts: %s\n" "${hosts[*]}"
+    exit 1
+}
+
 # Main functions
 update_dotfiles() {
     print_header "Updating dotfiles..."
@@ -96,6 +113,7 @@ run_cleanup() {
 
 verify_macos
 parse_flags "$@"
+check_network
 update_dotfiles
 update_flake_inputs
 detect_and_verify_config
