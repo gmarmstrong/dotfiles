@@ -66,7 +66,6 @@ in {
   };
 
   imports = [
-    ./config/bash.nix
     ./config/git.nix
     ./config/ranger.nix
     ./config/readline.nix
