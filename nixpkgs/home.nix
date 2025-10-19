@@ -68,7 +68,6 @@ in {
   imports = [
     ./config/bash.nix
     ./config/git.nix
-    ./config/neovim.nix
     ./config/ranger.nix
     ./config/readline.nix
     ./config/ssh.nix

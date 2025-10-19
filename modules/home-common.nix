@@ -50,6 +50,8 @@ in
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
       vim-characterize
+      vim-surround
+      vim-repeat
     ];
     extraConfig = ''
       set expandtab
