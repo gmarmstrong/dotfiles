@@ -27,8 +27,15 @@
         { pkgs, ... }:
         {
           environment.systemPackages = [
-            pkgs.smartmontools
+            pkgs.coreutils
+            pkgs.git
+            pkgs.jq
             pkgs.ncdu
+            pkgs.smartmontools
+            pkgs.tree
+            pkgs.unixtools.watch
+            pkgs.wget
+            pkgs.zsh
           ];
 
           # Allow non-FOSS packages
@@ -74,22 +81,15 @@
           home.packages = [
             pkgs.aws-vault
             pkgs.awscli2
-            pkgs.ssm-session-manager-plugin
             pkgs.colima
-            pkgs.coreutils
             pkgs.docker
             pkgs.gh
-            pkgs.git
             pkgs.go
             pkgs.golangci-lint
-            pkgs.jq
             pkgs.nixfmt-rfc-style
             pkgs.ollama
             pkgs.shellcheck
-            pkgs.tree
-            pkgs.wget
-            pkgs.zsh
-            pkgs.unixtools.watch
+            pkgs.ssm-session-manager-plugin
             pkgs.tenv
             pkgs.terraform-docs
             pkgs.tflint
