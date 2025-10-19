@@ -67,10 +67,6 @@ in {
 
   imports = [
     ./config/git.nix
-    ./config/ranger.nix
-    ./config/readline.nix
-    ./config/ssh.nix
-    ./config/user-dirs.nix
     ./home/file.nix
     ./home/packages.nix
   ];
