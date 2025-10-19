@@ -11,6 +11,7 @@ let
       "jq"
       "ncdu"
       "nixfmt-rfc-style"
+      "nixfmt-tree"
       "shellcheck"
       "smartmontools"
       "tree"
@@ -46,9 +47,5 @@ in
 
   # Helper function to collect packages based on requested capabilities
   collectPackages =
-    capabilities:
-    lib.lists.flatten (
-      map (capability: packageSets.${capability} or [ ]) capabilities
-    );
+    capabilities: lib.lists.flatten (map (capability: packageSets.${capability} or [ ]) capabilities);
 }
-

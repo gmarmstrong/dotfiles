@@ -14,7 +14,8 @@ let
   selectedPackages = capabilitiesModule.collectPackages capabilities;
 
   # Helper to resolve nested package paths like "unixtools.watch"
-  getPackage = name:
+  getPackage =
+    name:
     let
       parts = lib.splitString "." name;
     in
@@ -90,4 +91,3 @@ in
 
   home.stateVersion = "25.05";
 }
-
