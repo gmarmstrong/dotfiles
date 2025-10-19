@@ -9,7 +9,7 @@ flake_path="${HOME}/dotfiles"
 hostname=$(hostname -s)
 username="${USER}"
 log_dir="${HOME}/Library/Logs/system-update/$(date +%Y%m%d-%H%M%S)"
-SYSTEM_TYPE=""
+CONFIG_TYPE=""
 
 
 print_header() {
@@ -47,11 +47,11 @@ run_logged() {
 
 detect_system_type() {
     if [[ "$(uname)" == "Darwin" ]]; then
-        SYSTEM_TYPE="darwin"
+        CONFIG_TYPE="darwin"
     elif [[ -f /etc/NIXOS ]]; then
-        SYSTEM_TYPE="nixos"
+        CONFIG_TYPE="nixos"
     elif [[ -n "${NIX_PATH:-}" ]] || command -v nix &>/dev/null; then
-        SYSTEM_TYPE="linux"
+        CONFIG_TYPE="home-manager"
     else
         print_error "Could not detect system type or Nix installation"
         exit 1
@@ -70,14 +70,14 @@ verify_required_tools() {
     local tool
     local required_tools=(git nix jq curl)
     
-    case "${SYSTEM_TYPE}" in
+    case "${CONFIG_TYPE}" in
         darwin)
             required_tools+=(darwin-rebuild)
             ;;
         nixos)
             required_tools+=(nixos-rebuild)
             ;;
-        linux)
+        home-manager)
             required_tools+=(home-manager)
             ;;
     esac
@@ -114,11 +114,11 @@ parse_flags() {
 detect_system() {
     print_header "Detecting system type..."
     
-    if [[ -z "${SYSTEM_TYPE}" ]]; then
+    if [[ -z "${CONFIG_TYPE}" ]]; then
         print_error "System type was not detected"
         exit 1
     fi
-    printf "Detected system type: %s\n" "${SYSTEM_TYPE}"
+    printf "Detected system type: %s\n" "${CONFIG_TYPE}"
 }
 
 check_network() {
@@ -158,7 +158,7 @@ detect_and_verify_config() {
     local config_key
     local eval_test
     
-    case "${SYSTEM_TYPE}" in
+    case "${CONFIG_TYPE}" in
         darwin)
             config_attr="darwinConfigurations"
             config_key="${hostname}"
@@ -169,7 +169,7 @@ detect_and_verify_config() {
             config_key="${hostname}"
             eval_test="${flake_path}#${config_attr}.${config_key}.config.system.stateVersion"
             ;;
-        linux)
+        home-manager)
             config_attr="homeConfigurations"
             config_key="${username}@${hostname}"
             eval_test="${flake_path}#${config_attr}.\"${config_key}\".config.home.stateVersion"
@@ -193,7 +193,7 @@ rebuild_system() {
     local profile_path
     local config_key
     
-    case "${SYSTEM_TYPE}" in
+    case "${CONFIG_TYPE}" in
         darwin)
             profile_path="/nix/var/nix/profiles/system"
             config_key="${hostname}"
@@ -202,7 +202,7 @@ rebuild_system() {
             profile_path="/nix/var/nix/profiles/system"
             config_key="${hostname}"
             ;;
-        linux)
+        home-manager)
             profile_path="${HOME}/.local/state/nix/profiles/home-manager"
             config_key="${username}@${hostname}"
             ;;
@@ -214,7 +214,7 @@ rebuild_system() {
     printf "Current generation: %s\n" "${current_gen}"
     
     # Run the appropriate rebuild command
-    case "${SYSTEM_TYPE}" in
+    case "${CONFIG_TYPE}" in
         darwin)
             run_logged "rebuild" "System rebuilt successfully" \
                 sudo darwin-rebuild switch --flake "${flake_path}#${config_key}"
@@ -223,7 +223,7 @@ rebuild_system() {
             run_logged "rebuild" "System rebuilt successfully" \
                 sudo nixos-rebuild switch --flake "${flake_path}#${config_key}"
             ;;
-        linux)
+        home-manager)
             run_logged "rebuild" "System rebuilt successfully" \
                 home-manager switch --flake "${flake_path}#${config_key}"
             ;;
