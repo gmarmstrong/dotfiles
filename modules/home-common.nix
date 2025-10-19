@@ -83,6 +83,7 @@ in
       bindkey -M viins '^?' backward-delete-char
       bindkey -M vicmd 'k' history-substring-search-up
       bindkey -M vicmd 'j' history-substring-search-down
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
     '';
   };
 
