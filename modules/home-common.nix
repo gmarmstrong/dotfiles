@@ -48,6 +48,9 @@ in
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-characterize
+    ];
     extraConfig = ''
       set expandtab
       set tabstop=4
