@@ -34,53 +34,6 @@
         }:
         let
           homeDirectory = "/Users/${username}";
-
-          # Capability-based package sets
-          packageSets = {
-            core = [
-              "coreutils"
-              "docker"
-              "gh"
-              "git"
-              "jq"
-              "ncdu"
-              "nixfmt-rfc-style"
-              "shellcheck"
-              "smartmontools"
-              "tree"
-              "unixtools.watch"
-              "wget"
-              "zsh"
-            ];
-            
-            ai = [
-              "ollama"
-            ];
-
-            golang = [
-              "go"
-              "golangci-lint"
-            ];
-
-            terraform = [
-              "tenv"
-              "terraform-docs"
-              "tflint"
-            ];
-
-            aws = [
-              "aws-vault"
-              "awscli2"
-              "ssm-session-manager-plugin"
-            ];
-          };
-
-          # Collect packages based on requested capabilities
-          selectedPackages =
-            nixpkgs.lib.lists.flatten (
-              map (capability: packageSets.${capability} or [ ]) capabilities
-            );
-
         in
         nix-darwin.lib.darwinSystem {
           inherit system;
@@ -130,80 +83,16 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit managedDevice; };
-              home-manager.users.${username} =
-                { pkgs, lib, managedDevice, ... }:
-                {
-                  home.packages = map (name: pkgs.${name}) selectedPackages;
-
-                  programs.git = {
-                    enable = true;
-                    userName = gitName;
-                    userEmail = gitEmail;
-                    signing = {
-                      format = "ssh";
-                      key = gitSigningKey;
-                      signByDefault = true;
-                      signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-                    };
-                  };
-
-                  programs.ssh = {
-                    enable = true;
-                    matchBlocks = {
-                      "*" = {
-                        identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
-                      };
-                    };
-                  };
-
-                  programs.neovim = {
-                    enable = true;
-                    defaultEditor = true;
-                    extraConfig = ''
-                      set expandtab
-                      set tabstop=4
-                      set shiftwidth=4
-                      set softtabstop=4
-                      inoremap jk <Esc>
-                    '';
-                    viAlias = true;
-                    vimAlias = true;
-                    vimdiffAlias = true;
-                  };
-
-                  home.file.".hushlogin".text = "";
-                  home.shell.enableZshIntegration = true;
-
-                  home.sessionPath = [ "$HOME/dotfiles/scripts" ];
-
-                  home.sessionVariables =
-                    lib.mkIf (builtins.elem "terraform" capabilities) {
-                      TF_PLUGIN_CACHE_DIR = "$HOME/.terraform.d/plugin-cache";
-                    };
-
-                  programs.zsh = {
-                    enable = true;
-                    defaultKeymap = "viins";
-                    historySubstringSearch = {
-                      enable = true;
-                    };
-                    localVariables = {
-                      HISTORY_SUBSTRING_SEARCH_PREFIXED = true;
-                    };
-                    initContent = ''
-                      bindkey jk vi-cmd-mode
-                      bindkey -M vicmd 'k' history-substring-search-up
-                      bindkey -M vicmd 'j' history-substring-search-down
-                    '';
-                  };
-
-                  services.ollama = {
-                    enable = builtins.elem "ai" capabilities;
-                  };
-
-                  home.stateVersion = "25.05";
-                };
+              home-manager.extraSpecialArgs = {
+                inherit
+                  managedDevice
+                  capabilities
+                  gitName
+                  gitEmail
+                  gitSigningKey
+                  ;
+              };
+              home-manager.users.${username} = import ./modules/home-common.nix;
 
               users.users.${username}.home = homeDirectory;
               system.primaryUser = username;
