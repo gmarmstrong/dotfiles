@@ -44,6 +44,7 @@
               {
                 environment.systemPackages = [
                   pkgs.colima
+                  pkgs.unixtools.watch
                 ];
 
                 nixpkgs.config.allowUnfree = true;

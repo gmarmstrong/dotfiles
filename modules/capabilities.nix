@@ -15,7 +15,6 @@ let
       "shellcheck"
       "smartmontools"
       "tree"
-      "unixtools.watch"
       "wget"
       "zsh"
     ];
