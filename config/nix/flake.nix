@@ -15,13 +15,6 @@
   let
     username = "guthrie";
     homeDirectory = "/Users/${username}";
-    
-    forSystem = system: {
-      formatter = (import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      }).nixpkgs-fmt;
-    };
 
     systemConfig = { pkgs, ... }: {
       environment.systemPackages = [
@@ -77,7 +70,7 @@
         pkgs.go
         pkgs.golangci-lint
         pkgs.jq
-        pkgs.nixpkgs-fmt
+        pkgs.nixfmt-rfc-style
         pkgs.ollama
         pkgs.shellcheck
         pkgs.tree
@@ -160,12 +153,6 @@
 
   in
   {
-    # Formatter for `nix fmt`
-    formatter = {
-      aarch64-darwin = (forSystem "aarch64-darwin").formatter;
-      x86_64-darwin = (forSystem "x86_64-darwin").formatter;
-    };
-
     # Work computer
     darwinConfigurations."101206-F724N5WGX2" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
