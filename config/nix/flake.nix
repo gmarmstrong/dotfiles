@@ -20,170 +20,195 @@
       ...
     }:
     let
-      username = "guthrie";
-      homeDirectory = "/Users/${username}";
-
-      systemConfig =
-        { pkgs, ... }:
+      # Helper function to create a macOS configuration
+      mkDarwinSystem =
         {
-          environment.systemPackages = [
-            pkgs.coreutils
-            pkgs.git
-            pkgs.jq
-            pkgs.ncdu
-            pkgs.smartmontools
-            pkgs.tree
-            pkgs.unixtools.watch
-            pkgs.wget
-            pkgs.zsh
+          hostname,
+          username,
+          system ? "aarch64-darwin",
+          gitName,
+          gitEmail,
+          gitSigningKey,
+          isWorkMachine ? false,
+        }:
+        let
+          homeDirectory = "/Users/${username}";
+
+          # Common packages for all systems
+          commonPackages = [
+            "colima"
+            "docker"
+            "gh"
+            "go"
+            "golangci-lint"
+            "nixfmt-rfc-style"
+            "ollama"
+            "shellcheck"
           ];
 
-          # Allow non-FOSS packages
-          nixpkgs.config.allowUnfree = true;
-
-          # Enable nix-index for command-not-found lookups
-          programs.nix-index.enable = true;
-
-          # Enable Touch ID for sudo
-          security.pam.services.sudo_local.touchIdAuth = true;
-
-          # Set Git commit hash for darwin-version.
-          system.configurationRevision = self.rev or self.dirtyRev or null;
-
-          system.stateVersion = 6;
-        };
-
-      macOSConfig =
-        { ... }:
-        {
-          system.defaults = {
-            controlcenter.BatteryShowPercentage = true;
-            controlcenter.Sound = true;
-            menuExtraClock.ShowAMPM = true;
-            menuExtraClock.ShowDate = 1;
-            menuExtraClock.ShowDayOfWeek = true;
-            menuExtraClock.ShowSeconds = true;
-            NSGlobalDomain.AppleShowAllExtensions = true;
-            NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
-            finder.NewWindowTarget = "Home";
-            finder.ShowPathbar = true;
-            finder.ShowStatusBar = true;
-            finder._FXShowPosixPathInTitle = true;
-            finder._FXSortFoldersFirst = true;
-            trackpad.ActuationStrength = 0;
-            trackpad.Clicking = true;
-          };
-        };
-
-      homeManagerConfig =
-        { pkgs, ... }:
-        {
-          home.packages = [
-            pkgs.aws-vault
-            pkgs.awscli2
-            pkgs.colima
-            pkgs.docker
-            pkgs.gh
-            pkgs.go
-            pkgs.golangci-lint
-            pkgs.nixfmt-rfc-style
-            pkgs.ollama
-            pkgs.shellcheck
-            pkgs.ssm-session-manager-plugin
-            pkgs.tenv
-            pkgs.terraform-docs
-            pkgs.tflint
+          # Work-specific packages
+          workPackages = [
+            "aws-vault"
+            "awscli2"
+            "ssm-session-manager-plugin"
+            "tenv"
+            "terraform-docs"
+            "tflint"
           ];
 
-          programs.git = {
-            enable = true;
-            userName = "Guthrie McAfee Armstrong";
-            userEmail = "guthrie.armstrong@coalitioninc.com";
-            signing = {
-              format = "ssh";
-              key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFExjJSzkWHd1Qi92WE/AENwHKVRwPFfYo/K83LsIkQ7";
-              signByDefault = true;
-              signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-            };
-          };
+          # Select packages based on machine type
+          selectedPackages =
+            commonPackages ++ (if isWorkMachine then workPackages else [ ]);
 
-          programs.ssh = {
-            enable = true;
-            matchBlocks = {
-              "*" = {
-                identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
-              };
-            };
-          };
+        in
+        nix-darwin.lib.darwinSystem {
+          inherit system;
+          modules = [
+            # System configuration
+            (
+              { pkgs, ... }:
+              {
+                environment.systemPackages = [
+                  pkgs.coreutils
+                  pkgs.git
+                  pkgs.jq
+                  pkgs.ncdu
+                  pkgs.smartmontools
+                  pkgs.tree
+                  pkgs.unixtools.watch
+                  pkgs.wget
+                  pkgs.zsh
+                ];
 
-          programs.neovim = {
-            enable = true;
-            defaultEditor = true;
-            extraConfig = ''
-              set expandtab
-              set tabstop=4
-              set shiftwidth=4
-              set softtabstop=4
-              inoremap jk <Esc>
-            '';
-            viAlias = true;
-            vimAlias = true;
-            vimdiffAlias = true;
-          };
+                nixpkgs.config.allowUnfree = true;
+                programs.nix-index.enable = true;
+                security.pam.services.sudo_local.touchIdAuth = true;
+                system.configurationRevision = self.rev or self.dirtyRev or null;
+                system.stateVersion = 6;
+              }
+            )
 
-          home.file.".hushlogin".text = "";
-          home.shell.enableZshIntegration = true;
+            # macOS defaults
+            (
+              { ... }:
+              {
+                system.defaults = {
+                  controlcenter.BatteryShowPercentage = true;
+                  controlcenter.Sound = true;
+                  menuExtraClock.ShowAMPM = true;
+                  menuExtraClock.ShowDate = 1;
+                  menuExtraClock.ShowDayOfWeek = true;
+                  menuExtraClock.ShowSeconds = true;
+                  NSGlobalDomain.AppleShowAllExtensions = true;
+                  NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
+                  finder.NewWindowTarget = "Home";
+                  finder.ShowPathbar = true;
+                  finder.ShowStatusBar = true;
+                  finder._FXShowPosixPathInTitle = true;
+                  finder._FXSortFoldersFirst = true;
+                  trackpad.ActuationStrength = 0;
+                  trackpad.Clicking = true;
+                };
+              }
+            )
 
-          home.sessionPath = [
-            "$HOME/dotfiles/scripts"
+            # Home Manager
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} =
+                { pkgs, lib, ... }:
+                {
+                  home.packages = map (name: pkgs.${name}) selectedPackages;
+
+                  programs.git = {
+                    enable = true;
+                    userName = gitName;
+                    userEmail = gitEmail;
+                    signing = {
+                      format = "ssh";
+                      key = gitSigningKey;
+                      signByDefault = true;
+                      signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+                    };
+                  };
+
+                  programs.ssh = {
+                    enable = true;
+                    matchBlocks = {
+                      "*" = {
+                        identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
+                      };
+                    };
+                  };
+
+                  programs.neovim = {
+                    enable = true;
+                    defaultEditor = true;
+                    extraConfig = ''
+                      set expandtab
+                      set tabstop=4
+                      set shiftwidth=4
+                      set softtabstop=4
+                      inoremap jk <Esc>
+                    '';
+                    viAlias = true;
+                    vimAlias = true;
+                    vimdiffAlias = true;
+                  };
+
+                  home.file.".hushlogin".text = "";
+                  home.shell.enableZshIntegration = true;
+
+                  home.sessionPath = [ "$HOME/dotfiles/scripts" ];
+
+                  home.sessionVariables = lib.mkIf isWorkMachine {
+                    TF_PLUGIN_CACHE_DIR = "$HOME/.terraform.d/plugin-cache";
+                  };
+
+                  programs.zsh = {
+                    enable = true;
+                    defaultKeymap = "viins";
+                    historySubstringSearch = {
+                      enable = true;
+                    };
+                    localVariables = {
+                      HISTORY_SUBSTRING_SEARCH_PREFIXED = true;
+                    };
+                    initContent = ''
+                      bindkey jk vi-cmd-mode
+                      bindkey -M vicmd 'k' history-substring-search-up
+                      bindkey -M vicmd 'j' history-substring-search-down
+                    '';
+                  };
+
+                  services.ollama = {
+                    enable = true;
+                  };
+
+                  home.stateVersion = "25.05";
+                };
+
+              users.users.${username}.home = homeDirectory;
+              system.primaryUser = username;
+
+              # Determinate Nix manages the Nix installation itself
+              nix.enable = false;
+            }
           ];
-
-          home.sessionVariables = {
-            TF_PLUGIN_CACHE_DIR = "$HOME/.terraform.d/plugin-cache";
-          };
-
-          programs.zsh = {
-            enable = true;
-            defaultKeymap = "viins";
-            historySubstringSearch = {
-              enable = true;
-            };
-            localVariables = {
-              HISTORY_SUBSTRING_SEARCH_PREFIXED = true;
-            };
-            initContent = ''
-              bindkey jk vi-cmd-mode
-              bindkey -M vicmd 'k' history-substring-search-up
-              bindkey -M vicmd 'j' history-substring-search-down
-            '';
-          };
-          services.ollama = {
-            enable = true;
-          };
-          home.stateVersion = "25.05";
         };
 
     in
     {
       # Work computer
-      darwinConfigurations."101206-F724N5WGX2" = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          systemConfig
-          macOSConfig
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = homeManagerConfig;
-            users.users.${username}.home = homeDirectory;
-            system.primaryUser = username;
-
-            # Determinate Nix manages the Nix installation itself, so disable nix-darwin’s own Nix management.
-            # https://github.com/nix-darwin/nix-darwin?tab=readme-ov-file#prerequisites
-            nix.enable = false;
-          }
-        ];
+      darwinConfigurations."101206-F724N5WGX2" = mkDarwinSystem {
+        hostname = "101206-F724N5WGX2";
+        username = "guthrie";
+        gitName = "Guthrie McAfee Armstrong";
+        gitEmail = "guthrie.armstrong@coalitioninc.com";
+        gitSigningKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFExjJSzkWHd1Qi92WE/AENwHKVRwPFfYo/K83LsIkQ7";
+        isWorkMachine = true;
       };
     };
 }
