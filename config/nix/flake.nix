@@ -151,6 +151,9 @@
 
   in
   {
+    # Formatter for `nix fmt`
+    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixpkgs-fmt;
+
     # Work computer
     darwinConfigurations."101206-F724N5WGX2" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
