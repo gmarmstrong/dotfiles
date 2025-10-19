@@ -92,7 +92,7 @@ in
       bindkey -M vicmd 'k' history-substring-search-up
       bindkey -M vicmd 'j' history-substring-search-down
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-      
+
       # Git prompt with dirty indicator
       autoload -Uz vcs_info
       precmd_vcs_info() { vcs_info }
