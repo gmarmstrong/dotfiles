@@ -66,7 +66,6 @@ in {
   };
 
   imports = [
-    ./home/file.nix
     ./home/packages.nix
   ];
 
