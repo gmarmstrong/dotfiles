@@ -68,7 +68,7 @@ verify_not_root() {
 verify_required_tools() {
     local missing_tools=()
     local tool
-    local required_tools=(git nix jq)
+    local required_tools=(git nix jq curl)
     
     case "${SYSTEM_TYPE}" in
         darwin)
@@ -124,17 +124,12 @@ detect_system() {
 check_network() {
     print_header "Checking network connectivity..."
 
-    local hosts=("8.8.8.8" "1.1.1.1" "cache.nixos.org")
-    local host
-    for host in "${hosts[@]}"; do
-        if ping -c 1 -W 2 "${host}" &>/dev/null; then
-            printf "Network connectivity verified ✓\n"
-            return 0
-        fi
-    done
+    if curl --silent --fail --max-time 5 --head https://cache.nixos.org &>/dev/null; then
+        printf "Network connectivity verified ✓\n"
+        return 0
+    fi
 
-    print_error "No network connectivity detected. Cannot proceed with updates."
-    printf "Tried hosts: %s\n" "${hosts[*]}"
+    print_error "Cannot reach cache.nixos.org via HTTPS. Cannot proceed with updates."
     exit 1
 }
 
