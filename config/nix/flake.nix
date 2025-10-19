@@ -30,6 +30,7 @@
           gitEmail,
           gitSigningKey,
           capabilities ? [ ],
+          managedDevice ? false,
         }:
         let
           homeDirectory = "/Users/${username}";
@@ -37,18 +38,23 @@
           # Capability-based package sets
           packageSets = {
             core = [
+              "coreutils"
+              "docker"
               "gh"
+              "git"
+              "jq"
+              "ncdu"
               "nixfmt-rfc-style"
               "shellcheck"
+              "smartmontools"
+              "tree"
+              "unixtools.watch"
+              "wget"
+              "zsh"
             ];
             
             ai = [
               "ollama"
-            ];
-
-            containers = [
-              "colima"
-              "docker"
             ];
 
             golang = [
@@ -84,15 +90,7 @@
               { pkgs, ... }:
               {
                 environment.systemPackages = [
-                  pkgs.coreutils
-                  pkgs.git
-                  pkgs.jq
-                  pkgs.ncdu
-                  pkgs.smartmontools
-                  pkgs.tree
-                  pkgs.unixtools.watch
-                  pkgs.wget
-                  pkgs.zsh
+                  pkgs.colima
                 ];
 
                 nixpkgs.config.allowUnfree = true;
@@ -132,8 +130,9 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit managedDevice; };
               home-manager.users.${username} =
-                { pkgs, lib, ... }:
+                { pkgs, lib, managedDevice, ... }:
                 {
                   home.packages = map (name: pkgs.${name}) selectedPackages;
 
@@ -200,7 +199,7 @@
                   };
 
                   services.ollama = {
-                    enable = true;
+                    enable = builtins.elem "ai" capabilities;
                   };
 
                   home.stateVersion = "25.05";
@@ -221,13 +220,13 @@
       darwinConfigurations."101206-F724N5WGX2" = mkDarwinSystem {
         hostname = "101206-F724N5WGX2";
         username = "guthrie";
+        managedDevice = true;
         gitName = "Guthrie McAfee Armstrong";
         gitEmail = "guthrie.armstrong@coalitioninc.com";
         gitSigningKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFExjJSzkWHd1Qi92WE/AENwHKVRwPFfYo/K83LsIkQ7";
         capabilities = [
           "core"
           "ai"
-          "containers"
           "golang"
           "terraform"
           "aws"
