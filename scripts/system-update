@@ -46,6 +46,8 @@ run_logged() {
 ### Pre-run checks ###
 
 detect_system_type() {
+    print_header "Detecting system type..."
+    
     if [[ "$(uname)" == "Darwin" ]]; then
         CONFIG_TYPE="darwin"
     elif [[ -f /etc/NIXOS ]]; then
@@ -56,6 +58,8 @@ detect_system_type() {
         print_error "Could not detect system type or Nix installation"
         exit 1
     fi
+    
+    printf "Detected system type: %s\n" "${CONFIG_TYPE}"
 }
 
 verify_not_root() {
@@ -109,16 +113,6 @@ parse_flags() {
                 ;;
         esac
     done
-}
-
-detect_system() {
-    print_header "Detecting system type..."
-    
-    if [[ -z "${CONFIG_TYPE}" ]]; then
-        print_error "System type was not detected"
-        exit 1
-    fi
-    printf "Detected system type: %s\n" "${CONFIG_TYPE}"
 }
 
 check_network() {
@@ -253,7 +247,6 @@ run_cleanup() {
 
 verify_not_root
 detect_system_type
-detect_system
 verify_required_tools
 parse_flags "$@"
 check_network
