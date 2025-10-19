@@ -80,6 +80,7 @@ in
     };
     initContent = ''
       bindkey jk vi-cmd-mode
+      bindkey -M viins '^?' backward-delete-char
       bindkey -M vicmd 'k' history-substring-search-up
       bindkey -M vicmd 'j' history-substring-search-down
     '';
