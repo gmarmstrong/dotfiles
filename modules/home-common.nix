@@ -34,6 +34,9 @@ in
       signByDefault = true;
       signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
     };
+    extraConfig = {
+      pull.rebase = true;
+    };
   };
 
   programs.ssh = {

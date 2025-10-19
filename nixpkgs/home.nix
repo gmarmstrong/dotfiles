@@ -66,7 +66,6 @@ in {
   };
 
   imports = [
-    ./config/git.nix
     ./home/file.nix
     ./home/packages.nix
   ];
