@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 dotfiles_path="${HOME}/dotfiles"
-flake_path="${HOME}/.config/nix"
+flake_path="${HOME}/dotfiles"
 hostname=$(hostname -s)
 log_dir="${HOME}/Library/Logs/system-update/$(date +%Y%m%d-%H%M%S)"
 

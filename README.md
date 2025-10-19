@@ -25,7 +25,6 @@ but feel free to explore and borrow what you like!
 
 1. Install [Determinate Nix](https://determinate.systems/nix-installer/)
 2. Clone these dotfiles to `~/dotfiles`
-3. Symlink the config: `ln -s ~/dotfiles/config/nix ~/.config/nix`
-4. Run initial installation: `nix run nix-darwin -- switch --flake ~/.config/nix#`
+3. Run initial installation: `nix run nix-darwin -- switch --flake ~/dotfiles#`
 
 Subsequent updates: use `scripts/system-update`
