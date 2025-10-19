@@ -13,4 +13,4 @@ but feel free to explore and borrow what you like!
 2. Clone these dotfiles to `~/dotfiles`
 3. Run initial installation: `nix run nix-darwin -- switch --flake ~/dotfiles#`
 
-Subsequent updates: use `scripts/system-update`
+Subsequent updates: use `system-update`
