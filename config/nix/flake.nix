@@ -70,6 +70,7 @@
         pkgs.awscli2
         pkgs.ssm-session-manager-plugin
         pkgs.colima
+        pkgs.coreutils
         pkgs.docker
         pkgs.gh
         pkgs.git
