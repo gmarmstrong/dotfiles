@@ -7,7 +7,9 @@ set -o pipefail
 dotfiles_path="${HOME}/dotfiles"
 flake_path="${HOME}/dotfiles"
 hostname=$(hostname -s)
+username="${USER}"
 log_dir="${HOME}/Library/Logs/system-update/$(date +%Y%m%d-%H%M%S)"
+SYSTEM_TYPE=""
 
 
 print_header() {
@@ -43,6 +45,19 @@ run_logged() {
 
 ### Pre-run checks ###
 
+detect_system_type() {
+    if [[ "$(uname)" == "Darwin" ]]; then
+        SYSTEM_TYPE="darwin"
+    elif [[ -f /etc/NIXOS ]]; then
+        SYSTEM_TYPE="nixos"
+    elif [[ -n "${NIX_PATH:-}" ]] || command -v nix &>/dev/null; then
+        SYSTEM_TYPE="linux"
+    else
+        print_error "Could not detect system type or Nix installation"
+        exit 1
+    fi
+}
+
 verify_not_root() {
     if [[ "${EUID}" -eq 0 ]]; then
         print_error "Do not run this script as root"
@@ -53,8 +68,21 @@ verify_not_root() {
 verify_required_tools() {
     local missing_tools=()
     local tool
+    local required_tools=(git nix jq)
     
-    for tool in git nix darwin-rebuild jq; do
+    case "${SYSTEM_TYPE}" in
+        darwin)
+            required_tools+=(darwin-rebuild)
+            ;;
+        nixos)
+            required_tools+=(nixos-rebuild)
+            ;;
+        linux)
+            required_tools+=(home-manager)
+            ;;
+    esac
+    
+    for tool in "${required_tools[@]}"; do
         if ! command -v "${tool}" &>/dev/null; then
             missing_tools+=("${tool}")
         fi
@@ -83,13 +111,14 @@ parse_flags() {
     done
 }
 
-verify_macos() {
-    local os_name
-    os_name=$(uname)
-    if [[ "${os_name}" != "Darwin" ]]; then
-        print_error "This script only works on macOS (Darwin)"
+detect_system() {
+    print_header "Detecting system type..."
+    
+    if [[ -z "${SYSTEM_TYPE}" ]]; then
+        print_error "System type was not detected"
         exit 1
     fi
+    printf "Detected system type: %s\n" "${SYSTEM_TYPE}"
 }
 
 check_network() {
@@ -130,11 +159,33 @@ update_flake_inputs() {
 }
 
 detect_and_verify_config() {
+    local config_attr
+    local config_key
+    local eval_test
+    
+    case "${SYSTEM_TYPE}" in
+        darwin)
+            config_attr="darwinConfigurations"
+            config_key="${hostname}"
+            eval_test="${flake_path}#${config_attr}.${config_key}.config.system.stateVersion"
+            ;;
+        nixos)
+            config_attr="nixosConfigurations"
+            config_key="${hostname}"
+            eval_test="${flake_path}#${config_attr}.${config_key}.config.system.stateVersion"
+            ;;
+        linux)
+            config_attr="homeConfigurations"
+            config_key="${username}@${hostname}"
+            eval_test="${flake_path}#${config_attr}.\"${config_key}\".config.home.stateVersion"
+            ;;
+    esac
+    
     # Verify the configuration exists in the flake
-    if ! nix eval "${flake_path}#darwinConfigurations.${hostname}.config.system.stateVersion" &>/dev/null; then
-        print_error "Configuration for hostname '${hostname}' not found in flake"
+    if ! nix eval "${eval_test}" &>/dev/null; then
+        print_error "Configuration '${config_key}' not found in ${config_attr}"
         printf "Available configurations:\n"
-        nix eval --json "${flake_path}#darwinConfigurations" --apply 'builtins.attrNames' 2>/dev/null | \
+        nix eval --json "${flake_path}#${config_attr}" --apply 'builtins.attrNames' 2>/dev/null | \
             jq -r '.[]' | sed 's/^/  - /' || \
             printf "  (Unable to list configurations)\n"
         exit 1
@@ -144,17 +195,48 @@ detect_and_verify_config() {
 rebuild_system() {
     print_header "Rebuilding and applying config flake..."
     
+    local profile_path
+    local config_key
+    
+    case "${SYSTEM_TYPE}" in
+        darwin)
+            profile_path="/nix/var/nix/profiles/system"
+            config_key="${hostname}"
+            ;;
+        nixos)
+            profile_path="/nix/var/nix/profiles/system"
+            config_key="${hostname}"
+            ;;
+        linux)
+            profile_path="${HOME}/.local/state/nix/profiles/home-manager"
+            config_key="${username}@${hostname}"
+            ;;
+    esac
+    
     # Get current generation
     local current_gen
-    current_gen=$(readlink /nix/var/nix/profiles/system 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
+    current_gen=$(readlink "${profile_path}" 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
     printf "Current generation: %s\n" "${current_gen}"
     
-    run_logged "rebuild" "System rebuilt successfully" \
-        sudo darwin-rebuild switch --flake "${flake_path}#${hostname}"
+    # Run the appropriate rebuild command
+    case "${SYSTEM_TYPE}" in
+        darwin)
+            run_logged "rebuild" "System rebuilt successfully" \
+                sudo darwin-rebuild switch --flake "${flake_path}#${config_key}"
+            ;;
+        nixos)
+            run_logged "rebuild" "System rebuilt successfully" \
+                sudo nixos-rebuild switch --flake "${flake_path}#${config_key}"
+            ;;
+        linux)
+            run_logged "rebuild" "System rebuilt successfully" \
+                home-manager switch --flake "${flake_path}#${config_key}"
+            ;;
+    esac
     
     # Show new generation
     local new_gen
-    new_gen=$(readlink /nix/var/nix/profiles/system 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
+    new_gen=$(readlink "${profile_path}" 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
     printf "New generation: %s\n" "${new_gen}"
 }
 
@@ -175,7 +257,8 @@ run_cleanup() {
 ### Main execution ###
 
 verify_not_root
-verify_macos
+detect_system_type
+detect_system
 verify_required_tools
 parse_flags "$@"
 check_network
