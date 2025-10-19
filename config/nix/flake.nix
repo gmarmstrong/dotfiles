@@ -29,36 +29,51 @@
           gitName,
           gitEmail,
           gitSigningKey,
-          isWorkMachine ? false,
+          capabilities ? [ ],
         }:
         let
           homeDirectory = "/Users/${username}";
 
-          # Common packages for all systems
-          commonPackages = [
-            "colima"
-            "docker"
-            "gh"
-            "go"
-            "golangci-lint"
-            "nixfmt-rfc-style"
-            "ollama"
-            "shellcheck"
-          ];
+          # Capability-based package sets
+          packageSets = {
+            core = [
+              "gh"
+              "nixfmt-rfc-style"
+              "shellcheck"
+            ];
+            
+            ai = [
+              "ollama"
+            ];
 
-          # Work-specific packages
-          workPackages = [
-            "aws-vault"
-            "awscli2"
-            "ssm-session-manager-plugin"
-            "tenv"
-            "terraform-docs"
-            "tflint"
-          ];
+            containers = [
+              "colima"
+              "docker"
+            ];
 
-          # Select packages based on machine type
+            golang = [
+              "go"
+              "golangci-lint"
+            ];
+
+            terraform = [
+              "tenv"
+              "terraform-docs"
+              "tflint"
+            ];
+
+            aws = [
+              "aws-vault"
+              "awscli2"
+              "ssm-session-manager-plugin"
+            ];
+          };
+
+          # Collect packages based on requested capabilities
           selectedPackages =
-            commonPackages ++ (if isWorkMachine then workPackages else [ ]);
+            nixpkgs.lib.lists.flatten (
+              map (capability: packageSets.${capability} or [ ]) capabilities
+            );
 
         in
         nix-darwin.lib.darwinSystem {
@@ -163,9 +178,10 @@
 
                   home.sessionPath = [ "$HOME/dotfiles/scripts" ];
 
-                  home.sessionVariables = lib.mkIf isWorkMachine {
-                    TF_PLUGIN_CACHE_DIR = "$HOME/.terraform.d/plugin-cache";
-                  };
+                  home.sessionVariables =
+                    lib.mkIf (builtins.elem "terraform" capabilities) {
+                      TF_PLUGIN_CACHE_DIR = "$HOME/.terraform.d/plugin-cache";
+                    };
 
                   programs.zsh = {
                     enable = true;
@@ -208,7 +224,14 @@
         gitName = "Guthrie McAfee Armstrong";
         gitEmail = "guthrie.armstrong@coalitioninc.com";
         gitSigningKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFExjJSzkWHd1Qi92WE/AENwHKVRwPFfYo/K83LsIkQ7";
-        isWorkMachine = true;
+        capabilities = [
+          "core"
+          "ai"
+          "containers"
+          "golang"
+          "terraform"
+          "aws"
+        ];
       };
     };
 }
