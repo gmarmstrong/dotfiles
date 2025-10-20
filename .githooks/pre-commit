@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+print_step() {
+    printf "\n${GREEN}→${NC} %s\n" "$1"
+}
+
+print_error() {
+    printf "${RED}✗${NC} %s\n" "$1" >&2
+}
+
+print_warning() {
+    printf "${YELLOW}⚠${NC} %s\n" "$1"
+}
+
+# Get the root of the git repository
+repo_root=$(git rev-parse --show-toplevel)
+cd "${repo_root}"
+
+exit_code=0
+
+# Run nix fmt and check if it makes changes
+print_step "Running nix fmt..."
+# Get list of staged files
+staged_files=$(git diff --cached --name-only --diff-filter=ACMR)
+
+if ! nix fmt 2>&1; then
+    print_error "Formatting failed"
+    exit_code=1
+fi
+
+# Check if fmt made any changes to staged files
+if [[ -n "${staged_files}" ]]; then
+    for file in ${staged_files}; do
+        if ! git diff --exit-code --quiet -- "${file}" 2>/dev/null; then
+            print_warning "nix fmt modified staged file: ${file}"
+            print_warning "Please review, stage the changes, and commit again"
+            exit_code=1
+        fi
+    done
+fi
+
+# Run shellcheck on scripts
+print_step "Running shellcheck on scripts..."
+if compgen -G "scripts/*" > /dev/null; then
+    for script in scripts/*; do
+        if [[ -f "${script}" && -x "${script}" ]]; then
+            if ! shellcheck "${script}"; then
+                print_error "shellcheck failed for ${script}"
+                exit_code=1
+            fi
+        fi
+    done
+else
+    print_warning "No scripts found to check"
+fi
+
+# Run nix flake check
+print_step "Running nix flake check..."
+if ! nix flake check 2>&1; then
+    print_error "Flake check failed"
+    exit_code=1
+fi
+
+if [[ ${exit_code} -eq 0 ]]; then
+    printf "\n${GREEN}✓${NC} All pre-commit checks passed\n"
+else
+    printf "\n${RED}✗${NC} Pre-commit checks failed\n"
+fi
+
+exit ${exit_code}
+
