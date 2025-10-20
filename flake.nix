@@ -30,5 +30,8 @@
     {
       # Work computer
       darwinConfigurations.${workMacbookConfig.hostname} = mkDarwinSystem workMacbookConfig;
+
+      # Validation checks
+      checks.aarch64-darwin.work-macbook = self.darwinConfigurations.${workMacbookConfig.hostname}.system;
     };
 }
