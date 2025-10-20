@@ -110,6 +110,4 @@ in
   services.ollama = {
     enable = builtins.elem "ai" capabilities;
   };
-
-  home.stateVersion = "25.05";
 }

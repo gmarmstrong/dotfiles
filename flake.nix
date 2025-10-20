@@ -31,6 +31,7 @@
           gitSigningKey,
           capabilities ? [ ],
           managedDevice ? false,
+          homeStateVersion,
         }:
         let
           homeDirectory = "/Users/${username}";
@@ -93,7 +94,10 @@
                   gitSigningKey
                   ;
               };
-              home-manager.users.${username} = import ./modules/home-common.nix;
+              home-manager.users.${username} = {
+                imports = [ ./modules/home-common.nix ];
+                home.stateVersion = homeStateVersion;
+              };
 
               users.users.${username}.home = homeDirectory;
               system.primaryUser = username;
@@ -111,6 +115,7 @@
         hostname = "101206-F724N5WGX2";
         username = "guthrie";
         managedDevice = true;
+        homeStateVersion = "25.05";
         gitName = "Guthrie McAfee Armstrong";
         gitEmail = "guthrie.armstrong@coalitioninc.com";
         gitSigningKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFExjJSzkWHd1Qi92WE/AENwHKVRwPFfYo/K83LsIkQ7";
