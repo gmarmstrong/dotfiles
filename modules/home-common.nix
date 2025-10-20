@@ -7,7 +7,6 @@
   gitEmail,
   gitSigningKey,
   managedDevice,
-  flakePath,
   ...
 }:
 
@@ -68,7 +67,7 @@ in
   # https://nix-community.github.io/home-manager/options.xhtml#opt-home.shell.enableZshIntegration
   home.shell.enableZshIntegration = true;
 
-  home.sessionPath = [ "${flakePath}/scripts" ];
+  home.sessionPath = [ "${config.home.homeDirectory}/dotfiles/scripts" ];
 
   home.sessionVariables = lib.mkIf (lib.elem "terraform" capabilities) {
     TF_PLUGIN_CACHE_DIR = "${config.home.homeDirectory}/.terraform.d/plugin-cache";
