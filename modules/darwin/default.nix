@@ -27,16 +27,13 @@
       inherit system;
       modules = [
         # System configuration
-        (
-          _:
-          {
-            nixpkgs.config.allowUnfree = true;
-            programs.nix-index.enable = true;
-            security.pam.services.sudo_local.touchIdAuth = true;
-            system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-            system.stateVersion = 6;
-          }
-        )
+        (_: {
+          nixpkgs.config.allowUnfree = true;
+          programs.nix-index.enable = true;
+          security.pam.services.sudo_local.touchIdAuth = true;
+          system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+          system.stateVersion = 6;
+        })
 
         # macOS defaults
         (_: {
