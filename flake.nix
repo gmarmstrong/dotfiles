@@ -29,6 +29,6 @@
     in
     {
       # Work computer
-      darwinConfigurations."101206-F724N5WGX2" = mkDarwinSystem workMacbookConfig;
+      darwinConfigurations.${workMacbookConfig.hostname} = mkDarwinSystem workMacbookConfig;
     };
 }
