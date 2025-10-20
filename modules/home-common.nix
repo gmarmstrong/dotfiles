@@ -70,6 +70,7 @@ in
   };
 
   home.file.".hushlogin".text = "";
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-home.shell.enableZshIntegration
   home.shell.enableZshIntegration = true;
 
   home.sessionPath = [ "$HOME/dotfiles/scripts" ];
@@ -87,6 +88,7 @@ in
     localVariables = {
       HISTORY_SUBSTRING_SEARCH_PREFIXED = true;
     };
+    # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.zsh.initContent
     initContent = ''
       bindkey jk vi-cmd-mode
       bindkey -M viins '^?' backward-delete-char
