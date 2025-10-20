@@ -78,7 +78,7 @@ in
 
   home.sessionPath = [ "${flakePath}/scripts" ];
 
-  home.sessionVariables = lib.mkIf (builtins.elem "terraform" capabilities) {
+  home.sessionVariables = lib.mkIf (lib.elem "terraform" capabilities) {
     TF_PLUGIN_CACHE_DIR = "${config.home.homeDirectory}/.terraform.d/plugin-cache";
   };
 
@@ -114,6 +114,6 @@ in
   };
 
   services.ollama = lib.mkIf pkgs.stdenv.isDarwin {
-    enable = builtins.elem "ai" capabilities;
+    enable = lib.elem "ai" capabilities;
   };
 }
