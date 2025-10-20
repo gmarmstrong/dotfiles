@@ -4,7 +4,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-flake_path="${HOME}/dotfiles"
+# Determine flake path: use the directory containing this script
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+flake_path="$(cd "${script_dir}/.." && pwd)"
+
 hostname=$(hostname -s)
 username="${USER}"
 

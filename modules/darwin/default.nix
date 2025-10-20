@@ -85,6 +85,7 @@
               gitEmail
               gitSigningKey
               ;
+            flakePath = inputs.self.outPath;
           };
           home-manager.users.${username} = {
             imports = [ ../home-common.nix ];
