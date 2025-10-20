@@ -33,5 +33,8 @@
 
       # Validation checks
       checks.aarch64-darwin.work-macbook = self.darwinConfigurations.${workMacbookConfig.hostname}.system;
+
+      # Formatter for `nix fmt`
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };
 }
