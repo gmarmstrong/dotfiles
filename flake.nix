@@ -43,11 +43,6 @@
             (
               { pkgs, ... }:
               {
-                environment.systemPackages = [
-                  pkgs.colima
-                  pkgs.unixtools.watch
-                ];
-
                 nixpkgs.config.allowUnfree = true;
                 programs.nix-index.enable = true;
                 security.pam.services.sudo_local.touchIdAuth = true;
@@ -121,6 +116,7 @@
         gitSigningKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFExjJSzkWHd1Qi92WE/AENwHKVRwPFfYo/K83LsIkQ7";
         capabilities = [
           "core"
+          "container"
           "ai"
           "golang"
           "terraform"

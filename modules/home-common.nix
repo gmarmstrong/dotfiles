@@ -32,6 +32,7 @@ in
       format = "ssh";
       key = gitSigningKey;
       signByDefault = true;
+    } // lib.optionalAttrs pkgs.stdenv.isDarwin {
       signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
     };
     extraConfig = {
@@ -41,7 +42,7 @@ in
 
   programs.ssh = {
     enable = true;
-    matchBlocks = {
+    matchBlocks = lib.optionalAttrs pkgs.stdenv.isDarwin {
       "*" = {
         identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
       };
@@ -107,7 +108,7 @@ in
     '';
   };
 
-  services.ollama = {
+  services.ollama = lib.mkIf pkgs.stdenv.isDarwin {
     enable = builtins.elem "ai" capabilities;
   };
 }

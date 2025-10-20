@@ -5,7 +5,6 @@ let
   packageSets = {
     core = [
       "coreutils"
-      "docker"
       "gh"
       "git"
       "jq"
@@ -17,6 +16,14 @@ let
       "tree"
       "wget"
       "zsh"
+    ] ++ lib.optionals pkgs.stdenv.isDarwin [
+      "unixtools.watch"
+    ];
+
+    container = [
+      "docker"
+    ] ++ lib.optionals pkgs.stdenv.isDarwin [
+      "colima"
     ];
 
     ai = [
