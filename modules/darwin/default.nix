@@ -43,21 +43,31 @@
           { ... }:
           {
             system.defaults = {
-              controlcenter.BatteryShowPercentage = true;
-              controlcenter.Sound = true;
-              menuExtraClock.ShowAMPM = true;
-              menuExtraClock.ShowDate = 1;
-              menuExtraClock.ShowDayOfWeek = true;
-              menuExtraClock.ShowSeconds = true;
-              NSGlobalDomain.AppleShowAllExtensions = true;
-              NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
-              finder.NewWindowTarget = "Home";
-              finder.ShowPathbar = true;
-              finder.ShowStatusBar = true;
-              finder._FXShowPosixPathInTitle = true;
-              finder._FXSortFoldersFirst = true;
-              trackpad.ActuationStrength = 0;
-              trackpad.Clicking = true;
+              controlcenter = {
+                BatteryShowPercentage = true;
+                Sound = true;
+              };
+              menuExtraClock = {
+                ShowAMPM = true;
+                ShowDate = 1;
+                ShowDayOfWeek = true;
+                ShowSeconds = true;
+              };
+              NSGlobalDomain = {
+                AppleShowAllExtensions = true;
+                "com.apple.mouse.tapBehavior" = 1;
+              };
+              finder = {
+                NewWindowTarget = "Home";
+                ShowPathbar = true;
+                ShowStatusBar = true;
+                _FXShowPosixPathInTitle = true;
+                _FXSortFoldersFirst = true;
+              };
+              trackpad = {
+                ActuationStrength = 0;
+                Clicking = true;
+              };
             };
           }
         )
@@ -75,20 +85,22 @@
         # Home Manager
         inputs.home-manager.darwinModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {
-            inherit
-              managedDevice
-              capabilities
-              gitName
-              gitEmail
-              gitSigningKey
-              ;
-          };
-          home-manager.users.${username} = {
-            imports = [ ../home-common.nix ];
-            home.stateVersion = homeStateVersion;
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {
+              inherit
+                managedDevice
+                capabilities
+                gitName
+                gitEmail
+                gitSigningKey
+                ;
+            };
+            users.${username} = {
+              imports = [ ../home-common.nix ];
+              home.stateVersion = homeStateVersion;
+            };
           };
 
           users.users.${username}.home = homeDirectory;
