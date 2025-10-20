@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, managedDevice, ... }:
 
 let
   # Capability-based package sets
@@ -18,6 +18,8 @@ let
       "zsh"
     ] ++ lib.optionals pkgs.stdenv.isDarwin [
       "unixtools.watch"
+    ] ++ lib.optionals (!managedDevice) [
+      "_1password-cli"
     ];
 
     container = [
@@ -45,6 +47,11 @@ let
       "aws-vault"
       "awscli2"
       "ssm-session-manager-plugin"
+    ];
+
+    gui = [
+    ] ++ lib.optionals (!managedDevice) [
+      "_1password-gui"
     ];
   };
 in

@@ -10,10 +10,10 @@
 }:
 
 let
-  capabilitiesModule = import ./capabilities.nix { inherit pkgs lib; };
+  capabilitiesModule = import ./capabilities.nix { inherit pkgs lib managedDevice; };
   selectedPackages = capabilitiesModule.collectPackages capabilities;
 
-  # Helper to resolve nested package paths like "unixtools.watch"
+  # Helper to resolve nested package paths like "unixtools.watch" or "_1password-gui"
   getPackage =
     name:
     let
