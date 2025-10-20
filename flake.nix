@@ -75,6 +75,16 @@
               }
             )
 
+            # Additional macOS defaults for non-managed devices
+            # (settings that MDM restricts on work computers)
+            (
+              { lib, ... }:
+              lib.mkIf (!managedDevice) {
+                system.defaults = {
+                };
+              }
+            )
+
             # Home Manager
             home-manager.darwinModules.home-manager
             {
