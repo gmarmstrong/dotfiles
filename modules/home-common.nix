@@ -50,10 +50,9 @@ in
 
     ssh = {
       enable = true;
-      matchBlocks = lib.optionalAttrs pkgs.stdenv.isDarwin {
-        "*" = {
-          identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
-        };
+    } // lib.optionalAttrs pkgs.stdenv.isDarwin {
+      matchBlocks."*" = {
+        identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
       };
     };
 
@@ -109,7 +108,5 @@ in
     };
   };
 
-  services.ollama = lib.mkIf pkgs.stdenv.isDarwin {
-    enable = lib.elem "ai" capabilities;
-  };
+  services.ollama.enable = pkgs.stdenv.isDarwin && lib.elem "ai" capabilities;
 }
