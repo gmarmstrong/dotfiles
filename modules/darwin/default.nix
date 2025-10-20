@@ -3,7 +3,6 @@
   # Helper function to create a macOS configuration
   mkDarwinSystem =
     {
-      hostname,
       username,
       system ? "aarch64-darwin",
       gitName,
@@ -19,6 +18,7 @@
       #   - NixOS/experimental-nix-installer
       # Keep enabled (default) for standard Nix installations.
       manageNix ? true,
+      ...
     }:
     let
       homeDirectory = "/Users/${username}";
@@ -28,7 +28,7 @@
       modules = [
         # System configuration
         (
-          { pkgs, ... }:
+          _:
           {
             nixpkgs.config.allowUnfree = true;
             programs.nix-index.enable = true;

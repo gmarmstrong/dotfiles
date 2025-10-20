@@ -14,9 +14,7 @@
   outputs =
     inputs@{
       self,
-      nix-darwin,
       nixpkgs,
-      home-manager,
       ...
     }:
     let
