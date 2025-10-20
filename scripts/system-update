@@ -138,13 +138,16 @@ check_network() {
 update_dotfiles() {
     print_header "Updating dotfiles..."
 
-    # Check for uncommitted changes
+    # Check for uncommitted changes (git pull requires clean working directory)
     if ! git -C "${flake_path}" diff-index --quiet HEAD --; then
         print_warning "Dotfiles have uncommitted changes. Skipping pull step."
-    else
-        run_logged "dotfiles" "Dotfiles updated" \
-            git -C "${flake_path}" pull --ff-only
+        return
     fi
+
+    # Pull using configured strategy (respects pull.rebase setting)
+    # Git handles: fetching, checking for updates, merging/rebasing, conflict detection
+    run_logged "dotfiles" "Dotfiles updated" \
+        git -C "${flake_path}" pull
 }
 
 update_flake_inputs() {
