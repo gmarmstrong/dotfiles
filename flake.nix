@@ -22,7 +22,7 @@
     let
       # Import the darwin system builder
       darwinLib = import ./modules/darwin { inherit inputs; };
-      mkDarwinSystem = darwinLib.mkDarwinSystem;
+      inherit (darwinLib) mkDarwinSystem;
 
       # Import host configurations
       workMacbookConfig = import ./hosts/work-macbook;
