@@ -1,0 +1,8 @@
+# Nix build results
+result
+result-*
+
+# Nix development shells
+.direnv/
+.envrc
+
