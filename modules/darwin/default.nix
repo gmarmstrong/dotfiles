@@ -40,7 +40,7 @@
 
         # macOS defaults
         (
-          { ... }:
+          _:
           {
             system.defaults = {
               controlcenter = {
