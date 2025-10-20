@@ -14,17 +14,9 @@
 let
   capabilitiesModule = import ./capabilities.nix { inherit pkgs lib managedDevice; };
   selectedPackages = capabilitiesModule.collectPackages capabilities;
-
-  # Helper to resolve nested package paths like "unixtools.watch" or "_1password-gui"
-  getPackage =
-    name:
-    let
-      parts = lib.splitString "." name;
-    in
-    lib.getAttrFromPath parts pkgs;
 in
 {
-  home.packages = map getPackage selectedPackages;
+  home.packages = selectedPackages;
 
   programs.git = {
     enable = true;

@@ -9,58 +9,56 @@ let
   # Capability-based package sets
   packageSets = {
     core = [
-      "coreutils"
-      "gh"
-      "git"
-      "jq"
-      "ncdu"
-      "nixfmt-rfc-style"
-      "nixfmt-tree"
-      "shellcheck"
-      "smartmontools"
-      "tree"
-      "wget"
-      "zsh"
+      pkgs.coreutils
+      pkgs.gh
+      pkgs.git
+      pkgs.jq
+      pkgs.ncdu
+      pkgs.nixfmt-rfc-style
+      pkgs.nixfmt-tree
+      pkgs.shellcheck
+      pkgs.smartmontools
+      pkgs.tree
+      pkgs.wget
+      pkgs.zsh
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
-      "unixtools.watch"
+      pkgs.unixtools.watch
     ]
     ++ lib.optionals (!managedDevice) [
-      "_1password-cli"
+      pkgs._1password
     ];
 
     container = [
-      "docker"
+      pkgs.docker
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
-      "colima"
+      pkgs.colima
     ];
 
     ai = [
-      "ollama"
+      pkgs.ollama
     ];
 
     golang = [
-      "go"
-      "golangci-lint"
+      pkgs.go
+      pkgs.golangci-lint
     ];
 
     terraform = [
-      "tenv"
-      "terraform-docs"
-      "tflint"
+      pkgs.tenv
+      pkgs.terraform-docs
+      pkgs.tflint
     ];
 
     aws = [
-      "aws-vault"
-      "awscli2"
-      "ssm-session-manager-plugin"
+      pkgs.aws-vault
+      pkgs.awscli2
+      pkgs.ssm-session-manager-plugin
     ];
 
-    gui = [
-    ]
-    ++ lib.optionals (!managedDevice) [
-      "_1password-gui"
+    gui = lib.optionals (!managedDevice) [
+      pkgs._1password-gui
     ];
   };
 in
