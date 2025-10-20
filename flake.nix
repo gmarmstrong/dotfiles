@@ -107,8 +107,10 @@
               users.users.${username}.home = homeDirectory;
               system.primaryUser = username;
 
-              # Determinate Nix manages the Nix installation itself
-              nix.enable = false;
+              # Disable nix-darwin's Nix management if an alternative Nix installer is in use
+              # Both DeterminateSystems/nix-installer and NixOS/experimental-nix-installer
+              # create /nix/receipt.json and manage their own daemon/services
+              nix.enable = !builtins.pathExists /nix/receipt.json;
             }
           ];
         };
