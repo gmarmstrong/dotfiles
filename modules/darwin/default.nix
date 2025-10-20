@@ -39,38 +39,35 @@
         )
 
         # macOS defaults
-        (
-          _:
-          {
-            system.defaults = {
-              controlcenter = {
-                BatteryShowPercentage = true;
-                Sound = true;
-              };
-              menuExtraClock = {
-                ShowAMPM = true;
-                ShowDate = 1;
-                ShowDayOfWeek = true;
-                ShowSeconds = true;
-              };
-              NSGlobalDomain = {
-                AppleShowAllExtensions = true;
-                "com.apple.mouse.tapBehavior" = 1;
-              };
-              finder = {
-                NewWindowTarget = "Home";
-                ShowPathbar = true;
-                ShowStatusBar = true;
-                _FXShowPosixPathInTitle = true;
-                _FXSortFoldersFirst = true;
-              };
-              trackpad = {
-                ActuationStrength = 0;
-                Clicking = true;
-              };
+        (_: {
+          system.defaults = {
+            controlcenter = {
+              BatteryShowPercentage = true;
+              Sound = true;
             };
-          }
-        )
+            menuExtraClock = {
+              ShowAMPM = true;
+              ShowDate = 1;
+              ShowDayOfWeek = true;
+              ShowSeconds = true;
+            };
+            NSGlobalDomain = {
+              AppleShowAllExtensions = true;
+              "com.apple.mouse.tapBehavior" = 1;
+            };
+            finder = {
+              NewWindowTarget = "Home";
+              ShowPathbar = true;
+              ShowStatusBar = true;
+              _FXShowPosixPathInTitle = true;
+              _FXSortFoldersFirst = true;
+            };
+            trackpad = {
+              ActuationStrength = 0;
+              Clicking = true;
+            };
+          };
+        })
 
         # Additional macOS defaults for non-managed devices
         # (settings that MDM restricts on work computers)

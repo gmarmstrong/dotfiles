@@ -34,14 +34,17 @@
       # Validation checks
       checks.aarch64-darwin = {
         work-macbook = self.darwinConfigurations.${workMacbookConfig.hostname}.system;
-        
-        statix = nixpkgs.legacyPackages.aarch64-darwin.runCommand "statix-check" {
-          nativeBuildInputs = [ nixpkgs.legacyPackages.aarch64-darwin.statix ];
-        } ''
-          cd ${self}
-          statix check .
-          touch $out
-        '';
+
+        statix =
+          nixpkgs.legacyPackages.aarch64-darwin.runCommand "statix-check"
+            {
+              nativeBuildInputs = [ nixpkgs.legacyPackages.aarch64-darwin.statix ];
+            }
+            ''
+              cd ${self}
+              statix check .
+              touch $out
+            '';
       };
 
       # Formatter for `nix fmt`
