@@ -14,4 +14,4 @@ but feel free to explore and borrow what you like!
 3. Run initial installation: `nix run nix-darwin -- switch --flake ~/dotfiles#`
 4. Configure git hooks: `git config core.hooksPath .githooks`
 
-Subsequent updates: use `system-update`
+Subsequent updates: use `system-update` (`--cleanup` optional)
