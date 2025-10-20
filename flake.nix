@@ -45,6 +45,17 @@
               statix check .
               touch $out
             '';
+
+        deadnix =
+          nixpkgs.legacyPackages.aarch64-darwin.runCommand "deadnix-check"
+            {
+              nativeBuildInputs = [ nixpkgs.legacyPackages.aarch64-darwin.deadnix ];
+            }
+            ''
+              cd ${self}
+              deadnix --fail .
+              touch $out
+            '';
       };
 
       # Formatter for `nix fmt`
