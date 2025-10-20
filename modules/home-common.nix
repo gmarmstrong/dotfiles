@@ -50,7 +50,8 @@ in
 
     ssh = {
       enable = true;
-    } // lib.optionalAttrs pkgs.stdenv.isDarwin {
+    }
+    // lib.optionalAttrs pkgs.stdenv.isDarwin {
       matchBlocks."*" = {
         identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
       };
