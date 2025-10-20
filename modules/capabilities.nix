@@ -1,4 +1,9 @@
-{ pkgs, lib, managedDevice, ... }:
+{
+  pkgs,
+  lib,
+  managedDevice,
+  ...
+}:
 
 let
   # Capability-based package sets
@@ -16,15 +21,18 @@ let
       "tree"
       "wget"
       "zsh"
-    ] ++ lib.optionals pkgs.stdenv.isDarwin [
+    ]
+    ++ lib.optionals pkgs.stdenv.isDarwin [
       "unixtools.watch"
-    ] ++ lib.optionals (!managedDevice) [
+    ]
+    ++ lib.optionals (!managedDevice) [
       "_1password-cli"
     ];
 
     container = [
       "docker"
-    ] ++ lib.optionals pkgs.stdenv.isDarwin [
+    ]
+    ++ lib.optionals pkgs.stdenv.isDarwin [
       "colima"
     ];
 
@@ -50,7 +58,8 @@ let
     ];
 
     gui = [
-    ] ++ lib.optionals (!managedDevice) [
+    ]
+    ++ lib.optionals (!managedDevice) [
       "_1password-gui"
     ];
   };

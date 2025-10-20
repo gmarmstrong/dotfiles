@@ -33,7 +33,8 @@ in
       format = "ssh";
       key = gitSigningKey;
       signByDefault = true;
-    } // lib.optionalAttrs pkgs.stdenv.isDarwin {
+    }
+    // lib.optionalAttrs pkgs.stdenv.isDarwin {
       signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
     };
     extraConfig = {
