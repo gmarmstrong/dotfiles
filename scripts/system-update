@@ -4,11 +4,17 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-dotfiles_path="${HOME}/dotfiles"
 flake_path="${HOME}/dotfiles"
 hostname=$(hostname -s)
 username="${USER}"
-log_dir="${HOME}/Library/Logs/system-update/$(date +%Y%m%d-%H%M%S)"
+
+# Set log directory based on OS
+if [[ "$(uname)" == "Darwin" ]]; then
+    log_dir="${HOME}/Library/Logs/system-update/$(date +%Y%m%d-%H%M%S)"
+else
+    log_dir="${HOME}/.local/state/system-update/$(date +%Y%m%d-%H%M%S)"
+fi
+
 CONFIG_TYPE=""
 
 
@@ -133,11 +139,11 @@ update_dotfiles() {
     print_header "Updating dotfiles..."
 
     # Check for uncommitted changes
-    if ! git -C "${dotfiles_path}" diff-index --quiet HEAD --; then
+    if ! git -C "${flake_path}" diff-index --quiet HEAD --; then
         print_warning "Dotfiles have uncommitted changes. Skipping pull step."
     else
         run_logged "dotfiles" "Dotfiles updated" \
-            git -C "${dotfiles_path}" pull
+            git -C "${flake_path}" pull
     fi
 }
 
