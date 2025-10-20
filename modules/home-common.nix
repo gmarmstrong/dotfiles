@@ -110,32 +110,32 @@ in
   };
 
   targets.darwin.defaults = lib.mkIf pkgs.stdenv.isDarwin {
-      "com.apple.controlcenter" = {
-        BatteryShowPercentage = true;
-        Sound = true;
-      };
-      "com.apple.menuextra.clock" = {
-        ShowAMPM = true;
-        ShowDate = 1;
-        ShowDayOfWeek = true;
-        ShowSeconds = true;
-      };
-      NSGlobalDomain = {
-        AppleShowAllExtensions = true;
-        "com.apple.mouse.tapBehavior" = 1;
-      };
-      "com.apple.finder" = {
-        NewWindowTarget = "Home";
-        ShowPathbar = true;
-        ShowStatusBar = true;
-        _FXShowPosixPathInTitle = true;
-        _FXSortFoldersFirst = true;
-      };
-      "com.apple.AppleMultitouchTrackpad" = {
-        ActuationStrength = 0;
-        Clicking = true;
-      };
+    "com.apple.controlcenter" = {
+      BatteryShowPercentage = true;
+      Sound = true;
     };
+    "com.apple.menuextra.clock" = {
+      ShowAMPM = true;
+      ShowDate = 1;
+      ShowDayOfWeek = true;
+      ShowSeconds = true;
+    };
+    NSGlobalDomain = {
+      AppleShowAllExtensions = true;
+      "com.apple.mouse.tapBehavior" = 1;
+    };
+    "com.apple.finder" = {
+      NewWindowTarget = "Home";
+      ShowPathbar = true;
+      ShowStatusBar = true;
+      _FXShowPosixPathInTitle = true;
+      _FXSortFoldersFirst = true;
+    };
+    "com.apple.AppleMultitouchTrackpad" = {
+      ActuationStrength = 0;
+      Clicking = true;
+    };
+  };
 
   services.ollama.enable = pkgs.stdenv.isDarwin && lib.elem "ai" capabilities;
 }
