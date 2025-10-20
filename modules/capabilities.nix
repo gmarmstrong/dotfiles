@@ -67,5 +67,5 @@ in
 
   # Helper function to collect packages based on requested capabilities
   collectPackages =
-    capabilities: lib.lists.flatten (map (capability: packageSets.${capability} or [ ]) capabilities);
+    capabilities: lib.concatMap (capability: packageSets.${capability} or [ ]) capabilities;
 }
