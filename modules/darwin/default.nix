@@ -12,6 +12,13 @@
       capabilities ? [ ],
       managedDevice ? false,
       homeStateVersion,
+      # Control whether nix-darwin manages the Nix installation (daemon, nix.conf, etc.)
+      # Disable (manageNix = false) when using alternative Nix installers that manage
+      # their own daemon and conflict with nix-darwin's Nix management, such as:
+      #   - DeterminateSystems/nix-installer
+      #   - NixOS/experimental-nix-installer
+      # Keep enabled (default) for standard Nix installations.
+      manageNix ? true,
     }:
     let
       homeDirectory = "/Users/${username}";
@@ -87,10 +94,7 @@
           users.users.${username}.home = homeDirectory;
           system.primaryUser = username;
 
-          # Disable nix-darwin's Nix management if an alternative Nix installer is in use
-          # Both DeterminateSystems/nix-installer and NixOS/experimental-nix-installer
-          # create /nix/receipt.json and manage their own daemon/services
-          nix.enable = !builtins.pathExists /nix/receipt.json;
+          nix.enable = manageNix;
         }
       ];
     };

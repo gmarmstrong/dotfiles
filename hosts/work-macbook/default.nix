@@ -2,6 +2,8 @@
   hostname = "101206-F724N5WGX2";
   username = "guthrie";
   managedDevice = true;
+  # Nix is managed by DeterminateSystems/nix-installer, not nix-darwin
+  manageNix = false;
   homeStateVersion = "25.05";
   gitName = "Guthrie McAfee Armstrong";
   gitEmail = "guthrie.armstrong@coalitioninc.com";
