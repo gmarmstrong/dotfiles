@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   capabilities,
   gitName,
   gitEmail,
@@ -73,10 +74,10 @@ in
   # https://nix-community.github.io/home-manager/options.xhtml#opt-home.shell.enableZshIntegration
   home.shell.enableZshIntegration = true;
 
-  home.sessionPath = [ "$HOME/dotfiles/scripts" ];
+  home.sessionPath = [ "${config.home.homeDirectory}/dotfiles/scripts" ];
 
   home.sessionVariables = lib.mkIf (builtins.elem "terraform" capabilities) {
-    TF_PLUGIN_CACHE_DIR = "$HOME/.terraform.d/plugin-cache";
+    TF_PLUGIN_CACHE_DIR = "${config.home.homeDirectory}/.terraform.d/plugin-cache";
   };
 
   programs.zsh = {
