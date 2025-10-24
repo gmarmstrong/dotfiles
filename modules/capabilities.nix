@@ -11,7 +11,6 @@ let
     core = [
       pkgs.coreutils
       pkgs.gh
-      pkgs.git
       pkgs.jq
       pkgs.ncdu
       pkgs.nixfmt-rfc-style
@@ -20,7 +19,6 @@ let
       pkgs.smartmontools
       pkgs.tree
       pkgs.wget
-      pkgs.zsh
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       pkgs.unixtools.watch
