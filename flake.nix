@@ -54,6 +54,21 @@
               deadnix --fail .
               touch $out
             '';
+
+        shellcheck =
+          nixpkgs.legacyPackages.aarch64-darwin.runCommand "shellcheck-check"
+            {
+              nativeBuildInputs = [ nixpkgs.legacyPackages.aarch64-darwin.shellcheck ];
+            }
+            ''
+              cd ${self}
+              # Check all bash scripts in scripts/ and .githooks/
+              find scripts/ .githooks/ -type f -executable -o -name '*.sh' | while read -r script; do
+                echo "Checking $script..."
+                shellcheck "$script"
+              done
+              touch $out
+            '';
       };
 
       # Formatter for `nix fmt`

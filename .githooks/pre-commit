@@ -49,21 +49,6 @@ if [[ -n "${staged_files}" ]]; then
     done
 fi
 
-# Run shellcheck on scripts
-print_step "Running shellcheck on scripts..."
-if compgen -G "scripts/*" > /dev/null; then
-    for script in scripts/*; do
-        if [[ -f "${script}" && -x "${script}" ]]; then
-            if ! shellcheck "${script}"; then
-                print_error "shellcheck failed for ${script}"
-                exit_code=1
-            fi
-        fi
-    done
-else
-    print_warning "No scripts found to check"
-fi
-
 # Run nix flake check
 print_step "Running nix flake check..."
 if ! nix flake check 2>&1; then
@@ -72,9 +57,9 @@ if ! nix flake check 2>&1; then
 fi
 
 if [[ ${exit_code} -eq 0 ]]; then
-    printf "\n${GREEN}✓${NC} All pre-commit checks passed\n"
+    printf "\n%s✓%s All pre-commit checks passed\n" "${GREEN}" "${NC}"
 else
-    printf "\n${RED}✗${NC} Pre-commit checks failed\n"
+    printf "\n%s✗%s Pre-commit checks failed\n" "${RED}" "${NC}"
 fi
 
 exit ${exit_code}
