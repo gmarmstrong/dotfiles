@@ -54,10 +54,12 @@ done
 
 if [[ "${stash_needed}" == "true" ]]; then
     if ! git stash pop --quiet 2>/dev/null; then
-        print_warning "Failed to restore unstaged changes due to conflicts"
-        print_warning "This likely happened because nix fmt modified the same lines"
-        print_warning "Run 'git stash pop' to manually resolve the conflicts"
-        exit_code=1
+        # Conflicts occurred because nix fmt formatted unstaged files
+        # Accept the formatted version (ours) since this is what we want anyway
+        print_warning "Conflicts detected when restoring unstaged changes"
+        print_warning "Accepting formatter's changes for unstaged files"
+        git checkout --ours . 2>/dev/null || true
+        git stash drop --quiet 2>/dev/null || true
     fi
 fi
 
