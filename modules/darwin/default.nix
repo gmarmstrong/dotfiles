@@ -30,9 +30,25 @@
         (_: {
           nixpkgs.config.allowUnfree = true;
           programs.nix-index.enable = true;
+          programs.zsh.enable = true; # Declaratively manage system-level zsh files
           security.pam.services.sudo_local.touchIdAuth = true;
-          system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-          system.stateVersion = 6;
+
+          system = {
+            configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+            stateVersion = 6;
+
+            # Automatically handle macOS-restored files that conflict with nix-darwin
+            # macOS updates often restore default /etc/zshrc and /etc/zprofile
+            activationScripts.preActivation.text = ''
+              # Handle files that macOS updates may restore
+              for file in /etc/zshrc /etc/zprofile; do
+                if [ -f "$file" ] && [ ! -L "$file" ]; then
+                  echo "Moving macOS-restored $file to $file.bak"
+                  mv -f "$file" "$file.bak"
+                fi
+              done
+            '';
+          };
         })
 
         # Home Manager
