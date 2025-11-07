@@ -28,25 +28,37 @@ cd "${repo_root}"
 
 exit_code=0
 
-# Run nix fmt and check if it makes changes
-print_step "Running nix fmt..."
 # Get list of staged files
 staged_files=$(git diff --cached --name-only --diff-filter=ACMR)
 
+# Check if there are unstaged changes to stash
+stash_needed=false
+if ! git diff-files --quiet 2>/dev/null; then
+    git stash push --keep-index --quiet -m "pre-commit: temporary stash"
+    stash_needed=true
+fi
+
+print_step "Running nix fmt..."
 if ! nix fmt 2>&1; then
     print_error "Formatting failed"
+    [[ "${stash_needed}" == "true" ]] && git stash pop --quiet 2>/dev/null
     exit_code=1
 fi
 
-# Check if fmt made any changes to staged files
-if [[ -n "${staged_files}" ]]; then
-    for file in ${staged_files}; do
-        if ! git diff --exit-code --quiet -- "${file}" 2>/dev/null; then
-            print_warning "nix fmt modified staged file: ${file}"
-            print_warning "Please review, stage the changes, and commit again"
-            exit_code=1
-        fi
-    done
+# Stage formatting changes to staged files
+for file in ${staged_files}; do
+    if ! git diff --exit-code --quiet -- "${file}" 2>/dev/null; then
+        git add "${file}"
+    fi
+done
+
+if [[ "${stash_needed}" == "true" ]]; then
+    if ! git stash pop --quiet 2>/dev/null; then
+        print_warning "Failed to restore unstaged changes due to conflicts"
+        print_warning "This likely happened because nix fmt modified the same lines"
+        print_warning "Run 'git stash pop' to manually resolve the conflicts"
+        exit_code=1
+    fi
 fi
 
 # Run nix flake check
