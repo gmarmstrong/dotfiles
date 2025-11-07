@@ -20,6 +20,25 @@ in
 
     file.".hushlogin".text = "";
 
+    # Ghostty configuration
+    file.".config/ghostty/config".text = ''
+      # Ghostty configuration
+      # See https://ghostty.org/docs/config for all options
+
+      # Theme configuration
+      # On macOS: automatically switches between light/dark themes based on system appearance
+      # On Linux: defaults to dark theme
+      theme = light:GitHub Light High Contrast,dark:GitHub Dark High Contrast
+
+      # Font configuration
+      font-family = DejaVu Sans Mono
+      font-size = 14
+
+      # Window padding
+      window-padding-x = 10
+      window-padding-y = 10
+    '';
+
     # https://nix-community.github.io/home-manager/options.xhtml#opt-home.shell.enableZshIntegration
     shell.enableZshIntegration = true;
 
