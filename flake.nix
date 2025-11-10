@@ -63,7 +63,7 @@
             ''
               cd ${self}
               # Check all bash scripts in scripts/ and .githooks/
-              find scripts/ .githooks/ -type f -executable -o -name '*.sh' | while read -r script; do
+              find scripts/ .githooks/ -type f \( -executable -o -name '*.sh' \) | while read -r script; do
                 echo "Checking $script..."
                 shellcheck "$script"
               done
