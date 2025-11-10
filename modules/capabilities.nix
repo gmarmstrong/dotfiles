@@ -13,7 +13,6 @@ let
       pkgs.gh
       pkgs.jq
       pkgs.ncdu
-      pkgs.nixfmt-rfc-style
       pkgs.nixfmt-tree
       pkgs.shellcheck
       pkgs.smartmontools
