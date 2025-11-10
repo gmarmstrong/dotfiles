@@ -41,7 +41,10 @@ fi
 print_step "Running nix fmt..."
 if ! nix fmt 2>&1; then
     print_error "Formatting failed"
-    [[ "${stash_needed}" == "true" ]] && git stash pop --quiet 2>/dev/null
+    if [[ "${stash_needed}" == "true" ]]; then
+        git stash pop --quiet 2>/dev/null
+        stash_needed=false
+    fi
     exit_code=1
 fi
 
