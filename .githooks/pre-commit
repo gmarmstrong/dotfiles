@@ -42,7 +42,14 @@ print_step "Running nix fmt..."
 if ! nix fmt 2>&1; then
     print_error "Formatting failed"
     if [[ "${stash_needed}" == "true" ]]; then
-        git stash pop --quiet 2>/dev/null
+        if ! git stash pop --quiet 2>/dev/null; then
+            # Conflicts occurred when trying to restore stash
+            # Accept the formatted version (ours) since this is what we want anyway
+            print_warning "Conflicts detected when restoring unstaged changes after format failure"
+            print_warning "Accepting formatter's changes for unstaged files"
+            git checkout --ours . 2>/dev/null || true
+            git stash drop --quiet 2>/dev/null || true
+        fi
         stash_needed=false
     fi
     exit_code=1
