@@ -69,6 +69,17 @@
               done
               touch $out
             '';
+
+        formatting =
+          nixpkgs.legacyPackages.aarch64-darwin.runCommand "formatting-check"
+            {
+              nativeBuildInputs = [ nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree ];
+            }
+            ''
+              cd ${self}
+              treefmt --fail-on-change --no-cache
+              touch $out
+            '';
       };
 
       # Formatter for `nix fmt`

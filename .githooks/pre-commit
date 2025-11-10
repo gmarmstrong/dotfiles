@@ -7,7 +7,6 @@ set -o pipefail
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 print_step() {
@@ -18,60 +17,11 @@ print_error() {
     printf "${RED}✗${NC} %s\n" "$1" >&2
 }
 
-print_warning() {
-    printf "${YELLOW}⚠${NC} %s\n" "$1"
-}
-
 # Get the root of the git repository
 repo_root=$(git rev-parse --show-toplevel)
 cd "${repo_root}"
 
 exit_code=0
-
-# Get list of staged files
-staged_files=$(git diff --cached --name-only --diff-filter=ACMR)
-
-# Check if there are unstaged changes to stash
-stash_needed=false
-if ! git diff-files --quiet 2>/dev/null; then
-    git stash push --keep-index --quiet -m "pre-commit: temporary stash"
-    stash_needed=true
-fi
-
-print_step "Running nix fmt..."
-if ! nix fmt 2>&1; then
-    print_error "Formatting failed"
-    if [[ "${stash_needed}" == "true" ]]; then
-        if ! git stash pop --quiet 2>/dev/null; then
-            # Conflicts occurred when trying to restore stash
-            # Accept the formatted version (ours) since this is what we want anyway
-            print_warning "Conflicts detected when restoring unstaged changes after format failure"
-            print_warning "Accepting formatter's changes for unstaged files"
-            git checkout --ours . 2>/dev/null || true
-            git stash drop --quiet 2>/dev/null || true
-        fi
-        stash_needed=false
-    fi
-    exit_code=1
-fi
-
-# Stage formatting changes to staged files
-for file in ${staged_files}; do
-    if ! git diff --exit-code --quiet -- "${file}" 2>/dev/null; then
-        git add "${file}"
-    fi
-done
-
-if [[ "${stash_needed}" == "true" ]]; then
-    if ! git stash pop --quiet 2>/dev/null; then
-        # Conflicts occurred because nix fmt formatted unstaged files
-        # Accept the formatted version (ours) since this is what we want anyway
-        print_warning "Conflicts detected when restoring unstaged changes"
-        print_warning "Accepting formatter's changes for unstaged files"
-        git checkout --ours . 2>/dev/null || true
-        git stash drop --quiet 2>/dev/null || true
-    fi
-fi
 
 # Run nix flake check
 print_step "Running nix flake check..."
@@ -87,4 +37,3 @@ else
 fi
 
 exit ${exit_code}
-
