@@ -74,5 +74,14 @@ in
 
   # Helper function to collect packages based on requested capabilities
   collectPackages =
-    capabilities: lib.concatMap (capability: packageSets.${capability} or [ ]) capabilities;
+    capabilities:
+    let
+      validCapabilities = lib.attrNames packageSets;
+      unknownCapabilities = lib.filter (c: !(lib.elem c validCapabilities)) capabilities;
+      warningMsg = "Unknown capabilities: ${lib.concatStringsSep ", " unknownCapabilities}. Valid: ${lib.concatStringsSep ", " validCapabilities}";
+    in
+    if unknownCapabilities != [ ] then
+      lib.warn warningMsg (lib.concatMap (capability: packageSets.${capability} or [ ]) capabilities)
+    else
+      lib.concatMap (capability: packageSets.${capability} or [ ]) capabilities;
 }
