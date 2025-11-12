@@ -3,6 +3,7 @@
   # Helper function to create a macOS configuration
   mkDarwinSystem =
     {
+      hostname,
       username,
       system ? "aarch64-darwin",
       gitName,
@@ -32,6 +33,11 @@
           programs.nix-index.enable = true;
           programs.zsh.enable = true; # Declaratively manage system-level zsh files
           security.pam.services.sudo_local.touchIdAuth = true;
+
+          networking = inputs.nixpkgs.lib.mkIf (!managedDevice) {
+            hostName = hostname;
+            computerName = hostname;
+          };
 
           system = {
             configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
