@@ -72,12 +72,13 @@
             touch $out
           '';
 
+          # Use nixfmt directly for checks (treefmt can't write in sandbox)
           formatting =
             pkgs.runCommand "formatting-check" { nativeBuildInputs = [ pkgs.nixfmt-rfc-style ]; }
               ''
                 cd ${self}
                 # Format all .nix files and check for changes
-                find . -name '*.nix' -type f -exec nixfmt --check {} +
+                find . -name '*.nix' -type f -not -path '*/flake.lock' -exec nixfmt --check {} +
                 touch $out
               '';
         }
@@ -88,6 +89,6 @@
       );
 
       # Formatter for `nix fmt`
-      formatter = forAllSystems (system: nixpkgsFor.${system}.nixfmt-rfc-style);
+      formatter = forAllSystems (system: nixpkgsFor.${system}.nixfmt-tree);
     };
 }

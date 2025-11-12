@@ -13,6 +13,7 @@ let
       pkgs.gh
       pkgs.jq
       pkgs.ncdu
+      # treefmt with nixfmt (same as `nix fmt`)
       pkgs.nixfmt-tree
       pkgs.shellcheck
       pkgs.smartmontools
