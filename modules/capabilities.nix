@@ -55,10 +55,13 @@ let
     ];
 
     gui = [
-      # Blocked (on macOS) by https://github.com/NixOS/nixpkgs/blob/6faeb062ee4cf4f105989d490831713cc5a43ee1/pkgs/by-name/gh/ghostty/package.nix#L191
-      # pkgs.ghostty
       pkgs.dejavu_fonts
       pkgs.source-code-pro
+    ]
+    ++ lib.optionals (!pkgs.stdenv.isDarwin) [
+      # ghostty blocked on macOS by https://github.com/NixOS/nixpkgs/blob/6faeb062ee4cf4f105989d490831713cc5a43ee1/pkgs/by-name/gh/ghostty/package.nix#L191
+      # (can still be installed manually)
+      pkgs.ghostty
     ]
     ++ lib.optionals (!managedDevice) [
       pkgs._1password-gui
