@@ -25,7 +25,7 @@ exit_code=0
 
 # Run nix flake check
 print_step "Running nix flake check..."
-if ! nix flake check 2>&1; then
+if ! nix flake check; then
     print_error "Flake check failed"
     exit_code=1
 fi
