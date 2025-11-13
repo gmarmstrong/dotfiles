@@ -228,6 +228,49 @@ detect_and_verify_config() {
     fi
 }
 
+show_store_size() {
+    print_header "Analyzing store space usage..."
+    
+    local current_path="$1"
+    local result_path="$2"
+    
+    # Get current closure size
+    local current_size current_size_mb
+    if [[ -n "${current_path}" ]] && [[ -e "${current_path}" ]]; then
+        current_size=$(nix path-info --closure-size "${current_path}" 2>/dev/null | tail -1 | awk '{print $2}')
+        current_size_mb=$((current_size / 1024 / 1024))
+        printf "Current generation closure: %s MB\n" "${current_size_mb}"
+    else
+        printf "Current generation: Unable to determine size\n"
+        current_size=0
+        current_size_mb=0
+    fi
+    
+    # Get new closure size
+    local new_size new_size_mb
+    if [[ -n "${result_path}" ]] && [[ -e "${result_path}" ]]; then
+        new_size=$(nix path-info --closure-size "${result_path}" 2>/dev/null | tail -1 | awk '{print $2}')
+        new_size_mb=$((new_size / 1024 / 1024))
+        printf "New generation closure: %s MB\n" "${new_size_mb}"
+    else
+        print_warning "New generation path not found, skipping size comparison"
+        return 0
+    fi
+    
+    # Calculate and display difference
+    if [[ "${current_size}" -gt 0 ]] && [[ "${new_size}" -gt 0 ]]; then
+        local diff_mb=$((new_size_mb - current_size_mb))
+        
+        if [[ "${diff_mb}" -gt 0 ]]; then
+            printf "Change: +%s MB larger\n" "${diff_mb}"
+        elif [[ "${diff_mb}" -lt 0 ]]; then
+            printf "Change: %s MB smaller\n" "${diff_mb#-}"
+        else
+            printf "Change: No size difference\n"
+        fi
+    fi
+}
+
 rebuild_system() {
     print_header "Building config flake..."
     
@@ -278,6 +321,9 @@ rebuild_system() {
         rm -f "${flake_path}/result"
         return 0
     fi
+    
+    # Show store space comparison (only if there are changes)
+    show_store_size "${current_path}" "${result_path}"
     
     # Apply the new configuration
     print_header "Activating new configuration..."
