@@ -55,8 +55,6 @@ run_logged() {
 ### Pre-run checks ###
 
 detect_system_type() {
-    print_header "Detecting system type..."
-    
     if [[ "$(uname)" == "Darwin" ]]; then
         CONFIG_TYPE="darwin"
     elif [[ -f /etc/NIXOS ]]; then
@@ -67,8 +65,6 @@ detect_system_type() {
         print_error "Could not detect system type or Nix installation"
         exit 1
     fi
-    
-    printf "Detected system type: %s\n" "${CONFIG_TYPE}"
 }
 
 verify_not_root() {
@@ -125,20 +121,13 @@ parse_flags() {
 }
 
 check_network() {
-    print_header "Checking network connectivity..."
-
-    if curl --silent --fail --max-time 5 --head https://cache.nixos.org &>/dev/null; then
-        printf "✓ Network connectivity verified\n"
-        return 0
+    if ! curl --silent --fail --max-time 5 --head https://cache.nixos.org &>/dev/null; then
+        print_error "Cannot reach cache.nixos.org via HTTPS. Cannot proceed with updates."
+        exit 1
     fi
-
-    print_error "Cannot reach cache.nixos.org via HTTPS. Cannot proceed with updates."
-    exit 1
 }
 
 check_disk_space() {
-    print_header "Checking disk space..."
-
     # Minimum required free space: 5 GB = 5 * 1024 * 1024 KB
     local min_free_kb=5242880
 
@@ -151,24 +140,16 @@ check_disk_space() {
         exit 1
     fi
 
-    # Get mount point for display
-    local nix_mount_point
-    nix_mount_point=$(df -P /nix 2>/dev/null | tail -1 | awk '{print $1}')
-
-    # Convert to GB for display only
-    local available_gb=$((available_kb / 1024 / 1024))
-
-    printf "Available space on %s: %s GB\n" "${nix_mount_point}" "${available_gb}"
-
     if [[ "${available_kb}" -lt "${min_free_kb}" ]]; then
+        local available_gb=$((available_kb / 1024 / 1024))
         local min_free_gb=$((min_free_kb / 1024 / 1024))
-        print_error "Insufficient disk space: ${available_gb} GB available, ${min_free_gb} GB required"
+        local nix_mount_point
+        nix_mount_point=$(df -P /nix 2>/dev/null | tail -1 | awk '{print $1}')
+        print_error "Insufficient disk space: ${available_gb} GB available on ${nix_mount_point}, ${min_free_gb} GB required"
         printf "\nConsider running: nix-collect-garbage -d\n"
         printf "Or use --cleanup flag when running this script\n"
         exit 1
     fi
-
-    printf "✓ Disk space check passed\n"
 }
 
 ### Main functions ###
@@ -229,8 +210,6 @@ detect_and_verify_config() {
 }
 
 show_store_size() {
-    print_header "Analyzing store space usage..."
-    
     local current_path="$1"
     local result_path="$2"
     
@@ -239,9 +218,7 @@ show_store_size() {
     if [[ -n "${current_path}" ]] && [[ -e "${current_path}" ]]; then
         current_size=$(nix path-info --closure-size "${current_path}" 2>/dev/null | tail -1 | awk '{print $2}')
         current_size_mb=$((current_size / 1024 / 1024))
-        printf "Current generation closure: %s MB\n" "${current_size_mb}"
     else
-        printf "Current generation: Unable to determine size\n"
         current_size=0
         current_size_mb=0
     fi
@@ -251,22 +228,18 @@ show_store_size() {
     if [[ -n "${result_path}" ]] && [[ -e "${result_path}" ]]; then
         new_size=$(nix path-info --closure-size "${result_path}" 2>/dev/null | tail -1 | awk '{print $2}')
         new_size_mb=$((new_size / 1024 / 1024))
-        printf "New generation closure: %s MB\n" "${new_size_mb}"
     else
-        print_warning "New generation path not found, skipping size comparison"
         return 0
     fi
     
-    # Calculate and display difference
+    # Only show difference if there's a meaningful change
     if [[ "${current_size}" -gt 0 ]] && [[ "${new_size}" -gt 0 ]]; then
         local diff_mb=$((new_size_mb - current_size_mb))
         
         if [[ "${diff_mb}" -gt 0 ]]; then
-            printf "Change: +%s MB larger\n" "${diff_mb}"
+            printf "Store size change: +%s MB\n" "${diff_mb}"
         elif [[ "${diff_mb}" -lt 0 ]]; then
-            printf "Change: %s MB smaller\n" "${diff_mb#-}"
-        else
-            printf "Change: No size difference\n"
+            printf "Store size change: %s MB smaller\n" "${diff_mb#-}"
         fi
     fi
 }
@@ -300,11 +273,6 @@ rebuild_system() {
             ;;
     esac
     
-    # Get current generation
-    local current_gen
-    current_gen=$(readlink "${profile_path}" 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
-    printf "Current generation: %s\n" "${current_gen}"
-    
     # Build the new configuration
     run_logged "build" "Build completed successfully" \
         "${build_cmd[@]}"
@@ -321,7 +289,12 @@ rebuild_system() {
         rm -f "${flake_path}/result"
         return 0
     fi
-    
+
+    # Show current generation
+    local current_gen
+    current_gen=$(readlink "${profile_path}" 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
+    printf "Current generation: %s\n" "${current_gen}"
+
     # Show store space comparison (only if there are changes)
     show_store_size "${current_path}" "${result_path}"
     
