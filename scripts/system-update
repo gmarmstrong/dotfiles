@@ -43,7 +43,7 @@ run_logged() {
     log_file="${log_dir}/${operation_name}.log"
 
     if "$@" > "${log_file}" 2>&1; then
-        printf "%s ✓\n" "${success_msg}"
+        printf "✓ %s\n" "${success_msg}"
     else
         print_error "${operation_name} failed"
         tail -n 30 "${log_file}"
@@ -128,7 +128,7 @@ check_network() {
     print_header "Checking network connectivity..."
 
     if curl --silent --fail --max-time 5 --head https://cache.nixos.org &>/dev/null; then
-        printf "Network connectivity verified ✓\n"
+        printf "✓ Network connectivity verified\n"
         return 0
     fi
 
@@ -168,7 +168,7 @@ check_disk_space() {
         exit 1
     fi
 
-    printf "Disk space check passed ✓\n"
+    printf "✓ Disk space check passed\n"
 }
 
 ### Main functions ###
@@ -316,7 +316,7 @@ rebuild_system() {
     current_path=$(readlink -f "${profile_path}" 2>/dev/null || echo "")
     
     if [[ -n "${result_path}" ]] && [[ "${result_path}" == "${current_path}" ]]; then
-        printf "No changes detected, skipping activation ✓\n"
+        printf "✓ No changes detected, skipping activation\n"
         # Clean up result symlink
         rm -f "${flake_path}/result"
         return 0
