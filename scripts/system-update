@@ -78,7 +78,7 @@ verify_required_tools() {
     local missing_tools=()
     local tool
     local required_tools=(git nix jq curl)
-    
+
     case "${CONFIG_TYPE}" in
         darwin)
             required_tools+=(darwin-rebuild)
@@ -90,13 +90,13 @@ verify_required_tools() {
             required_tools+=(home-manager)
             ;;
     esac
-    
+
     for tool in "${required_tools[@]}"; do
         if ! command -v "${tool}" &>/dev/null; then
             missing_tools+=("${tool}")
         fi
     done
-    
+
     if [[ ${#missing_tools[@]} -gt 0 ]]; then
         print_error "Required tools are missing: ${missing_tools[*]}"
         exit 1
@@ -179,7 +179,7 @@ detect_and_verify_config() {
     local config_attr
     local config_key
     local eval_test
-    
+
     case "${CONFIG_TYPE}" in
         darwin)
             config_attr="darwinConfigurations"
@@ -197,7 +197,7 @@ detect_and_verify_config() {
             eval_test="${flake_path}#${config_attr}.\"${config_key}\".config.home.stateVersion"
             ;;
     esac
-    
+
     # Verify the configuration exists in the flake
     if ! nix eval "${eval_test}" &>/dev/null; then
         print_error "Configuration '${config_key}' not found in ${config_attr}"
@@ -212,7 +212,7 @@ detect_and_verify_config() {
 show_store_size() {
     local current_path="$1"
     local result_path="$2"
-    
+
     # Get current closure size
     local current_size current_size_mb
     if [[ -n "${current_path}" ]] && [[ -e "${current_path}" ]]; then
@@ -222,7 +222,7 @@ show_store_size() {
         current_size=0
         current_size_mb=0
     fi
-    
+
     # Get new closure size
     local new_size new_size_mb
     if [[ -n "${result_path}" ]] && [[ -e "${result_path}" ]]; then
@@ -231,11 +231,11 @@ show_store_size() {
     else
         return 0
     fi
-    
+
     # Only show difference if there's a meaningful change
     if [[ "${current_size}" -gt 0 ]] && [[ "${new_size}" -gt 0 ]]; then
         local diff_mb=$((new_size_mb - current_size_mb))
-        
+
         if [[ "${diff_mb}" -gt 0 ]]; then
             printf "Store size change: +%s MB\n" "${diff_mb}"
         elif [[ "${diff_mb}" -lt 0 ]]; then
@@ -246,12 +246,12 @@ show_store_size() {
 
 rebuild_system() {
     print_header "Building config flake..."
-    
+
     local profile_path
     local config_key
     local build_cmd
     local switch_cmd
-    
+
     case "${CONFIG_TYPE}" in
         darwin)
             profile_path="/nix/var/nix/profiles/system"
@@ -272,17 +272,17 @@ rebuild_system() {
             switch_cmd=(home-manager switch --flake "${flake_path}#${config_key}")
             ;;
     esac
-    
+
     # Build the new configuration
     run_logged "build" "Build completed successfully" \
         "${build_cmd[@]}"
-    
+
     # Compare the built result to the current generation
     local result_path
     result_path=$(readlink -f "${flake_path}/result" 2>/dev/null || echo "")
     local current_path
     current_path=$(readlink -f "${profile_path}" 2>/dev/null || echo "")
-    
+
     if [[ -n "${result_path}" ]] && [[ "${result_path}" == "${current_path}" ]]; then
         printf "✓ No changes detected, skipping activation\n"
         # Clean up result symlink
@@ -297,15 +297,15 @@ rebuild_system() {
 
     # Show store space comparison (only if there are changes)
     show_store_size "${current_path}" "${result_path}"
-    
+
     # Apply the new configuration
     print_header "Activating new configuration..."
     run_logged "switch" "System activated successfully" \
         "${switch_cmd[@]}"
-    
+
     # Clean up result symlink (switch creates its own)
     rm -f "${flake_path}/result"
-    
+
     # Show new generation
     local new_gen
     new_gen=$(readlink "${profile_path}" 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
