@@ -128,7 +128,7 @@ check_network() {
 }
 
 check_disk_space() {
-    # Minimum required free space: 5 GB = 5 * 1024 * 1024 KB
+    # Minimum required free space: 5 GiB = 5 * 1024 * 1024 KiB
     local min_free_kb=5242880
 
     # Get available space in kilobytes (using -P for portable, single-line output)
@@ -145,7 +145,7 @@ check_disk_space() {
         local min_free_gb=$((min_free_kb / 1024 / 1024))
         local nix_mount_point
         nix_mount_point=$(df -P /nix 2>/dev/null | tail -1 | awk '{print $1}')
-        print_error "Insufficient disk space: ${available_gb} GB available on ${nix_mount_point}, ${min_free_gb} GB required"
+        print_error "Insufficient disk space: ${available_gb} GiB available on ${nix_mount_point}, ${min_free_gb} GiB required"
         printf "\nConsider running: nix-collect-garbage -d\n"
         printf "Or use --cleanup flag when running this script\n"
         exit 1
@@ -237,9 +237,9 @@ show_store_size() {
         local diff_mb=$((new_size_mb - current_size_mb))
 
         if [[ "${diff_mb}" -gt 0 ]]; then
-            printf "Store size change: +%s MB\n" "${diff_mb}"
+            printf "Store size change: +%s MiB\n" "${diff_mb}"
         elif [[ "${diff_mb}" -lt 0 ]]; then
-            printf "Store size change: %s MB smaller\n" "${diff_mb#-}"
+            printf "Store size change: %s MiB smaller\n" "${diff_mb#-}"
         fi
     fi
 }
