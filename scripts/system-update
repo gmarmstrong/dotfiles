@@ -194,23 +194,31 @@ detect_and_verify_config() {
 }
 
 rebuild_system() {
-    print_header "Rebuilding and applying config flake..."
+    print_header "Building config flake..."
     
     local profile_path
     local config_key
+    local build_cmd
+    local switch_cmd
     
     case "${CONFIG_TYPE}" in
         darwin)
             profile_path="/nix/var/nix/profiles/system"
             config_key="${hostname}"
+            build_cmd=(sudo darwin-rebuild build --flake "${flake_path}#${config_key}")
+            switch_cmd=(sudo darwin-rebuild switch --flake "${flake_path}#${config_key}")
             ;;
         nixos)
             profile_path="/nix/var/nix/profiles/system"
             config_key="${hostname}"
+            build_cmd=(sudo nixos-rebuild build --flake "${flake_path}#${config_key}")
+            switch_cmd=(sudo nixos-rebuild switch --flake "${flake_path}#${config_key}")
             ;;
         home-manager)
             profile_path="${HOME}/.local/state/nix/profiles/home-manager"
             config_key="${username}@${hostname}"
+            build_cmd=(home-manager build --flake "${flake_path}#${config_key}")
+            switch_cmd=(home-manager switch --flake "${flake_path}#${config_key}")
             ;;
     esac
     
@@ -219,21 +227,30 @@ rebuild_system() {
     current_gen=$(readlink "${profile_path}" 2>/dev/null | grep -o '[0-9]\+' || echo "unknown")
     printf "Current generation: %s\n" "${current_gen}"
     
-    # Run the appropriate rebuild command
-    case "${CONFIG_TYPE}" in
-        darwin)
-            run_logged "rebuild" "System rebuilt successfully" \
-                sudo darwin-rebuild switch --flake "${flake_path}#${config_key}"
-            ;;
-        nixos)
-            run_logged "rebuild" "System rebuilt successfully" \
-                sudo nixos-rebuild switch --flake "${flake_path}#${config_key}"
-            ;;
-        home-manager)
-            run_logged "rebuild" "System rebuilt successfully" \
-                home-manager switch --flake "${flake_path}#${config_key}"
-            ;;
-    esac
+    # Build the new configuration
+    run_logged "build" "Build completed successfully" \
+        "${build_cmd[@]}"
+    
+    # Compare the built result to the current generation
+    local result_path
+    result_path=$(readlink -f "${flake_path}/result" 2>/dev/null || echo "")
+    local current_path
+    current_path=$(readlink -f "${profile_path}" 2>/dev/null || echo "")
+    
+    if [[ -n "${result_path}" ]] && [[ "${result_path}" == "${current_path}" ]]; then
+        printf "No changes detected, skipping activation ✓\n"
+        # Clean up result symlink
+        rm -f "${flake_path}/result"
+        return 0
+    fi
+    
+    # Apply the new configuration
+    print_header "Activating new configuration..."
+    run_logged "switch" "System activated successfully" \
+        "${switch_cmd[@]}"
+    
+    # Clean up result symlink (switch creates its own)
+    rm -f "${flake_path}/result"
     
     # Show new generation
     local new_gen
