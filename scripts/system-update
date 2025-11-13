@@ -138,28 +138,28 @@ check_network() {
 
 check_disk_space() {
     print_header "Checking disk space..."
-    
+
     # Minimum required free space: 5 GB = 5 * 1024 * 1024 KB
     local min_free_kb=5242880
-    
+
     # Get available space in kilobytes (using -P for portable, single-line output)
     local available_kb
     available_kb=$(df -Pk /nix 2>/dev/null | tail -1 | awk '{print $4}')
-    
+
     if [[ -z "${available_kb}" ]]; then
         print_error "Failed to check disk space for /nix"
         exit 1
     fi
-    
+
     # Get mount point for display
     local nix_mount_point
     nix_mount_point=$(df -P /nix 2>/dev/null | tail -1 | awk '{print $1}')
-    
+
     # Convert to GB for display only
     local available_gb=$((available_kb / 1024 / 1024))
-    
+
     printf "Available space on %s: %s GB\n" "${nix_mount_point}" "${available_gb}"
-    
+
     if [[ "${available_kb}" -lt "${min_free_kb}" ]]; then
         local min_free_gb=$((min_free_kb / 1024 / 1024))
         print_error "Insufficient disk space: ${available_gb} GB available, ${min_free_gb} GB required"
@@ -167,7 +167,7 @@ check_disk_space() {
         printf "Or use --cleanup flag when running this script\n"
         exit 1
     fi
-    
+
     printf "Disk space check passed ✓\n"
 }
 
