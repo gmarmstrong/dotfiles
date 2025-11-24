@@ -12,10 +12,12 @@ let
       pkgs.coreutils
       pkgs.gh
       pkgs.jq
+      pkgs.moreutils
       pkgs.ncdu
       # treefmt with nixfmt (same as `nix fmt`)
       pkgs.nixfmt-tree
       pkgs.shellcheck
+      pkgs.slides
       pkgs.smartmontools
       pkgs.tree
       pkgs.wget
