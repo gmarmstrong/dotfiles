@@ -42,7 +42,13 @@ in
     # https://nix-community.github.io/home-manager/options.xhtml#opt-home.shell.enableZshIntegration
     shell.enableZshIntegration = true;
 
-    sessionPath = [ "${config.home.homeDirectory}/dotfiles/scripts" ];
+    sessionPath = [
+      "${config.home.homeDirectory}/dotfiles/scripts"
+    ]
+    ++ lib.optionals pkgs.stdenv.isDarwin [
+      "/opt/homebrew/bin"
+      "/opt/homebrew/sbin"
+    ];
 
     sessionVariables = lib.mkIf (lib.elem "terraform" capabilities) {
       TF_PLUGIN_CACHE_DIR = "${config.home.homeDirectory}/.terraform.d/plugin-cache";

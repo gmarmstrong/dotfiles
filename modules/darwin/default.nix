@@ -39,7 +39,21 @@
             computerName = hostname;
           };
 
+          # Homebrew configuration
+          homebrew = {
+            enable = true;
+            onActivation = {
+              cleanup = "zap";
+              autoUpdate = true;
+              upgrade = true;
+            };
+            casks = [
+              "codex"
+            ];
+          };
+
           system = {
+            primaryUser = username;
             configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
             stateVersion = 6;
 
