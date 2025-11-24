@@ -105,15 +105,20 @@ verify_required_tools() {
 
 parse_flags() {
     cleanup=false
+    skip_flake_update=false
     while [[ $# -gt 0 ]]; do
         case $1 in
             --cleanup)
                 cleanup=true
                 shift
                 ;;
+            --skip-flake-update)
+                skip_flake_update=true
+                shift
+                ;;
             *)
                 printf "Unknown option: %s\n" "$1"
-                printf "Usage: %s [--cleanup]\n" "$0"
+                printf "Usage: %s [--cleanup] [--skip-flake-update]\n" "$0"
                 exit 1
                 ;;
         esac
@@ -170,6 +175,11 @@ update_dotfiles() {
 }
 
 update_flake_inputs() {
+    if [[ "${skip_flake_update}" = true ]]; then
+        printf "\nSkipping flake input updates (--skip-flake-update specified)\n"
+        return 0
+    fi
+    
     print_header "Updating config flake inputs..."
     run_logged "flake" "Flake inputs updated" \
         nix flake update --flake "${flake_path}"
