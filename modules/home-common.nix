@@ -37,6 +37,9 @@ in
       # Window padding
       window-padding-x = 10
       window-padding-y = 10
+
+      # Keybindings
+      keybind = global:cmd+slash=toggle_quick_terminal
     '';
 
     # https://nix-community.github.io/home-manager/options.xhtml#opt-home.shell.enableZshIntegration
