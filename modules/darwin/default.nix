@@ -47,6 +47,9 @@
               autoUpdate = true;
               upgrade = true;
             };
+            brews = [
+              "ansible"
+            ];
             casks = [
               "codex"
             ];
