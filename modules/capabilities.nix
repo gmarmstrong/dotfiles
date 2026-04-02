@@ -11,6 +11,7 @@ let
     core = [
       pkgs.coreutils
       pkgs.gh
+      pkgs.gitui
       pkgs.jq
       pkgs.moreutils
       pkgs.ncdu
@@ -18,7 +19,9 @@ let
       pkgs.nixfmt-tree
       pkgs.shellcheck
       pkgs.slides
+      pkgs.silver-searcher
       pkgs.smartmontools
+      pkgs.tig
       pkgs.tree
       pkgs.wget
     ]
