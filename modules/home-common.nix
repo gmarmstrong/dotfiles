@@ -38,6 +38,10 @@ in
       window-padding-x = 10
       window-padding-y = 10
 
+      # Un-comment to disable middle-mouse paste once Ghostty releases middle-click-action; it is currently only on tip:
+      # https://github.com/ghostty-org/ghostty/pull/12478
+      # middle-click-action = ignore
+
       # Keybindings
       keybind = global:cmd+slash=toggle_quick_terminal
     '';
