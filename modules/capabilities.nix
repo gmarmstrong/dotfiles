@@ -24,6 +24,7 @@ let
       pkgs.tig
       pkgs.tree
       pkgs.wget
+      pkgs.xan
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       pkgs.unixtools.watch
