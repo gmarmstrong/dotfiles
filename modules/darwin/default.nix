@@ -9,6 +9,7 @@
       gitName,
       gitEmail,
       gitSigningKey,
+      shellAliases ? { },
       capabilities ? [ ],
       managedDevice ? false,
       homeStateVersion,
@@ -87,6 +88,7 @@
                 gitName
                 gitEmail
                 gitSigningKey
+                shellAliases
                 ;
             };
             users.${username} = {

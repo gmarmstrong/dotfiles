@@ -6,6 +6,7 @@
   gitName,
   gitEmail,
   gitSigningKey,
+  shellAliases ? { },
   managedDevice,
   ...
 }:
@@ -111,6 +112,7 @@ in
 
     zsh = {
       enable = true;
+      inherit shellAliases;
       defaultKeymap = "viins";
       historySubstringSearch = {
         enable = true;
