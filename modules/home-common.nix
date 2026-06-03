@@ -83,6 +83,9 @@ in
 
     ssh = {
       enable = true;
+      extraConfig = ''
+        ${lib.optionalString managedDevice "Include ${config.home.homeDirectory}/.sdm/ssh_config"}
+      '';
     }
     // lib.optionalAttrs pkgs.stdenv.isDarwin {
       matchBlocks."*" = {

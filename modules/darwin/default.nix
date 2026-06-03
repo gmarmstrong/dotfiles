@@ -23,6 +23,7 @@
       ...
     }:
     let
+      inherit (inputs.nixpkgs) lib;
       homeDirectory = "/Users/${username}";
     in
     inputs.nix-darwin.lib.darwinSystem {
@@ -35,7 +36,7 @@
           programs.zsh.enable = true; # Declaratively manage system-level zsh files
           security.pam.services.sudo_local.touchIdAuth = true;
 
-          networking = inputs.nixpkgs.lib.mkIf (!managedDevice) {
+          networking = lib.mkIf (!managedDevice) {
             hostName = hostname;
             computerName = hostname;
           };
@@ -48,8 +49,14 @@
               autoUpdate = true;
               upgrade = true;
             };
+            taps = lib.optionals managedDevice [
+              "gleanwork/tap"
+            ];
             brews = [
               "ansible"
+            ]
+            ++ lib.optionals managedDevice [
+              "glean-cli"
             ];
             casks = [
               "codex"

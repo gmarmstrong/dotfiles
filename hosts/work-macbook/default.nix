@@ -8,6 +8,9 @@
   gitName = "Guthrie McAfee Armstrong";
   gitEmail = "guthrie.armstrong@coalitioninc.com";
   gitSigningKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFExjJSzkWHd1Qi92WE/AENwHKVRwPFfYo/K83LsIkQ7";
+  shellAliases = {
+    ssh = "sdm ssh";
+  };
   capabilities = [
     "core"
     "container"
