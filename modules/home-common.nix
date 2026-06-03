@@ -51,6 +51,7 @@ in
     shell.enableZshIntegration = true;
 
     sessionPath = [
+      "${config.home.homeDirectory}/go/bin"
       "${config.home.homeDirectory}/dotfiles/scripts"
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [

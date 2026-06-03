@@ -9,9 +9,11 @@ let
   # Capability-based package sets
   packageSets = {
     core = [
+      pkgs.actionlint
       pkgs.coreutils
       pkgs.gh
       pkgs.gitui
+      pkgs.glow
       pkgs.jq
       pkgs.moreutils
       pkgs.ncdu
