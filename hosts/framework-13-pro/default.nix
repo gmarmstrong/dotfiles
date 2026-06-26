@@ -26,10 +26,7 @@
   capabilities = [
     "core"
     "container"
-    "ai"
     "gui"
     "golang"
-    "terraform"
-    "aws"
   ];
 }
