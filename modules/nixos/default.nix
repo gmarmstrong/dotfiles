@@ -96,6 +96,7 @@
           virtualisation.docker.enable = hasCapability "container";
 
           programs = {
+            command-not-found.enable = false;
             zsh.enable = true;
             nix-index.enable = true;
           };

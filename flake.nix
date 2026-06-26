@@ -22,7 +22,12 @@
       darwinLib = import ./modules/darwin { inherit inputs; };
       inherit (darwinLib) mkDarwinSystem;
 
+      # Import the NixOS system builder
+      nixosLib = import ./modules/nixos { inherit inputs; };
+      inherit (nixosLib) mkNixosSystem;
+
       # Import host configurations
+      frameworkConfig = import ./hosts/framework-13-pro;
       workMacbookConfig = import ./hosts/work-macbook;
 
       # Supported systems for checks and formatters
@@ -42,6 +47,9 @@
     {
       # Work computer
       darwinConfigurations.${workMacbookConfig.hostname} = mkDarwinSystem workMacbookConfig;
+
+      # Personal Framework laptop
+      nixosConfigurations.${frameworkConfig.hostname} = mkNixosSystem frameworkConfig;
 
       # Validation checks for all systems
       checks = forAllSystems (
@@ -85,6 +93,11 @@
         # Only check darwin configurations on darwin systems
         // nixpkgs.lib.optionalAttrs (nixpkgs.lib.hasSuffix "darwin" system) {
           work-macbook = self.darwinConfigurations.${workMacbookConfig.hostname}.system;
+        }
+        # Only check NixOS configurations on their target systems
+        // nixpkgs.lib.optionalAttrs (system == frameworkConfig.system) {
+          framework-13-pro =
+            self.nixosConfigurations.${frameworkConfig.hostname}.config.system.build.toplevel;
         }
       );
 
