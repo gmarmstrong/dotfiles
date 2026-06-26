@@ -32,7 +32,7 @@ let
       pkgs.unixtools.watch
     ]
     ++ lib.optionals (!managedDevice) [
-      pkgs._1password
+      pkgs._1password-cli
     ];
 
     container = [
