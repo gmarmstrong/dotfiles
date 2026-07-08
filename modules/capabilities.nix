@@ -42,7 +42,9 @@ let
       pkgs.colima
     ];
 
-    ai = [
+    cloud-ai = [ ];
+
+    local-ai = [
       pkgs.ollama
     ];
 

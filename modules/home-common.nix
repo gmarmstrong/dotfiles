@@ -14,6 +14,12 @@
 let
   capabilitiesModule = import ./capabilities.nix { inherit pkgs lib managedDevice; };
   selectedPackages = capabilitiesModule.collectPackages capabilities;
+  aiconfigDirectory = "${config.home.homeDirectory}/.local/share/aiconfig";
+  codexSkillsDirectory = "${config.home.homeDirectory}/.codex/skills";
+  hasAiCapability = lib.any (capability: lib.elem capability capabilities) [
+    "cloud-ai"
+    "local-ai"
+  ];
 in
 {
   home = {
@@ -62,6 +68,50 @@ in
     sessionVariables = lib.mkIf (lib.elem "terraform" capabilities) {
       TF_PLUGIN_CACHE_DIR = "${config.home.homeDirectory}/.terraform.d/plugin-cache";
     };
+
+    activation.installAiconfigSkills = lib.mkIf hasAiCapability (
+      lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        set -euo pipefail
+
+        git="${pkgs.git}/bin/git"
+        aiconfig_dir="${aiconfigDirectory}"
+        skills_dir="$aiconfig_dir/skills"
+        codex_skills_dir="${codexSkillsDirectory}"
+
+        if [ -d "$aiconfig_dir/.git" ]; then
+          run "$git -C '$aiconfig_dir' pull --ff-only"
+        elif [ -e "$aiconfig_dir" ]; then
+          echo "Skipping aiconfig clone: $aiconfig_dir exists but is not a git repository" >&2
+        else
+          run "$git clone https://github.com/gmarmstrong/aiconfig.git '$aiconfig_dir'"
+        fi
+
+        if [ -d "$skills_dir" ]; then
+          run "mkdir -p '$codex_skills_dir'"
+
+          for skill_dir in "$skills_dir"/*; do
+            [ -d "$skill_dir" ] || continue
+
+            skill_name="$(basename "$skill_dir")"
+            case "$skill_name" in
+              _*) continue ;;
+            esac
+
+            target="$codex_skills_dir/$skill_name"
+            if [ -L "$target" ]; then
+              current_target="$(readlink "$target")"
+              if [ "$current_target" != "$skill_dir" ]; then
+                run "ln -sfn '$skill_dir' '$target'"
+              fi
+            elif [ -e "$target" ]; then
+              echo "Skipping aiconfig skill '$skill_name': $target already exists and is not a symlink" >&2
+            else
+              run "ln -s '$skill_dir' '$target'"
+            fi
+          done
+        fi
+      ''
+    );
   };
 
   programs = {
@@ -175,5 +225,5 @@ in
     };
   };
 
-  services.ollama.enable = pkgs.stdenv.isDarwin && lib.elem "ai" capabilities;
+  services.ollama.enable = pkgs.stdenv.isDarwin && lib.elem "local-ai" capabilities;
 }

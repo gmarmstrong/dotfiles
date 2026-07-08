@@ -14,7 +14,7 @@
   capabilities = [
     "core"
     "container"
-    "ai"
+    "local-ai"
     "gui"
     "golang"
     "terraform"

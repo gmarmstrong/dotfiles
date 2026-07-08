@@ -88,7 +88,7 @@
               pulse.enable = true;
             };
             printing.enable = desktop;
-            ollama.enable = hasCapability "ai";
+            ollama.enable = hasCapability "local-ai";
           };
 
           security.rtkit.enable = true;

@@ -39,7 +39,8 @@
   # Available capabilities:
   #   - core: Essential CLI tools (jq, tree, wget, etc.)
   #   - container: Docker and container tools (colima on macOS)
-  #   - ai: AI/ML tools (ollama)
+  #   - cloud-ai: Cloud AI tools
+  #   - local-ai: Local AI/ML tools (ollama)
   #   - golang: Go development tools
   #   - terraform: Terraform and related tools (tenv, tflint, terraform-docs)
   #   - aws: AWS CLI and related tools
