@@ -45,7 +45,13 @@
           homebrew = {
             enable = true;
             onActivation = {
-              cleanup = "zap";
+              # nix-darwin 25.05 still maps "zap" to Homebrew's deprecated
+              # `--cleanup --zap`; use the supported equivalent instead.
+              cleanup = "none";
+              extraFlags = [
+                "--force-cleanup"
+                "--zap"
+              ];
               autoUpdate = true;
               upgrade = true;
             };
