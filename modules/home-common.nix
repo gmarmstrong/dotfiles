@@ -79,15 +79,15 @@ in
         codex_skills_dir="${codexSkillsDirectory}"
 
         if [ -d "$aiconfig_dir/.git" ]; then
-          run "$git -C '$aiconfig_dir' pull --ff-only"
+          run "$git" -C "$aiconfig_dir" pull --ff-only
         elif [ -e "$aiconfig_dir" ]; then
           echo "Skipping aiconfig clone: $aiconfig_dir exists but is not a git repository" >&2
         else
-          run "$git clone https://github.com/gmarmstrong/aiconfig.git '$aiconfig_dir'"
+          run "$git" clone https://github.com/gmarmstrong/aiconfig.git "$aiconfig_dir"
         fi
 
         if [ -d "$skills_dir" ]; then
-          run "mkdir -p '$codex_skills_dir'"
+          run mkdir -p "$codex_skills_dir"
 
           for skill_dir in "$skills_dir"/*; do
             [ -d "$skill_dir" ] || continue
@@ -101,12 +101,12 @@ in
             if [ -L "$target" ]; then
               current_target="$(readlink "$target")"
               if [ "$current_target" != "$skill_dir" ]; then
-                run "ln -sfn '$skill_dir' '$target'"
+                run ln -sfn "$skill_dir" "$target"
               fi
             elif [ -e "$target" ]; then
               echo "Skipping aiconfig skill '$skill_name': $target already exists and is not a symlink" >&2
             else
-              run "ln -s '$skill_dir' '$target'"
+              run ln -s "$skill_dir" "$target"
             fi
           done
         fi
