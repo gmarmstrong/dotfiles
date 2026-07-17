@@ -55,9 +55,11 @@
               autoUpdate = true;
               upgrade = true;
             };
-            taps = lib.optionals managedDevice [
-              "gleanwork/tap"
-            ];
+            # nix-darwin 25.05 cannot yet render Homebrew's `trusted` tap
+            # option. Declare the tap directly so Bundle preserves its trust.
+            extraConfig = lib.optionalString managedDevice ''
+              tap "gleanwork/tap", trusted: true
+            '';
             brews = [
               "ansible"
             ]
