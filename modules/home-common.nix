@@ -57,6 +57,7 @@ in
     shell.enableZshIntegration = true;
 
     sessionPath = [
+      "${config.home.homeDirectory}/.local/bin"
       "${config.home.homeDirectory}/go/bin"
       "${config.home.homeDirectory}/dotfiles/scripts"
     ]
