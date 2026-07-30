@@ -52,6 +52,16 @@ run_logged() {
     fi
 }
 
+run_in_directory() {
+    local directory="$1"
+    shift
+
+    (
+        cd "${directory}"
+        "$@"
+    )
+}
+
 ### Pre-run checks ###
 
 detect_system_type() {
@@ -285,13 +295,23 @@ rebuild_system() {
 
     # Build the new configuration
     run_logged "build" "Build completed successfully" \
-        "${build_cmd[@]}"
+        run_in_directory "${flake_path}" "${build_cmd[@]}"
 
     # Compare the built result to the current generation
+    local result_link="${flake_path}/result"
+    if [[ ! -e "${result_link}" ]]; then
+        print_error "Build completed but did not create ${result_link}"
+        exit 1
+    fi
+
     local result_path
-    result_path=$(readlink -f "${flake_path}/result" 2>/dev/null || echo "")
+    result_path=$(readlink -f "${result_link}")
     local current_path
-    current_path=$(readlink -f "${profile_path}" 2>/dev/null || echo "")
+    if [[ -e "${profile_path}" ]]; then
+        current_path=$(readlink -f "${profile_path}")
+    else
+        current_path=""
+    fi
 
     if [[ -n "${result_path}" ]] && [[ "${result_path}" == "${current_path}" ]]; then
         printf "✓ No changes detected, skipping activation\n"
@@ -307,6 +327,12 @@ rebuild_system() {
 
     # Show store space comparison (only if there are changes)
     show_store_size "${current_path}" "${result_path}"
+
+    # Show package additions, removals, and version changes
+    if [[ -n "${current_path}" ]] && [[ -n "${result_path}" ]]; then
+        print_header "Package changes..."
+        nix store diff-closures "${current_path}" "${result_path}"
+    fi
 
     # Apply the new configuration
     print_header "Activating new configuration..."
