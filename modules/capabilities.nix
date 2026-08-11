@@ -19,6 +19,7 @@ let
       pkgs.ncdu
       # treefmt with nixfmt (same as `nix fmt`)
       pkgs.nixfmt-tree
+      pkgs.ripgrep
       pkgs.shellcheck
       pkgs.slides
       pkgs.silver-searcher
@@ -63,6 +64,11 @@ let
       pkgs.aws-vault
       pkgs.awscli2
       pkgs.ssm-session-manager-plugin
+    ];
+
+    work-specific = [
+      pkgs.clickhouse
+      pkgs.nomad
     ];
 
     gui = [

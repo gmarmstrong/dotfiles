@@ -41,6 +41,7 @@
   #   - golang: Go development tools
   #   - terraform: Terraform and related tools (tenv, tflint, terraform-docs)
   #   - aws: AWS CLI and related tools
+  #   - work-specific: Tools used only for work
   #   - gui: GUI applications and fonts
   #
   # See modules/capabilities.nix for the complete list of packages per capability
