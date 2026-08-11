@@ -154,6 +154,7 @@ in
         vim-repeat
       ];
       extraConfig = ''
+        colorscheme vim
         set expandtab
         set tabstop=4
         set shiftwidth=4
