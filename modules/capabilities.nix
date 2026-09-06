@@ -10,7 +10,6 @@ let
   packageSets = {
     core = [
       pkgs.actionlint
-      pkgs.cargo
       pkgs.coreutils
       pkgs.gh
       pkgs.gitui
@@ -21,7 +20,7 @@ let
       # treefmt with nixfmt (same as `nix fmt`)
       pkgs.nixfmt-tree
       pkgs.ripgrep
-      pkgs.rustc
+      pkgs.rustup
       pkgs.shellcheck
       pkgs.slides
       pkgs.silver-searcher
