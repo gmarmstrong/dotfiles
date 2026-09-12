@@ -13,6 +13,7 @@ let
       pkgs.coreutils
       pkgs.gh
       pkgs.gitui
+      pkgs.gnupg
       pkgs.glow
       pkgs.jq
       pkgs.moreutils
