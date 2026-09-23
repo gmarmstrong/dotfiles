@@ -81,14 +81,12 @@
           '';
 
           # Use nixfmt directly for checks (treefmt can't write in sandbox)
-          formatting =
-            pkgs.runCommand "formatting-check" { nativeBuildInputs = [ pkgs.nixfmt-rfc-style ]; }
-              ''
-                cd ${self}
-                # Format all .nix files and check for changes
-                find . -name '*.nix' -type f -not -path '*/flake.lock' -exec nixfmt --check {} +
-                touch $out
-              '';
+          formatting = pkgs.runCommand "formatting-check" { nativeBuildInputs = [ pkgs.nixfmt ]; } ''
+            cd ${self}
+            # Format all .nix files and check for changes
+            find . -name '*.nix' -type f -not -path '*/flake.lock' -exec nixfmt --check {} +
+            touch $out
+          '';
         }
         # Only check darwin configurations on darwin systems
         // nixpkgs.lib.optionalAttrs (nixpkgs.lib.hasSuffix "darwin" system) {

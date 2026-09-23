@@ -76,11 +76,9 @@
             fwupd.enable = true;
             power-profiles-daemon.enable = true;
             thermald.enable = lib.mkDefault (cpuVendor == "intel");
-            xserver = lib.mkIf desktop {
-              enable = true;
-              displayManager.gdm.enable = true;
-              desktopManager.gnome.enable = true;
-            };
+            xserver.enable = desktop;
+            displayManager.gdm.enable = desktop;
+            desktopManager.gnome.enable = desktop;
             pipewire = {
               enable = true;
               alsa.enable = true;

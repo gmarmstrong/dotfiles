@@ -118,8 +118,11 @@ in
   programs = {
     git = {
       enable = true;
-      userName = gitName;
-      userEmail = gitEmail;
+      settings = {
+        user.name = gitName;
+        user.email = gitEmail;
+        pull.rebase = true;
+      };
       signing = {
         format = "ssh";
         key = gitSigningKey;
@@ -128,25 +131,35 @@ in
       // lib.optionalAttrs pkgs.stdenv.isDarwin {
         signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
       };
-      extraConfig = {
-        pull.rebase = true;
-      };
     };
 
     ssh = {
       enable = true;
+      enableDefaultConfig = false;
       extraConfig = ''
         ${lib.optionalString managedDevice "Include ${config.home.homeDirectory}/.sdm/ssh_config"}
       '';
-    }
-    // lib.optionalAttrs pkgs.stdenv.isDarwin {
-      matchBlocks."*" = {
-        identityAgent = ''"${config.home.homeDirectory}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"'';
+      settings."*" = {
+        ForwardAgent = false;
+        AddKeysToAgent = "no";
+        Compression = false;
+        ServerAliveInterval = 0;
+        ServerAliveCountMax = 3;
+        HashKnownHosts = false;
+        UserKnownHostsFile = "~/.ssh/known_hosts";
+        ControlMaster = "no";
+        ControlPath = "~/.ssh/master-%r@%n:%p";
+        ControlPersist = "no";
+      }
+      // lib.optionalAttrs pkgs.stdenv.isDarwin {
+        IdentityAgent = ''"${config.home.homeDirectory}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"'';
       };
     };
 
     neovim = {
       enable = true;
+      withRuby = false;
+      withPython3 = false;
       defaultEditor = true;
       plugins = with pkgs.vimPlugins; [
         vim-characterize
