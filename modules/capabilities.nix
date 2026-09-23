@@ -43,6 +43,7 @@ let
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       pkgs.colima
+      pkgs.utm
     ];
 
     cloud-ai = [ ];
