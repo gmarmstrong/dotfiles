@@ -122,6 +122,22 @@ in
         user.name = gitName;
         user.email = gitEmail;
         pull.rebase = true;
+        column.ui = "auto";
+        branch.sort = "-committerdate";
+        tag.sort = "version:refname";
+        init.defaultBranch = "main";
+        diff = {
+          algorithm = "histogram";
+          colorMoved = "plain";
+          mnemonicPrefix = true;
+          renames = true;
+        };
+        push = {
+          autoSetupRemote = true;
+          followTags = true;
+        };
+        help.autocorrect = "prompt";
+        merge.conflictstyle = "zdiff3";
       };
       signing = {
         format = "ssh";
