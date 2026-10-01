@@ -74,6 +74,10 @@ let
       pkgs.nomad
     ];
 
+    rev-eng = [
+      pkgs.ghidra
+    ];
+
     gui = [
       pkgs.dejavu_fonts
       pkgs.source-code-pro

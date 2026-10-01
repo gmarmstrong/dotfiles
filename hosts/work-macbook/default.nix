@@ -20,5 +20,6 @@
     "terraform"
     "aws"
     "work-specific"
+    "rev-eng"
   ];
 }
