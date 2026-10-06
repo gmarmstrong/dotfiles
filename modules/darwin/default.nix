@@ -32,6 +32,9 @@
         # System configuration
         (_: {
           nixpkgs.config.allowUnfree = true;
+          nixpkgs.overlays = [
+            (_: prev: { ollama = import ../ollama-latest.nix { pkgs = prev; }; })
+          ];
           programs.nix-index.enable = true;
           programs.zsh.enable = true; # Declaratively manage system-level zsh files
           security.pam.services.sudo_local.touchIdAuth = true;

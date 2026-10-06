@@ -25,33 +25,39 @@ in
   home = {
     packages = selectedPackages;
 
-    file.".hushlogin".text = "";
+    file = {
+      ".local/bin/ollama" = lib.mkIf (pkgs.stdenv.isDarwin && lib.elem "local-ai" capabilities) {
+        source = "${pkgs.ollama}/bin/ollama";
+      };
 
-    # Ghostty configuration
-    file.".config/ghostty/config".text = ''
+      ".hushlogin".text = "";
+
       # Ghostty configuration
-      # See https://ghostty.org/docs/config for all options
+      ".config/ghostty/config".text = ''
+        # Ghostty configuration
+        # See https://ghostty.org/docs/config for all options
 
-      # Theme configuration
-      # On macOS: automatically switches between light/dark themes based on system appearance
-      # On Linux: defaults to dark theme
-      theme = light:GitHub Light High Contrast,dark:GitHub Dark High Contrast
+        # Theme configuration
+        # On macOS: automatically switches between light/dark themes based on system appearance
+        # On Linux: defaults to dark theme
+        theme = light:GitHub Light High Contrast,dark:GitHub Dark High Contrast
 
-      # Font configuration
-      font-family = DejaVu Sans Mono
-      font-size = 14
+        # Font configuration
+        font-family = DejaVu Sans Mono
+        font-size = 14
 
-      # Window padding
-      window-padding-x = 10
-      window-padding-y = 10
+        # Window padding
+        window-padding-x = 10
+        window-padding-y = 10
 
-      # Un-comment to disable middle-mouse paste once Ghostty releases middle-click-action; it is currently only on tip:
-      # https://github.com/ghostty-org/ghostty/pull/12478
-      # middle-click-action = ignore
+        # Un-comment to disable middle-mouse paste once Ghostty releases middle-click-action; it is currently only on tip:
+        # https://github.com/ghostty-org/ghostty/pull/12478
+        # middle-click-action = ignore
 
-      # Keybindings
-      keybind = global:cmd+slash=toggle_quick_terminal
-    '';
+        # Keybindings
+        keybind = global:cmd+slash=toggle_quick_terminal
+      '';
+    };
 
     # https://nix-community.github.io/home-manager/options.xhtml#opt-home.shell.enableZshIntegration
     shell.enableZshIntegration = true;
